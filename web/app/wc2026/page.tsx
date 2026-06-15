@@ -26,10 +26,6 @@ function fmtDec(v: number | null | undefined, digits = 2): string {
   return (v as number).toFixed(digits);
 }
 
-function minsPerGoal(goals: number, minutes: number): string {
-  if (!goals) return "—";
-  return Math.round(minutes / goals).toString();
-}
 
 // ---------------------------------------------------------------------------
 // SortTh
@@ -58,9 +54,9 @@ const CLUB_COLS: { label: string; col: ClubSort; title?: string; highlight?: boo
   { label: "Players", col: "player_count", title: "Players at World Cup" },
   { label: "Goals",   col: "total_goals" },
   { label: "Assists", col: "total_assists" },
-  { label: "G+A",     col: "total_goal_contributions", highlight: true, title: "Goal contributions" },
+  { label: "G+A",     col: "total_goal_contributions", title: "Total goal contributions" },
+  { label: "G+A/90", col: "ga_per_90", highlight: true, title: "Goal contributions per 90 mins — accounts for squad size" },
   { label: "Mins",    col: "total_minutes", title: "Total minutes played" },
-  { label: "Min/G",   col: "total_goals", title: "Minutes per goal — sorted by goals" },
   { label: "Yellows", col: "total_yellow_cards" },
   { label: "Reds",    col: "total_red_cards" },
   { label: "Avg Age", col: "avg_age" },
@@ -74,7 +70,7 @@ function ClubTable({
   filterClub: string;
   onFilterClub: (c: string) => void;
 }) {
-  const [sort, setSort] = useState<ClubSort>("total_goal_contributions");
+  const [sort, setSort] = useState<ClubSort>("ga_per_90");
 
   const sorted = useMemo(() =>
     [...clubs].sort((a, b) => ((b[sort] as number) ?? 0) - ((a[sort] as number) ?? 0)),
@@ -108,9 +104,6 @@ function ClubTable({
           </thead>
           <tbody>
             {sorted.map((c, i) => {
-              const minPerGoal = c.total_goals > 0
-                ? Math.round(c.total_minutes / c.total_goals).toString()
-                : "—";
               return (
                 <tr key={c.club} className={filterClub === c.club ? styles.rowHighlighted : ""}>
                   <td className={styles.rank}>{i + 1}</td>
@@ -124,7 +117,7 @@ function ClubTable({
                   <td className={styles.statCell}>{c.total_assists}</td>
                   <td className={`${styles.statCell} ${styles.highlight}`}>{c.total_goal_contributions}</td>
                   <td>{c.total_minutes}</td>
-                  <td>{minPerGoal}</td>
+                  <td className={styles.highlight}>{fmtDec(c.ga_per_90)}</td>
                   <td>{c.total_yellow_cards}</td>
                   <td>{c.total_red_cards}</td>
                   <td>{fmt(c.avg_age)}</td>
@@ -269,7 +262,7 @@ function PlayerTable({
                 <td className={styles.statCell}>{p.goals}</td>
                 <td className={styles.statCell}>{p.assists}</td>
                 <td className={`${styles.statCell} ${styles.highlight}`}>{fmtDec(p.goal_contributions_per_90)}</td>
-                <td>{minsPerGoal(p.goals, p.minutes_played)}</td>
+                <td>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
                 <td>{p.shots_on_target}</td>
                 <td>{p.minutes_played}</td>
                 <td>{p.yellow_cards}</td>

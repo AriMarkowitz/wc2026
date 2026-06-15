@@ -62,16 +62,19 @@ function deriveClubTotals(players: Player[]): Club[] {
   const clubs: Club[] = [];
   for (const [club, ps] of map.entries()) {
     const ages = ps.map((p) => p.age).filter((a): a is number => a != null);
+    const totalMins = ps.reduce((s, p) => s + p.minutes_played, 0);
+    const totalGa   = ps.reduce((s, p) => s + p.goals + p.assists, 0);
     clubs.push({
       club,
       player_count: ps.length,
       total_goals: ps.reduce((s, p) => s + p.goals, 0),
       total_assists: ps.reduce((s, p) => s + p.assists, 0),
-      total_goal_contributions: ps.reduce((s, p) => s + p.goals + p.assists, 0),
-      total_minutes: ps.reduce((s, p) => s + p.minutes_played, 0),
+      total_goal_contributions: totalGa,
+      total_minutes: totalMins,
       total_yellow_cards: ps.reduce((s, p) => s + p.yellow_cards, 0),
       total_red_cards: ps.reduce((s, p) => s + p.red_cards, 0),
       avg_age: ages.length ? Math.round((ages.reduce((s, a) => s + a, 0) / ages.length) * 10) / 10 : null,
+      ga_per_90: totalMins > 0 ? Math.round((totalGa / totalMins) * 90 * 100) / 100 : null,
       players: ps.map((p) => p.name),
     });
   }

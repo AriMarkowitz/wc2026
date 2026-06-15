@@ -30,6 +30,7 @@ export interface Club {
   total_yellow_cards: number;
   total_red_cards: number;
   avg_age: number | null;
+  ga_per_90: number | null;
   players: string[];
 }
 

@@ -66,16 +66,19 @@ def build_output(
         if club_name == UNKNOWN:
             continue
         ages = [p["age"] for p in club_players if p["age"] is not None]
+        total_mins = sum(p["minutes_played"] for p in club_players)
+        total_ga   = sum(p["goals"] + p["assists"] for p in club_players)
         clubs.append({
             "club": club_name,
             "player_count": len(club_players),
             "total_goals": sum(p["goals"] for p in club_players),
             "total_assists": sum(p["assists"] for p in club_players),
-            "total_goal_contributions": sum(p["goals"] + p["assists"] for p in club_players),
-            "total_minutes": sum(p["minutes_played"] for p in club_players),
+            "total_goal_contributions": total_ga,
+            "total_minutes": total_mins,
             "total_yellow_cards": sum(p["yellow_cards"] for p in club_players),
             "total_red_cards": sum(p["red_cards"] for p in club_players),
             "avg_age": round(sum(ages) / len(ages), 1) if ages else None,
+            "ga_per_90": _per90(total_ga, total_mins),
             "players": [p["name"] for p in club_players],
         })
 

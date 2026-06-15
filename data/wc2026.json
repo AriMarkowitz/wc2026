@@ -45,6 +45,28 @@
       "goal_contributions_per_90": 2.0
     },
     {
+      "player_id": "304242",
+      "name": "Yasin Ayari",
+      "club": "Brighton & Hove Albion",
+      "nationality": "Sweden",
+      "age": 22,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 2,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 2,
+      "total_shots": 2,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 2.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 2.0
+    },
+    {
       "player_id": "273300",
       "name": "Deniz Undav",
       "club": "VfB Stuttgart",
@@ -65,6 +87,28 @@
       "goals_per_90": 3.46,
       "assists_per_90": 6.92,
       "goal_contributions_per_90": 10.38
+    },
+    {
+      "player_id": "235662",
+      "name": "Alexander Isak",
+      "club": "Liverpool",
+      "nationality": "Sweden",
+      "age": 26,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 1,
+      "assists": 2,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 2,
+      "total_shots": 3,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 1.0,
+      "assists_per_90": 2.0,
+      "goal_contributions_per_90": 3.0
     },
     {
       "player_id": "280061",
@@ -109,6 +153,28 @@
       "goals_per_90": 1.23,
       "assists_per_90": 1.23,
       "goal_contributions_per_90": 2.47
+    },
+    {
+      "player_id": "258906",
+      "name": "Viktor Gyökeres",
+      "club": "Arsenal",
+      "nationality": "Sweden",
+      "age": 28,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 1,
+      "assists": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 2,
+      "total_shots": 5,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 1.0,
+      "assists_per_90": 1.0,
+      "goal_contributions_per_90": 2.0
     },
     {
       "player_id": "233075",
@@ -617,6 +683,50 @@
       "goal_contributions_per_90": 2.65
     },
     {
+      "player_id": "220120",
+      "name": "Mattias Svanberg",
+      "club": "VfL Wolfsburg",
+      "nationality": "Sweden",
+      "age": 27,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 7,
+      "goals": 1,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 1,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 12.86,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 12.86
+    },
+    {
+      "player_id": "303848",
+      "name": "Omar Rekik",
+      "club": "NK Maribor",
+      "nationality": "Tunisia",
+      "age": 24,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 1,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 1,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 1.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 1.0
+    },
+    {
       "player_id": "190161",
       "name": "Joshua Kimmich",
       "club": "Bayern München",
@@ -1030,6 +1140,50 @@
       "total_shots": 1,
       "saves": 0,
       "fouls_committed": 2,
+      "goals_per_90": 0.0,
+      "assists_per_90": 1.0,
+      "goal_contributions_per_90": 1.0
+    },
+    {
+      "player_id": "356379",
+      "name": "Lucas Bergvall",
+      "club": "Tottenham Hotspur",
+      "nationality": "Sweden",
+      "age": 20,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 26,
+      "goals": 0,
+      "assists": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 0.0,
+      "assists_per_90": 3.46,
+      "goal_contributions_per_90": 3.46
+    },
+    {
+      "player_id": "300007",
+      "name": "Hannibal Mejbri",
+      "club": "Burnley",
+      "nationality": "Tunisia",
+      "age": 23,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 0,
       "goals_per_90": 0.0,
       "assists_per_90": 1.0,
       "goal_contributions_per_90": 1.0
@@ -7567,26 +7721,596 @@
       "goals_per_90": 0.0,
       "assists_per_90": 0.0,
       "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "310709",
+      "name": "Daniel Svensson",
+      "club": "Borussia Dortmund",
+      "nationality": "Sweden",
+      "age": 24,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 1,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "357145",
+      "name": "Elliot Stroud",
+      "club": "Mjällby AIF",
+      "nationality": "Sweden",
+      "age": 23,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 26,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "296622",
+      "name": "Anthony Elanga",
+      "club": "Newcastle United",
+      "nationality": "Sweden",
+      "age": 24,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 1,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "133993",
+      "name": "Kristoffer Nordfeldt",
+      "club": "AIK",
+      "nationality": "Sweden",
+      "age": 36,
+      "position": "Goalkeeper",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 1,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "312862",
+      "name": "Isak Hien",
+      "club": "Atalanta",
+      "nationality": "Sweden",
+      "age": 27,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "204679",
+      "name": "Victor Lindelöf",
+      "club": "Aston Villa",
+      "nationality": "Sweden",
+      "age": 31,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 2,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "324930",
+      "name": "Gustaf Lagerbielke",
+      "club": "Braga",
+      "nationality": "Sweden",
+      "age": 26,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "237055",
+      "name": "Jesper Karlström",
+      "club": "Udinese",
+      "nationality": "Sweden",
+      "age": 30,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 83,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "274522",
+      "name": "Benjamin Nygren",
+      "club": "Celtic",
+      "nationality": "Sweden",
+      "age": 24,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 64,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "250166",
+      "name": "Gabriel Gudmundsson",
+      "club": "Leeds United",
+      "nationality": "Sweden",
+      "age": 27,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 64,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 2,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "301370",
+      "name": "Alexander Bernhardsson",
+      "club": "Holstein Kiel",
+      "nationality": "Sweden",
+      "age": 27,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "420888",
+      "name": "Mouhib Chamakh",
+      "club": "Tunisia",
+      "nationality": "Tunisia",
+      "age": 24,
+      "position": "Goalkeeper",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 1,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "265099",
+      "name": "Montassar Talbi",
+      "club": "Lorient",
+      "nationality": "Tunisia",
+      "age": 28,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "296982",
+      "name": "Mohamed Amine Ben Hamida",
+      "club": "Esperance Sportive de Tunis",
+      "nationality": "Tunisia",
+      "age": 30,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "265234",
+      "name": "Ali Abdi",
+      "club": "Nice",
+      "nationality": "Tunisia",
+      "age": 32,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 3,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "240588",
+      "name": "Yan Valery",
+      "club": "Young Boys",
+      "nationality": "Tunisia",
+      "age": 27,
+      "position": "Defender",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 72,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 3,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "209595",
+      "name": "Ellyes Skhiri",
+      "club": "Eintracht Frankfurt",
+      "nationality": "Tunisia",
+      "age": 31,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 71,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "159152",
+      "name": "Rani Khedira",
+      "club": "1. FC Union Berlin",
+      "nationality": "Tunisia",
+      "age": 32,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 83,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "302944",
+      "name": "Anis Slimane",
+      "club": "Norwich City",
+      "nationality": "Tunisia",
+      "age": 25,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 83,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "323950",
+      "name": "Elias Saad",
+      "club": "Hannover 96",
+      "nationality": "Tunisia",
+      "age": 26,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 72,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "303702",
+      "name": "Sebastian Tounekti",
+      "club": "Celtic",
+      "nationality": "Tunisia",
+      "age": 23,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 18,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 1,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "317473",
+      "name": "Ismaël Gharbi",
+      "club": "FC Augsburg",
+      "nationality": "Tunisia",
+      "age": 22,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 7,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "324510",
+      "name": "Elias Achouri",
+      "club": "F.C. København",
+      "nationality": "Tunisia",
+      "age": 27,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 19,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 1,
+      "total_shots": 1,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "299861",
+      "name": "Mohamed Hadj Mahmoud",
+      "club": "FC Lugano",
+      "nationality": "Tunisia",
+      "age": 26,
+      "position": "Midfielder",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 18,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
+    },
+    {
+      "player_id": "265207",
+      "name": "Firas Chaouat",
+      "club": "Club Sportif Sfaxien",
+      "nationality": "Tunisia",
+      "age": 30,
+      "position": "Forward",
+      "photo": null,
+      "matches_played": 1,
+      "minutes_played": 7,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "shots_on_target": 0,
+      "total_shots": 0,
+      "saves": 0,
+      "fouls_committed": 0,
+      "goals_per_90": 0.0,
+      "assists_per_90": 0.0,
+      "goal_contributions_per_90": 0.0
     }
   ],
   "clubs": [
     {
       "club": "Liverpool",
-      "player_count": 6,
-      "total_goals": 1,
-      "total_assists": 3,
-      "total_goal_contributions": 4,
-      "total_minutes": 525,
+      "player_count": 7,
+      "total_goals": 2,
+      "total_assists": 5,
+      "total_goal_contributions": 7,
+      "total_minutes": 615,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 28.8,
+      "avg_age": 28.4,
+      "ga_per_90": 1.02,
       "players": [
+        "Alexander Isak",
         "Virgil van Dijk",
         "Ryan Gravenberch",
         "Florian Wirtz",
         "Alisson Becker",
         "Andy Robertson",
         "Cody Gakpo"
+      ]
+    },
+    {
+      "club": "Arsenal",
+      "player_count": 4,
+      "total_goals": 3,
+      "total_assists": 1,
+      "total_goal_contributions": 4,
+      "total_minutes": 360,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 26.8,
+      "ga_per_90": 1.0,
+      "players": [
+        "Kai Havertz",
+        "Viktor Gyökeres",
+        "Gabriel Magalhães",
+        "Piero Hincapié"
       ]
     },
     {
@@ -7599,6 +8323,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 26.3,
+      "ga_per_90": 1.38,
       "players": [
         "Deniz Undav",
         "Ermedin Demirovic",
@@ -7615,6 +8340,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.1,
+      "ga_per_90": 0.45,
       "players": [
         "Jamal Musiala",
         "Joshua Kimmich",
@@ -7636,43 +8362,49 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 26.5,
+      "ga_per_90": 1.11,
       "players": [
         "Folarin Balogun",
         "Denis Zakaria"
       ]
     },
     {
-      "club": "Arsenal",
-      "player_count": 3,
+      "club": "Brighton & Hove Albion",
+      "player_count": 5,
+      "total_goals": 2,
+      "total_assists": 0,
+      "total_goal_contributions": 2,
+      "total_minutes": 440,
+      "total_yellow_cards": 1,
+      "total_red_cards": 0,
+      "avg_age": 24.0,
+      "ga_per_90": 0.41,
+      "players": [
+        "Yasin Ayari",
+        "Diego Gómez",
+        "Ferdi Kadioglu",
+        "Bart Verbruggen",
+        "Jan Paul van Hecke"
+      ]
+    },
+    {
+      "club": "Borussia Dortmund",
+      "player_count": 6,
       "total_goals": 2,
       "total_assists": 0,
       "total_goal_contributions": 2,
       "total_minutes": 270,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 26.3,
-      "players": [
-        "Kai Havertz",
-        "Gabriel Magalhães",
-        "Piero Hincapié"
-      ]
-    },
-    {
-      "club": "Borussia Dortmund",
-      "player_count": 5,
-      "total_goals": 2,
-      "total_assists": 0,
-      "total_goal_contributions": 2,
-      "total_minutes": 269,
-      "total_yellow_cards": 0,
-      "total_red_cards": 0,
-      "avg_age": 27.2,
+      "avg_age": 26.7,
+      "ga_per_90": 0.67,
       "players": [
         "Nico Schlotterbeck",
         "Felix Nmecha",
         "Gregor Kobel",
         "Salih Özcan",
-        "Waldemar Anton"
+        "Waldemar Anton",
+        "Daniel Svensson"
       ]
     },
     {
@@ -7685,6 +8417,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.56,
       "players": [
         "Hwang In-Beom",
         "Jordan Bos",
@@ -7694,18 +8427,20 @@
     },
     {
       "club": "Eintracht Frankfurt",
-      "player_count": 3,
+      "player_count": 4,
       "total_goals": 1,
       "total_assists": 1,
       "total_goal_contributions": 2,
-      "total_minutes": 158,
+      "total_minutes": 229,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 23.3,
+      "avg_age": 25.2,
+      "ga_per_90": 0.79,
       "players": [
         "Nathaniel Brown",
         "Ayoube Amaimouni",
-        "Ritsu Doan"
+        "Ritsu Doan",
+        "Ellyes Skhiri"
       ]
     },
     {
@@ -7718,6 +8453,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.2,
+      "ga_per_90": 0.68,
       "players": [
         "Vinícius Júnior",
         "Brahim Díaz",
@@ -7735,6 +8471,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 1.15,
       "players": [
         "Julián Quiñones"
       ]
@@ -7749,6 +8486,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.7,
+      "ga_per_90": 0.35,
       "players": [
         "Raúl Jiménez",
         "Antonee Robinson",
@@ -7765,6 +8503,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.52,
       "players": [
         "Oh Hyeon-Gyu",
         "Orkun Kökçü",
@@ -7781,6 +8520,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.43,
       "players": [
         "Ladislav Krejcí",
         "Hwang Hee-Chan",
@@ -7797,6 +8537,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 31.0,
+      "ga_per_90": 6.43,
       "players": [
         "Cyle Larin"
       ]
@@ -7811,6 +8552,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 1.48,
       "players": [
         "Jovo Lukic"
       ]
@@ -7825,6 +8567,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.91,
       "players": [
         "Giovanni Reyna",
         "Nico Elvedi"
@@ -7840,6 +8583,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.7,
+      "ga_per_90": 0.62,
       "players": [
         "Maurício",
         "Gustavo Gómez",
@@ -7856,6 +8600,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 1.0,
       "players": [
         "Breel Embolo"
       ]
@@ -7870,6 +8615,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.24,
       "players": [
         "Ismael Saibari",
         "Matej Kovár",
@@ -7881,16 +8627,18 @@
     },
     {
       "club": "Aston Villa",
-      "player_count": 1,
+      "player_count": 2,
       "total_goals": 1,
       "total_assists": 0,
       "total_goal_contributions": 1,
-      "total_minutes": 82,
+      "total_minutes": 172,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 31.0,
+      "ga_per_90": 0.52,
       "players": [
-        "John McGinn"
+        "John McGinn",
+        "Victor Lindelöf"
       ]
     },
     {
@@ -7903,6 +8651,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 20.0,
+      "ga_per_90": 1.5,
       "players": [
         "Nestory Irankunda"
       ]
@@ -7917,6 +8666,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.7,
+      "ga_per_90": 0.48,
       "players": [
         "Connor Metcalfe",
         "Nikola Vasilj",
@@ -7933,6 +8683,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.4,
+      "ga_per_90": 0.14,
       "players": [
         "Livano Comenencia",
         "Gervane Kastaneer",
@@ -7956,6 +8707,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 27.5,
+      "ga_per_90": 0.56,
       "players": [
         "Crysencio Summerville",
         "Tomás Soucek"
@@ -7971,6 +8723,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.7,
+      "ga_per_90": 0.33,
       "players": [
         "Daichi Kamada",
         "Chris Richards",
@@ -7987,6 +8740,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 1.0,
       "players": [
         "Keito Nakamura"
       ]
@@ -8001,11 +8755,43 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.48,
       "players": [
         "Amad Diallo",
         "Casemiro",
         "Matheus Cunha",
         "Noussair Mazraoui"
+      ]
+    },
+    {
+      "club": "VfL Wolfsburg",
+      "player_count": 2,
+      "total_goals": 1,
+      "total_assists": 0,
+      "total_goal_contributions": 1,
+      "total_minutes": 14,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 24.0,
+      "ga_per_90": 6.43,
+      "players": [
+        "Mattias Svanberg",
+        "Kento Shiogai"
+      ]
+    },
+    {
+      "club": "NK Maribor",
+      "player_count": 1,
+      "total_goals": 1,
+      "total_assists": 0,
+      "total_goal_contributions": 1,
+      "total_minutes": 90,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 24.0,
+      "ga_per_90": 1.0,
+      "players": [
+        "Omar Rekik"
       ]
     },
     {
@@ -8018,6 +8804,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 1.18,
       "players": [
         "Érik Lira"
       ]
@@ -8032,6 +8819,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.3,
+      "ga_per_90": 0.46,
       "players": [
         "Roberto Alvarado",
         "Raúl Rangel",
@@ -8048,6 +8836,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.25,
       "players": [
         "Lee Kang-In",
         "Marquinhos",
@@ -8065,6 +8854,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.5,
+      "ga_per_90": 0.34,
       "players": [
         "Vladimír Coufal",
         "Robin Hranác",
@@ -8082,23 +8872,26 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 3.1,
       "players": [
         "Promise David"
       ]
     },
     {
       "club": "Atalanta",
-      "player_count": 2,
+      "player_count": 3,
       "total_goals": 0,
       "total_assists": 1,
       "total_goal_contributions": 1,
-      "total_minutes": 86,
+      "total_minutes": 176,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 28.5,
+      "avg_age": 28.0,
+      "ga_per_90": 0.51,
       "players": [
         "Sead Kolasinac",
-        "Odilon Kossounou"
+        "Odilon Kossounou",
+        "Isak Hien"
       ]
     },
     {
@@ -8111,6 +8904,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.2,
+      "ga_per_90": 0.3,
       "players": [
         "Alex Freeman",
         "Tajon Buchanan",
@@ -8128,6 +8922,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.62,
       "players": [
         "Malik Tillman",
         "Patrik Schick"
@@ -8143,6 +8938,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 1.91,
       "players": [
         "Christian Pulisic",
         "Ardon Jashari"
@@ -8158,6 +8954,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 21.7,
+      "ga_per_90": 0.44,
       "players": [
         "Julio Enciso",
         "Samir El Mourabet",
@@ -8166,16 +8963,18 @@
     },
     {
       "club": "Newcastle United",
-      "player_count": 1,
+      "player_count": 2,
       "total_goals": 0,
       "total_assists": 1,
       "total_goal_contributions": 1,
-      "total_minutes": 79,
+      "total_minutes": 80,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 28.0,
+      "avg_age": 26.0,
+      "ga_per_90": 1.12,
       "players": [
-        "Bruno Guimarães"
+        "Bruno Guimarães",
+        "Anthony Elanga"
       ]
     },
     {
@@ -8188,6 +8987,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 21.0,
+      "ga_per_90": 1.08,
       "players": [
         "Paul Okon-Engstler"
       ]
@@ -8202,6 +9002,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 1.22,
       "players": [
         "Takefusa Kubo"
       ]
@@ -8216,6 +9017,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.5,
+      "ga_per_90": 0.85,
       "players": [
         "Koki Ogawa",
         "Deveron Fonville"
@@ -8231,6 +9033,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 27.8,
+      "ga_per_90": 0.21,
       "players": [
         "Wilfried Singo",
         "Ugurcan Çakir",
@@ -8238,6 +9041,40 @@
         "Baris Alper Yilmaz",
         "Yunus Akgün",
         "Leroy Sané"
+      ]
+    },
+    {
+      "club": "Tottenham Hotspur",
+      "player_count": 2,
+      "total_goals": 0,
+      "total_assists": 1,
+      "total_goal_contributions": 1,
+      "total_minutes": 116,
+      "total_yellow_cards": 1,
+      "total_red_cards": 0,
+      "avg_age": 22.5,
+      "ga_per_90": 0.78,
+      "players": [
+        "Lucas Bergvall",
+        "Micky van de Ven"
+      ]
+    },
+    {
+      "club": "Burnley",
+      "player_count": 4,
+      "total_goals": 0,
+      "total_assists": 1,
+      "total_goal_contributions": 1,
+      "total_minutes": 248,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 25.0,
+      "ga_per_90": 0.36,
+      "players": [
+        "Hannibal Mejbri",
+        "Lyle Foster",
+        "Zeki Amdouni",
+        "Hannes Delcroix"
       ]
     },
     {
@@ -8250,6 +9087,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Johan Vásquez"
       ]
@@ -8264,6 +9102,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 1,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "César Montes"
       ]
@@ -8278,6 +9117,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.5,
+      "ga_per_90": 0.0,
       "players": [
         "Jesús Gallardo",
         "Alexis Vega"
@@ -8293,6 +9133,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Israel Reyes"
       ]
@@ -8307,6 +9148,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 31.0,
+      "ga_per_90": 0.0,
       "players": [
         "Álvaro Fidalgo",
         "Ricardo Rodríguez"
@@ -8322,6 +9164,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 22.0,
+      "ga_per_90": 0.0,
       "players": [
         "Brian Gutiérrez"
       ]
@@ -8336,6 +9179,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.0,
       "players": [
         "Luis Chávez",
         "Juan Jose Cáceres"
@@ -8351,6 +9195,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 21.0,
+      "ga_per_90": 0.0,
       "players": [
         "Gilberto Mora",
         "Jackson Porozo"
@@ -8366,6 +9211,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.2,
+      "ga_per_90": 0.0,
       "players": [
         "Edson Álvarez",
         "Ismail Yüksek",
@@ -8383,6 +9229,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 1,
       "avg_age": 30.7,
+      "ga_per_90": 0.0,
       "players": [
         "Ronwen Williams",
         "Aubrey Modiba",
@@ -8395,16 +9242,18 @@
     },
     {
       "club": "Hannover 96",
-      "player_count": 1,
+      "player_count": 2,
       "total_goals": 0,
       "total_assists": 0,
       "total_goal_contributions": 0,
-      "total_minutes": 90,
+      "total_minutes": 162,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 22.0,
+      "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
-        "Ime Okon"
+        "Ime Okon",
+        "Elias Saad"
       ]
     },
     {
@@ -8417,6 +9266,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 20.0,
+      "ga_per_90": 0.0,
       "players": [
         "Mbekezeli Mbokazi"
       ]
@@ -8431,6 +9281,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 26.5,
+      "ga_per_90": 0.0,
       "players": [
         "Nkosinathi Sibisi",
         "Oswin Appollis",
@@ -8448,24 +9299,9 @@
       "total_yellow_cards": 0,
       "total_red_cards": 1,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Sphephelo Sithole"
-      ]
-    },
-    {
-      "club": "Burnley",
-      "player_count": 3,
-      "total_goals": 0,
-      "total_assists": 0,
-      "total_goal_contributions": 0,
-      "total_minutes": 158,
-      "total_yellow_cards": 0,
-      "total_red_cards": 0,
-      "avg_age": 25.7,
-      "players": [
-        "Lyle Foster",
-        "Zeki Amdouni",
-        "Hannes Delcroix"
       ]
     },
     {
@@ -8478,6 +9314,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 35.0,
+      "ga_per_90": 0.0,
       "players": [
         "Kim Seung-Gyu"
       ]
@@ -8492,6 +9329,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lee Gi-Hyuk"
       ]
@@ -8506,6 +9344,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 23.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lee Han-Beom"
       ]
@@ -8520,6 +9359,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Paik Seung-Ho"
       ]
@@ -8534,6 +9374,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 23.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lee Tae-Seok"
       ]
@@ -8548,6 +9389,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Seol Young-Woo"
       ]
@@ -8562,6 +9404,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.3,
+      "ga_per_90": 0.0,
       "players": [
         "Son Heung-Min",
         "Stephen Eustáquio",
@@ -8578,6 +9421,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lee Jae-Sung",
         "Kaishu Sano"
@@ -8593,6 +9437,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Kim Jin-Gyu"
       ]
@@ -8607,6 +9452,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Eom Ji-Sung",
         "Cameron Burgess"
@@ -8622,6 +9468,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.0,
+      "ga_per_90": 0.0,
       "players": [
         "Park Jin-Seop"
       ]
@@ -8636,6 +9483,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.4,
+      "ga_per_90": 0.0,
       "players": [
         "Stepán Chaloupek",
         "Lukás Provod",
@@ -8654,6 +9502,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Alexandr Sojka",
         "Amar Memic"
@@ -8669,6 +9518,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 33.0,
+      "ga_per_90": 0.0,
       "players": [
         "Jaroslav Zelený"
       ]
@@ -8683,6 +9533,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Pavel Sulc"
       ]
@@ -8697,6 +9548,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 32.0,
+      "ga_per_90": 0.0,
       "players": [
         "Maxime Crépeau"
       ]
@@ -8711,6 +9563,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.0,
       "players": [
         "Derek Cornelius"
       ]
@@ -8725,6 +9578,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 20.0,
+      "ga_per_90": 0.0,
       "players": [
         "Luc de Fougerolles"
       ]
@@ -8739,6 +9593,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 32.5,
+      "ga_per_90": 0.0,
       "players": [
         "Richie Laryea",
         "Jonathan Osorio"
@@ -8746,17 +9601,20 @@
     },
     {
       "club": "Celtic",
-      "player_count": 2,
+      "player_count": 4,
       "total_goals": 0,
       "total_assists": 0,
       "total_goal_contributions": 0,
-      "total_minutes": 156,
+      "total_minutes": 238,
       "total_yellow_cards": 1,
       "total_red_cards": 0,
-      "avg_age": 27.5,
+      "avg_age": 25.5,
+      "ga_per_90": 0.0,
       "players": [
         "Alistair Johnston",
-        "Daizen Maeda"
+        "Daizen Maeda",
+        "Benjamin Nygren",
+        "Sebastian Tounekti"
       ]
     },
     {
@@ -8769,6 +9627,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 23.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ismaël Koné",
         "Tarik Muharemovic"
@@ -8784,6 +9643,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Liam Millar"
       ]
@@ -8798,6 +9658,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.5,
+      "ga_per_90": 0.0,
       "players": [
         "Jonathan David",
         "Weston McKennie",
@@ -8807,18 +9668,20 @@
     },
     {
       "club": "Norwich City",
-      "player_count": 3,
+      "player_count": 4,
       "total_goals": 0,
       "total_assists": 0,
       "total_goal_contributions": 0,
-      "total_minutes": 110,
+      "total_minutes": 193,
       "total_yellow_cards": 1,
       "total_red_cards": 0,
-      "avg_age": 27.0,
+      "avg_age": 26.5,
+      "ga_per_90": 0.0,
       "players": [
         "Ali Ahmed",
         "Kenny McLean",
-        "Mohamed Toure"
+        "Mohamed Toure",
+        "Anis Slimane"
       ]
     },
     {
@@ -8831,6 +9694,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Nikola Katic"
       ]
@@ -8845,6 +9709,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 23.0,
+      "ga_per_90": 0.0,
       "players": [
         "Amar Dedic"
       ]
@@ -8859,6 +9724,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ivan Basic"
       ]
@@ -8873,6 +9739,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 23.0,
+      "ga_per_90": 0.0,
       "players": [
         "Benjamin Tahirovic"
       ]
@@ -8887,6 +9754,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 21.0,
+      "ga_per_90": 0.0,
       "players": [
         "Esmir Bajraktarevic"
       ]
@@ -8901,22 +9769,25 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 22.0,
+      "ga_per_90": 0.0,
       "players": [
         "Samed Bazdar"
       ]
     },
     {
       "club": "Young Boys",
-      "player_count": 1,
+      "player_count": 2,
       "total_goals": 0,
       "total_assists": 0,
       "total_goal_contributions": 0,
-      "total_minutes": 29,
+      "total_minutes": 101,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 24.0,
+      "avg_age": 25.5,
+      "ga_per_90": 0.0,
       "players": [
-        "Armin Gigovic"
+        "Armin Gigovic",
+        "Yan Valery"
       ]
     },
     {
@@ -8929,6 +9800,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.0,
       "players": [
         "Dzenis Burnic"
       ]
@@ -8943,6 +9815,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 18.0,
+      "ga_per_90": 0.0,
       "players": [
         "Kerim Alajbegovic"
       ]
@@ -8957,6 +9830,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ivan Sunjic"
       ]
@@ -8971,6 +9845,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Matt Freese",
         "Aiden O'Neill"
@@ -8986,6 +9861,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 38.0,
+      "ga_per_90": 0.0,
       "players": [
         "Tim Ream"
       ]
@@ -9000,6 +9876,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Tyler Adams",
         "Ben Gannon-Doak",
@@ -9016,6 +9893,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.5,
+      "ga_per_90": 0.0,
       "players": [
         "Sebastian Berhalter",
         "Andrés Cubas"
@@ -9031,6 +9909,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Timothy Weah",
         "Quinten Timber"
@@ -9046,6 +9925,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Orlando Gil"
       ]
@@ -9060,6 +9940,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.7,
+      "ga_per_90": 0.0,
       "players": [
         "Omar Alderete",
         "Granit Xhaka",
@@ -9079,6 +9960,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 27.8,
+      "ga_per_90": 0.0,
       "players": [
         "Júnior Alonso",
         "Alan Franco",
@@ -9096,6 +9978,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Damián Bobadilla"
       ]
@@ -9110,25 +9993,9 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 32.0,
+      "ga_per_90": 0.0,
       "players": [
         "Miguel Almirón"
-      ]
-    },
-    {
-      "club": "Brighton & Hove Albion",
-      "player_count": 4,
-      "total_goals": 0,
-      "total_assists": 0,
-      "total_goal_contributions": 0,
-      "total_minutes": 350,
-      "total_yellow_cards": 1,
-      "total_red_cards": 0,
-      "avg_age": 24.5,
-      "players": [
-        "Diego Gómez",
-        "Ferdi Kadioglu",
-        "Bart Verbruggen",
-        "Jan Paul van Hecke"
       ]
     },
     {
@@ -9141,6 +10008,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.0,
+      "ga_per_90": 0.0,
       "players": [
         "Antonio Sanabria"
       ]
@@ -9155,6 +10023,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 30.0,
+      "ga_per_90": 0.0,
       "players": [
         "Alex Arce"
       ]
@@ -9169,6 +10038,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.5,
+      "ga_per_90": 0.0,
       "players": [
         "Alejandro Romero Gamarra",
         "Soufiane Rahimi"
@@ -9184,6 +10054,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 35.0,
+      "ga_per_90": 0.0,
       "players": [
         "Gustavo Velázquez"
       ]
@@ -9198,6 +10069,7 @@
       "total_yellow_cards": 2,
       "total_red_cards": 0,
       "avg_age": 27.8,
+      "ga_per_90": 0.0,
       "players": [
         "Mahmoud Abunada",
         "Issa Laye",
@@ -9215,6 +10087,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 32.0,
+      "ga_per_90": 0.0,
       "players": [
         "Boualem Khoukhi",
         "Pedro Miguel",
@@ -9233,6 +10106,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Homam Ahmed"
       ]
@@ -9247,6 +10121,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.7,
+      "ga_per_90": 0.0,
       "players": [
         "Ayoub Al-Oui",
         "Assim Madibo",
@@ -9263,6 +10138,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 33.0,
+      "ga_per_90": 0.0,
       "players": [
         "Edmílson Junior",
         "Karim Boudiaf"
@@ -9278,6 +10154,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 23.0,
+      "ga_per_90": 0.0,
       "players": [
         "Mohamed Manai"
       ]
@@ -9292,6 +10169,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.5,
+      "ga_per_90": 0.0,
       "players": [
         "Manuel Akanji",
         "Hakan Çalhanoglu",
@@ -9309,6 +10187,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.0,
+      "ga_per_90": 0.0,
       "players": [
         "Remo Freuler",
         "Lewis Ferguson"
@@ -9324,6 +10203,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Michel Aebischer"
       ]
@@ -9338,6 +10218,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Rubén Vargas"
       ]
@@ -9352,6 +10233,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.7,
+      "ga_per_90": 0.0,
       "players": [
         "Dan Ndoye",
         "Angus Gunn",
@@ -9368,22 +10250,25 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.0,
       "players": [
         "Miro Muheim"
       ]
     },
     {
       "club": "FC Augsburg",
-      "player_count": 1,
+      "player_count": 2,
       "total_goals": 0,
       "total_assists": 0,
       "total_goal_contributions": 0,
-      "total_minutes": 25,
+      "total_minutes": 32,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 24.0,
+      "avg_age": 23.0,
+      "ga_per_90": 0.0,
       "players": [
-        "Fabian Rieder"
+        "Fabian Rieder",
+        "Ismaël Gharbi"
       ]
     },
     {
@@ -9396,6 +10281,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 20.0,
+      "ga_per_90": 0.0,
       "players": [
         "Johan Manzambi"
       ]
@@ -9410,6 +10296,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.5,
+      "ga_per_90": 0.0,
       "players": [
         "Douglas Santos",
         "Luiz Henrique"
@@ -9425,6 +10312,7 @@
       "total_yellow_cards": 2,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.0,
       "players": [
         "Roger Ibañez",
         "Merih Demiral",
@@ -9441,6 +10329,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Raphinha",
         "Frenkie de Jong"
@@ -9456,6 +10345,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Igor Thiago",
         "Aaron Hickey"
@@ -9471,6 +10361,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lucas Paquetá",
         "Danilo",
@@ -9487,6 +10378,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 32.0,
+      "ga_per_90": 0.0,
       "players": [
         "Fabinho"
       ]
@@ -9501,6 +10393,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Danilo Santos"
       ]
@@ -9515,6 +10408,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 35.0,
+      "ga_per_90": 0.0,
       "players": [
         "Yassine Bounou"
       ]
@@ -9529,6 +10423,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Azzedine Ounahi"
       ]
@@ -9543,6 +10438,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 18.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ayyoub Bouaddi"
       ]
@@ -9557,6 +10453,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.7,
+      "ga_per_90": 0.0,
       "players": [
         "Neil El Aynaoui",
         "Zeki Çelik",
@@ -9573,6 +10470,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 38.0,
+      "ga_per_90": 0.0,
       "players": [
         "Johny Placide"
       ]
@@ -9587,6 +10485,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 36.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ricardo Adé"
       ]
@@ -9601,6 +10500,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Martin Expérience"
       ]
@@ -9615,6 +10515,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Carlens Arcus"
       ]
@@ -9629,6 +10530,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Danley Jean Jacques"
       ]
@@ -9643,6 +10545,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ruben Providence"
       ]
@@ -9657,6 +10560,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Louicius Deedson"
       ]
@@ -9671,6 +10575,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.0,
       "players": [
         "Frantzdy Pierrot",
         "Yahia Fofana"
@@ -9686,6 +10591,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Josué Casimir"
       ]
@@ -9700,6 +10606,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lenny Joseph"
       ]
@@ -9714,6 +10621,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Yassin Fortuné"
       ]
@@ -9728,6 +10636,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 31.0,
+      "ga_per_90": 0.0,
       "players": [
         "Jack Hendry"
       ]
@@ -9742,6 +10651,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 34.0,
+      "ga_per_90": 0.0,
       "players": [
         "Grant Hanley"
       ]
@@ -9756,6 +10666,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Scott McTominay"
       ]
@@ -9770,6 +10681,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ché Adams"
       ]
@@ -9784,6 +10696,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lawrence Shankland"
       ]
@@ -9798,6 +10711,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Nathan Patterson"
       ]
@@ -9812,6 +10726,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.0,
+      "ga_per_90": 0.0,
       "players": [
         "Lyndon Dykes"
       ]
@@ -9826,6 +10741,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 19.0,
+      "ga_per_90": 0.0,
       "players": [
         "Findlay Curtis"
       ]
@@ -9840,6 +10756,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.5,
+      "ga_per_90": 0.0,
       "players": [
         "Patrick Beach",
         "Aziz Behich"
@@ -9855,6 +10772,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Harry Souttar"
       ]
@@ -9869,6 +10787,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 22.5,
+      "ga_per_90": 0.0,
       "players": [
         "Alessandro Circati",
         "Zion Suzuki"
@@ -9884,6 +10803,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Jacob Italiano"
       ]
@@ -9898,6 +10818,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 33.0,
+      "ga_per_90": 0.0,
       "players": [
         "Jason Geria"
       ]
@@ -9912,6 +10833,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Tete Yengi"
       ]
@@ -9926,6 +10848,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Nishan Velupillay"
       ]
@@ -9940,6 +10863,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Deniz Gül",
         "Seko Fofana"
@@ -9955,6 +10879,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 23.5,
+      "ga_per_90": 0.0,
       "players": [
         "David Raum",
         "Yan Diomande"
@@ -9970,6 +10895,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Sherel Floranus"
       ]
@@ -9984,22 +10910,9 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 28.0,
+      "ga_per_90": 0.0,
       "players": [
         "Juninho Bacuna"
-      ]
-    },
-    {
-      "club": "Tottenham Hotspur",
-      "player_count": 1,
-      "total_goals": 0,
-      "total_assists": 0,
-      "total_goal_contributions": 0,
-      "total_minutes": 90,
-      "total_yellow_cards": 1,
-      "total_red_cards": 0,
-      "avg_age": 25.0,
-      "players": [
-        "Micky van de Ven"
       ]
     },
     {
@@ -10012,6 +10925,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 29.0,
+      "ga_per_90": 0.0,
       "players": [
         "Tijjani Reijnders",
         "Nathan Aké"
@@ -10027,6 +10941,7 @@
       "total_yellow_cards": 1,
       "total_red_cards": 0,
       "avg_age": 32.0,
+      "ga_per_90": 0.0,
       "players": [
         "Memphis Depay"
       ]
@@ -10041,6 +10956,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 34.0,
+      "ga_per_90": 0.0,
       "players": [
         "Shogo Taniguchi"
       ]
@@ -10055,22 +10971,9 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 33.0,
+      "ga_per_90": 0.0,
       "players": [
         "Junya Ito"
-      ]
-    },
-    {
-      "club": "VfL Wolfsburg",
-      "player_count": 1,
-      "total_goals": 0,
-      "total_assists": 0,
-      "total_goal_contributions": 0,
-      "total_minutes": 7,
-      "total_yellow_cards": 0,
-      "total_red_cards": 0,
-      "avg_age": 21.0,
-      "players": [
-        "Kento Shiogai"
       ]
     },
     {
@@ -10083,6 +10986,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "Yukinari Sugawara"
       ]
@@ -10097,6 +11001,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 27.0,
+      "ga_per_90": 0.0,
       "players": [
         "Takehiro Tomiyasu"
       ]
@@ -10111,22 +11016,25 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 30.0,
+      "ga_per_90": 0.0,
       "players": [
         "Ghislain Konan"
       ]
     },
     {
       "club": "Nice",
-      "player_count": 1,
+      "player_count": 2,
       "total_goals": 0,
       "total_assists": 0,
       "total_goal_contributions": 0,
-      "total_minutes": 56,
+      "total_minutes": 146,
       "total_yellow_cards": 0,
       "total_red_cards": 0,
-      "avg_age": 23.0,
+      "avg_age": 27.5,
+      "ga_per_90": 0.0,
       "players": [
-        "Elye Wahi"
+        "Elye Wahi",
+        "Ali Abdi"
       ]
     },
     {
@@ -10139,6 +11047,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 20.0,
+      "ga_per_90": 0.0,
       "players": [
         "Christ Inao Oulaï"
       ]
@@ -10153,6 +11062,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 39.0,
+      "ga_per_90": 0.0,
       "players": [
         "Hernán Galíndez"
       ]
@@ -10167,6 +11077,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 22.0,
+      "ga_per_90": 0.0,
       "players": [
         "Joel Ordóñez"
       ]
@@ -10181,6 +11092,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Pedro Vite"
       ]
@@ -10195,6 +11107,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 24.0,
+      "ga_per_90": 0.0,
       "players": [
         "Moisés Caicedo"
       ]
@@ -10209,6 +11122,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 25.0,
+      "ga_per_90": 0.0,
       "players": [
         "John Yeboah"
       ]
@@ -10223,6 +11137,7 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 36.0,
+      "ga_per_90": 0.0,
       "players": [
         "Enner Valencia"
       ]
@@ -10237,8 +11152,204 @@
       "total_yellow_cards": 0,
       "total_red_cards": 0,
       "avg_age": 26.0,
+      "ga_per_90": 0.0,
       "players": [
         "Kevin Rodríguez"
+      ]
+    },
+    {
+      "club": "Mjällby AIF",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 26,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 23.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Elliot Stroud"
+      ]
+    },
+    {
+      "club": "AIK",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 90,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 36.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Kristoffer Nordfeldt"
+      ]
+    },
+    {
+      "club": "Braga",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 90,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 26.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Gustaf Lagerbielke"
+      ]
+    },
+    {
+      "club": "Udinese",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 83,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 30.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Jesper Karlström"
+      ]
+    },
+    {
+      "club": "Leeds United",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 64,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 27.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Gabriel Gudmundsson"
+      ]
+    },
+    {
+      "club": "Holstein Kiel",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 90,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 27.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Alexander Bernhardsson"
+      ]
+    },
+    {
+      "club": "Tunisia",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 90,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 24.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Mouhib Chamakh"
+      ]
+    },
+    {
+      "club": "Lorient",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 90,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 28.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Montassar Talbi"
+      ]
+    },
+    {
+      "club": "Esperance Sportive de Tunis",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 90,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 30.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Mohamed Amine Ben Hamida"
+      ]
+    },
+    {
+      "club": "1. FC Union Berlin",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 83,
+      "total_yellow_cards": 1,
+      "total_red_cards": 0,
+      "avg_age": 32.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Rani Khedira"
+      ]
+    },
+    {
+      "club": "F.C. København",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 19,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 27.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Elias Achouri"
+      ]
+    },
+    {
+      "club": "FC Lugano",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 18,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 26.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Mohamed Hadj Mahmoud"
+      ]
+    },
+    {
+      "club": "Club Sportif Sfaxien",
+      "player_count": 1,
+      "total_goals": 0,
+      "total_assists": 0,
+      "total_goal_contributions": 0,
+      "total_minutes": 7,
+      "total_yellow_cards": 0,
+      "total_red_cards": 0,
+      "avg_age": 30.0,
+      "ga_per_90": 0.0,
+      "players": [
+        "Firas Chaouat"
       ]
     }
   ],
@@ -10263,13 +11374,17 @@
       "Scotland",
       "South Africa",
       "South Korea",
+      "Sweden",
       "Switzerland",
+      "Tunisia",
       "Türkiye",
       "USA"
     ],
     "clubs": [
+      "1. FC Union Berlin",
       "AC Milan",
       "AFC Bournemouth",
+      "AIK",
       "AJ Auxerre",
       "AS Monaco",
       "AS Nancy Lorraine",
@@ -10305,6 +11420,7 @@
       "Borussia Dortmund",
       "Borussia Mönchengladbach",
       "Botafogo",
+      "Braga",
       "Brentford",
       "Brighton & Hove Albion",
       "Brøndby IF",
@@ -10317,6 +11433,7 @@
       "Chelsea",
       "Chicago Fire FC",
       "Club Brugge",
+      "Club Sportif Sfaxien",
       "Corinthians",
       "Cremonese",
       "Cruz Azul",
@@ -10326,10 +11443,13 @@
       "Dender",
       "Dinamo Moscow",
       "Eintracht Frankfurt",
+      "Esperance Sportive de Tunis",
       "Everton",
+      "F.C. København",
       "FC Astana",
       "FC Augsburg",
       "FC Dallas",
+      "FC Lugano",
       "FC Midtjylland",
       "FC Porto",
       "FC Tokyo",
@@ -10350,6 +11470,7 @@
       "Hannover 96",
       "Heart of Midlothian",
       "Hibernian",
+      "Holstein Kiel",
       "Hull City",
       "Huracán",
       "Independiente Rivadavia",
@@ -10361,11 +11482,13 @@
       "Karlsruher SC",
       "Kilmarnock",
       "LAFC",
+      "Leeds United",
       "Leicester City",
       "Liga de Quito",
       "Lille",
       "Liverpool",
       "Lokomotiv Moscow",
+      "Lorient",
       "Lyon",
       "Machida Zelvia",
       "Mainz",
@@ -10375,7 +11498,9 @@
       "Marseille",
       "Melbourne City FC",
       "Melbourne Victory",
+      "Mjällby AIF",
       "NEC Nijmegen",
+      "NK Maribor",
       "Napoli",
       "New York City FC",
       "Newcastle United",
@@ -10431,7 +11556,9 @@
       "Toronto FC",
       "Tottenham Hotspur",
       "Trabzonspor",
+      "Tunisia",
       "US Quevilly",
+      "Udinese",
       "Union St.-Gilloise",
       "Universitatea Cluj",
       "Vancouver Whitecaps",
@@ -10455,7 +11582,7 @@
       "Forward"
     ]
   },
-  "last_updated": "2026-06-15T03:19:44.920881Z",
+  "last_updated": "2026-06-15T04:02:20.506227Z",
   "match_stats": {
     "760415": [
       {
@@ -15293,6 +16420,456 @@
         "total_shots": 0,
         "saves": 0,
         "fouls_committed": 2
+      }
+    ],
+    "760424": [
+      {
+        "player_id": "220120",
+        "name": "Mattias Svanberg",
+        "event_id": "760424",
+        "minutes": 7,
+        "goals": 1,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 1,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "310709",
+        "name": "Daniel Svensson",
+        "event_id": "760424",
+        "minutes": 1,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "357145",
+        "name": "Elliot Stroud",
+        "event_id": "760424",
+        "minutes": 26,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "296622",
+        "name": "Anthony Elanga",
+        "event_id": "760424",
+        "minutes": 1,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "356379",
+        "name": "Lucas Bergvall",
+        "event_id": "760424",
+        "minutes": 26,
+        "goals": 0,
+        "assists": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "133993",
+        "name": "Kristoffer Nordfeldt",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 1,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "312862",
+        "name": "Isak Hien",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "204679",
+        "name": "Victor Lindelöf",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 2
+      },
+      {
+        "player_id": "324930",
+        "name": "Gustaf Lagerbielke",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "237055",
+        "name": "Jesper Karlström",
+        "event_id": "760424",
+        "minutes": 83,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "304242",
+        "name": "Yasin Ayari",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 2,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 2,
+        "total_shots": 2,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "274522",
+        "name": "Benjamin Nygren",
+        "event_id": "760424",
+        "minutes": 64,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "250166",
+        "name": "Gabriel Gudmundsson",
+        "event_id": "760424",
+        "minutes": 64,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 2
+      },
+      {
+        "player_id": "301370",
+        "name": "Alexander Bernhardsson",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "235662",
+        "name": "Alexander Isak",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 2,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 2,
+        "total_shots": 3,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "258906",
+        "name": "Viktor Gyökeres",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 2,
+        "total_shots": 5,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "420888",
+        "name": "Mouhib Chamakh",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 1,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "265099",
+        "name": "Montassar Talbi",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "296982",
+        "name": "Mohamed Amine Ben Hamida",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "303848",
+        "name": "Omar Rekik",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 1,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 1,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "265234",
+        "name": "Ali Abdi",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 3
+      },
+      {
+        "player_id": "240588",
+        "name": "Yan Valery",
+        "event_id": "760424",
+        "minutes": 72,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 3
+      },
+      {
+        "player_id": "209595",
+        "name": "Ellyes Skhiri",
+        "event_id": "760424",
+        "minutes": 71,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "300007",
+        "name": "Hannibal Mejbri",
+        "event_id": "760424",
+        "minutes": 90,
+        "goals": 0,
+        "assists": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "159152",
+        "name": "Rani Khedira",
+        "event_id": "760424",
+        "minutes": 83,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 1,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "302944",
+        "name": "Anis Slimane",
+        "event_id": "760424",
+        "minutes": 83,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "323950",
+        "name": "Elias Saad",
+        "event_id": "760424",
+        "minutes": 72,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "303702",
+        "name": "Sebastian Tounekti",
+        "event_id": "760424",
+        "minutes": 18,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1
+      },
+      {
+        "player_id": "317473",
+        "name": "Ismaël Gharbi",
+        "event_id": "760424",
+        "minutes": 7,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "324510",
+        "name": "Elias Achouri",
+        "event_id": "760424",
+        "minutes": 19,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 1,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "299861",
+        "name": "Mohamed Hadj Mahmoud",
+        "event_id": "760424",
+        "minutes": 18,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
+      },
+      {
+        "player_id": "265207",
+        "name": "Firas Chaouat",
+        "event_id": "760424",
+        "minutes": 7,
+        "goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0
       }
     ]
   }

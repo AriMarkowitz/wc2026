@@ -3094,5 +3094,293 @@
     "age": 27,
     "nationality": "Japan",
     "photo": null
+  },
+  "133993": {
+    "player_id": "133993",
+    "name": "Kristoffer Nordfeldt",
+    "club": "AIK",
+    "position": "Goalkeeper",
+    "age": 36,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "159152": {
+    "player_id": "159152",
+    "name": "Rani Khedira",
+    "club": "1. FC Union Berlin",
+    "position": "Midfielder",
+    "age": 32,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "204679": {
+    "player_id": "204679",
+    "name": "Victor Lindelöf",
+    "club": "Aston Villa",
+    "position": "Defender",
+    "age": 31,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "209595": {
+    "player_id": "209595",
+    "name": "Ellyes Skhiri",
+    "club": "Eintracht Frankfurt",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "220120": {
+    "player_id": "220120",
+    "name": "Mattias Svanberg",
+    "club": "VfL Wolfsburg",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "235662": {
+    "player_id": "235662",
+    "name": "Alexander Isak",
+    "club": "Liverpool",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "237055": {
+    "player_id": "237055",
+    "name": "Jesper Karlström",
+    "club": "Udinese",
+    "position": "Midfielder",
+    "age": 30,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "240588": {
+    "player_id": "240588",
+    "name": "Yan Valery",
+    "club": "Young Boys",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "250166": {
+    "player_id": "250166",
+    "name": "Gabriel Gudmundsson",
+    "club": "Leeds United",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "258906": {
+    "player_id": "258906",
+    "name": "Viktor Gyökeres",
+    "club": "Arsenal",
+    "position": "Forward",
+    "age": 28,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "265099": {
+    "player_id": "265099",
+    "name": "Montassar Talbi",
+    "club": "Lorient",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "265207": {
+    "player_id": "265207",
+    "name": "Firas Chaouat",
+    "club": "Club Sportif Sfaxien",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "265234": {
+    "player_id": "265234",
+    "name": "Ali Abdi",
+    "club": "Nice",
+    "position": "Defender",
+    "age": 32,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "274522": {
+    "player_id": "274522",
+    "name": "Benjamin Nygren",
+    "club": "Celtic",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "296622": {
+    "player_id": "296622",
+    "name": "Anthony Elanga",
+    "club": "Newcastle United",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "296982": {
+    "player_id": "296982",
+    "name": "Mohamed Amine Ben Hamida",
+    "club": "Esperance Sportive de Tunis",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "299861": {
+    "player_id": "299861",
+    "name": "Mohamed Hadj Mahmoud",
+    "club": "FC Lugano",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "300007": {
+    "player_id": "300007",
+    "name": "Hannibal Mejbri",
+    "club": "Burnley",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "301370": {
+    "player_id": "301370",
+    "name": "Alexander Bernhardsson",
+    "club": "Holstein Kiel",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "302944": {
+    "player_id": "302944",
+    "name": "Anis Slimane",
+    "club": "Norwich City",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "303702": {
+    "player_id": "303702",
+    "name": "Sebastian Tounekti",
+    "club": "Celtic",
+    "position": "Forward",
+    "age": 23,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "303848": {
+    "player_id": "303848",
+    "name": "Omar Rekik",
+    "club": "NK Maribor",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "304242": {
+    "player_id": "304242",
+    "name": "Yasin Ayari",
+    "club": "Brighton & Hove Albion",
+    "position": "Midfielder",
+    "age": 22,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "310709": {
+    "player_id": "310709",
+    "name": "Daniel Svensson",
+    "club": "Borussia Dortmund",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "312862": {
+    "player_id": "312862",
+    "name": "Isak Hien",
+    "club": "Atalanta",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "317473": {
+    "player_id": "317473",
+    "name": "Ismaël Gharbi",
+    "club": "FC Augsburg",
+    "position": "Forward",
+    "age": 22,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "323950": {
+    "player_id": "323950",
+    "name": "Elias Saad",
+    "club": "Hannover 96",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "324510": {
+    "player_id": "324510",
+    "name": "Elias Achouri",
+    "club": "F.C. København",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Tunisia",
+    "photo": null
+  },
+  "324930": {
+    "player_id": "324930",
+    "name": "Gustaf Lagerbielke",
+    "club": "Braga",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "356379": {
+    "player_id": "356379",
+    "name": "Lucas Bergvall",
+    "club": "Tottenham Hotspur",
+    "position": "Midfielder",
+    "age": 20,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "357145": {
+    "player_id": "357145",
+    "name": "Elliot Stroud",
+    "club": "Mjällby AIF",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Sweden",
+    "photo": null
+  },
+  "420888": {
+    "player_id": "420888",
+    "name": "Mouhib Chamakh",
+    "club": "Tunisia",
+    "position": "Goalkeeper",
+    "age": 24,
+    "nationality": "Tunisia",
+    "photo": null
   }
 }
