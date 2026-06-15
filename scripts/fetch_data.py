@@ -163,19 +163,53 @@ def parse_match_stats(event_id: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Step 3: Fetch athlete profile (club, position, age, nationality)
+# Step 3: Fetch athlete profile (club, position, age, nationality, sun sign)
 # ---------------------------------------------------------------------------
+
+_SIGNS = [
+    (1, 20, "Capricorn"), (2, 19, "Aquarius"), (3, 20, "Pisces"),
+    (4, 20, "Aries"),     (5, 21, "Taurus"),   (6, 21, "Gemini"),
+    (7, 22, "Cancer"),    (8, 23, "Leo"),       (9, 23, "Virgo"),
+    (10, 23, "Libra"),    (11, 22, "Scorpio"),  (12, 22, "Sagittarius"),
+    (12, 31, "Capricorn"),
+]
+
+def _sun_sign(dob_str: str | None) -> str | None:
+    if not dob_str:
+        return None
+    try:
+        parts = dob_str.split("/")
+        month, day = int(parts[0]), int(parts[1])
+        for end_month, end_day, sign in _SIGNS:
+            if month < end_month or (month == end_month and day <= end_day):
+                return sign
+    except Exception:
+        pass
+    return None
+
 
 def fetch_athlete_profile(player_id: str) -> dict:
     try:
         data = api_client.get(f"{ESPN_ATHLETE_BASE}/{player_id}")
         athlete = data.get("athlete", {})
+        team = athlete.get("team", {})
+        # League from groups[0].name e.g. "English Premier League 2025-2026"
+        groups = team.get("groups", [])
+        league_full = groups[0].get("name", "") if groups else ""
+        # Strip trailing season suffix "2025-2026" → "English Premier League"
+        import re
+        league = re.sub(r"\s+\d{4}-\d{4}$", "", league_full).strip() if league_full else None
+        dob_str = athlete.get("displayDOB")  # "MM/DD/YYYY"
+        sun_sign = _sun_sign(dob_str)
         return {
             "player_id": player_id,
             "name": athlete.get("displayName", ""),
-            "club": athlete.get("team", {}).get("displayName"),
+            "club": team.get("displayName"),
+            "league": league,
             "position": athlete.get("position", {}).get("displayName"),
             "age": athlete.get("age"),
+            "dob": dob_str,
+            "sun_sign": sun_sign,
             "nationality": athlete.get("citizenship"),
             "photo": None,
         }

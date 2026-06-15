@@ -34,8 +34,11 @@ def build_output(
             "player_id": pid,
             "name": profile.get("name") or agg["name"] or UNKNOWN,
             "club": profile.get("club") or UNKNOWN,
+            "league": profile.get("league"),
             "nationality": profile.get("nationality") or UNKNOWN,
             "age": profile.get("age"),
+            "dob": profile.get("dob"),
+            "sun_sign": profile.get("sun_sign"),
             "position": profile.get("position") or UNKNOWN,
             "photo": profile.get("photo"),
             "matches_played": agg["matches_played"],
@@ -88,6 +91,9 @@ def build_output(
     club_names = sorted({c["club"] for c in clubs})
     positions = [pos for pos in ["Goalkeeper", "Defender", "Midfielder", "Forward"]
                  if any(p["position"] == pos for p in players)]
+    sun_signs = [s for s in ["Aries","Taurus","Gemini","Cancer","Leo","Virgo",
+                              "Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"]
+                 if any(p.get("sun_sign") == s for p in players)]
 
     return {
         "players": players,
@@ -96,6 +102,7 @@ def build_output(
             "nationalities": nationalities,
             "clubs": club_names,
             "positions": positions,
+            "sun_signs": sun_signs,
         },
     }
 
