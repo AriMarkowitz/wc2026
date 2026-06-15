@@ -3,14 +3,25 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Club, Player, WcMeta } from "@/types/wc";
 import styles from "./wc2026.module.css";
+import FilterHeader from "./FilterHeader";
+import { useColumnResize } from "./useColumnResize";
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
-type Tab = "clubs" | "players";
-type ClubSort = keyof Club;
-type PlayerSort = keyof Player;
+type Tab = "clubs" | "players" | "astro";
+
+const SIGN_EMOJI: Record<string, string> = {
+  Aries: "♈", Taurus: "♉", Gemini: "♊", Cancer: "♋",
+  Leo: "♌", Virgo: "♍", Libra: "♎", Scorpio: "♏",
+  Sagittarius: "♐", Capricorn: "♑", Aquarius: "♒", Pisces: "♓",
+};
+
+const ALL_SIGNS = [
+  "Aries","Taurus","Gemini","Cancer","Leo","Virgo",
+  "Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces",
+];
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -26,23 +37,33 @@ function fmtDec(v: number | null | undefined, digits = 2): string {
   return (v as number).toFixed(digits);
 }
 
+function posBadgeClass(pos: string): string {
+  if (pos === "Goalkeeper") return styles.posGoalkeeper;
+  if (pos === "Defender")   return styles.posDefender;
+  if (pos === "Midfielder") return styles.posMidfielder;
+  if (pos === "Forward")    return styles.posForward;
+  return "";
+}
+
+function distinct<T>(arr: T[]): T[] {
+  return Array.from(new Set(arr));
+}
 
 // ---------------------------------------------------------------------------
-// SortTh
+// Plain sortable numeric header
 // ---------------------------------------------------------------------------
 
 function SortTh({
-  label, col, current, onSort, title,
-}: { label: string; col: string; current: string; onSort: (c: string) => void; title?: string }) {
-  const active = current === col;
+  label, active, onSort, title,
+}: { label: string; active: boolean; onSort: () => void; title?: string }) {
   return (
-    <th
-      className={`${styles.sortTh} ${active ? styles.sortThActive : ""}`}
-      onClick={() => onSort(col)}
+    <span
+      className={`${styles.thLabel} ${active ? styles.sortThActive : ""}`}
+      onClick={onSort}
       title={title}
     >
-      {label}{active ? " ▼" : ""}
-    </th>
+      {label}{active && <span className={styles.sortArrow}> ▼</span>}
+    </span>
   );
 }
 
@@ -50,83 +71,127 @@ function SortTh({
 // Club table
 // ---------------------------------------------------------------------------
 
-const CLUB_COLS: { label: string; col: ClubSort; title?: string; highlight?: boolean }[] = [
-  { label: "Players", col: "player_count", title: "Players at World Cup" },
-  { label: "Goals",   col: "total_goals" },
-  { label: "Assists", col: "total_assists" },
-  { label: "G+A",     col: "total_goal_contributions", title: "Total goal contributions" },
-  { label: "G+A/90", col: "ga_per_90", highlight: true, title: "Goal contributions per 90 mins — accounts for squad size" },
-  { label: "Mins",    col: "total_minutes", title: "Total minutes played" },
-  { label: "Yellows", col: "total_yellow_cards" },
-  { label: "Reds",    col: "total_red_cards" },
-  { label: "Avg Age", col: "avg_age" },
-];
-
 function ClubTable({
-  clubs, onDrillDown, filterClub, onFilterClub,
+  clubs, meta, onDrillDown,
 }: {
   clubs: Club[];
+  meta: WcMeta | null;
   onDrillDown: (c: string) => void;
-  filterClub: string;
-  onFilterClub: (c: string) => void;
 }) {
-  const [sort, setSort] = useState<ClubSort>("ga_per_90");
+  const [sort, setSort] = useState<keyof Club>("total_goals");
+  const [fClub, setFClub] = useState<Set<string>>(new Set());
+  const [fLeague, setFLeague] = useState<Set<string>>(new Set());
+
+  const { widths, startResize } = useColumnResize({
+    rank: 48, club: 180, players: 80, goals: 70, assists: 80, ga: 70,
+    g90: 70, a90: 70, ga90: 84, mins: 80, yc: 60, rc: 60, age: 80,
+  });
+
+  const filtered = useMemo(() => {
+    let r = clubs;
+    if (fClub.size)   r = r.filter((c) => fClub.has(c.club));
+    if (fLeague.size) r = r.filter((c) => c.league && fLeague.has(c.league));
+    return r;
+  }, [clubs, fClub, fLeague]);
 
   const sorted = useMemo(() =>
-    [...clubs].sort((a, b) => ((b[sort] as number) ?? 0) - ((a[sort] as number) ?? 0)),
-    [clubs, sort]);
+    [...filtered].sort((a, b) => ((b[sort] as number) ?? -1) - ((a[sort] as number) ?? -1)),
+    [filtered, sort]);
+
+  const numCols: { key: string; label: string; col: keyof Club; title?: string; accent?: boolean; dec?: boolean }[] = [
+    { key: "players", label: "Players", col: "player_count", title: "Players at the World Cup from this club" },
+    { key: "goals",   label: "Goals",   col: "total_goals" },
+    { key: "assists", label: "Assists", col: "total_assists" },
+    { key: "ga",      label: "G+A",     col: "total_goal_contributions", title: "Total goal contributions" },
+    { key: "g90",     label: "G/90",    col: "goals_per_90", dec: true, title: "Goals per 90 (all squad minutes)" },
+    { key: "a90",     label: "A/90",    col: "assists_per_90", dec: true, title: "Assists per 90 (all squad minutes)" },
+    { key: "ga90",    label: "G+A/90",  col: "ga_per_90", dec: true, accent: true, title: "Goal contributions per 90 — accounts for squad minutes" },
+    { key: "mins",    label: "Mins",    col: "total_minutes", title: "Total player-minutes" },
+    { key: "yc",      label: "YC",      col: "total_yellow_cards", title: "Yellow cards" },
+    { key: "rc",      label: "RC",      col: "total_red_cards", title: "Red cards" },
+    { key: "age",     label: "Avg Age", col: "avg_age" },
+  ];
+
+  const clubOptions = meta?.clubs ?? distinct(clubs.map((c) => c.club)).sort();
+  const leagueOptions = meta?.leagues ?? distinct(clubs.map((c) => c.league).filter(Boolean) as string[]).sort();
 
   return (
     <div>
-      {filterClub && (
-        <div className={styles.drillBanner}>
-          Filtered to <strong>{filterClub}</strong>
-          <button className={styles.clearBtn} onClick={() => onFilterClub("")}>Clear</button>
-        </div>
-      )}
       <div className={styles.tableWrap}>
         <table className={styles.table}>
+          <colgroup>
+            <col style={{ width: widths.rank }} />
+            <col style={{ width: widths.club }} />
+            {numCols.map((c) => <col key={c.key} style={{ width: widths[c.key] }} />)}
+          </colgroup>
           <thead>
             <tr>
               <th>#</th>
-              <th>Club</th>
-              {CLUB_COLS.map(({ label, col, title, highlight }) => (
-                <SortTh
-                  key={`${col}-${label}`}
-                  label={label}
-                  col={col}
-                  current={sort}
-                  onSort={(c) => setSort(c as ClubSort)}
-                  title={title}
+              <th className={styles.thResizable}>
+                <FilterHeader
+                  label="Club"
+                  options={clubOptions}
+                  selected={fClub}
+                  onChange={setFClub}
+                  sortActive={false}
+                  onSort={() => {}}
+                  title="Hover a club name to see its league"
                 />
+                <span className={styles.resizeHandle} onPointerDown={startResize("club")} />
+              </th>
+              {numCols.map((c) => (
+                <th key={c.key} className={styles.thResizable}>
+                  {c.key === "players" ? (
+                    <div className={styles.thInner}>
+                      <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
+                      <FilterHeader
+                        label="League"
+                        options={leagueOptions}
+                        selected={fLeague}
+                        onChange={setFLeague}
+                        sortActive={false}
+                        onSort={() => {}}
+                        title="Filter by league"
+                      />
+                    </div>
+                  ) : (
+                    <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
+                  )}
+                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} />
+                </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {sorted.map((c, i) => {
-              return (
-                <tr key={c.club} className={filterClub === c.club ? styles.rowHighlighted : ""}>
-                  <td className={styles.rank}>{i + 1}</td>
-                  <td>
-                    <button className={styles.clubLink} onClick={() => onDrillDown(c.club)}>
-                      {c.club}
-                    </button>
-                  </td>
-                  <td>{c.player_count}</td>
-                  <td className={styles.statCell}>{c.total_goals}</td>
-                  <td className={styles.statCell}>{c.total_assists}</td>
-                  <td className={`${styles.statCell} ${styles.highlight}`}>{c.total_goal_contributions}</td>
-                  <td>{c.total_minutes}</td>
-                  <td className={styles.highlight}>{fmtDec(c.ga_per_90)}</td>
-                  <td>{c.total_yellow_cards}</td>
-                  <td>{c.total_red_cards}</td>
-                  <td>{fmt(c.avg_age)}</td>
-                </tr>
-              );
-            })}
+            {sorted.map((c, i) => (
+              <tr key={c.club}>
+                <td className={styles.rank}>{i + 1}</td>
+                <td className={styles.wrap}>
+                  <button
+                    className={styles.clubLink}
+                    onClick={() => onDrillDown(c.club)}
+                    title={c.league ? `${c.club} · ${c.league}` : c.club}
+                  >
+                    {c.club}
+                  </button>
+                </td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{c.player_count}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goals}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_assists}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goal_contributions}</td>
+                <td className={styles.nowrap}>{fmtDec(c.goals_per_90)}</td>
+                <td className={styles.nowrap}>{fmtDec(c.assists_per_90)}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{fmtDec(c.ga_per_90)}</td>
+                <td className={styles.nowrap}>{c.total_minutes}</td>
+                <td className={styles.nowrap}>{c.total_yellow_cards}</td>
+                <td className={styles.nowrap}>{c.total_red_cards}</td>
+                <td className={styles.nowrap}>{fmt(c.avg_age)}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+      <div className={styles.tableMeta}>{sorted.length} clubs</div>
     </div>
   );
 }
@@ -135,106 +200,142 @@ function ClubTable({
 // Player table
 // ---------------------------------------------------------------------------
 
-const PLAYER_COLS: { label: string; col: PlayerSort; title?: string; highlight?: boolean }[] = [
-  { label: "Goals",    col: "goals" },
-  { label: "Assists",  col: "assists" },
-  { label: "G+A/90",  col: "goal_contributions_per_90", highlight: true, title: "Goal contributions per 90 min" },
-  { label: "Min/G",   col: "goals", title: "Minutes per goal — lower is better" },
-  { label: "SOT",     col: "shots_on_target", title: "Shots on target" },
-  { label: "Mins",    col: "minutes_played" },
-  { label: "YC",      col: "yellow_cards", title: "Yellow cards" },
-  { label: "RC",      col: "red_cards", title: "Red cards" },
-];
+type PlayerSort = keyof Player | "min_per_goal";
 
 function PlayerTable({
-  players, filterClub, onFilterClub, meta,
+  players, meta, fClub, setFClub,
 }: {
   players: Player[];
-  filterClub: string;
-  onFilterClub: (c: string) => void;
   meta: WcMeta | null;
+  fClub: Set<string>;
+  setFClub: (s: Set<string>) => void;
 }) {
   const [sort, setSort] = useState<PlayerSort>("goals");
-  const [colFilterClub, setColFilterClub] = useState(filterClub);
-  const [colFilterPos, setColFilterPos] = useState("");
+  const [fLeague, setFLeague] = useState<Set<string>>(new Set());
+  const [fNat, setFNat] = useState<Set<string>>(new Set());
+  const [fPos, setFPos] = useState<Set<string>>(new Set());
+  const [fSign, setFSign] = useState<Set<string>>(new Set());
 
-  // Sync external club filter into local state
-  useEffect(() => { setColFilterClub(filterClub); }, [filterClub]);
+  const { widths, startResize } = useColumnResize({
+    rank: 48, name: 170, club: 150, nat: 120, pos: 70, age: 56, sign: 110,
+    mp: 50, goals: 64, assists: 76, ga90: 80, mpg: 72, sot: 56, mins: 64, yc: 50, rc: 50,
+  });
 
   const filtered = useMemo(() => {
-    let result = players;
-    if (colFilterClub) result = result.filter((p) => p.club === colFilterClub);
-    if (colFilterPos)  result = result.filter((p) => p.position === colFilterPos);
-    return result;
-  }, [players, colFilterClub, colFilterPos]);
+    let r = players;
+    if (fClub.size)   r = r.filter((p) => fClub.has(p.club));
+    if (fLeague.size) r = r.filter((p) => p.league && fLeague.has(p.league));
+    if (fNat.size)    r = r.filter((p) => fNat.has(p.nationality));
+    if (fPos.size)    r = r.filter((p) => fPos.has(p.position));
+    if (fSign.size)   r = r.filter((p) => p.sun_sign && fSign.has(p.sun_sign));
+    return r;
+  }, [players, fClub, fLeague, fNat, fPos, fSign]);
 
   const sorted = useMemo(() =>
     [...filtered].sort((a, b) => {
+      if (sort === "min_per_goal") {
+        const av = a.goals ? a.minutes_played / a.goals : Infinity;
+        const bv = b.goals ? b.minutes_played / b.goals : Infinity;
+        return av - bv;
+      }
       const av = ((a as unknown as Record<string, unknown>)[sort as string] as number) ?? 0;
       const bv = ((b as unknown as Record<string, unknown>)[sort as string] as number) ?? 0;
       return bv - av;
     }),
     [filtered, sort]);
 
-  function handleColFilterClub(val: string) {
-    setColFilterClub(val);
-    onFilterClub(val);
-  }
+  const clubOptions   = meta?.clubs ?? distinct(players.map((p) => p.club)).sort();
+  const leagueOptions = meta?.leagues ?? distinct(players.map((p) => p.league).filter(Boolean) as string[]).sort();
+  const natOptions    = meta?.nationalities ?? distinct(players.map((p) => p.nationality)).sort();
+  const posOptions    = meta?.positions ?? distinct(players.map((p) => p.position)).sort();
+
+  const numCols: { key: string; label: string; col: PlayerSort; title?: string; accent?: boolean }[] = [
+    { key: "mp",     label: "MP",     col: "matches_played", title: "Matches played" },
+    { key: "goals",  label: "Goals",  col: "goals" },
+    { key: "assists",label: "Assists",col: "assists" },
+    { key: "ga90",   label: "G+A/90", col: "goal_contributions_per_90", accent: true, title: "Goal contributions per 90" },
+    { key: "mpg",    label: "Min/G",  col: "min_per_goal", title: "Minutes per goal — lower is better" },
+    { key: "sot",    label: "SOT",    col: "shots_on_target", title: "Shots on target" },
+    { key: "mins",   label: "Mins",   col: "minutes_played" },
+    { key: "yc",     label: "YC",     col: "yellow_cards", title: "Yellow cards" },
+    { key: "rc",     label: "RC",     col: "red_cards", title: "Red cards" },
+  ];
+
+  const anyFilter = fClub.size || fLeague.size || fNat.size || fPos.size || fSign.size;
 
   return (
     <div>
-      {/* In-table filter row */}
-      <div className={styles.tableFilters}>
-        <label className={styles.filterLabel}>
-          Club
-          <select
-            value={colFilterClub}
-            onChange={(e) => handleColFilterClub(e.target.value)}
-            className={styles.select}
+      {anyFilter ? (
+        <div className={styles.activeFilterRow}>
+          {fClub.size > 0 && <span className={styles.activePill}>Club: {[...fClub].join(", ")}</span>}
+          {fLeague.size > 0 && <span className={styles.activePill}>League: {[...fLeague].join(", ")}</span>}
+          {fNat.size > 0 && <span className={styles.activePill}>Nat: {[...fNat].join(", ")}</span>}
+          {fPos.size > 0 && <span className={styles.activePill}>Pos: {[...fPos].join(", ")}</span>}
+          {fSign.size > 0 && <span className={styles.activePill}>Sign: {[...fSign].join(", ")}</span>}
+          <button
+            className={styles.clearBtn}
+            onClick={() => { setFClub(new Set()); setFLeague(new Set()); setFNat(new Set()); setFPos(new Set()); setFSign(new Set()); }}
           >
-            <option value="">All clubs</option>
-            {meta?.clubs.map((c) => <option key={c} value={c}>{c}</option>)}
-          </select>
-        </label>
-        <label className={styles.filterLabel}>
-          Position
-          <select
-            value={colFilterPos}
-            onChange={(e) => setColFilterPos(e.target.value)}
-            className={styles.select}
-          >
-            <option value="">All positions</option>
-            {meta?.positions.map((p) => <option key={p} value={p}>{p}</option>)}
-          </select>
-        </label>
-        {(colFilterClub || colFilterPos) && (
-          <button className={styles.clearBtn} onClick={() => { handleColFilterClub(""); setColFilterPos(""); }}>
-            Clear
+            Clear filters
           </button>
-        )}
-        <span className={styles.rowCount}>{sorted.length} players</span>
-      </div>
+        </div>
+      ) : null}
 
       <div className={styles.tableWrap}>
         <table className={styles.table}>
+          <colgroup>
+            <col style={{ width: widths.rank }} />
+            <col style={{ width: widths.name }} />
+            <col style={{ width: widths.club }} />
+            <col style={{ width: widths.nat }} />
+            <col style={{ width: widths.pos }} />
+            <col style={{ width: widths.age }} />
+            <col style={{ width: widths.sign }} />
+            {numCols.map((c) => <col key={c.key} style={{ width: widths[c.key] }} />)}
+          </colgroup>
           <thead>
             <tr>
               <th>#</th>
-              <th>Player</th>
-              <th>Club</th>
-              <th>Nat.</th>
-              <th>Pos.</th>
-              <th>Age</th>
-              <th>MP</th>
-              {PLAYER_COLS.map(({ label, col, title, highlight }) => (
-                <SortTh
-                  key={`${col}-${label}`}
-                  label={label}
-                  col={col as string}
-                  current={sort as string}
-                  onSort={(c) => setSort(c as PlayerSort)}
-                  title={title}
+              <th className={styles.thResizable}>
+                <SortTh label="Player" active={sort === "name"} onSort={() => setSort("name" as PlayerSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("name")} />
+              </th>
+              <th className={styles.thResizable}>
+                <div className={styles.thInner}>
+                  <FilterHeader label="Club" options={clubOptions} selected={fClub} onChange={setFClub} sortActive={false} onSort={() => {}} />
+                  <FilterHeader label="League" options={leagueOptions} selected={fLeague} onChange={setFLeague} sortActive={false} onSort={() => {}} title="Filter by league" />
+                </div>
+                <span className={styles.resizeHandle} onPointerDown={startResize("club")} />
+              </th>
+              <th className={styles.thResizable}>
+                <FilterHeader label="Nat." options={natOptions} selected={fNat} onChange={setFNat} sortActive={false} onSort={() => {}} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("nat")} />
+              </th>
+              <th className={styles.thResizable}>
+                <FilterHeader label="Pos." options={posOptions} selected={fPos} onChange={setFPos} sortActive={false} onSort={() => {}} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("pos")} />
+              </th>
+              <th className={styles.thResizable}>
+                <SortTh label="Age" active={sort === "age"} onSort={() => setSort("age" as PlayerSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("age")} />
+              </th>
+              <th className={styles.thResizable}>
+                <FilterHeader
+                  label="Sign"
+                  options={ALL_SIGNS}
+                  selected={fSign}
+                  onChange={setFSign}
+                  sortActive={false}
+                  onSort={() => {}}
+                  renderOption={(s) => `${SIGN_EMOJI[s] ?? ""} ${s}`}
                 />
+                <span className={styles.resizeHandle} onPointerDown={startResize("sign")} />
+              </th>
+              {numCols.map((c) => (
+                <th key={c.key} className={styles.thResizable}>
+                  <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
+                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} />
+                </th>
               ))}
             </tr>
           </thead>
@@ -242,31 +343,126 @@ function PlayerTable({
             {sorted.map((p, i) => (
               <tr key={p.player_id}>
                 <td className={styles.rank}>{i + 1}</td>
-                <td>{p.name}</td>
-                <td>
+                <td className={`${styles.statCell} ${styles.wrap}`}>{p.name}</td>
+                <td className={styles.wrap}>
                   <button
                     className={styles.clubLink}
-                    onClick={() => handleColFilterClub(colFilterClub === p.club ? "" : p.club)}
+                    onClick={() => setFClub(fClub.has(p.club) ? new Set() : new Set([p.club]))}
+                    title={p.league ? `${p.club} · ${p.league}` : p.club}
                   >
                     {p.club}
                   </button>
                 </td>
-                <td>{p.nationality}</td>
-                <td>
-                  <span className={`${styles.posBadge} ${styles[`pos${p.position}`]}`}>
+                <td className={styles.wrap}>{p.nationality}</td>
+                <td className={styles.nowrap}>
+                  <span className={`${styles.posBadge} ${posBadgeClass(p.position)}`}>
                     {p.position?.slice(0, 3)}
                   </span>
                 </td>
-                <td>{fmt(p.age)}</td>
-                <td>{p.matches_played}</td>
-                <td className={styles.statCell}>{p.goals}</td>
-                <td className={styles.statCell}>{p.assists}</td>
-                <td className={`${styles.statCell} ${styles.highlight}`}>{fmtDec(p.goal_contributions_per_90)}</td>
-                <td>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
-                <td>{p.shots_on_target}</td>
-                <td>{p.minutes_played}</td>
-                <td>{p.yellow_cards}</td>
-                <td>{p.red_cards}</td>
+                <td className={styles.nowrap}>{fmt(p.age)}</td>
+                <td className={styles.nowrap}>
+                  {p.sun_sign ? (
+                    <span className={styles.signBadge} title={p.sun_sign}>
+                      {SIGN_EMOJI[p.sun_sign] ?? ""} {p.sun_sign}
+                    </span>
+                  ) : "—"}
+                </td>
+                <td className={styles.nowrap}>{p.matches_played}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{p.goals}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{p.assists}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{fmtDec(p.goal_contributions_per_90)}</td>
+                <td className={styles.nowrap}>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
+                <td className={styles.nowrap}>{p.shots_on_target}</td>
+                <td className={styles.nowrap}>{p.minutes_played}</td>
+                <td className={styles.nowrap}>{p.yellow_cards}</td>
+                <td className={styles.nowrap}>{p.red_cards}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className={styles.tableMeta}>{sorted.length} players</div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Astrology table
+// ---------------------------------------------------------------------------
+
+function AstroTable({ players }: { players: Player[] }) {
+  const [sort, setSort] = useState<string>("ga_per_90");
+
+  const rows = useMemo(() => {
+    return ALL_SIGNS.map((sign) => {
+      const group = players.filter((p) => p.sun_sign === sign);
+      const count   = group.length;
+      const goals   = group.reduce((s, p) => s + p.goals, 0);
+      const assists = group.reduce((s, p) => s + p.assists, 0);
+      const mins    = group.reduce((s, p) => s + p.minutes_played, 0);
+      const ga      = goals + assists;
+      const ga_per_90 = mins > 0 ? Math.round((ga / mins) * 90 * 100) / 100 : 0;
+      const g_per_player = count ? Math.round((goals / count) * 100) / 100 : 0;
+      const top = [...group].sort((a, b) => (b.goals + b.assists) - (a.goals + a.assists))[0];
+      return { sign, count, goals, assists, ga, mins, ga_per_90, g_per_player, top };
+    }).filter((r) => r.count > 0);
+  }, [players]);
+
+  const sorted = useMemo(() =>
+    [...rows].sort((a, b) => ((b as unknown as Record<string, number>)[sort] ?? 0) - ((a as unknown as Record<string, number>)[sort] ?? 0)),
+    [rows, sort]);
+
+  const cols: { key: string; label: string; title?: string; accent?: boolean }[] = [
+    { key: "count",        label: "Players" },
+    { key: "goals",        label: "Goals" },
+    { key: "assists",      label: "Assists" },
+    { key: "ga",           label: "G+A" },
+    { key: "ga_per_90",    label: "G+A/90", accent: true, title: "Goal contributions per 90 across all players of this sign" },
+    { key: "g_per_player", label: "G/Player", title: "Average goals per player" },
+    { key: "mins",         label: "Mins" },
+  ];
+
+  return (
+    <div>
+      <p className={styles.astroIntro}>
+        Which star signs are outscoring the zodiac? Ranked by goal contributions per 90 minutes. Click any header to sort. Pure vibes.
+      </p>
+      <div className={styles.tableWrap}>
+        <table className={styles.table} style={{ tableLayout: "auto" }}>
+          <thead>
+            <tr>
+              <th style={{ width: 48 }}>#</th>
+              <th style={{ width: 160 }}>Sign</th>
+              {cols.map((c) => (
+                <th key={c.key}>
+                  <SortTh label={c.label} active={sort === c.key} onSort={() => setSort(c.key)} title={c.title} />
+                </th>
+              ))}
+              <th>Top Performer</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((r, i) => (
+              <tr key={r.sign}>
+                <td className={styles.rank}>{i + 1}</td>
+                <td className={styles.statCell}>
+                  <span className={styles.signEmoji} style={{ fontSize: "1.1rem" }}>{SIGN_EMOJI[r.sign]}</span>{" "}
+                  {r.sign}
+                </td>
+                <td>{r.count}</td>
+                <td className={styles.statCell}>{r.goals}</td>
+                <td className={styles.statCell}>{r.assists}</td>
+                <td className={styles.statCell}>{r.ga}</td>
+                <td className={styles.statCellAccent}>{r.ga_per_90.toFixed(2)}</td>
+                <td>{r.g_per_player.toFixed(2)}</td>
+                <td>{r.mins}</td>
+                <td className={styles.wrap}>
+                  {r.top ? (
+                    <span>
+                      {r.top.name} <span style={{ color: "var(--accent)" }}>({r.top.goals}G {r.top.assists}A)</span>
+                    </span>
+                  ) : "—"}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -288,29 +484,18 @@ export default function WC2026Page() {
   const [lastUpdated, setLastUpdated] = useState<string>("");
   const [matchesPlayed, setMatchesPlayed] = useState(0);
   const [loading, setLoading] = useState(true);
-
-  // Global filters (nationality + min minutes applied server-side)
-  const [filterNat, setFilterNat] = useState("");
-  const [filterMinMins, setFilterMinMins] = useState(0);
-  // Club filter shared between tabs
-  const [filterClub, setFilterClub] = useState("");
+  const [playerClubFilter, setPlayerClubFilter] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     async function load() {
       setLoading(true);
-      const params = new URLSearchParams();
-      if (filterNat) params.set("nationality", filterNat);
-      if (filterMinMins) params.set("min_minutes", String(filterMinMins));
-
       const [clubsRes, playersRes, metaRes] = await Promise.all([
-        fetch(`/api/v1/clubs?${params}`),
-        fetch(`/api/v1/players?${params}`),
+        fetch("/api/v1/clubs"),
+        fetch("/api/v1/players"),
         fetch("/api/v1/meta"),
       ]);
       const [clubsJson, playersJson, metaJson] = await Promise.all([
-        clubsRes.json(),
-        playersRes.json(),
-        metaRes.json(),
+        clubsRes.json(), playersRes.json(), metaRes.json(),
       ]);
       setClubs(clubsJson.response);
       setPlayers(playersJson.response);
@@ -320,10 +505,10 @@ export default function WC2026Page() {
       setLoading(false);
     }
     load();
-  }, [filterNat, filterMinMins]);
+  }, []);
 
   function handleDrillDown(club: string) {
-    setFilterClub(club);
+    setPlayerClubFilter(new Set([club]));
     setTab("players");
   }
 
@@ -331,20 +516,26 @@ export default function WC2026Page() {
     ? new Date(lastUpdated).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })
     : "";
 
-  // Derive KPIs from current player list (reflects nationality/min-minutes filters)
-  const visiblePlayers = filterClub ? players.filter((p) => p.club === filterClub) : players;
-  const totalGoals   = visiblePlayers.reduce((s, p) => s + p.goals, 0);
-  const totalAssists = visiblePlayers.reduce((s, p) => s + p.assists, 0);
-  const totalYellow  = visiblePlayers.reduce((s, p) => s + p.yellow_cards, 0);
-  const totalRed     = visiblePlayers.reduce((s, p) => s + p.red_cards, 0);
+  const totalGoals   = players.reduce((s, p) => s + p.goals, 0);
+  const totalAssists = players.reduce((s, p) => s + p.assists, 0);
+  const totalYellow  = players.reduce((s, p) => s + p.yellow_cards, 0);
+  const totalRed     = players.reduce((s, p) => s + p.red_cards, 0);
+  const numLeagues   = meta?.leagues.length ?? 0;
 
   return (
     <main className={styles.page}>
+      {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.title}>World Cup 2026 — Club Dashboard</h1>
+        <div className={styles.eyebrow}>
+          <span className={styles.eyebrowDot} />
+          FIFA World Cup 2026
+        </div>
+        <h1 className={styles.title}>
+          Club <span className={styles.titleAccent}>Dashboard</span>
+        </h1>
         <p className={styles.subtitle}>
-          Which clubs are showing out most? Tracking goals, assists &amp; more by domestic club.
-          {updatedStr && <span className={styles.updated}> Updated: {updatedStr}</span>}
+          Which domestic clubs are showing out most at the World Cup?
+          {updatedStr && <span className={styles.updatedBadge}>Updated {updatedStr}</span>}
         </p>
       </div>
 
@@ -355,7 +546,7 @@ export default function WC2026Page() {
           <div className={styles.cardLabel}>Matches played</div>
         </div>
         <div className={styles.card}>
-          <div className={styles.cardValue}>{totalGoals}</div>
+          <div className={styles.cardValueAccent}>{totalGoals}</div>
           <div className={styles.cardLabel}>Goals scored</div>
         </div>
         <div className={styles.card}>
@@ -363,11 +554,15 @@ export default function WC2026Page() {
           <div className={styles.cardLabel}>Assists</div>
         </div>
         <div className={styles.card}>
-          <div className={styles.cardValue}>{filterClub ? 1 : clubs.length}</div>
+          <div className={styles.cardValue}>{clubs.length}</div>
           <div className={styles.cardLabel}>Clubs represented</div>
         </div>
         <div className={styles.card}>
-          <div className={styles.cardValue}>{visiblePlayers.length}</div>
+          <div className={styles.cardValue}>{numLeagues}</div>
+          <div className={styles.cardLabel}>Leagues represented</div>
+        </div>
+        <div className={styles.card}>
+          <div className={styles.cardValue}>{players.length}</div>
           <div className={styles.cardLabel}>Players tracked</div>
         </div>
         <div className={styles.card}>
@@ -380,33 +575,6 @@ export default function WC2026Page() {
         </div>
       </div>
 
-      {/* Global filter bar */}
-      <div className={styles.filterBar}>
-        <label className={styles.filterLabel}>
-          Nationality
-          <select value={filterNat} onChange={(e) => { setFilterNat(e.target.value); setFilterClub(""); }} className={styles.select}>
-            <option value="">All</option>
-            {meta?.nationalities.map((n) => <option key={n} value={n}>{n}</option>)}
-          </select>
-        </label>
-        <label className={styles.filterLabel}>
-          Min minutes
-          <select value={filterMinMins} onChange={(e) => { setFilterMinMins(Number(e.target.value)); setFilterClub(""); }} className={styles.select}>
-            <option value={0}>Any</option>
-            <option value={45}>45+</option>
-            <option value={90}>90+</option>
-            <option value={180}>180+</option>
-            <option value={270}>270+</option>
-          </select>
-        </label>
-        {(filterNat || filterMinMins > 0 || filterClub) && (
-          <button className={styles.clearBtn} onClick={() => { setFilterNat(""); setFilterMinMins(0); setFilterClub(""); }}>
-            Clear all filters
-          </button>
-        )}
-        {filterClub && <span className={styles.activePill}>Club: {filterClub}</span>}
-      </div>
-
       {/* Tabs */}
       <div className={styles.tabs}>
         <button className={`${styles.tab} ${tab === "clubs" ? styles.tabActive : ""}`} onClick={() => setTab("clubs")}>
@@ -415,28 +583,20 @@ export default function WC2026Page() {
         <button className={`${styles.tab} ${tab === "players" ? styles.tabActive : ""}`} onClick={() => setTab("players")}>
           Player Stats
         </button>
+        <button className={`${styles.tab} ${tab === "astro" ? styles.tabActive : ""}`} onClick={() => setTab("astro")}>
+          ☀️ Astrology
+        </button>
       </div>
 
       {loading ? (
-        <div className={styles.loading}>Loading...</div>
+        <div className={styles.loading}>Loading data…</div>
       ) : (
         <div className={styles.tabContent}>
-          {tab === "clubs" && (
-            <ClubTable
-              clubs={clubs}
-              onDrillDown={handleDrillDown}
-              filterClub={filterClub}
-              onFilterClub={setFilterClub}
-            />
-          )}
+          {tab === "clubs" && <ClubTable clubs={clubs} meta={meta} onDrillDown={handleDrillDown} />}
           {tab === "players" && (
-            <PlayerTable
-              players={players}
-              filterClub={filterClub}
-              onFilterClub={setFilterClub}
-              meta={meta}
-            />
+            <PlayerTable players={players} meta={meta} fClub={playerClubFilter} setFClub={setPlayerClubFilter} />
           )}
+          {tab === "astro" && <AstroTable players={players} />}
         </div>
       )}
     </main>

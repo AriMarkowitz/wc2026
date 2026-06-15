@@ -12,6 +12,7 @@ UNKNOWN = "Unknown"
 def build_output(
     match_stats: dict,       # {str(event_id): [player_stat_dict, ...]}
     player_profiles: dict,   # {str(player_id): profile_dict}
+    squad_player_ids: set[str] | None = None,  # full universe of WC squad players
 ) -> dict:
 
     # --- Aggregate per player across all matches ---
@@ -23,6 +24,14 @@ def build_output(
             if pid not in player_agg:
                 player_agg[pid] = _empty_agg(pid, stat)
             _merge_stat(player_agg[pid], stat)
+
+    # --- Include squad players who haven't appeared yet (zero stats) ---
+    if squad_player_ids:
+        for pid in squad_player_ids:
+            pid = str(pid)
+            if pid not in player_agg:
+                prof = player_profiles.get(pid, {})
+                player_agg[pid] = _empty_agg(pid, {"name": prof.get("name")})
 
     # --- Attach profile metadata and compute derived fields ---
     players = []
@@ -71,16 +80,23 @@ def build_output(
         ages = [p["age"] for p in club_players if p["age"] is not None]
         total_mins = sum(p["minutes_played"] for p in club_players)
         total_ga   = sum(p["goals"] + p["assists"] for p in club_players)
+        total_goals   = sum(p["goals"]   for p in club_players)
+        total_assists = sum(p["assists"] for p in club_players)
+        leagues = [p.get("league") for p in club_players if p.get("league")]
+        league = leagues[0] if leagues else None
         clubs.append({
             "club": club_name,
+            "league": league,
             "player_count": len(club_players),
-            "total_goals": sum(p["goals"] for p in club_players),
-            "total_assists": sum(p["assists"] for p in club_players),
+            "total_goals": total_goals,
+            "total_assists": total_assists,
             "total_goal_contributions": total_ga,
             "total_minutes": total_mins,
             "total_yellow_cards": sum(p["yellow_cards"] for p in club_players),
             "total_red_cards": sum(p["red_cards"] for p in club_players),
             "avg_age": round(sum(ages) / len(ages), 1) if ages else None,
+            "goals_per_90": _per90(total_goals, total_mins),
+            "assists_per_90": _per90(total_assists, total_mins),
             "ga_per_90": _per90(total_ga, total_mins),
             "players": [p["name"] for p in club_players],
         })
@@ -89,6 +105,7 @@ def build_output(
 
     nationalities = sorted({p["nationality"] for p in players if p["nationality"] != UNKNOWN})
     club_names = sorted({c["club"] for c in clubs})
+    leagues = sorted({p["league"] for p in players if p.get("league")})
     positions = [pos for pos in ["Goalkeeper", "Defender", "Midfielder", "Forward"]
                  if any(p["position"] == pos for p in players)]
     sun_signs = [s for s in ["Aries","Taurus","Gemini","Cancer","Leo","Virgo",
@@ -101,6 +118,7 @@ def build_output(
         "meta": {
             "nationalities": nationalities,
             "clubs": club_names,
+            "leagues": leagues,
             "positions": positions,
             "sun_signs": sun_signs,
         },

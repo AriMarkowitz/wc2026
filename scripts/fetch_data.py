@@ -23,6 +23,7 @@ from config import (
     WEB_CACHE_FILE,
     WEB_DATA_DIR,
 )
+from leagues import league_from_slug
 from transform import build_output
 
 
@@ -56,12 +57,18 @@ def date_range(start: str, end: str):
 # Step 1: Collect all completed WC event IDs
 # ---------------------------------------------------------------------------
 
-def fetch_event_ids() -> list[dict]:
-    """Return list of {id, name, date} for all completed WC matches so far."""
+def fetch_event_ids() -> tuple[list[dict], dict[str, str]]:
+    """Return (completed matches, {national_team_id: name}) seen so far at the WC."""
     events = []
+    team_ids: dict[str, str] = {}
     for day in date_range(WC_START_DATE, WC_END_DATE):
         data = api_client.get(f"{ESPN_BASE}/scoreboard", {"dates": day})
         for event in data.get("events", []):
+            for comp in event.get("competitions", []):
+                for c in comp.get("competitors", []):
+                    t = c.get("team", {})
+                    if t.get("id"):
+                        team_ids[t["id"]] = t.get("displayName", "")
             status = event.get("status", {}).get("type", {}).get("state")
             if status == "post":  # completed
                 events.append({
@@ -69,7 +76,17 @@ def fetch_event_ids() -> list[dict]:
                     "name": event.get("name", ""),
                     "date": day,
                 })
-    return events
+    return events, team_ids
+
+
+def fetch_squad_player_ids(team_id: str) -> list[str]:
+    """Return all athlete IDs in a national team's WC squad (typically 26)."""
+    try:
+        data = api_client.get(f"{ESPN_BASE}/teams/{team_id}/roster")
+        return [str(a["id"]) for a in data.get("athletes", []) if a.get("id")]
+    except Exception as e:
+        print(f"  Warning: could not fetch squad for team {team_id}: {e}")
+        return []
 
 
 # ---------------------------------------------------------------------------
@@ -193,18 +210,16 @@ def fetch_athlete_profile(player_id: str) -> dict:
         data = api_client.get(f"{ESPN_ATHLETE_BASE}/{player_id}")
         athlete = data.get("athlete", {})
         team = athlete.get("team", {})
-        # League from groups[0].name e.g. "English Premier League 2025-2026"
-        groups = team.get("groups", [])
-        league_full = groups[0].get("name", "") if groups else ""
-        # Strip trailing season suffix "2025-2026" → "English Premier League"
-        import re
-        league = re.sub(r"\s+\d{4}-\d{4}$", "", league_full).strip() if league_full else None
-        dob_str = athlete.get("displayDOB")  # "MM/DD/YYYY"
+        club = team.get("displayName")
+        # Derive a clean, stable league name from the team slug (e.g. "eng.arsenal").
+        # ESPN's groups[].name is unreliable ("Grand Final", "2026", "Promotion Final").
+        league = league_from_slug(team.get("slug"), club)
+        dob_str = athlete.get("displayDOB")  # "MM/DD/YYYY" or "M/D/YYYY"
         sun_sign = _sun_sign(dob_str)
         return {
             "player_id": player_id,
             "name": athlete.get("displayName", ""),
-            "club": team.get("displayName"),
+            "club": club,
             "league": league,
             "position": athlete.get("position", {}).get("displayName"),
             "age": athlete.get("age"),
@@ -234,40 +249,58 @@ def main():
     match_stats: dict = cache.get("match_stats", {})  # {event_id: [player_stat, ...]}
     already_fetched = set(match_stats.keys())
 
-    # --- Collect all completed match IDs ---
+    squad_ids: dict = cache.get("squad_ids", {})  # {team_id: [athlete_id, ...]}
+
+    # --- Collect all completed match IDs + national teams seen ---
     print("Scanning WC 2026 schedule...")
-    all_events = fetch_event_ids()
+    all_events, team_ids = fetch_event_ids()
     print(f"  Total completed matches found: {len(all_events)}")
+    print(f"  National teams seen: {len(team_ids)}")
 
     new_events = [e for e in all_events if e["id"] not in already_fetched]
     print(f"  New matches to fetch: {len(new_events)}")
 
     # --- Fetch player stats for new matches ---
-    new_player_ids: set[str] = set()
     for event in new_events:
         eid = event["id"]
         print(f"  Fetching: {event['name']} ({event['date']}, id={eid})")
         stats = parse_match_stats(eid)
         match_stats[eid] = stats
-        new_player_ids.update(s["player_id"] for s in stats)
 
-    # --- Fetch profiles for any new players not already cached ---
-    missing_profiles = new_player_ids - set(player_profiles.keys())
+    # --- Fetch full WC squads (so we capture every selected player, not just
+    #     those who have appeared). Only fetch squads we don't have yet. ---
+    new_teams = [tid for tid in team_ids if tid not in squad_ids]
+    if new_teams:
+        print(f"Fetching squads for {len(new_teams)} national teams...")
+        for tid in new_teams:
+            ids = fetch_squad_player_ids(tid)
+            squad_ids[tid] = ids
+            print(f"  {team_ids[tid]} → {len(ids)} players")
+
+    # --- Determine the full universe of players: anyone who has appeared in a
+    #     match PLUS anyone in a fetched WC squad. ---
+    appeared_ids = {str(s["player_id"]) for stats in match_stats.values() for s in stats}
+    squad_player_ids = {pid for ids in squad_ids.values() for pid in ids}
+    all_player_ids = appeared_ids | squad_player_ids
+
+    # --- Fetch profiles for any player missing club data ---
+    have_club = {pid for pid, p in player_profiles.items() if p.get("club")}
+    missing_profiles = all_player_ids - have_club
     if missing_profiles:
-        print(f"Fetching profiles for {len(missing_profiles)} new players...")
+        print(f"Fetching profiles for {len(missing_profiles)} players (new or missing club)...")
         for pid in sorted(missing_profiles):
             profile = fetch_athlete_profile(pid)
             player_profiles[pid] = profile
-            club = profile.get("club", "?")
-            print(f"  {profile.get('name', pid)} → {club}")
+            print(f"  {profile.get('name', pid)} → {profile.get('club', '?')}")
         save_json(Path(PLAYER_CACHE_FILE), player_profiles)
 
     # --- Build aggregated output ---
     print("Building aggregated output...")
     from datetime import datetime
-    output = build_output(match_stats, player_profiles)
+    output = build_output(match_stats, player_profiles, squad_player_ids=all_player_ids)
     output["last_updated"] = datetime.utcnow().isoformat() + "Z"
     output["match_stats"] = match_stats
+    output["squad_ids"] = squad_ids
 
     save_json(Path(CACHE_FILE), output)
 

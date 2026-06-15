@@ -2,10 +2,12 @@ export interface Player {
   player_id: number;
   name: string;
   club: string;
+  league: string | null;
   nationality: string;
   age: number | null;
-  birth_date: string | null;
-  position: "Goalkeeper" | "Defender" | "Midfielder" | "Attacker" | string;
+  dob: string | null;
+  sun_sign: string | null;
+  position: "Goalkeeper" | "Defender" | "Midfielder" | "Forward" | string;
   photo: string | null;
   matches_played: number;
   minutes_played: number;
@@ -14,7 +16,9 @@ export interface Player {
   yellow_cards: number;
   red_cards: number;
   shots_on_target: number;
-  key_passes: number;
+  total_shots: number;
+  saves: number;
+  fouls_committed: number;
   goals_per_90: number | null;
   assists_per_90: number | null;
   goal_contributions_per_90: number | null;
@@ -22,6 +26,7 @@ export interface Player {
 
 export interface Club {
   club: string;
+  league: string | null;
   player_count: number;
   total_goals: number;
   total_assists: number;
@@ -30,6 +35,8 @@ export interface Club {
   total_yellow_cards: number;
   total_red_cards: number;
   avg_age: number | null;
+  goals_per_90: number | null;
+  assists_per_90: number | null;
   ga_per_90: number | null;
   players: string[];
 }
@@ -37,7 +44,9 @@ export interface Club {
 export interface WcMeta {
   nationalities: string[];
   clubs: string[];
+  leagues: string[];
   positions: string[];
+  sun_signs: string[];
 }
 
 export interface WcData {
@@ -46,5 +55,3 @@ export interface WcData {
   clubs: Club[];
   meta: WcMeta;
 }
-
-export type SortStat = "goals" | "assists" | "total_goal_contributions" | "minutes_played" | "yellow_cards";

@@ -53,6 +53,10 @@ function applyPlayerFilters(players: Player[], f: PlayerFilters): Player[] {
 }
 
 // For club filters we re-derive totals from the matching player subset
+function per90(value: number, mins: number): number | null {
+  return mins > 0 ? Math.round((value / mins) * 90 * 100) / 100 : null;
+}
+
 function deriveClubTotals(players: Player[]): Club[] {
   const map = new Map<string, Player[]>();
   for (const p of players) {
@@ -62,19 +66,25 @@ function deriveClubTotals(players: Player[]): Club[] {
   const clubs: Club[] = [];
   for (const [club, ps] of map.entries()) {
     const ages = ps.map((p) => p.age).filter((a): a is number => a != null);
-    const totalMins = ps.reduce((s, p) => s + p.minutes_played, 0);
-    const totalGa   = ps.reduce((s, p) => s + p.goals + p.assists, 0);
+    const totalMins    = ps.reduce((s, p) => s + p.minutes_played, 0);
+    const totalGoals   = ps.reduce((s, p) => s + p.goals, 0);
+    const totalAssists = ps.reduce((s, p) => s + p.assists, 0);
+    const totalGa      = totalGoals + totalAssists;
+    const league       = ps.find((p) => p.league)?.league ?? null;
     clubs.push({
       club,
+      league,
       player_count: ps.length,
-      total_goals: ps.reduce((s, p) => s + p.goals, 0),
-      total_assists: ps.reduce((s, p) => s + p.assists, 0),
+      total_goals: totalGoals,
+      total_assists: totalAssists,
       total_goal_contributions: totalGa,
       total_minutes: totalMins,
       total_yellow_cards: ps.reduce((s, p) => s + p.yellow_cards, 0),
       total_red_cards: ps.reduce((s, p) => s + p.red_cards, 0),
       avg_age: ages.length ? Math.round((ages.reduce((s, a) => s + a, 0) / ages.length) * 10) / 10 : null,
-      ga_per_90: totalMins > 0 ? Math.round((totalGa / totalMins) * 90 * 100) / 100 : null,
+      goals_per_90: per90(totalGoals, totalMins),
+      assists_per_90: per90(totalAssists, totalMins),
+      ga_per_90: per90(totalGa, totalMins),
       players: ps.map((p) => p.name),
     });
   }

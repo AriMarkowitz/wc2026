@@ -267,6 +267,7 @@
   border-collapse: collapse;
   font-size: 0.85rem;
   font-variant-numeric: tabular-nums;
+  table-layout: fixed;          /* needed for column resizing */
 }
 
 .table th {
@@ -282,12 +283,26 @@
   background: var(--surface);
   position: sticky;
   top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .table td {
   padding: 0.65rem 0.85rem;
   border-bottom: 1px solid var(--border);
   color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Numeric/stat cells never wrap; text columns wrap smartly */
+.table td.wrap {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.table td.nowrap {
   white-space: nowrap;
 }
 
@@ -298,6 +313,25 @@
 .table tbody tr:hover td {
   background: var(--surface2);
   color: var(--text);
+}
+
+/* ── Header cell layout (label + sort + funnel) ──────────────────────── */
+.thInner {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.thLabel {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thLabel:hover {
+  color: var(--text-2);
 }
 
 .sortTh {
@@ -311,6 +345,171 @@
 
 .sortThActive {
   color: var(--accent) !important;
+}
+
+.sortArrow {
+  color: var(--accent);
+  font-size: 0.6rem;
+}
+
+/* ── Column resize handle ────────────────────────────────────────────── */
+.resizeHandle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.resizeHandle::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  right: 2px;
+  height: 50%;
+  width: 1px;
+  background: var(--border2);
+  transition: background 0.15s;
+}
+
+.resizeHandle:hover::after,
+.resizeHandle.resizing::after {
+  background: var(--accent);
+  width: 2px;
+}
+
+.thResizable {
+  position: relative;
+}
+
+/* ── Funnel filter button + popover ──────────────────────────────────── */
+.funnelBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-3);
+  font-size: 0.7rem;
+  line-height: 1;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.funnelBtn:hover {
+  background: var(--surface2);
+  color: var(--text-2);
+}
+
+.funnelBtnActive {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 50;
+  min-width: 200px;
+  max-width: 280px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+  padding: 0.6rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.popoverSearch {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 7px;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 400;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.popoverSearch:focus {
+  border-color: var(--accent);
+}
+
+.popoverList {
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.popoverItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-2);
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popoverItem:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.popoverItemActive {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.popoverCheck {
+  width: 14px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.popoverFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.popoverClear {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.popoverClear:hover {
+  color: var(--text);
 }
 
 /* ── Rank cell ───────────────────────────────────────────────────────── */
@@ -350,6 +549,29 @@
 
 .clubLink:hover {
   color: var(--accent);
+}
+
+/* ── Table meta / active filters ─────────────────────────────────────── */
+.tableMeta {
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.activeFilterRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.astroIntro {
+  color: var(--text-2);
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  max-width: 60ch;
 }
 
 /* ── League badge ────────────────────────────────────────────────────── */
