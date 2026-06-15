@@ -79,11 +79,34 @@ def fetch_event_ids() -> tuple[list[dict], dict[str, str]]:
     return events, team_ids
 
 
-def fetch_squad_player_ids(team_id: str) -> list[str]:
-    """Return all athlete IDs in a national team's WC squad (typically 26)."""
+def fetch_all_wc_team_ids() -> dict[str, str]:
+    """Return {team_id: name} for ALL 48 teams at the World Cup (not just those
+    who have already played)."""
+    team_ids: dict[str, str] = {}
+    try:
+        data = api_client.get(f"{ESPN_BASE}/teams")
+        for sport in data.get("sports", []):
+            for league in sport.get("leagues", []):
+                for entry in league.get("teams", []):
+                    t = entry.get("team", {})
+                    if t.get("id"):
+                        team_ids[t["id"]] = t.get("displayName", "")
+    except Exception as e:
+        print(f"  Warning: could not fetch WC team list: {e}")
+    return team_ids
+
+
+def fetch_squad(team_id: str) -> list[dict]:
+    """Return [{id, dob}] for a national team's WC squad. The roster endpoint's
+    `dateOfBirth` is ISO (YYYY-MM-DD) — unambiguous, unlike the athlete
+    profile's `displayDOB` which is locale-formatted D/M/YYYY."""
     try:
         data = api_client.get(f"{ESPN_BASE}/teams/{team_id}/roster")
-        return [str(a["id"]) for a in data.get("athletes", []) if a.get("id")]
+        out = []
+        for a in data.get("athletes", []):
+            if a.get("id"):
+                out.append({"id": str(a["id"]), "dob": a.get("dateOfBirth")})
+        return out
     except Exception as e:
         print(f"  Warning: could not fetch squad for team {team_id}: {e}")
         return []
@@ -191,21 +214,32 @@ _SIGNS = [
     (12, 31, "Capricorn"),
 ]
 
-def _sun_sign(dob_str: str | None) -> str | None:
+def _parse_dob(dob_str: str | None) -> tuple[int, int] | None:
+    """Return (month, day) from an ISO date 'YYYY-MM-DD...'. Only ISO is accepted
+    because ESPN's locale 'D/M/YYYY' vs 'M/D/YYYY' is ambiguous and unreliable."""
     if not dob_str:
         return None
     try:
-        parts = dob_str.split("/")
-        month, day = int(parts[0]), int(parts[1])
-        for end_month, end_day, sign in _SIGNS:
-            if month < end_month or (month == end_month and day <= end_day):
-                return sign
+        # ISO: 2001-07-03T07:00Z  → year-month-day
+        date_part = dob_str.split("T")[0]
+        y, m, d = date_part.split("-")
+        return int(m), int(d)
     except Exception:
-        pass
+        return None
+
+
+def _sun_sign(dob_str: str | None) -> str | None:
+    parsed = _parse_dob(dob_str)
+    if not parsed:
+        return None
+    month, day = parsed
+    for end_month, end_day, sign in _SIGNS:
+        if month < end_month or (month == end_month and day <= end_day):
+            return sign
     return None
 
 
-def fetch_athlete_profile(player_id: str) -> dict:
+def fetch_athlete_profile(player_id: str, iso_dob: str | None = None) -> dict:
     try:
         data = api_client.get(f"{ESPN_ATHLETE_BASE}/{player_id}")
         athlete = data.get("athlete", {})
@@ -214,8 +248,10 @@ def fetch_athlete_profile(player_id: str) -> dict:
         # Derive a clean, stable league name from the team slug (e.g. "eng.arsenal").
         # ESPN's groups[].name is unreliable ("Grand Final", "2026", "Promotion Final").
         league = league_from_slug(team.get("slug"), club)
-        dob_str = athlete.get("displayDOB")  # "MM/DD/YYYY" or "M/D/YYYY"
-        sun_sign = _sun_sign(dob_str)
+        # Prefer the unambiguous ISO DOB from the squad roster. Fall back to the
+        # profile's ISO dateOfBirth; never trust the ambiguous displayDOB.
+        dob_iso = iso_dob or athlete.get("dateOfBirth")
+        sun_sign = _sun_sign(dob_iso)
         return {
             "player_id": player_id,
             "name": athlete.get("displayName", ""),
@@ -223,7 +259,7 @@ def fetch_athlete_profile(player_id: str) -> dict:
             "league": league,
             "position": athlete.get("position", {}).get("displayName"),
             "age": athlete.get("age"),
-            "dob": dob_str,
+            "dob": dob_iso,
             "sun_sign": sun_sign,
             "nationality": athlete.get("citizenship"),
             "photo": None,
@@ -249,13 +285,18 @@ def main():
     match_stats: dict = cache.get("match_stats", {})  # {event_id: [player_stat, ...]}
     already_fetched = set(match_stats.keys())
 
-    squad_ids: dict = cache.get("squad_ids", {})  # {team_id: [athlete_id, ...]}
+    # squads: {team_id: [{"id": str, "dob": iso_str|None}, ...]}
+    squads: dict = cache.get("squads", {})
 
-    # --- Collect all completed match IDs + national teams seen ---
+    # --- Collect all completed match IDs ---
     print("Scanning WC 2026 schedule...")
-    all_events, team_ids = fetch_event_ids()
+    all_events, _ = fetch_event_ids()
     print(f"  Total completed matches found: {len(all_events)}")
-    print(f"  National teams seen: {len(team_ids)}")
+
+    # --- Collect ALL 48 WC teams (so we capture full rosters even for teams
+    #     that haven't kicked off yet) ---
+    team_ids = fetch_all_wc_team_ids()
+    print(f"  WC teams found: {len(team_ids)}")
 
     new_events = [e for e in all_events if e["id"] not in already_fetched]
     print(f"  New matches to fetch: {len(new_events)}")
@@ -267,20 +308,27 @@ def main():
         stats = parse_match_stats(eid)
         match_stats[eid] = stats
 
-    # --- Fetch full WC squads (so we capture every selected player, not just
-    #     those who have appeared). Only fetch squads we don't have yet. ---
-    new_teams = [tid for tid in team_ids if tid not in squad_ids]
+    # --- Fetch full WC squads (every selected player, not just those who have
+    #     appeared). Only fetch squads we don't have yet. ---
+    new_teams = [tid for tid in team_ids if tid not in squads]
     if new_teams:
         print(f"Fetching squads for {len(new_teams)} national teams...")
         for tid in new_teams:
-            ids = fetch_squad_player_ids(tid)
-            squad_ids[tid] = ids
-            print(f"  {team_ids[tid]} → {len(ids)} players")
+            members = fetch_squad(tid)
+            squads[tid] = members
+            print(f"  {team_ids[tid]} → {len(members)} players")
+
+    # --- Build ISO DOB map from squad rosters (authoritative, unambiguous) ---
+    dob_map: dict[str, str] = {}
+    for members in squads.values():
+        for m in members:
+            if m.get("dob"):
+                dob_map[m["id"]] = m["dob"]
 
     # --- Determine the full universe of players: anyone who has appeared in a
     #     match PLUS anyone in a fetched WC squad. ---
     appeared_ids = {str(s["player_id"]) for stats in match_stats.values() for s in stats}
-    squad_player_ids = {pid for ids in squad_ids.values() for pid in ids}
+    squad_player_ids = {m["id"] for members in squads.values() for m in members}
     all_player_ids = appeared_ids | squad_player_ids
 
     # --- Fetch profiles for any player missing club data ---
@@ -289,9 +337,22 @@ def main():
     if missing_profiles:
         print(f"Fetching profiles for {len(missing_profiles)} players (new or missing club)...")
         for pid in sorted(missing_profiles):
-            profile = fetch_athlete_profile(pid)
+            profile = fetch_athlete_profile(pid, iso_dob=dob_map.get(pid))
             player_profiles[pid] = profile
             print(f"  {profile.get('name', pid)} → {profile.get('club', '?')}")
+        save_json(Path(PLAYER_CACHE_FILE), player_profiles)
+
+    # --- Reconcile DOB + sun sign from the authoritative ISO roster map.
+    #     (Earlier caches stored ambiguous D/M vs M/D dates; fix them in place.) ---
+    fixed = 0
+    for pid, prof in player_profiles.items():
+        iso = dob_map.get(pid)
+        if iso and prof.get("dob") != iso:
+            prof["dob"] = iso
+            prof["sun_sign"] = _sun_sign(iso)
+            fixed += 1
+    if fixed:
+        print(f"Reconciled DOB/sun sign for {fixed} players from ISO roster data.")
         save_json(Path(PLAYER_CACHE_FILE), player_profiles)
 
     # --- Build aggregated output ---
@@ -300,7 +361,7 @@ def main():
     output = build_output(match_stats, player_profiles, squad_player_ids=all_player_ids)
     output["last_updated"] = datetime.utcnow().isoformat() + "Z"
     output["match_stats"] = match_stats
-    output["squad_ids"] = squad_ids
+    output["squads"] = squads
 
     save_json(Path(CACHE_FILE), output)
 

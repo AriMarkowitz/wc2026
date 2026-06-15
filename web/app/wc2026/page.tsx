@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Club, Player, WcMeta } from "@/types/wc";
 import styles from "./wc2026.module.css";
-import FilterHeader from "./FilterHeader";
+import FilterBar from "./FilterBar";
+import Tooltip from "./Tooltip";
 import { useColumnResize } from "./useColumnResize";
 
 // ---------------------------------------------------------------------------
@@ -82,8 +83,8 @@ function ClubTable({
   const [fClub, setFClub] = useState<Set<string>>(new Set());
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
 
-  const { widths, startResize } = useColumnResize({
-    rank: 48, club: 180, players: 80, goals: 70, assists: 80, ga: 70,
+  const { widths, startResize, autoFit } = useColumnResize({
+    rank: 48, club: 180, players: 110, goals: 70, assists: 80, ga: 70,
     g90: 70, a90: 70, ga90: 84, mins: 80, yc: 60, rc: 60, age: 80,
   });
 
@@ -99,7 +100,7 @@ function ClubTable({
     [filtered, sort]);
 
   const numCols: { key: string; label: string; col: keyof Club; title?: string; accent?: boolean; dec?: boolean }[] = [
-    { key: "players", label: "Players", col: "player_count", title: "Players at the World Cup from this club" },
+    { key: "players", label: "Players in WC", col: "player_count", title: "Players selected in this club's WC squads" },
     { key: "goals",   label: "Goals",   col: "total_goals" },
     { key: "assists", label: "Assists", col: "total_assists" },
     { key: "ga",      label: "G+A",     col: "total_goal_contributions", title: "Total goal contributions" },
@@ -117,6 +118,10 @@ function ClubTable({
 
   return (
     <div>
+      <FilterBar filters={[
+        { label: "Club", options: clubOptions, selected: fClub, onChange: setFClub },
+        { label: "League", options: leagueOptions, selected: fLeague, onChange: setFLeague },
+      ]} />
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <colgroup>
@@ -128,36 +133,13 @@ function ClubTable({
             <tr>
               <th>#</th>
               <th className={styles.thResizable}>
-                <FilterHeader
-                  label="Club"
-                  options={clubOptions}
-                  selected={fClub}
-                  onChange={setFClub}
-                  sortActive={false}
-                  onSort={() => {}}
-                  title="Hover a club name to see its league"
-                />
-                <span className={styles.resizeHandle} onPointerDown={startResize("club")} />
+                <SortTh label="Club" active={false} onSort={() => {}} title="Hover a club to see its league" />
+                <span className={styles.resizeHandle} onPointerDown={startResize("club")} onDoubleClick={autoFit("club", 1)} />
               </th>
-              {numCols.map((c) => (
+              {numCols.map((c, idx) => (
                 <th key={c.key} className={styles.thResizable}>
-                  {c.key === "players" ? (
-                    <div className={styles.thInner}>
-                      <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
-                      <FilterHeader
-                        label="League"
-                        options={leagueOptions}
-                        selected={fLeague}
-                        onChange={setFLeague}
-                        sortActive={false}
-                        onSort={() => {}}
-                        title="Filter by league"
-                      />
-                    </div>
-                  ) : (
-                    <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
-                  )}
-                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} />
+                  <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
+                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} onDoubleClick={autoFit(c.key, idx + 2)} />
                 </th>
               ))}
             </tr>
@@ -167,13 +149,11 @@ function ClubTable({
               <tr key={c.club}>
                 <td className={styles.rank}>{i + 1}</td>
                 <td className={styles.wrap}>
-                  <button
-                    className={styles.clubLink}
-                    onClick={() => onDrillDown(c.club)}
-                    title={c.league ? `${c.club} · ${c.league}` : c.club}
-                  >
-                    {c.club}
-                  </button>
+                  <Tooltip text={c.league ? `${c.league}` : "League unknown"}>
+                    <button className={styles.clubLink} onClick={() => onDrillDown(c.club)}>
+                      {c.club}
+                    </button>
+                  </Tooltip>
                 </td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.player_count}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goals}</td>
@@ -216,7 +196,7 @@ function PlayerTable({
   const [fPos, setFPos] = useState<Set<string>>(new Set());
   const [fSign, setFSign] = useState<Set<string>>(new Set());
 
-  const { widths, startResize } = useColumnResize({
+  const { widths, startResize, autoFit } = useColumnResize({
     rank: 48, name: 170, club: 150, nat: 120, pos: 70, age: 56, sign: 110,
     mp: 50, goals: 64, assists: 76, ga90: 80, mpg: 72, sot: 56, mins: 64, yc: 50, rc: 50,
   });
@@ -261,25 +241,15 @@ function PlayerTable({
     { key: "rc",     label: "RC",     col: "red_cards", title: "Red cards" },
   ];
 
-  const anyFilter = fClub.size || fLeague.size || fNat.size || fPos.size || fSign.size;
-
   return (
     <div>
-      {anyFilter ? (
-        <div className={styles.activeFilterRow}>
-          {fClub.size > 0 && <span className={styles.activePill}>Club: {[...fClub].join(", ")}</span>}
-          {fLeague.size > 0 && <span className={styles.activePill}>League: {[...fLeague].join(", ")}</span>}
-          {fNat.size > 0 && <span className={styles.activePill}>Nat: {[...fNat].join(", ")}</span>}
-          {fPos.size > 0 && <span className={styles.activePill}>Pos: {[...fPos].join(", ")}</span>}
-          {fSign.size > 0 && <span className={styles.activePill}>Sign: {[...fSign].join(", ")}</span>}
-          <button
-            className={styles.clearBtn}
-            onClick={() => { setFClub(new Set()); setFLeague(new Set()); setFNat(new Set()); setFPos(new Set()); setFSign(new Set()); }}
-          >
-            Clear filters
-          </button>
-        </div>
-      ) : null}
+      <FilterBar filters={[
+        { label: "Club", options: clubOptions, selected: fClub, onChange: setFClub },
+        { label: "League", options: leagueOptions, selected: fLeague, onChange: setFLeague },
+        { label: "Nationality", options: natOptions, selected: fNat, onChange: setFNat },
+        { label: "Position", options: posOptions, selected: fPos, onChange: setFPos },
+        { label: "Sun Sign", options: ALL_SIGNS, selected: fSign, onChange: setFSign, renderOption: (s) => `${SIGN_EMOJI[s] ?? ""} ${s}` },
+      ]} />
 
       <div className={styles.tableWrap}>
         <table className={styles.table}>
@@ -298,43 +268,32 @@ function PlayerTable({
               <th>#</th>
               <th className={styles.thResizable}>
                 <SortTh label="Player" active={sort === "name"} onSort={() => setSort("name" as PlayerSort)} />
-                <span className={styles.resizeHandle} onPointerDown={startResize("name")} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("name")} onDoubleClick={autoFit("name", 1)} />
               </th>
               <th className={styles.thResizable}>
-                <div className={styles.thInner}>
-                  <FilterHeader label="Club" options={clubOptions} selected={fClub} onChange={setFClub} sortActive={false} onSort={() => {}} />
-                  <FilterHeader label="League" options={leagueOptions} selected={fLeague} onChange={setFLeague} sortActive={false} onSort={() => {}} title="Filter by league" />
-                </div>
-                <span className={styles.resizeHandle} onPointerDown={startResize("club")} />
+                <SortTh label="Club" active={false} onSort={() => {}} title="Hover a club to see its league" />
+                <span className={styles.resizeHandle} onPointerDown={startResize("club")} onDoubleClick={autoFit("club", 2)} />
               </th>
               <th className={styles.thResizable}>
-                <FilterHeader label="Nat." options={natOptions} selected={fNat} onChange={setFNat} sortActive={false} onSort={() => {}} />
-                <span className={styles.resizeHandle} onPointerDown={startResize("nat")} />
+                <SortTh label="Nat." active={sort === "nationality"} onSort={() => setSort("nationality" as PlayerSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("nat")} onDoubleClick={autoFit("nat", 3)} />
               </th>
               <th className={styles.thResizable}>
-                <FilterHeader label="Pos." options={posOptions} selected={fPos} onChange={setFPos} sortActive={false} onSort={() => {}} />
-                <span className={styles.resizeHandle} onPointerDown={startResize("pos")} />
+                <SortTh label="Pos." active={sort === "position"} onSort={() => setSort("position" as PlayerSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("pos")} onDoubleClick={autoFit("pos", 4)} />
               </th>
               <th className={styles.thResizable}>
                 <SortTh label="Age" active={sort === "age"} onSort={() => setSort("age" as PlayerSort)} />
-                <span className={styles.resizeHandle} onPointerDown={startResize("age")} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("age")} onDoubleClick={autoFit("age", 5)} />
               </th>
               <th className={styles.thResizable}>
-                <FilterHeader
-                  label="Sign"
-                  options={ALL_SIGNS}
-                  selected={fSign}
-                  onChange={setFSign}
-                  sortActive={false}
-                  onSort={() => {}}
-                  renderOption={(s) => `${SIGN_EMOJI[s] ?? ""} ${s}`}
-                />
-                <span className={styles.resizeHandle} onPointerDown={startResize("sign")} />
+                <SortTh label="Sign" active={sort === "sun_sign"} onSort={() => setSort("sun_sign" as PlayerSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("sign")} onDoubleClick={autoFit("sign", 6)} />
               </th>
-              {numCols.map((c) => (
+              {numCols.map((c, idx) => (
                 <th key={c.key} className={styles.thResizable}>
                   <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
-                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} />
+                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} onDoubleClick={autoFit(c.key, idx + 7)} />
                 </th>
               ))}
             </tr>
@@ -345,13 +304,14 @@ function PlayerTable({
                 <td className={styles.rank}>{i + 1}</td>
                 <td className={`${styles.statCell} ${styles.wrap}`}>{p.name}</td>
                 <td className={styles.wrap}>
-                  <button
-                    className={styles.clubLink}
-                    onClick={() => setFClub(fClub.has(p.club) ? new Set() : new Set([p.club]))}
-                    title={p.league ? `${p.club} · ${p.league}` : p.club}
-                  >
-                    {p.club}
-                  </button>
+                  <Tooltip text={p.league ? `${p.league}` : "League unknown"}>
+                    <button
+                      className={styles.clubLink}
+                      onClick={() => setFClub(fClub.has(p.club) ? new Set() : new Set([p.club]))}
+                    >
+                      {p.club}
+                    </button>
+                  </Tooltip>
                 </td>
                 <td className={styles.wrap}>{p.nationality}</td>
                 <td className={styles.nowrap}>
@@ -392,6 +352,7 @@ function PlayerTable({
 
 function AstroTable({ players }: { players: Player[] }) {
   const [sort, setSort] = useState<string>("ga_per_90");
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   const rows = useMemo(() => {
     return ALL_SIGNS.map((sign) => {
@@ -403,8 +364,8 @@ function AstroTable({ players }: { players: Player[] }) {
       const ga      = goals + assists;
       const ga_per_90 = mins > 0 ? Math.round((ga / mins) * 90 * 100) / 100 : 0;
       const g_per_player = count ? Math.round((goals / count) * 100) / 100 : 0;
-      const top = [...group].sort((a, b) => (b.goals + b.assists) - (a.goals + a.assists))[0];
-      return { sign, count, goals, assists, ga, mins, ga_per_90, g_per_player, top };
+      const roster = [...group].sort((a, b) => (b.goals + b.assists) - (a.goals + a.assists));
+      return { sign, count, goals, assists, ga, mins, ga_per_90, g_per_player, roster };
     }).filter((r) => r.count > 0);
   }, [players]);
 
@@ -412,64 +373,92 @@ function AstroTable({ players }: { players: Player[] }) {
     [...rows].sort((a, b) => ((b as unknown as Record<string, number>)[sort] ?? 0) - ((a as unknown as Record<string, number>)[sort] ?? 0)),
     [rows, sort]);
 
-  const cols: { key: string; label: string; title?: string; accent?: boolean }[] = [
+  const cols: { key: string; label: string; title?: string }[] = [
     { key: "count",        label: "Players" },
     { key: "goals",        label: "Goals" },
     { key: "assists",      label: "Assists" },
     { key: "ga",           label: "G+A" },
-    { key: "ga_per_90",    label: "G+A/90", accent: true, title: "Goal contributions per 90 across all players of this sign" },
+    { key: "ga_per_90",    label: "G+A/90", title: "Goal contributions per 90 across all players of this sign" },
     { key: "g_per_player", label: "G/Player", title: "Average goals per player" },
     { key: "mins",         label: "Mins" },
   ];
 
+  const COL_COUNT = 3 + cols.length; // #, sign, expand-caret implicit + stat cols
+
   return (
     <div>
       <p className={styles.astroIntro}>
-        Which star signs are outscoring the zodiac? Ranked by goal contributions per 90 minutes. Click any header to sort. Pure vibes.
+        Which star signs are outscoring the zodiac? Ranked by goal contributions per 90 minutes.
+        Click a sign to see every player born under it. Pure vibes.
       </p>
       <div className={styles.tableWrap}>
         <table className={styles.table} style={{ tableLayout: "auto" }}>
           <thead>
             <tr>
               <th style={{ width: 48 }}>#</th>
-              <th style={{ width: 160 }}>Sign</th>
+              <th style={{ width: 180 }}>Sign</th>
               {cols.map((c) => (
                 <th key={c.key}>
                   <SortTh label={c.label} active={sort === c.key} onSort={() => setSort(c.key)} title={c.title} />
                 </th>
               ))}
-              <th>Top Performer</th>
             </tr>
           </thead>
           <tbody>
-            {sorted.map((r, i) => (
-              <tr key={r.sign}>
-                <td className={styles.rank}>{i + 1}</td>
-                <td className={styles.statCell}>
-                  <span className={styles.signEmoji} style={{ fontSize: "1.1rem" }}>{SIGN_EMOJI[r.sign]}</span>{" "}
-                  {r.sign}
-                </td>
-                <td>{r.count}</td>
-                <td className={styles.statCell}>{r.goals}</td>
-                <td className={styles.statCell}>{r.assists}</td>
-                <td className={styles.statCell}>{r.ga}</td>
-                <td className={styles.statCellAccent}>{r.ga_per_90.toFixed(2)}</td>
-                <td>{r.g_per_player.toFixed(2)}</td>
-                <td>{r.mins}</td>
-                <td className={styles.wrap}>
-                  {r.top ? (
-                    <span>
-                      {r.top.name} <span style={{ color: "var(--accent)" }}>({r.top.goals}G {r.top.assists}A)</span>
-                    </span>
-                  ) : "—"}
-                </td>
-              </tr>
-            ))}
+            {sorted.map((r, i) => {
+              const isOpen = expanded === r.sign;
+              return (
+                <FragmentRow key={r.sign}>
+                  <tr
+                    className={styles.astroRow}
+                    onClick={() => setExpanded(isOpen ? null : r.sign)}
+                  >
+                    <td className={styles.rank}>{i + 1}</td>
+                    <td className={styles.statCell}>
+                      <span className={styles.astroCaret}>{isOpen ? "▾" : "▸"}</span>{" "}
+                      <span className={styles.signEmoji} style={{ fontSize: "1.1rem" }}>{SIGN_EMOJI[r.sign]}</span>{" "}
+                      {r.sign}
+                    </td>
+                    <td>{r.count}</td>
+                    <td className={styles.statCell}>{r.goals}</td>
+                    <td className={styles.statCell}>{r.assists}</td>
+                    <td className={styles.statCell}>{r.ga}</td>
+                    <td className={styles.statCellAccent}>{r.ga_per_90.toFixed(2)}</td>
+                    <td>{r.g_per_player.toFixed(2)}</td>
+                    <td>{r.mins}</td>
+                  </tr>
+                  {isOpen && (
+                    <tr className={styles.astroExpandRow}>
+                      <td colSpan={COL_COUNT} className={styles.astroExpandCell}>
+                        <div className={styles.astroPlayerGrid}>
+                          {r.roster.map((p) => (
+                            <div key={p.player_id} className={styles.astroPlayerItem}>
+                              <span className={styles.astroPlayerName}>{p.name}</span>
+                              <span className={styles.astroPlayerMeta}>
+                                {p.club} · {p.nationality}
+                              </span>
+                              <span className={styles.astroPlayerStat}>
+                                {p.goals}G {p.assists}A
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </FragmentRow>
+              );
+            })}
           </tbody>
         </table>
       </div>
     </div>
   );
+}
+
+// Helper to render two sibling <tr> without an extra DOM wrapper
+function FragmentRow({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }
 
 // ---------------------------------------------------------------------------

@@ -551,6 +551,30 @@
   color: var(--accent);
 }
 
+/* ── Instant tooltip ─────────────────────────────────────────────────── */
+.tip {
+  position: relative;
+  display: inline-block;
+}
+
+.tipFixed {
+  position: fixed;
+  z-index: 1000;
+  transform: translateY(-100%);
+  white-space: nowrap;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
 /* ── Table meta / active filters ─────────────────────────────────────── */
 .tableMeta {
   margin-top: 0.85rem;
@@ -572,6 +596,126 @@
   font-size: 0.85rem;
   margin-bottom: 1.25rem;
   max-width: 60ch;
+}
+
+/* ── Standalone filter bar ───────────────────────────────────────────── */
+.filterBar2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.filterBarLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  margin-right: 0.15rem;
+}
+
+.filterChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  color: var(--text-2);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filterChip:hover {
+  border-color: var(--text-3);
+  color: var(--text);
+}
+
+.filterChipActive {
+  color: var(--accent);
+  border-color: rgba(0,229,160,0.4);
+  background: var(--accent-bg);
+}
+
+.filterChipCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 0.3rem;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-radius: 999px;
+}
+
+.filterChipCaret {
+  font-size: 0.6rem;
+  color: var(--text-3);
+}
+
+/* ── Astro accordion ─────────────────────────────────────────────────── */
+.astroRow {
+  cursor: pointer;
+}
+
+.astroCaret {
+  color: var(--text-3);
+  font-size: 0.7rem;
+}
+
+.astroExpandRow td {
+  background: var(--bg) !important;
+}
+
+.astroExpandCell {
+  padding: 1rem 1.25rem !important;
+}
+
+.astroPlayerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+
+.astroPlayerItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.astroPlayerName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.astroPlayerMeta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.astroPlayerStat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.15rem;
 }
 
 /* ── League badge ────────────────────────────────────────────────────── */

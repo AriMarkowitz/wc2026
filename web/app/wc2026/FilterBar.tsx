@@ -3,24 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./wc2026.module.css";
 
-interface FilterHeaderProps {
+export interface FilterSpec {
   label: string;
-  /** All distinct option values for this column */
   options: string[];
-  /** Currently selected values (empty = no filter) */
   selected: Set<string>;
   onChange: (next: Set<string>) => void;
-  /** Sort handling */
-  sortActive: boolean;
-  onSort: () => void;
-  /** Optional label renderer (e.g. add emoji) */
   renderOption?: (value: string) => React.ReactNode;
-  title?: string;
 }
 
-export default function FilterHeader({
-  label, options, selected, onChange, sortActive, onSort, renderOption, title,
-}: FilterHeaderProps) {
+function FilterChip({ spec }: { spec: FilterSpec }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const ref = useRef<HTMLDivElement>(null);
@@ -39,42 +30,35 @@ export default function FilterHeader({
     };
   }, [open]);
 
-  const active = selected.size > 0;
+  const active = spec.selected.size > 0;
   const filtered = query
-    ? options.filter((o) => o.toLowerCase().includes(query.toLowerCase()))
-    : options;
+    ? spec.options.filter((o) => o.toLowerCase().includes(query.toLowerCase()))
+    : spec.options;
 
   function toggle(value: string) {
-    const next = new Set(selected);
+    const next = new Set(spec.selected);
     if (next.has(value)) next.delete(value);
     else next.add(value);
-    onChange(next);
+    spec.onChange(next);
   }
 
   return (
-    <div className={styles.thInner} ref={ref} style={{ position: "relative" }}>
-      <span
-        className={`${styles.thLabel} ${sortActive ? styles.sortThActive : ""}`}
-        onClick={onSort}
-        title={title}
-      >
-        {label}{sortActive && <span className={styles.sortArrow}> ▼</span>}
-      </span>
+    <div ref={ref} style={{ position: "relative" }}>
       <button
-        className={`${styles.funnelBtn} ${active ? styles.funnelBtnActive : ""}`}
-        onClick={(e) => { e.stopPropagation(); setOpen((o) => !o); }}
-        title={`Filter by ${label}`}
-        aria-label={`Filter by ${label}`}
+        className={`${styles.filterChip} ${active ? styles.filterChipActive : ""}`}
+        onClick={() => setOpen((o) => !o)}
       >
-        {active ? "▣" : "▽"}
+        {spec.label}
+        {active && <span className={styles.filterChipCount}>{spec.selected.size}</span>}
+        <span className={styles.filterChipCaret}>▾</span>
       </button>
 
       {open && (
-        <div className={styles.popover} onClick={(e) => e.stopPropagation()}>
-          {options.length > 8 && (
+        <div className={styles.popover} style={{ left: 0 }}>
+          {spec.options.length > 8 && (
             <input
               className={styles.popoverSearch}
-              placeholder={`Search ${label.toLowerCase()}…`}
+              placeholder={`Search ${spec.label.toLowerCase()}…`}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               autoFocus
@@ -82,7 +66,7 @@ export default function FilterHeader({
           )}
           <div className={styles.popoverList}>
             {filtered.map((opt) => {
-              const isSel = selected.has(opt);
+              const isSel = spec.selected.has(opt);
               return (
                 <div
                   key={opt}
@@ -91,7 +75,7 @@ export default function FilterHeader({
                 >
                   <span className={styles.popoverCheck}>{isSel ? "✓" : ""}</span>
                   <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
-                    {renderOption ? renderOption(opt) : opt}
+                    {spec.renderOption ? spec.renderOption(opt) : opt}
                   </span>
                 </div>
               );
@@ -104,12 +88,30 @@ export default function FilterHeader({
           </div>
           {active && (
             <div className={styles.popoverFooter}>
-              <button className={styles.popoverClear} onClick={() => onChange(new Set())}>
-                Clear ({selected.size})
+              <button className={styles.popoverClear} onClick={() => spec.onChange(new Set())}>
+                Clear ({spec.selected.size})
               </button>
             </div>
           )}
         </div>
+      )}
+    </div>
+  );
+}
+
+export default function FilterBar({ filters }: { filters: FilterSpec[] }) {
+  const anyActive = filters.some((f) => f.selected.size > 0);
+  return (
+    <div className={styles.filterBar2}>
+      <span className={styles.filterBarLabel}>Filter</span>
+      {filters.map((f) => <FilterChip key={f.label} spec={f} />)}
+      {anyActive && (
+        <button
+          className={styles.clearBtn}
+          onClick={() => filters.forEach((f) => f.onChange(new Set()))}
+        >
+          Clear all
+        </button>
       )}
     </div>
   );
