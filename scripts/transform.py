@@ -61,9 +61,9 @@ def build_output(
             "saves": agg["saves"],
             "fouls_committed": agg["fouls_committed"],
             "goals_conceded": agg["goals_conceded"],
-            "shots_faced": agg["shots_faced"],
+            "shots_faced": agg["saves"] + agg["goals_conceded"],  # ESPN shotsFaced is always 0; derive it
             "clean_sheets": agg["clean_sheets"],
-            "save_pct": round(agg["saves"] / agg["shots_faced"] * 100, 1) if agg["shots_faced"] > 0 else None,
+            "save_pct": round(agg["saves"] / (agg["saves"] + agg["goals_conceded"]) * 100, 1) if (agg["saves"] + agg["goals_conceded"]) > 0 else None,
             "goals_per_90": _per90(agg["goals"], mins),
             "assists_per_90": _per90(agg["assists"], mins),
             "goal_contributions_per_90": _per90(agg["goals"] + agg["assists"], mins),
@@ -120,8 +120,9 @@ def build_output(
     # Map player_id -> club (from profiles)
     pid_to_club = {pid: p.get("club", UNKNOWN) for pid, p in player_profiles.items()}
 
-    # Per club, per date: goals + assists
-    club_date_ga: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    # Per club, per date: goals and assists separately
+    club_date_goals:   dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    club_date_assists: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     for stats_list in match_stats.values():
         for row in stats_list:
             d = row.get("match_date")
@@ -131,18 +132,26 @@ def build_output(
             club = pid_to_club.get(pid, UNKNOWN)
             if club == UNKNOWN:
                 continue
-            club_date_ga[club][d] += (row.get("goals") or 0) + (row.get("assists") or 0)
+            club_date_goals[club][d]   += row.get("goals") or 0
+            club_date_assists[club][d] += row.get("assists") or 0
 
-    # Cumulative running total per club across sorted dates
-    top_clubs = [c["club"] for c in clubs[:10]]
-    club_timeseries: dict[str, list[int]] = {}
+    # Cumulative running totals for top 20 clubs (frontend picks top-N from these)
+    top_clubs = [c["club"] for c in clubs[:20]]
+    club_timeseries: dict[str, dict[str, list[int]]] = {}
     for club in top_clubs:
-        running = 0
-        series = []
+        g_run = a_run = 0
+        g_series: list[int] = []
+        a_series: list[int] = []
         for d in all_dates:
-            running += club_date_ga[club].get(d, 0)
-            series.append(running)
-        club_timeseries[club] = series
+            g_run += club_date_goals[club].get(d, 0)
+            a_run += club_date_assists[club].get(d, 0)
+            g_series.append(g_run)
+            a_series.append(a_run)
+        club_timeseries[club] = {
+            "goals": g_series,
+            "assists": a_series,
+            "ga": [g + a for g, a in zip(g_series, a_series)],
+        }
 
     nationalities = sorted({p["nationality"] for p in players if p["nationality"] != UNKNOWN})
     club_names = sorted({c["club"] for c in clubs})

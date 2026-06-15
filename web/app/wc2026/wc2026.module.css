@@ -608,6 +608,45 @@
   margin-bottom: 1rem;
 }
 
+/* ── Chart controls ──────────────────────────────────────────────────── */
+.chartControls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.chartToggleGroup {
+  display: flex;
+  gap: 2px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.chartToggle {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--text-2);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.chartToggle:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.chartToggleActive {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+
 .astroIntro {
   color: var(--text-2);
   font-size: 0.85rem;

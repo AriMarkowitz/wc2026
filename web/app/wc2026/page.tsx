@@ -355,9 +355,16 @@ const CHART_COLORS = [
   "#e8c84a", "#4ae8c8", "#e84a9a", "#a0a0ff", "#ff8c4a",
 ];
 
+type Metric = "ga" | "goals" | "assists";
+
 function TrendChart() {
-  const [data, setData] = useState<{ matchdays: string[]; series: Record<string, number[]> } | null>(null);
+  const [data, setData] = useState<{
+    matchdays: string[];
+    series: Record<string, { goals: number[]; assists: number[]; ga: number[] }>;
+  } | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
+  const [metric, setMetric] = useState<Metric>("ga");
+  const [topN, setTopN] = useState(10);
 
   useEffect(() => {
     fetch("/api/v1/timeseries").then((r) => r.json()).then((j) => setData(j.response));
@@ -367,33 +374,56 @@ function TrendChart() {
     return <div className={styles.loading}>No matchday data yet.</div>;
   }
 
-  const { matchdays, series } = data;
-  const clubs = Object.keys(series);
+  const { matchdays } = data;
+  const allClubs = Object.keys(data.series);
+  const clubs = allClubs.slice(0, topN);
   if (clubs.length === 0) return <div className={styles.loading}>No data yet.</div>;
+
+  const getSeries = (club: string) => data.series[club][metric];
 
   const W = 900, H = 380, PAD = { top: 20, right: 160, bottom: 48, left: 48 };
   const chartW = W - PAD.left - PAD.right;
   const chartH = H - PAD.top - PAD.bottom;
 
-  const maxVal = Math.max(...clubs.flatMap((c) => series[c]));
+  const maxVal = Math.max(...clubs.flatMap((c) => getSeries(c)));
   const xStep = matchdays.length > 1 ? chartW / (matchdays.length - 1) : chartW;
 
   function xPos(i: number) { return PAD.left + i * xStep; }
   function yPos(v: number) { return PAD.top + chartH - (maxVal > 0 ? (v / maxVal) * chartH : 0); }
-
   function polyline(vals: number[]) {
     return vals.map((v, i) => `${xPos(i)},${yPos(v)}`).join(" ");
   }
 
-  // Y axis ticks
   const yTicks = Array.from({ length: 5 }, (_, i) => Math.round((maxVal * i) / 4));
+
+  const metricLabel = metric === "ga" ? "G+A" : metric === "goals" ? "Goals" : "Assists";
 
   return (
     <div>
-      <p className={styles.astroIntro}>
-        Cumulative goal contributions (G+A) per matchday for the top 10 clubs.
-        Hover a line or legend entry to highlight.
-      </p>
+      <div className={styles.chartControls}>
+        <div className={styles.chartToggleGroup}>
+          {(["ga", "goals", "assists"] as Metric[]).map((m) => (
+            <button
+              key={m}
+              className={`${styles.chartToggle} ${metric === m ? styles.chartToggleActive : ""}`}
+              onClick={() => setMetric(m)}
+            >
+              {m === "ga" ? "G+A" : m === "goals" ? "Goals" : "Assists"}
+            </button>
+          ))}
+        </div>
+        <div className={styles.chartToggleGroup}>
+          {[5, 10, 15, 20].map((n) => (
+            <button
+              key={n}
+              className={`${styles.chartToggle} ${topN === n ? styles.chartToggleActive : ""}`}
+              onClick={() => setTopN(n)}
+            >
+              Top {n}
+            </button>
+          ))}
+        </div>
+      </div>
       <div style={{ overflowX: "auto" }}>
         <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W, display: "block" }}>
           {/* Grid lines */}
@@ -409,27 +439,35 @@ function TrendChart() {
             <text key={v} x={PAD.left - 6} y={yPos(v) + 4}
               textAnchor="end" fontSize={11} fill="var(--text-3)">{v}</text>
           ))}
-          {/* X axis labels (date) */}
+          {/* X axis labels */}
           {matchdays.map((d, i) => (
             <text key={d}
               x={xPos(i)} y={H - PAD.bottom + 16}
               textAnchor="middle" fontSize={10} fill="var(--text-3)"
               transform={matchdays.length > 8 ? `rotate(-35,${xPos(i)},${H - PAD.bottom + 16})` : undefined}
             >
-              {d.slice(5)}
+              {`${d.slice(4, 6)}/${d.slice(6, 8)}`}
             </text>
           ))}
+          {/* Y axis title */}
+          <text
+            x={PAD.left - 36} y={PAD.top + chartH / 2}
+            textAnchor="middle" fontSize={11} fill="var(--text-3)"
+            transform={`rotate(-90,${PAD.left - 36},${PAD.top + chartH / 2})`}
+          >
+            Cumulative {metricLabel}
+          </text>
           {/* Lines */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
             const dim = hovered !== null && hovered !== club;
             return (
               <polyline key={club}
-                points={polyline(series[club])}
+                points={polyline(getSeries(club))}
                 fill="none"
                 stroke={color}
                 strokeWidth={hovered === club ? 3 : 2}
-                opacity={dim ? 0.15 : 1}
+                opacity={dim ? 0.12 : 1}
                 style={{ cursor: "pointer", transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
@@ -439,12 +477,13 @@ function TrendChart() {
           {/* Dots at last point */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
-            const lastVal = series[club][series[club].length - 1];
+            const vals = getSeries(club);
+            const lastVal = vals[vals.length - 1];
             const dim = hovered !== null && hovered !== club;
             return (
               <circle key={club}
                 cx={xPos(matchdays.length - 1)} cy={yPos(lastVal)} r={3}
-                fill={color} opacity={dim ? 0.15 : 1}
+                fill={color} opacity={dim ? 0.12 : 1}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
               />
@@ -454,10 +493,11 @@ function TrendChart() {
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
             const dim = hovered !== null && hovered !== club;
-            const lastVal = series[club][series[club].length - 1];
+            const vals = getSeries(club);
+            const lastVal = vals[vals.length - 1];
             return (
               <g key={club}
-                style={{ cursor: "pointer", opacity: dim ? 0.3 : 1, transition: "opacity 0.15s" }}
+                style={{ cursor: "pointer", opacity: dim ? 0.25 : 1, transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
               >

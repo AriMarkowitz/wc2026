@@ -116,7 +116,10 @@ export async function getClubPlayers(club: string): Promise<Player[]> {
   return data.players.filter((p) => p.club === club).sort((a, b) => b.goals - a.goals);
 }
 
-export async function getTimeseries(): Promise<{ matchdays: string[]; series: Record<string, number[]> }> {
+export async function getTimeseries(): Promise<{
+  matchdays: string[];
+  series: Record<string, { goals: number[]; assists: number[]; ga: number[] }>;
+}> {
   const data = await loadData();
   return {
     matchdays: data.meta.matchdays ?? [],

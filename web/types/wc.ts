@@ -60,5 +60,5 @@ export interface WcData {
   players: Player[];
   clubs: Club[];
   meta: WcMeta;
-  club_timeseries: Record<string, number[]>;
+  club_timeseries: Record<string, { goals: number[]; assists: number[]; ga: number[] }>;
 }
