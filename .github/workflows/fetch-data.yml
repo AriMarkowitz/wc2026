@@ -2,9 +2,13 @@ name: Fetch WC 2026 Data
 
 on:
   schedule:
-    # Run at 08:00 and 20:00 UTC daily (covers European evening + US daytime)
-    - cron: "0 8 * * *"
-    - cron: "0 20 * * *"
+    # WC 2026 kickoffs cluster around 16:00–23:30 UTC.
+    # Running 3h after the latest possible last match of each window:
+    - cron: "0 1  * * *"  # covers last kickoffs at 22:00 UTC (most common)
+    - cron: "30 2 * * *"  # covers last kickoffs at 23:00–23:30 UTC
+    - cron: "30 4 * * *"  # covers very late kickoffs (00:00–01:30 UTC next day)
+    - cron: "0 19 * * *"  # covers early afternoon kickoffs (16:00 UTC)
+    - cron: "0 23 * * *"  # covers early evening kickoffs (19:00–20:00 UTC)
   workflow_dispatch: # allow manual trigger from GitHub UI
 
 jobs:
@@ -32,4 +36,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/wc2026.json data/player_profiles.json web/data/wc2026.json
           git diff --staged --quiet || git commit -m "chore: update WC 2026 data [skip ci]"
-          git push
+          git push origin master
