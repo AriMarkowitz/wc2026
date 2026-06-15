@@ -10081,8 +10081,15 @@
   },
   "124521": {
     "player_id": "124521",
+    "name": "Luis Mejía",
+    "club": "Nacional",
+    "league": "Uruguayan Primera Division",
+    "position": "Goalkeeper",
+    "age": 35,
     "dob": "1991-03-16T08:00Z",
-    "sun_sign": "Pisces"
+    "sun_sign": "Pisces",
+    "nationality": "Panama",
+    "photo": null
   },
   "127262": {
     "player_id": "127262",
@@ -10110,8 +10117,15 @@
   },
   "130545": {
     "player_id": "130545",
+    "name": "Gaël Kakuta",
+    "club": "Larissa FC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 34,
     "dob": "1991-06-21T07:00Z",
-    "sun_sign": "Gemini"
+    "sun_sign": "Gemini",
+    "nationality": "Congo DR",
+    "photo": null
   },
   "137355": {
     "player_id": "137355",
@@ -10307,8 +10321,15 @@
   },
   "158626": {
     "player_id": "158626",
+    "name": "Emiliano Martínez",
+    "club": "Aston Villa",
+    "league": "English Premier League",
+    "position": "Goalkeeper",
+    "age": 33,
     "dob": "1992-09-02T07:00Z",
-    "sun_sign": "Virgo"
+    "sun_sign": "Virgo",
+    "nationality": "Argentina",
+    "photo": null
   },
   "159443": {
     "player_id": "159443",
@@ -11104,8 +11125,15 @@
   },
   "206378": {
     "player_id": "206378",
+    "name": "Nikola Vlasic",
+    "club": "Torino",
+    "league": "Italian Serie A",
+    "position": "Midfielder",
+    "age": 28,
     "dob": "1997-10-04T07:00Z",
-    "sun_sign": "Libra"
+    "sun_sign": "Libra",
+    "nationality": "Croatia",
+    "photo": null
   },
   "207288": {
     "player_id": "207288",
@@ -12021,8 +12049,15 @@
   },
   "244677": {
     "player_id": "244677",
+    "name": "Aymen Hussein",
+    "club": "Al Wakrah",
+    "league": "Qatar Stars League",
+    "position": "Forward",
+    "age": 30,
     "dob": "1996-03-22T08:00Z",
-    "sun_sign": "Aries"
+    "sun_sign": "Aries",
+    "nationality": "Iraq",
+    "photo": null
   },
   "244679": {
     "player_id": "244679",
@@ -12926,8 +12961,15 @@
   },
   "286433": {
     "player_id": "286433",
+    "name": "Egil Selvik",
+    "club": "Watford",
+    "league": "English Premier League",
+    "position": "Goalkeeper",
+    "age": 28,
     "dob": "1997-07-30T07:00Z",
-    "sun_sign": "Leo"
+    "sun_sign": "Leo",
+    "nationality": "Norway",
+    "photo": null
   },
   "286596": {
     "player_id": "286596",
@@ -12979,8 +13021,15 @@
   },
   "287078": {
     "player_id": "287078",
+    "name": "Hicham Boudaoui",
+    "club": "Nice",
+    "league": "French Ligue 1",
+    "position": "Midfielder",
+    "age": 26,
     "dob": "1999-09-23T07:00Z",
-    "sun_sign": "Virgo"
+    "sun_sign": "Virgo",
+    "nationality": "Algeria",
+    "photo": null
   },
   "287572": {
     "player_id": "287572",
@@ -13368,8 +13417,15 @@
   },
   "303785": {
     "player_id": "303785",
+    "name": "Matheus Nunes",
+    "club": "Manchester City",
+    "league": "English Premier League",
+    "position": "Midfielder",
+    "age": 27,
     "dob": "1998-08-27T07:00Z",
-    "sun_sign": "Virgo"
+    "sun_sign": "Virgo",
+    "nationality": "Portugal",
+    "photo": null
   },
   "304106": {
     "player_id": "304106",
@@ -14549,8 +14605,15 @@
   },
   "366455": {
     "player_id": "366455",
+    "name": "Sondre Langas",
+    "club": "Derby County",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 25,
     "dob": "2001-02-02T08:00Z",
-    "sun_sign": "Aquarius"
+    "sun_sign": "Aquarius",
+    "nationality": "Norway",
+    "photo": null
   },
   "369201": {
     "player_id": "369201",
@@ -14578,8 +14641,15 @@
   },
   "369409": {
     "player_id": "369409",
+    "name": "Amer Jamous",
+    "club": "Al-Zawraa",
+    "league": null,
+    "position": "Midfielder",
+    "age": 23,
     "dob": "2002-07-03T07:00Z",
-    "sun_sign": "Cancer"
+    "sun_sign": "Cancer",
+    "nationality": "Jordan",
+    "photo": null
   },
   "371649": {
     "player_id": "371649",
