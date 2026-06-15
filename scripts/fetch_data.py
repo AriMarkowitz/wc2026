@@ -197,6 +197,8 @@ def parse_match_stats(event_id: str) -> list[dict]:
                 "total_shots": int(raw_stats.get("totalShots", 0)),
                 "saves": int(raw_stats.get("saves", 0)),
                 "fouls_committed": int(raw_stats.get("foulsCommitted", 0)),
+                "goals_conceded": int(raw_stats.get("goalsConceded", 0)),
+                "shots_faced": int(raw_stats.get("shotsFaced", 0)),
             })
 
     return players
@@ -306,6 +308,9 @@ def main():
         eid = event["id"]
         print(f"  Fetching: {event['name']} ({event['date']}, id={eid})")
         stats = parse_match_stats(eid)
+        # Attach match date to each row so transform can build time series
+        for row in stats:
+            row["match_date"] = event["date"]
         match_stats[eid] = stats
 
     # --- Fetch full WC squads (every selected player, not just those who have
@@ -355,11 +360,20 @@ def main():
         print(f"Reconciled DOB/sun sign for {fixed} players from ISO roster data.")
         save_json(Path(PLAYER_CACHE_FILE), player_profiles)
 
+    # --- Build date map for all events (including already-cached ones) ---
+    event_dates = {e["id"]: e["date"] for e in all_events}
+    # Backfill match_date into cached rows that predate the field
+    for eid, rows in match_stats.items():
+        d = event_dates.get(eid)
+        if d:
+            for row in rows:
+                if "match_date" not in row:
+                    row["match_date"] = d
+
     # --- Build aggregated output ---
     print("Building aggregated output...")
     from datetime import datetime
     output = build_output(match_stats, player_profiles, squad_player_ids=all_player_ids)
-    output["last_updated"] = datetime.utcnow().isoformat() + "Z"
     output["match_stats"] = match_stats
     output["squads"] = squads
 

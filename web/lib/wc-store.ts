@@ -116,6 +116,14 @@ export async function getClubPlayers(club: string): Promise<Player[]> {
   return data.players.filter((p) => p.club === club).sort((a, b) => b.goals - a.goals);
 }
 
+export async function getTimeseries(): Promise<{ matchdays: string[]; series: Record<string, number[]> }> {
+  const data = await loadData();
+  return {
+    matchdays: data.meta.matchdays ?? [],
+    series: data.club_timeseries ?? {},
+  };
+}
+
 export async function getMeta(): Promise<WcMeta & { last_updated: string; matches_played: number; total_goals: number; total_assists: number; yellow_cards: number; red_cards: number }> {
   const data = await loadData();
   const matchStats = ((data as unknown) as Record<string, unknown>).match_stats as Record<string, unknown[]> ?? {};

@@ -60,9 +60,14 @@ def build_output(
             "total_shots": agg["total_shots"],
             "saves": agg["saves"],
             "fouls_committed": agg["fouls_committed"],
+            "goals_conceded": agg["goals_conceded"],
+            "shots_faced": agg["shots_faced"],
+            "clean_sheets": agg["clean_sheets"],
+            "save_pct": round(agg["saves"] / agg["shots_faced"] * 100, 1) if agg["shots_faced"] > 0 else None,
             "goals_per_90": _per90(agg["goals"], mins),
             "assists_per_90": _per90(agg["assists"], mins),
             "goal_contributions_per_90": _per90(agg["goals"] + agg["assists"], mins),
+            "goals_conceded_per_90": _per90(agg["goals_conceded"], mins),
         }
         players.append(record)
 
@@ -103,6 +108,42 @@ def build_output(
 
     clubs.sort(key=lambda c: (-c["total_goal_contributions"], -c["total_goals"]))
 
+    # --- Build per-matchday cumulative G+A for clubs ---
+    # Collect all match dates in order
+    all_dates: list[str] = sorted({
+        row.get("match_date", "")
+        for stats_list in match_stats.values()
+        for row in stats_list
+        if row.get("match_date")
+    })
+
+    # Map player_id -> club (from profiles)
+    pid_to_club = {pid: p.get("club", UNKNOWN) for pid, p in player_profiles.items()}
+
+    # Per club, per date: goals + assists
+    club_date_ga: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    for stats_list in match_stats.values():
+        for row in stats_list:
+            d = row.get("match_date")
+            if not d:
+                continue
+            pid = str(row.get("player_id", ""))
+            club = pid_to_club.get(pid, UNKNOWN)
+            if club == UNKNOWN:
+                continue
+            club_date_ga[club][d] += (row.get("goals") or 0) + (row.get("assists") or 0)
+
+    # Cumulative running total per club across sorted dates
+    top_clubs = [c["club"] for c in clubs[:10]]
+    club_timeseries: dict[str, list[int]] = {}
+    for club in top_clubs:
+        running = 0
+        series = []
+        for d in all_dates:
+            running += club_date_ga[club].get(d, 0)
+            series.append(running)
+        club_timeseries[club] = series
+
     nationalities = sorted({p["nationality"] for p in players if p["nationality"] != UNKNOWN})
     club_names = sorted({c["club"] for c in clubs})
     leagues = sorted({p["league"] for p in players if p.get("league")})
@@ -121,7 +162,9 @@ def build_output(
             "leagues": leagues,
             "positions": positions,
             "sun_signs": sun_signs,
+            "matchdays": all_dates,
         },
+        "club_timeseries": club_timeseries,
     }
 
 
@@ -139,6 +182,9 @@ def _empty_agg(pid: str, first_stat: dict) -> dict:
         "total_shots": 0,
         "saves": 0,
         "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0,
+        "clean_sheets": 0,
     }
 
 
@@ -153,6 +199,11 @@ def _merge_stat(agg: dict, stat: dict):
     agg["total_shots"] += stat.get("total_shots") or 0
     agg["saves"] += stat.get("saves") or 0
     agg["fouls_committed"] += stat.get("fouls_committed") or 0
+    gc = stat.get("goals_conceded") or 0
+    agg["goals_conceded"] += gc
+    agg["shots_faced"] += stat.get("shots_faced") or 0
+    if gc == 0 and (stat.get("minutes") or 0) >= 60:
+        agg["clean_sheets"] += 1
 
 
 def _per90(value: int, minutes: int) -> float | None:

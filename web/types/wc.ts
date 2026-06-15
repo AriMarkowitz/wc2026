@@ -19,6 +19,11 @@ export interface Player {
   total_shots: number;
   saves: number;
   fouls_committed: number;
+  goals_conceded: number;
+  shots_faced: number;
+  clean_sheets: number;
+  save_pct: number | null;
+  goals_conceded_per_90: number | null;
   goals_per_90: number | null;
   assists_per_90: number | null;
   goal_contributions_per_90: number | null;
@@ -47,6 +52,7 @@ export interface WcMeta {
   leagues: string[];
   positions: string[];
   sun_signs: string[];
+  matchdays: string[];
 }
 
 export interface WcData {
@@ -54,4 +60,5 @@ export interface WcData {
   players: Player[];
   clubs: Club[];
   meta: WcMeta;
+  club_timeseries: Record<string, number[]>;
 }

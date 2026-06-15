@@ -11,7 +11,7 @@ import { useColumnResize } from "./useColumnResize";
 // Types
 // ---------------------------------------------------------------------------
 
-type Tab = "clubs" | "players" | "astro";
+type Tab = "clubs" | "players" | "gk" | "chart" | "astro";
 
 const SIGN_EMOJI: Record<string, string> = {
   Aries: "♈", Taurus: "♉", Gemini: "♊", Cancer: "♋",
@@ -347,6 +347,265 @@ function PlayerTable({
 }
 
 // ---------------------------------------------------------------------------
+// Club trend chart (SVG line chart — top 10 clubs, cumulative G+A by matchday)
+// ---------------------------------------------------------------------------
+
+const CHART_COLORS = [
+  "#e84a4a", "#f5a623", "#4aafe8", "#4ae877", "#c84ae8",
+  "#e8c84a", "#4ae8c8", "#e84a9a", "#a0a0ff", "#ff8c4a",
+];
+
+function TrendChart() {
+  const [data, setData] = useState<{ matchdays: string[]; series: Record<string, number[]> } | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/v1/timeseries").then((r) => r.json()).then((j) => setData(j.response));
+  }, []);
+
+  if (!data || data.matchdays.length === 0) {
+    return <div className={styles.loading}>No matchday data yet.</div>;
+  }
+
+  const { matchdays, series } = data;
+  const clubs = Object.keys(series);
+  if (clubs.length === 0) return <div className={styles.loading}>No data yet.</div>;
+
+  const W = 900, H = 380, PAD = { top: 20, right: 160, bottom: 48, left: 48 };
+  const chartW = W - PAD.left - PAD.right;
+  const chartH = H - PAD.top - PAD.bottom;
+
+  const maxVal = Math.max(...clubs.flatMap((c) => series[c]));
+  const xStep = matchdays.length > 1 ? chartW / (matchdays.length - 1) : chartW;
+
+  function xPos(i: number) { return PAD.left + i * xStep; }
+  function yPos(v: number) { return PAD.top + chartH - (maxVal > 0 ? (v / maxVal) * chartH : 0); }
+
+  function polyline(vals: number[]) {
+    return vals.map((v, i) => `${xPos(i)},${yPos(v)}`).join(" ");
+  }
+
+  // Y axis ticks
+  const yTicks = Array.from({ length: 5 }, (_, i) => Math.round((maxVal * i) / 4));
+
+  return (
+    <div>
+      <p className={styles.astroIntro}>
+        Cumulative goal contributions (G+A) per matchday for the top 10 clubs.
+        Hover a line or legend entry to highlight.
+      </p>
+      <div style={{ overflowX: "auto" }}>
+        <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W, display: "block" }}>
+          {/* Grid lines */}
+          {yTicks.map((v) => (
+            <line key={v}
+              x1={PAD.left} x2={W - PAD.right}
+              y1={yPos(v)} y2={yPos(v)}
+              stroke="var(--border)" strokeWidth={1}
+            />
+          ))}
+          {/* Y axis labels */}
+          {yTicks.map((v) => (
+            <text key={v} x={PAD.left - 6} y={yPos(v) + 4}
+              textAnchor="end" fontSize={11} fill="var(--text-3)">{v}</text>
+          ))}
+          {/* X axis labels (date) */}
+          {matchdays.map((d, i) => (
+            <text key={d}
+              x={xPos(i)} y={H - PAD.bottom + 16}
+              textAnchor="middle" fontSize={10} fill="var(--text-3)"
+              transform={matchdays.length > 8 ? `rotate(-35,${xPos(i)},${H - PAD.bottom + 16})` : undefined}
+            >
+              {d.slice(5)}
+            </text>
+          ))}
+          {/* Lines */}
+          {clubs.map((club, ci) => {
+            const color = CHART_COLORS[ci % CHART_COLORS.length];
+            const dim = hovered !== null && hovered !== club;
+            return (
+              <polyline key={club}
+                points={polyline(series[club])}
+                fill="none"
+                stroke={color}
+                strokeWidth={hovered === club ? 3 : 2}
+                opacity={dim ? 0.15 : 1}
+                style={{ cursor: "pointer", transition: "opacity 0.15s" }}
+                onMouseEnter={() => setHovered(club)}
+                onMouseLeave={() => setHovered(null)}
+              />
+            );
+          })}
+          {/* Dots at last point */}
+          {clubs.map((club, ci) => {
+            const color = CHART_COLORS[ci % CHART_COLORS.length];
+            const lastVal = series[club][series[club].length - 1];
+            const dim = hovered !== null && hovered !== club;
+            return (
+              <circle key={club}
+                cx={xPos(matchdays.length - 1)} cy={yPos(lastVal)} r={3}
+                fill={color} opacity={dim ? 0.15 : 1}
+                onMouseEnter={() => setHovered(club)}
+                onMouseLeave={() => setHovered(null)}
+              />
+            );
+          })}
+          {/* Legend */}
+          {clubs.map((club, ci) => {
+            const color = CHART_COLORS[ci % CHART_COLORS.length];
+            const dim = hovered !== null && hovered !== club;
+            const lastVal = series[club][series[club].length - 1];
+            return (
+              <g key={club}
+                style={{ cursor: "pointer", opacity: dim ? 0.3 : 1, transition: "opacity 0.15s" }}
+                onMouseEnter={() => setHovered(club)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                <rect x={W - PAD.right + 12} y={PAD.top + ci * 22} width={10} height={10} fill={color} rx={2} />
+                <text x={W - PAD.right + 26} y={PAD.top + ci * 22 + 9} fontSize={11} fill="var(--text-2)">
+                  {club.length > 18 ? club.slice(0, 17) + "…" : club} ({lastVal})
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Goalkeeper table
+// ---------------------------------------------------------------------------
+
+type GkSort = keyof Player | "goals_conceded_per_90" | "save_pct";
+
+function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) {
+  const [sort, setSort] = useState<GkSort>("saves");
+  const [fNat, setFNat]     = useState<Set<string>>(new Set());
+  const [fClub, setFClub]   = useState<Set<string>>(new Set());
+  const [fLeague, setFLeague] = useState<Set<string>>(new Set());
+
+  const { widths, startResize, autoFit } = useColumnResize({
+    rank: 48, name: 170, club: 150, nat: 120, age: 56,
+    mp: 50, mins: 64, sv: 60, sf: 64, gc: 60, cs: 60, svpct: 76, gcper90: 84,
+    yc: 50, rc: 50,
+  });
+
+  const gks = useMemo(() => players.filter((p) => p.position === "Goalkeeper"), [players]);
+
+  const filtered = useMemo(() => {
+    let r = gks;
+    if (fNat.size)    r = r.filter((p) => fNat.has(p.nationality));
+    if (fClub.size)   r = r.filter((p) => fClub.has(p.club));
+    if (fLeague.size) r = r.filter((p) => p.league && fLeague.has(p.league));
+    return r;
+  }, [gks, fNat, fClub, fLeague]);
+
+  const sorted = useMemo(() =>
+    [...filtered].sort((a, b) => {
+      const av = ((a as unknown as Record<string, unknown>)[sort as string] as number) ?? -1;
+      const bv = ((b as unknown as Record<string, unknown>)[sort as string] as number) ?? -1;
+      return bv - av;
+    }),
+    [filtered, sort]);
+
+  const natOptions    = meta?.nationalities ?? distinct(gks.map((p) => p.nationality)).sort();
+  const clubOptions   = meta?.clubs ?? distinct(gks.map((p) => p.club)).sort();
+  const leagueOptions = meta?.leagues ?? distinct(gks.map((p) => p.league).filter(Boolean) as string[]).sort();
+
+  const numCols: { key: string; label: string; col: GkSort; title?: string; accent?: boolean }[] = [
+    { key: "mp",      label: "MP",      col: "matches_played",      title: "Matches played" },
+    { key: "mins",    label: "Mins",    col: "minutes_played" },
+    { key: "sv",      label: "Saves",   col: "saves",               accent: true },
+    { key: "sf",      label: "Shots F", col: "shots_faced",         title: "Shots faced (on target)" },
+    { key: "gc",      label: "GC",      col: "goals_conceded",      title: "Goals conceded" },
+    { key: "cs",      label: "CS",      col: "clean_sheets",        title: "Clean sheets (played ≥60 min, 0 goals conceded)", accent: true },
+    { key: "svpct",   label: "Save %",  col: "save_pct",            title: "Save percentage", accent: true },
+    { key: "gcper90", label: "GC/90",   col: "goals_conceded_per_90", title: "Goals conceded per 90 — lower is better" },
+    { key: "yc",      label: "YC",      col: "yellow_cards",        title: "Yellow cards" },
+    { key: "rc",      label: "RC",      col: "red_cards",           title: "Red cards" },
+  ];
+
+  return (
+    <div>
+      <FilterBar filters={[
+        { label: "Nationality", options: natOptions,    selected: fNat,    onChange: setFNat },
+        { label: "Club",        options: clubOptions,   selected: fClub,   onChange: setFClub },
+        { label: "League",      options: leagueOptions, selected: fLeague, onChange: setFLeague },
+      ]} />
+      <div className={styles.tableWrap}>
+        <table className={styles.table}>
+          <colgroup>
+            <col style={{ width: widths.rank }} />
+            <col style={{ width: widths.name }} />
+            <col style={{ width: widths.club }} />
+            <col style={{ width: widths.nat }} />
+            <col style={{ width: widths.age }} />
+            {numCols.map((c) => <col key={c.key} style={{ width: widths[c.key] }} />)}
+          </colgroup>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th className={styles.thResizable}>
+                <SortTh label="Player" active={sort === "name"} onSort={() => setSort("name" as GkSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("name")} onDoubleClick={autoFit("name", 1)} />
+              </th>
+              <th className={styles.thResizable}>
+                <SortTh label="Club" active={false} onSort={() => {}} title="Hover for league" />
+                <span className={styles.resizeHandle} onPointerDown={startResize("club")} onDoubleClick={autoFit("club", 2)} />
+              </th>
+              <th className={styles.thResizable}>
+                <SortTh label="Nat." active={sort === "nationality"} onSort={() => setSort("nationality" as GkSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("nat")} onDoubleClick={autoFit("nat", 3)} />
+              </th>
+              <th className={styles.thResizable}>
+                <SortTh label="Age" active={sort === "age"} onSort={() => setSort("age" as GkSort)} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("age")} onDoubleClick={autoFit("age", 4)} />
+              </th>
+              {numCols.map((c, idx) => (
+                <th key={c.key} className={styles.thResizable}>
+                  <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
+                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} onDoubleClick={autoFit(c.key, idx + 5)} />
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((p, i) => (
+              <tr key={p.player_id}>
+                <td className={styles.rank}>{i + 1}</td>
+                <td className={`${styles.statCell} ${styles.wrap}`}>{p.name}</td>
+                <td className={styles.wrap}>
+                  <Tooltip text={p.league ?? "League unknown"}>
+                    <span className={styles.clubLink}>{p.club}</span>
+                  </Tooltip>
+                </td>
+                <td className={styles.wrap}>{p.nationality}</td>
+                <td className={styles.nowrap}>{fmt(p.age)}</td>
+                <td className={styles.nowrap}>{p.matches_played}</td>
+                <td className={styles.nowrap}>{p.minutes_played}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{p.saves}</td>
+                <td className={styles.nowrap}>{p.shots_faced}</td>
+                <td className={styles.nowrap}>{p.goals_conceded}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{p.clean_sheets}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>
+                  {p.save_pct != null ? `${p.save_pct}%` : "—"}
+                </td>
+                <td className={styles.nowrap}>{fmtDec(p.goals_conceded_per_90)}</td>
+                <td className={styles.nowrap}>{p.yellow_cards}</td>
+                <td className={styles.nowrap}>{p.red_cards}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className={styles.tableMeta}>{sorted.length} goalkeepers</div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Astrology table
 // ---------------------------------------------------------------------------
 
@@ -515,6 +774,14 @@ export default function WC2026Page() {
     <main className={styles.page}>
       {/* Header */}
       <div className={styles.header}>
+        <a
+          className={styles.dataCredit}
+          href="https://www.espn.com/soccer/league/_/name/fifa.world"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Data: ESPN
+        </a>
         <div className={styles.eyebrow}>
           <span className={styles.eyebrowDot} />
           FIFA World Cup 2026
@@ -572,6 +839,12 @@ export default function WC2026Page() {
         <button className={`${styles.tab} ${tab === "players" ? styles.tabActive : ""}`} onClick={() => setTab("players")}>
           Player Stats
         </button>
+        <button className={`${styles.tab} ${tab === "chart" ? styles.tabActive : ""}`} onClick={() => setTab("chart")}>
+          📈 Trends
+        </button>
+        <button className={`${styles.tab} ${tab === "gk" ? styles.tabActive : ""}`} onClick={() => setTab("gk")}>
+          🧤 Goalkeepers
+        </button>
         <button className={`${styles.tab} ${tab === "astro" ? styles.tabActive : ""}`} onClick={() => setTab("astro")}>
           ☀️ Astrology
         </button>
@@ -585,7 +858,9 @@ export default function WC2026Page() {
           {tab === "players" && (
             <PlayerTable players={players} meta={meta} fClub={playerClubFilter} setFClub={setPlayerClubFilter} />
           )}
-          {tab === "astro" && <AstroTable players={players} />}
+          {tab === "chart"   && <TrendChart />}
+          {tab === "gk"      && <GkTable players={players} meta={meta} />}
+          {tab === "astro"   && <AstroTable players={players} />}
         </div>
       )}
     </main>
