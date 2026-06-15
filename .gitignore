@@ -1,0 +1,13 @@
+.env
+data/.calls_today.json
+__pycache__/
+*.pyc
+.venv/
+
+# Next.js
+web/.next/
+web/node_modules/
+web/.git/
+
+# OS
+.DS_Store

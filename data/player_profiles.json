@@ -1,0 +1,3098 @@
+{
+  "101982": {
+    "player_id": "101982",
+    "name": "Pedro Miguel",
+    "club": "Al Sadd",
+    "position": "Defender",
+    "age": 35,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "104497": {
+    "player_id": "104497",
+    "name": "Luis Chávez",
+    "club": "Dinamo Moscow",
+    "position": "Midfielder",
+    "age": 30,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "104943": {
+    "player_id": "104943",
+    "name": "Andy Robertson",
+    "club": "Liverpool",
+    "position": "Defender",
+    "age": 32,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "109204": {
+    "player_id": "109204",
+    "name": "Edmílson Junior",
+    "club": "Al Duhail",
+    "position": "Forward",
+    "age": 31,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "118395": {
+    "player_id": "118395",
+    "name": "Gustavo Gómez",
+    "club": "Palmeiras",
+    "position": "Defender",
+    "age": 33,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "119413": {
+    "player_id": "119413",
+    "name": "Gustavo Velázquez",
+    "club": "Cerro Porteño",
+    "position": "Defender",
+    "age": 35,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "120829": {
+    "player_id": "120829",
+    "name": "Nathaniel Brown",
+    "club": "Eintracht Frankfurt",
+    "position": "Defender",
+    "age": 22,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "127444": {
+    "player_id": "127444",
+    "name": "Eloy Room",
+    "club": "Curaçao",
+    "position": "Goalkeeper",
+    "age": 37,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "132098": {
+    "player_id": "132098",
+    "name": "Jesús Gallardo",
+    "club": "Toluca",
+    "position": "Defender",
+    "age": 31,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "134103": {
+    "player_id": "134103",
+    "name": "Lee Jae-Sung",
+    "club": "Mainz",
+    "position": "Midfielder",
+    "age": 33,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "136865": {
+    "player_id": "136865",
+    "name": "Ricardo Rodríguez",
+    "club": "Real Betis",
+    "position": "Defender",
+    "age": 33,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "138664": {
+    "player_id": "138664",
+    "name": "Leandro Bacuna",
+    "club": "Curaçao",
+    "position": "Midfielder",
+    "age": 34,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "141870": {
+    "player_id": "141870",
+    "name": "Kenny McLean",
+    "club": "Norwich City",
+    "position": "Midfielder",
+    "age": 34,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "146290": {
+    "player_id": "146290",
+    "name": "Tim Ream",
+    "club": "Charlotte FC",
+    "position": "Defender",
+    "age": 38,
+    "nationality": "USA",
+    "photo": null
+  },
+  "146577": {
+    "player_id": "146577",
+    "name": "Grant Hanley",
+    "club": "Hibernian",
+    "position": "Defender",
+    "age": 34,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "149945": {
+    "player_id": "149945",
+    "name": "Son Heung-Min",
+    "club": "LAFC",
+    "position": "Forward",
+    "age": 33,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "149981": {
+    "player_id": "149981",
+    "name": "Granit Xhaka",
+    "club": "Sunderland",
+    "position": "Midfielder",
+    "age": 33,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "151714": {
+    "player_id": "151714",
+    "name": "Ladislav Krejcí",
+    "club": "Wolverhampton Wanderers",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "152600": {
+    "player_id": "152600",
+    "name": "Remo Freuler",
+    "club": "Bologna",
+    "position": "Midfielder",
+    "age": 34,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "157046": {
+    "player_id": "157046",
+    "name": "Themba Zwane",
+    "club": "Mamelodi Sundowns",
+    "position": "Midfielder",
+    "age": 36,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "157688": {
+    "player_id": "157688",
+    "name": "Kim Min-Jae",
+    "club": "Bayern München",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "157892": {
+    "player_id": "157892",
+    "name": "Virgil van Dijk",
+    "club": "Liverpool",
+    "position": "Defender",
+    "age": 34,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "159047": {
+    "player_id": "159047",
+    "name": "Marquinhos",
+    "club": "Paris Saint-Germain",
+    "position": "Defender",
+    "age": 32,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "159248": {
+    "player_id": "159248",
+    "name": "Nathan Aké",
+    "club": "Manchester City",
+    "position": "Defender",
+    "age": 31,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "159255": {
+    "player_id": "159255",
+    "name": "Memphis Depay",
+    "club": "Corinthians",
+    "position": "Forward",
+    "age": 32,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "159382": {
+    "player_id": "159382",
+    "name": "Maxime Crépeau",
+    "club": "Orlando City SC",
+    "position": "Goalkeeper",
+    "age": 32,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "162843": {
+    "player_id": "162843",
+    "name": "John McGinn",
+    "club": "Aston Villa",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "167060": {
+    "player_id": "167060",
+    "name": "Raúl Jiménez",
+    "club": "Fulham",
+    "position": "Forward",
+    "age": 35,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "167213": {
+    "player_id": "167213",
+    "name": "Jürgen Locadia",
+    "club": "Curaçao",
+    "position": "Forward",
+    "age": 32,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "169438": {
+    "player_id": "169438",
+    "name": "Antonio Rüdiger",
+    "club": "Real Madrid",
+    "position": "Defender",
+    "age": 33,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "170369": {
+    "player_id": "170369",
+    "name": "Danilo",
+    "club": "Flamengo",
+    "position": "Defender",
+    "age": 34,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "170553": {
+    "player_id": "170553",
+    "name": "Sead Kolasinac",
+    "club": "Atalanta",
+    "position": "Defender",
+    "age": 32,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "170785": {
+    "player_id": "170785",
+    "name": "Hakan Çalhanoglu",
+    "club": "Internazionale",
+    "position": "Midfielder",
+    "age": 32,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "171771": {
+    "player_id": "171771",
+    "name": "Enner Valencia",
+    "club": "Pachuca",
+    "position": "Forward",
+    "age": 36,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "172137": {
+    "player_id": "172137",
+    "name": "Jason Geria",
+    "club": "Albirex Niigata",
+    "position": "Defender",
+    "age": 33,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "172245": {
+    "player_id": "172245",
+    "name": "Karim Boudiaf",
+    "club": "Al Duhail",
+    "position": "Midfielder",
+    "age": 35,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "173306": {
+    "player_id": "173306",
+    "name": "Lawrence Shankland",
+    "club": "Heart of Midlothian",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "173666": {
+    "player_id": "173666",
+    "name": "Casemiro",
+    "club": "Manchester United",
+    "position": "Midfielder",
+    "age": 34,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "174550": {
+    "player_id": "174550",
+    "name": "Leon Goretzka",
+    "club": "Bayern München",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "175149": {
+    "player_id": "175149",
+    "name": "Yassine Bounou",
+    "club": "Al Hilal",
+    "position": "Goalkeeper",
+    "age": 35,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "175921": {
+    "player_id": "175921",
+    "name": "Kim Seung-Gyu",
+    "club": "FC Tokyo",
+    "position": "Goalkeeper",
+    "age": 35,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "176287": {
+    "player_id": "176287",
+    "name": "Fabinho",
+    "club": "Al Ittihad",
+    "position": "Midfielder",
+    "age": 32,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "178071": {
+    "player_id": "178071",
+    "name": "Jackson Irvine",
+    "club": "St. Pauli",
+    "position": "Midfielder",
+    "age": 33,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "178273": {
+    "player_id": "178273",
+    "name": "Gervane Kastaneer",
+    "club": "Curaçao",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "181299": {
+    "player_id": "181299",
+    "name": "Angus Gunn",
+    "club": "Nottingham Forest",
+    "position": "Goalkeeper",
+    "age": 30,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "181657": {
+    "player_id": "181657",
+    "name": "Júnior Alonso",
+    "club": "Atlético-MG",
+    "position": "Defender",
+    "age": 33,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "184118": {
+    "player_id": "184118",
+    "name": "Seko Fofana",
+    "club": "FC Porto",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "184221": {
+    "player_id": "184221",
+    "name": "Jonathan Osorio",
+    "club": "Toronto FC",
+    "position": "Midfielder",
+    "age": 34,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "186575": {
+    "player_id": "186575",
+    "name": "Douglas Santos",
+    "club": "Zenit St Petersburg",
+    "position": "Defender",
+    "age": 32,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "188052": {
+    "player_id": "188052",
+    "name": "Jonathan Tah",
+    "club": "Bayern München",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "188106": {
+    "player_id": "188106",
+    "name": "Ricardo Adé",
+    "club": "Liga de Quito",
+    "position": "Defender",
+    "age": 36,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "188160": {
+    "player_id": "188160",
+    "name": "Alejandro Romero Gamarra",
+    "club": "Al Ain",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "188411": {
+    "player_id": "188411",
+    "name": "Riechedly Bazoer",
+    "club": "Curaçao",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "190161": {
+    "player_id": "190161",
+    "name": "Joshua Kimmich",
+    "club": "Bayern München",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "191209": {
+    "player_id": "191209",
+    "name": "Vladimír Coufal",
+    "club": "TSG Hoffenheim",
+    "position": "Defender",
+    "age": 33,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "192162": {
+    "player_id": "192162",
+    "name": "Antonio Sanabria",
+    "club": "Cremonese",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "192278": {
+    "player_id": "192278",
+    "name": "Diego Gómez",
+    "club": "Brighton & Hove Albion",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "193149": {
+    "player_id": "193149",
+    "name": "Abdülkerim Bardakçi",
+    "club": "Galatasaray",
+    "position": "Defender",
+    "age": 31,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "194308": {
+    "player_id": "194308",
+    "name": "Roberto Alvarado",
+    "club": "Guadalajara",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "194711": {
+    "player_id": "194711",
+    "name": "Franck Kessié",
+    "club": "Al Ahli",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "194767": {
+    "player_id": "194767",
+    "name": "Ivan Sunjic",
+    "club": "Pafos",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "196230": {
+    "player_id": "196230",
+    "name": "Ronwen Williams",
+    "club": "Mamelodi Sundowns",
+    "position": "Goalkeeper",
+    "age": 34,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "196876": {
+    "player_id": "196876",
+    "name": "Alisson Becker",
+    "club": "Liverpool",
+    "position": "Goalkeeper",
+    "age": 33,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "200414": {
+    "player_id": "200414",
+    "name": "Aziz Behich",
+    "club": "Melbourne City FC",
+    "position": "Defender",
+    "age": 35,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "202099": {
+    "player_id": "202099",
+    "name": "Breel Embolo",
+    "club": "Stade Rennais",
+    "position": "Forward",
+    "age": 29,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "202429": {
+    "player_id": "202429",
+    "name": "Lewis Ferguson",
+    "club": "Bologna",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "202501": {
+    "player_id": "202501",
+    "name": "Andrés Cubas",
+    "club": "Vancouver Whitecaps",
+    "position": "Midfielder",
+    "age": 30,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "202641": {
+    "player_id": "202641",
+    "name": "Leroy Sané",
+    "club": "Galatasaray",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "202728": {
+    "player_id": "202728",
+    "name": "Shogo Taniguchi",
+    "club": "Sint-Truidense",
+    "position": "Defender",
+    "age": 34,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "205024": {
+    "player_id": "205024",
+    "name": "Cyle Larin",
+    "club": "Southampton",
+    "position": "Forward",
+    "age": 31,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "205377": {
+    "player_id": "205377",
+    "name": "Boualem Khoukhi",
+    "club": "Al Sadd",
+    "position": "Defender",
+    "age": 35,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "207350": {
+    "player_id": "207350",
+    "name": "Cameron Burgess",
+    "club": "Swansea City",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "207454": {
+    "player_id": "207454",
+    "name": "Jack Hendry",
+    "club": "Al Ettifaq",
+    "position": "Defender",
+    "age": 31,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "207461": {
+    "player_id": "207461",
+    "name": "Harry Souttar",
+    "club": "Leicester City",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "207538": {
+    "player_id": "207538",
+    "name": "Lyndon Dykes",
+    "club": "Charlton Athletic",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "207921": {
+    "player_id": "207921",
+    "name": "Hernán Galíndez",
+    "club": "Huracán",
+    "position": "Goalkeeper",
+    "age": 39,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "20975": {
+    "player_id": "20975",
+    "name": "Julio Enciso",
+    "club": "Strasbourg",
+    "position": "Midfielder",
+    "age": 22,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "210397": {
+    "player_id": "210397",
+    "name": "Nicolas Pépé",
+    "club": "Villarreal",
+    "position": "Forward",
+    "age": 31,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "212237": {
+    "player_id": "212237",
+    "name": "Nico Elvedi",
+    "club": "Borussia Mönchengladbach",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "212330": {
+    "player_id": "212330",
+    "name": "Patrik Schick",
+    "club": "Bayer Leverkusen",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "213248": {
+    "player_id": "213248",
+    "name": "Denzel Dumfries",
+    "club": "Internazionale",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "213718": {
+    "player_id": "213718",
+    "name": "Ibrahim Sangaré",
+    "club": "Nottingham Forest",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "213725": {
+    "player_id": "213725",
+    "name": "Ché Adams",
+    "club": "Torino",
+    "position": "Forward",
+    "age": 29,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "214562": {
+    "player_id": "214562",
+    "name": "Manuel Akanji",
+    "club": "Internazionale",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "215401": {
+    "player_id": "215401",
+    "name": "Omar Alderete",
+    "club": "Sunderland",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "216287": {
+    "player_id": "216287",
+    "name": "Juninho Bacuna",
+    "club": "FC Volendam",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "218522": {
+    "player_id": "218522",
+    "name": "Bruno Guimarães",
+    "club": "Newcastle United",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "218703": {
+    "player_id": "218703",
+    "name": "Carlens Arcus",
+    "club": "Angers",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "219022": {
+    "player_id": "219022",
+    "name": "Frenkie de Jong",
+    "club": "Barcelona",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "219254": {
+    "player_id": "219254",
+    "name": "Assim Madibo",
+    "club": "Al Gharafa",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "219258": {
+    "player_id": "219258",
+    "name": "Akram Afif",
+    "club": "Al Sadd",
+    "position": "Forward",
+    "age": 29,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "219350": {
+    "player_id": "219350",
+    "name": "Junya Ito",
+    "club": "Racing Genk",
+    "position": "Forward",
+    "age": 33,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "219362": {
+    "player_id": "219362",
+    "name": "Daichi Kamada",
+    "club": "Crystal Palace",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "219627": {
+    "player_id": "219627",
+    "name": "Ritsu Doan",
+    "club": "Eintracht Frankfurt",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "220538": {
+    "player_id": "220538",
+    "name": "Nikola Katic",
+    "club": "Schalke 04",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "220714": {
+    "player_id": "220714",
+    "name": "Waldemar Anton",
+    "club": "Borussia Dortmund",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "222396": {
+    "player_id": "222396",
+    "name": "Antonee Robinson",
+    "club": "Fulham",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "USA",
+    "photo": null
+  },
+  "222628": {
+    "player_id": "222628",
+    "name": "Denis Zakaria",
+    "club": "AS Monaco",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "222776": {
+    "player_id": "222776",
+    "name": "Tyler Adams",
+    "club": "AFC Bournemouth",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "USA",
+    "photo": null
+  },
+  "222922": {
+    "player_id": "222922",
+    "name": "Ugurcan Çakir",
+    "club": "Galatasaray",
+    "position": "Goalkeeper",
+    "age": 30,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "223818": {
+    "player_id": "223818",
+    "name": "Aubrey Modiba",
+    "club": "Mamelodi Sundowns",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "224323": {
+    "player_id": "224323",
+    "name": "César Montes",
+    "club": "Lokomotiv Moscow",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "224786": {
+    "player_id": "224786",
+    "name": "Sherel Floranus",
+    "club": "PEC Zwolle",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "225563": {
+    "player_id": "225563",
+    "name": "Salih Özcan",
+    "club": "Borussia Dortmund",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "225571": {
+    "player_id": "225571",
+    "name": "Dzenis Burnic",
+    "club": "Karlsruher SC",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "225607": {
+    "player_id": "225607",
+    "name": "Christian Pulisic",
+    "club": "AC Milan",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "USA",
+    "photo": null
+  },
+  "228595": {
+    "player_id": "228595",
+    "name": "Sphephelo Sithole",
+    "club": "Tondela",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "229487": {
+    "player_id": "229487",
+    "name": "Alexis Vega",
+    "club": "Toluca",
+    "position": "Forward",
+    "age": 28,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "230626": {
+    "player_id": "230626",
+    "name": "Richie Laryea",
+    "club": "Toronto FC",
+    "position": "Defender",
+    "age": 31,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "230666": {
+    "player_id": "230666",
+    "name": "Tomás Soucek",
+    "club": "West Ham United",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "230963": {
+    "player_id": "230963",
+    "name": "Issa Diop",
+    "club": "Fulham",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "231050": {
+    "player_id": "231050",
+    "name": "Raphinha",
+    "club": "Barcelona",
+    "position": "Forward",
+    "age": 29,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "231182": {
+    "player_id": "231182",
+    "name": "Kai Havertz",
+    "club": "Arsenal",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "233075": {
+    "player_id": "233075",
+    "name": "Julián Quiñones",
+    "club": "Al Qadsiah",
+    "position": "Forward",
+    "age": 29,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "234715": {
+    "player_id": "234715",
+    "name": "Lucas Paquetá",
+    "club": "Flamengo",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "236322": {
+    "player_id": "236322",
+    "name": "Gabriel Magalhães",
+    "club": "Arsenal",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "236586": {
+    "player_id": "236586",
+    "name": "Hassan Al-Haydos",
+    "club": "Al Sadd",
+    "position": "Forward",
+    "age": 35,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "237224": {
+    "player_id": "237224",
+    "name": "Hwang Hee-Chan",
+    "club": "Wolverhampton Wanderers",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "238004": {
+    "player_id": "238004",
+    "name": "Takehiro Tomiyasu",
+    "club": "Ajax Amsterdam",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "238016": {
+    "player_id": "238016",
+    "name": "Koki Ogawa",
+    "club": "NEC Nijmegen",
+    "position": "Forward",
+    "age": 28,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "238318": {
+    "player_id": "238318",
+    "name": "Ferdi Kadioglu",
+    "club": "Brighton & Hove Albion",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "238544": {
+    "player_id": "238544",
+    "name": "Gregor Kobel",
+    "club": "Borussia Dortmund",
+    "position": "Goalkeeper",
+    "age": 28,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "238712": {
+    "player_id": "238712",
+    "name": "Derek Cornelius",
+    "club": "Rangers",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "239350": {
+    "player_id": "239350",
+    "name": "Noussair Mazraoui",
+    "club": "Manchester United",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "240233": {
+    "player_id": "240233",
+    "name": "Achraf Hakimi",
+    "club": "Paris Saint-Germain",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "240369": {
+    "player_id": "240369",
+    "name": "Jean-Ricner Bellegarde",
+    "club": "Wolverhampton Wanderers",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "241031": {
+    "player_id": "241031",
+    "name": "Aiden O'Neill",
+    "club": "New York City FC",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "241627": {
+    "player_id": "241627",
+    "name": "Edson Álvarez",
+    "club": "Fenerbahce",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "243626": {
+    "player_id": "243626",
+    "name": "Miro Muheim",
+    "club": "Hamburg SV",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "245623": {
+    "player_id": "245623",
+    "name": "Michel Aebischer",
+    "club": "Pisa",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "245918": {
+    "player_id": "245918",
+    "name": "Armando Obispo",
+    "club": "PSV Eindhoven",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "246532": {
+    "player_id": "246532",
+    "name": "Brahim Díaz",
+    "club": "Real Madrid",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "248276": {
+    "player_id": "248276",
+    "name": "Alex Freeman",
+    "club": "Villarreal",
+    "position": "Defender",
+    "age": 21,
+    "nationality": "USA",
+    "photo": null
+  },
+  "249524": {
+    "player_id": "249524",
+    "name": "Cody Gakpo",
+    "club": "Liverpool",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "249525": {
+    "player_id": "249525",
+    "name": "Michal Sadílek",
+    "club": "Slavia Prague",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "249548": {
+    "player_id": "249548",
+    "name": "David Raum",
+    "club": "RB Leipzig",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "250241": {
+    "player_id": "250241",
+    "name": "Frantzdy Pierrot",
+    "club": "Caykur Rizespor",
+    "position": "Forward",
+    "age": 31,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "250888": {
+    "player_id": "250888",
+    "name": "Ghislain Konan",
+    "club": "Gil Vicente",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "252107": {
+    "player_id": "252107",
+    "name": "Vinícius Júnior",
+    "club": "Real Madrid",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "252521": {
+    "player_id": "252521",
+    "name": "Hannes Delcroix",
+    "club": "Burnley",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "252974": {
+    "player_id": "252974",
+    "name": "Matt Freese",
+    "club": "New York City FC",
+    "position": "Goalkeeper",
+    "age": 27,
+    "nationality": "USA",
+    "photo": null
+  },
+  "255850": {
+    "player_id": "255850",
+    "name": "Scott McTominay",
+    "club": "Napoli",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "256560": {
+    "player_id": "256560",
+    "name": "Ángelo Preciado",
+    "club": "Atlético-MG",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "256587": {
+    "player_id": "256587",
+    "name": "Takefusa Kubo",
+    "club": "Real Sociedad",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "256598": {
+    "player_id": "256598",
+    "name": "Paik Seung-Ho",
+    "club": "Birmingham City",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "256691": {
+    "player_id": "256691",
+    "name": "Teboho Mokoena",
+    "club": "Mamelodi Sundowns",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "256715": {
+    "player_id": "256715",
+    "name": "Weston McKennie",
+    "club": "Juventus",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "USA",
+    "photo": null
+  },
+  "257336": {
+    "player_id": "257336",
+    "name": "Tomás Chorý",
+    "club": "Slavia Prague",
+    "position": "Forward",
+    "age": 31,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "257754": {
+    "player_id": "257754",
+    "name": "Alex Arce",
+    "club": "Independiente Rivadavia",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "258968": {
+    "player_id": "258968",
+    "name": "Teun Koopmeiners",
+    "club": "Juventus",
+    "position": "Midfielder",
+    "age": 28,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "259481": {
+    "player_id": "259481",
+    "name": "Donyell Malen",
+    "club": "AS Roma",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "259513": {
+    "player_id": "259513",
+    "name": "Rubén Vargas",
+    "club": "Sevilla",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "259835": {
+    "player_id": "259835",
+    "name": "Roger Ibañez",
+    "club": "Al Ahli",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "259902": {
+    "player_id": "259902",
+    "name": "Matheus Cunha",
+    "club": "Manchester United",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "259975": {
+    "player_id": "259975",
+    "name": "Johan Vásquez",
+    "club": "Genoa",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "260643": {
+    "player_id": "260643",
+    "name": "Connor Metcalfe",
+    "club": "St. Pauli",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "261328": {
+    "player_id": "261328",
+    "name": "Tijjani Reijnders",
+    "club": "Manchester City",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "261595": {
+    "player_id": "261595",
+    "name": "Yahia Fofana",
+    "club": "Caykur Rizespor",
+    "position": "Goalkeeper",
+    "age": 25,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "262111": {
+    "player_id": "262111",
+    "name": "Alan Franco",
+    "club": "Atlético-MG",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "263311": {
+    "player_id": "263311",
+    "name": "Ahmed Alaaeldin",
+    "club": "Al Gharafa",
+    "position": "Forward",
+    "age": 33,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "264751": {
+    "player_id": "264751",
+    "name": "Lyle Foster",
+    "club": "Burnley",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "265915": {
+    "player_id": "265915",
+    "name": "Wilson Isidor",
+    "club": "Sunderland",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "265926": {
+    "player_id": "265926",
+    "name": "John Yeboah",
+    "club": "Venezia",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "265953": {
+    "player_id": "265953",
+    "name": "Keito Nakamura",
+    "club": "Stade de Reims",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "265958": {
+    "player_id": "265958",
+    "name": "Zion Suzuki",
+    "club": "Parma",
+    "position": "Goalkeeper",
+    "age": 23,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "265965": {
+    "player_id": "265965",
+    "name": "Yukinari Sugawara",
+    "club": "Werder Bremen",
+    "position": "Defender",
+    "age": 25,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "266002": {
+    "player_id": "266002",
+    "name": "Mert Müldür",
+    "club": "Fenerbahce",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "266027": {
+    "player_id": "266027",
+    "name": "Timothy Weah",
+    "club": "Marseille",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "USA",
+    "photo": null
+  },
+  "266125": {
+    "player_id": "266125",
+    "name": "Nkosinathi Sibisi",
+    "club": "Orlando Pirates",
+    "position": "Defender",
+    "age": 30,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "266291": {
+    "player_id": "266291",
+    "name": "Sergiño Dest",
+    "club": "PSV Eindhoven",
+    "position": "Defender",
+    "age": 25,
+    "nationality": "USA",
+    "photo": null
+  },
+  "266575": {
+    "player_id": "266575",
+    "name": "Yunus Akgün",
+    "club": "Galatasaray",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "267053": {
+    "player_id": "267053",
+    "name": "Jacob Italiano",
+    "club": "Grazer AK",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "267178": {
+    "player_id": "267178",
+    "name": "Merih Demiral",
+    "club": "Al Ahli",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "268018": {
+    "player_id": "268018",
+    "name": "Ahmed Fathy",
+    "club": "Qatar",
+    "position": "Midfielder",
+    "age": 33,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "269136": {
+    "player_id": "269136",
+    "name": "Ermedin Demirovic",
+    "club": "VfB Stuttgart",
+    "position": "Forward",
+    "age": 28,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "270505": {
+    "player_id": "270505",
+    "name": "Stephen Eustáquio",
+    "club": "LAFC",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "271191": {
+    "player_id": "271191",
+    "name": "Nathan Patterson",
+    "club": "Everton",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "271873": {
+    "player_id": "271873",
+    "name": "Zeki Çelik",
+    "club": "AS Roma",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "271879": {
+    "player_id": "271879",
+    "name": "Liam Millar",
+    "club": "Hull City",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "272585": {
+    "player_id": "272585",
+    "name": "Chris Richards",
+    "club": "Crystal Palace",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "USA",
+    "photo": null
+  },
+  "272700": {
+    "player_id": "272700",
+    "name": "Orkun Kökçü",
+    "club": "Besiktas",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "272874": {
+    "player_id": "272874",
+    "name": "Homam Ahmed",
+    "club": "Cultural Leonesa",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "273300": {
+    "player_id": "273300",
+    "name": "Deniz Undav",
+    "club": "VfB Stuttgart",
+    "position": "Forward",
+    "age": 29,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "273499": {
+    "player_id": "273499",
+    "name": "Jonathan David",
+    "club": "Juventus",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "274164": {
+    "player_id": "274164",
+    "name": "Yusuf Abdurisag",
+    "club": "Al Sadd",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "274197": {
+    "player_id": "274197",
+    "name": "Lee Kang-In",
+    "club": "Paris Saint-Germain",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "274277": {
+    "player_id": "274277",
+    "name": "Ayase Ueda",
+    "club": "Feyenoord Rotterdam",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "274632": {
+    "player_id": "274632",
+    "name": "Ryan Gravenberch",
+    "club": "Liverpool",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "275007": {
+    "player_id": "275007",
+    "name": "Yassin Fortuné",
+    "club": "US Quevilly",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "275842": {
+    "player_id": "275842",
+    "name": "Dan Ndoye",
+    "club": "Nottingham Forest",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "276139": {
+    "player_id": "276139",
+    "name": "Soufiane Rahimi",
+    "club": "Al Ain",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "276218": {
+    "player_id": "276218",
+    "name": "Tahith Chong",
+    "club": "Curaçao",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "276279": {
+    "player_id": "276279",
+    "name": "Tsuyoshi Watanabe",
+    "club": "Feyenoord Rotterdam",
+    "position": "Defender",
+    "age": 29,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "276659": {
+    "player_id": "276659",
+    "name": "Jaroslav Zelený",
+    "club": "Sparta Prague",
+    "position": "Defender",
+    "age": 33,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "276767": {
+    "player_id": "276767",
+    "name": "Khuliso Mudau",
+    "club": "Mamelodi Sundowns",
+    "position": "Defender",
+    "age": 31,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "276942": {
+    "player_id": "276942",
+    "name": "Érik Lira",
+    "club": "Cruz Azul",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "277313": {
+    "player_id": "277313",
+    "name": "Matej Kovár",
+    "club": "PSV Eindhoven",
+    "position": "Goalkeeper",
+    "age": 26,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "277352": {
+    "player_id": "277352",
+    "name": "Gonzalo Plata",
+    "club": "Flamengo",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "280061": {
+    "player_id": "280061",
+    "name": "Hwang In-Beom",
+    "club": "Feyenoord Rotterdam",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "281122": {
+    "player_id": "281122",
+    "name": "Felix Nmecha",
+    "club": "Borussia Dortmund",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "281316": {
+    "player_id": "281316",
+    "name": "Kevin Rodríguez",
+    "club": "Peñarol",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "282229": {
+    "player_id": "282229",
+    "name": "Brian Brobbey",
+    "club": "Sunderland",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "282230": {
+    "player_id": "282230",
+    "name": "Quinten Timber",
+    "club": "Marseille",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "282583": {
+    "player_id": "282583",
+    "name": "Jan Paul van Hecke",
+    "club": "Brighton & Hove Albion",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "282643": {
+    "player_id": "282643",
+    "name": "Folarin Balogun",
+    "club": "AS Monaco",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "USA",
+    "photo": null
+  },
+  "283827": {
+    "player_id": "283827",
+    "name": "Álvaro Fidalgo",
+    "club": "Real Betis",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "283940": {
+    "player_id": "283940",
+    "name": "Aaron Hickey",
+    "club": "Brentford",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "284769": {
+    "player_id": "284769",
+    "name": "Tajon Buchanan",
+    "club": "Villarreal",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "284792": {
+    "player_id": "284792",
+    "name": "Crysencio Summerville",
+    "club": "West Ham United",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "284822": {
+    "player_id": "284822",
+    "name": "Odilon Kossounou",
+    "club": "Atalanta",
+    "position": "Defender",
+    "age": 25,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "286214": {
+    "player_id": "286214",
+    "name": "Jacob Shaffelburg",
+    "club": "LAFC",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "286347": {
+    "player_id": "286347",
+    "name": "Daizen Maeda",
+    "club": "Celtic",
+    "position": "Forward",
+    "age": 28,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "286569": {
+    "player_id": "286569",
+    "name": "Wilfried Singo",
+    "club": "Galatasaray",
+    "position": "Defender",
+    "age": 25,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "286665": {
+    "player_id": "286665",
+    "name": "Jackson Porozo",
+    "club": "Tijuana",
+    "position": "Defender",
+    "age": 25,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "286828": {
+    "player_id": "286828",
+    "name": "Nico Schlotterbeck",
+    "club": "Borussia Dortmund",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "287005": {
+    "player_id": "287005",
+    "name": "Willian Pacho",
+    "club": "Paris Saint-Germain",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "288771": {
+    "player_id": "288771",
+    "name": "Oswin Appollis",
+    "club": "Orlando Pirates",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "288932": {
+    "player_id": "288932",
+    "name": "Armin Gigovic",
+    "club": "Young Boys",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "289046": {
+    "player_id": "289046",
+    "name": "Maurício",
+    "club": "Palmeiras",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "289120": {
+    "player_id": "289120",
+    "name": "Ricardo Pepi",
+    "club": "PSV Eindhoven",
+    "position": "Forward",
+    "age": 23,
+    "nationality": "USA",
+    "photo": null
+  },
+  "289877": {
+    "player_id": "289877",
+    "name": "Moisés Caicedo",
+    "club": "Chelsea",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "290230": {
+    "player_id": "290230",
+    "name": "Giovanni Reyna",
+    "club": "Borussia Mönchengladbach",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "USA",
+    "photo": null
+  },
+  "290414": {
+    "player_id": "290414",
+    "name": "Israel Reyes",
+    "club": "América",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "290899": {
+    "player_id": "290899",
+    "name": "Raúl Rangel",
+    "club": "Guadalajara",
+    "position": "Goalkeeper",
+    "age": 26,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "291141": {
+    "player_id": "291141",
+    "name": "Iqraam Rayners",
+    "club": "Mamelodi Sundowns",
+    "position": "Forward",
+    "age": 30,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "291552": {
+    "player_id": "291552",
+    "name": "Azzedine Ounahi",
+    "club": "Girona",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "291608": {
+    "player_id": "291608",
+    "name": "Louicius Deedson",
+    "club": "FC Dallas",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "291609": {
+    "player_id": "291609",
+    "name": "Bart Verbruggen",
+    "club": "Brighton & Hove Albion",
+    "position": "Goalkeeper",
+    "age": 23,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "291630": {
+    "player_id": "291630",
+    "name": "Amad Diallo",
+    "club": "Manchester United",
+    "position": "Forward",
+    "age": 23,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "292062": {
+    "player_id": "292062",
+    "name": "Piero Hincapié",
+    "club": "Arsenal",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "292169": {
+    "player_id": "292169",
+    "name": "Adam Hlozek",
+    "club": "TSG Hoffenheim",
+    "position": "Forward",
+    "age": 23,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "293691": {
+    "player_id": "293691",
+    "name": "Alistair Johnston",
+    "club": "Celtic",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "294039": {
+    "player_id": "294039",
+    "name": "Tani Oluwaseyi",
+    "club": "Villarreal",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "294618": {
+    "player_id": "294618",
+    "name": "Lukás Provod",
+    "club": "Slavia Prague",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "295771": {
+    "player_id": "295771",
+    "name": "Sebastian Berhalter",
+    "club": "Vancouver Whitecaps",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "USA",
+    "photo": null
+  },
+  "296512": {
+    "player_id": "296512",
+    "name": "Micky van de Ven",
+    "club": "Tottenham Hotspur",
+    "position": "Defender",
+    "age": 25,
+    "nationality": "Netherlands",
+    "photo": null
+  },
+  "297150": {
+    "player_id": "297150",
+    "name": "Pedro Vite",
+    "club": "Pumas UNAM",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "297270": {
+    "player_id": "297270",
+    "name": "Lee Tae-Seok",
+    "club": "Austria Vienna",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "297296": {
+    "player_id": "297296",
+    "name": "Anass Salah-Eddine",
+    "club": "PSV Eindhoven",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "297299": {
+    "player_id": "297299",
+    "name": "Sontje Hansen",
+    "club": "Curaçao",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "297788": {
+    "player_id": "297788",
+    "name": "Lee Han-Beom",
+    "club": "FC Midtjylland",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "297791": {
+    "player_id": "297791",
+    "name": "Eom Ji-Sung",
+    "club": "Swansea City",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "301093": {
+    "player_id": "301093",
+    "name": "Lenny Joseph",
+    "club": "Ferencvaros",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "301321": {
+    "player_id": "301321",
+    "name": "Thalente Mbatha",
+    "club": "Orlando Pirates",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "301416": {
+    "player_id": "301416",
+    "name": "Malik Tillman",
+    "club": "Bayer Leverkusen",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "USA",
+    "photo": null
+  },
+  "301441": {
+    "player_id": "301441",
+    "name": "Jearl Margaritha",
+    "club": "Curaçao",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "301516": {
+    "player_id": "301516",
+    "name": "Damián Bobadilla",
+    "club": "São Paulo",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "301648": {
+    "player_id": "301648",
+    "name": "Orlando Gil",
+    "club": "San Lorenzo",
+    "position": "Goalkeeper",
+    "age": 26,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "301653": {
+    "player_id": "301653",
+    "name": "Ramón Sosa",
+    "club": "Palmeiras",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "301894": {
+    "player_id": "301894",
+    "name": "Igor Thiago",
+    "club": "Brentford",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "302434": {
+    "player_id": "302434",
+    "name": "Oh Hyeon-Gyu",
+    "club": "Besiktas",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "302688": {
+    "player_id": "302688",
+    "name": "Mohamed Toure",
+    "club": "Norwich City",
+    "position": "Forward",
+    "age": 22,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "302793": {
+    "player_id": "302793",
+    "name": "Seol Young-Woo",
+    "club": "Red Star Belgrade",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "303312": {
+    "player_id": "303312",
+    "name": "Evidence Makgopa",
+    "club": "Orlando Pirates",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "303577": {
+    "player_id": "303577",
+    "name": "Brian Gutiérrez",
+    "club": "River Plate",
+    "position": "Midfielder",
+    "age": 22,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "303748": {
+    "player_id": "303748",
+    "name": "Florian Wirtz",
+    "club": "Liverpool",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "303821": {
+    "player_id": "303821",
+    "name": "Jamal Musiala",
+    "club": "Bayern München",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "303973": {
+    "player_id": "303973",
+    "name": "Ardon Jashari",
+    "club": "AC Milan",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "304212": {
+    "player_id": "304212",
+    "name": "Josué Casimir",
+    "club": "AJ Auxerre",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "304215": {
+    "player_id": "304215",
+    "name": "Luiz Henrique",
+    "club": "Zenit St Petersburg",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "304572": {
+    "player_id": "304572",
+    "name": "Ismael Saibari",
+    "club": "PSV Eindhoven",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "304736": {
+    "player_id": "304736",
+    "name": "Jayden Adams",
+    "club": "Mamelodi Sundowns",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "305118": {
+    "player_id": "305118",
+    "name": "Jovo Lukic",
+    "club": "Universitatea Cluj",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "305545": {
+    "player_id": "305545",
+    "name": "Pavel Sulc",
+    "club": "Lyon",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "305629": {
+    "player_id": "305629",
+    "name": "Ismail Yüksek",
+    "club": "Fenerbahce",
+    "position": "Midfielder",
+    "age": 27,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "306256": {
+    "player_id": "306256",
+    "name": "Ivan Basic",
+    "club": "FC Astana",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "306764": {
+    "player_id": "306764",
+    "name": "Danilo Santos",
+    "club": "Botafogo",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Brazil",
+    "photo": null
+  },
+  "306789": {
+    "player_id": "306789",
+    "name": "Kerem Aktürkoglu",
+    "club": "Fenerbahce",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "307861": {
+    "player_id": "307861",
+    "name": "Ruben Providence",
+    "club": "Almere City",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "307870": {
+    "player_id": "307870",
+    "name": "Chadi Riad",
+    "club": "Crystal Palace",
+    "position": "Defender",
+    "age": 22,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "308449": {
+    "player_id": "308449",
+    "name": "Emmanuel Agbadou",
+    "club": "Besiktas",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "308908": {
+    "player_id": "308908",
+    "name": "Fabian Rieder",
+    "club": "FC Augsburg",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "308979": {
+    "player_id": "308979",
+    "name": "Amar Dedic",
+    "club": "Benfica",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "309185": {
+    "player_id": "309185",
+    "name": "Ange-Yoan Bonny",
+    "club": "Internazionale",
+    "position": "Forward",
+    "age": 22,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "309315": {
+    "player_id": "309315",
+    "name": "Mohamed Manai",
+    "club": "Qatar U23",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "310372": {
+    "player_id": "310372",
+    "name": "Mahmoud Abunada",
+    "club": "Qatar",
+    "position": "Goalkeeper",
+    "age": 26,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "310373": {
+    "player_id": "310373",
+    "name": "Jassem Gaber",
+    "club": "Qatar",
+    "position": "Defender",
+    "age": 24,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "310452": {
+    "player_id": "310452",
+    "name": "Arda Güler",
+    "club": "Real Madrid",
+    "position": "Midfielder",
+    "age": 21,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "310925": {
+    "player_id": "310925",
+    "name": "Jeremy Antonisse",
+    "club": "Curaçao",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "311118": {
+    "player_id": "311118",
+    "name": "Elye Wahi",
+    "club": "Nice",
+    "position": "Forward",
+    "age": 23,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "312261": {
+    "player_id": "312261",
+    "name": "Tete Yengi",
+    "club": "Machida Zelvia",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "317285": {
+    "player_id": "317285",
+    "name": "Livano Comenencia",
+    "club": "Curaçao",
+    "position": "Defender",
+    "age": 22,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "318090": {
+    "player_id": "318090",
+    "name": "Nilson Angulo",
+    "club": "Sunderland",
+    "position": "Forward",
+    "age": 22,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "318390": {
+    "player_id": "318390",
+    "name": "Tarik Muharemovic",
+    "club": "Sassuolo",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "318429": {
+    "player_id": "318429",
+    "name": "Nishan Velupillay",
+    "club": "Melbourne Victory",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "318522": {
+    "player_id": "318522",
+    "name": "Promise David",
+    "club": "Union St.-Gilloise",
+    "position": "Forward",
+    "age": 24,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "319422": {
+    "player_id": "319422",
+    "name": "Alan Minda",
+    "club": "Atlético-MG",
+    "position": "Forward",
+    "age": 23,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "320212": {
+    "player_id": "320212",
+    "name": "Martin Expérience",
+    "club": "AS Nancy Lorraine",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "320757": {
+    "player_id": "320757",
+    "name": "Zeki Amdouni",
+    "club": "Burnley",
+    "position": "Forward",
+    "age": 25,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "322244": {
+    "player_id": "322244",
+    "name": "Samed Bazdar",
+    "club": "Jagiellonia Bialystok",
+    "position": "Forward",
+    "age": 22,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "322510": {
+    "player_id": "322510",
+    "name": "Robin Hranác",
+    "club": "TSG Hoffenheim",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "322538": {
+    "player_id": "322538",
+    "name": "Baris Alper Yilmaz",
+    "club": "Galatasaray",
+    "position": "Forward",
+    "age": 26,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "323807": {
+    "player_id": "323807",
+    "name": "Neil El Aynaoui",
+    "club": "AS Roma",
+    "position": "Midfielder",
+    "age": 24,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "325001": {
+    "player_id": "325001",
+    "name": "Ismaël Koné",
+    "club": "Sassuolo",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "325410": {
+    "player_id": "325410",
+    "name": "Esmir Bajraktarevic",
+    "club": "Jong PSV",
+    "position": "Forward",
+    "age": 21,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "328535": {
+    "player_id": "328535",
+    "name": "Nestory Irankunda",
+    "club": "Watford",
+    "position": "Forward",
+    "age": 20,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "328541": {
+    "player_id": "328541",
+    "name": "Jordan Bos",
+    "club": "Feyenoord Rotterdam",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "332081": {
+    "player_id": "332081",
+    "name": "Alessandro Circati",
+    "club": "Parma",
+    "position": "Defender",
+    "age": 22,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "332948": {
+    "player_id": "332948",
+    "name": "Ben Gannon-Doak",
+    "club": "AFC Bournemouth",
+    "position": "Forward",
+    "age": 20,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "333939": {
+    "player_id": "333939",
+    "name": "Danley Jean Jacques",
+    "club": "Philadelphia Union",
+    "position": "Midfielder",
+    "age": 26,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "335203": {
+    "player_id": "335203",
+    "name": "Deveron Fonville",
+    "club": "NEC Nijmegen",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "Curaçao",
+    "photo": null
+  },
+  "335240": {
+    "player_id": "335240",
+    "name": "Patrick Beach",
+    "club": "Melbourne City FC",
+    "position": "Goalkeeper",
+    "age": 22,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "336178": {
+    "player_id": "336178",
+    "name": "Park Jin-Seop",
+    "club": "Zhejiang Professional FC",
+    "position": "Midfielder",
+    "age": 30,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "336589": {
+    "player_id": "336589",
+    "name": "Joel Ordóñez",
+    "club": "Club Brugge",
+    "position": "Defender",
+    "age": 22,
+    "nationality": "Ecuador",
+    "photo": null
+  },
+  "336595": {
+    "player_id": "336595",
+    "name": "Bilal El Khannouss",
+    "club": "VfB Stuttgart",
+    "position": "Midfielder",
+    "age": 22,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "338199": {
+    "player_id": "338199",
+    "name": "Amar Memic",
+    "club": "Viktoria Plzen",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "340228": {
+    "player_id": "340228",
+    "name": "Ali Ahmed",
+    "club": "Norwich City",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "343733": {
+    "player_id": "343733",
+    "name": "Mojmír Chytil",
+    "club": "Slavia Prague",
+    "position": "Forward",
+    "age": 27,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "345769": {
+    "player_id": "345769",
+    "name": "Lee Gi-Hyuk",
+    "club": "Gangwon FC",
+    "position": "Defender",
+    "age": 25,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "346636": {
+    "player_id": "346636",
+    "name": "Guela Doué",
+    "club": "Strasbourg",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "346649": {
+    "player_id": "346649",
+    "name": "Ayoub Al-Oui",
+    "club": "Al Gharafa",
+    "position": "Defender",
+    "age": 21,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "350513": {
+    "player_id": "350513",
+    "name": "Deniz Gül",
+    "club": "FC Porto",
+    "position": "Forward",
+    "age": 21,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "352660": {
+    "player_id": "352660",
+    "name": "Benjamin Tahirovic",
+    "club": "Brøndby IF",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "357030": {
+    "player_id": "357030",
+    "name": "Kaishu Sano",
+    "club": "Mainz",
+    "position": "Midfielder",
+    "age": 25,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "358744": {
+    "player_id": "358744",
+    "name": "Ime Okon",
+    "club": "Hannover 96",
+    "position": "Defender",
+    "age": 22,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "359108": {
+    "player_id": "359108",
+    "name": "Bazoumana Touré",
+    "club": "TSG Hoffenheim",
+    "position": "Forward",
+    "age": 20,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "359370": {
+    "player_id": "359370",
+    "name": "Aleksandar Pavlovic",
+    "club": "Bayern München",
+    "position": "Midfielder",
+    "age": 22,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "360062": {
+    "player_id": "360062",
+    "name": "Chemsdine Talbi",
+    "club": "Sunderland",
+    "position": "Forward",
+    "age": 21,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "362959": {
+    "player_id": "362959",
+    "name": "Kento Shiogai",
+    "club": "VfL Wolfsburg",
+    "position": "Forward",
+    "age": 21,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "365345": {
+    "player_id": "365345",
+    "name": "Luc de Fougerolles",
+    "club": "Dender",
+    "position": "Defender",
+    "age": 20,
+    "nationality": "Canada",
+    "photo": null
+  },
+  "366509": {
+    "player_id": "366509",
+    "name": "Kenan Yildiz",
+    "club": "Juventus",
+    "position": "Forward",
+    "age": 21,
+    "nationality": "Türkiye",
+    "photo": null
+  },
+  "368045": {
+    "player_id": "368045",
+    "name": "Findlay Curtis",
+    "club": "Kilmarnock",
+    "position": "Forward",
+    "age": 19,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "370744": {
+    "player_id": "370744",
+    "name": "Stepán Chaloupek",
+    "club": "Slavia Prague",
+    "position": "Defender",
+    "age": 23,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "373927": {
+    "player_id": "373927",
+    "name": "Ayyoub Bouaddi",
+    "club": "Lille",
+    "position": "Midfielder",
+    "age": 18,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "376110": {
+    "player_id": "376110",
+    "name": "Armando González",
+    "club": "Guadalajara",
+    "position": "Forward",
+    "age": 23,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "378491": {
+    "player_id": "378491",
+    "name": "Samir El Mourabet",
+    "club": "Strasbourg",
+    "position": "Midfielder",
+    "age": 20,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "386989": {
+    "player_id": "386989",
+    "name": "Christ Inao Oulaï",
+    "club": "Trabzonspor",
+    "position": "Midfielder",
+    "age": 20,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "386992": {
+    "player_id": "386992",
+    "name": "Johan Manzambi",
+    "club": "SC Freiburg",
+    "position": "Midfielder",
+    "age": 20,
+    "nationality": "Switzerland",
+    "photo": null
+  },
+  "387865": {
+    "player_id": "387865",
+    "name": "Alexandr Sojka",
+    "club": "Viktoria Plzen",
+    "position": "Midfielder",
+    "age": 23,
+    "nationality": "Czechia",
+    "photo": null
+  },
+  "389575": {
+    "player_id": "389575",
+    "name": "Gilberto Mora",
+    "club": "Tijuana",
+    "position": "Midfielder",
+    "age": 17,
+    "nationality": "Mexico",
+    "photo": null
+  },
+  "391034": {
+    "player_id": "391034",
+    "name": "Kerim Alajbegovic",
+    "club": "RB Salzburg",
+    "position": "Forward",
+    "age": 18,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "400594": {
+    "player_id": "400594",
+    "name": "Mbekezeli Mbokazi",
+    "club": "Chicago Fire FC",
+    "position": "Defender",
+    "age": 20,
+    "nationality": "South Africa",
+    "photo": null
+  },
+  "402479": {
+    "player_id": "402479",
+    "name": "Yan Diomande",
+    "club": "RB Leipzig",
+    "position": "Forward",
+    "age": 19,
+    "nationality": "Ivory Coast",
+    "photo": null
+  },
+  "403528": {
+    "player_id": "403528",
+    "name": "Paul Okon-Engstler",
+    "club": "Sydney FC",
+    "position": "Midfielder",
+    "age": 21,
+    "nationality": "Australia",
+    "photo": null
+  },
+  "415148": {
+    "player_id": "415148",
+    "name": "Issa Laye",
+    "club": "Qatar",
+    "position": "Defender",
+    "age": 28,
+    "nationality": "Qatar",
+    "photo": null
+  },
+  "416636": {
+    "player_id": "416636",
+    "name": "Ayoube Amaimouni",
+    "club": "Eintracht Frankfurt",
+    "position": "Forward",
+    "age": 21,
+    "nationality": "Morocco",
+    "photo": null
+  },
+  "48128": {
+    "player_id": "48128",
+    "name": "Miguel Almirón",
+    "club": "Atlanta United FC",
+    "position": "Forward",
+    "age": 32,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "79941": {
+    "player_id": "79941",
+    "name": "Nikola Vasilj",
+    "club": "St. Pauli",
+    "position": "Goalkeeper",
+    "age": 30,
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
+  },
+  "84295": {
+    "player_id": "84295",
+    "name": "Juan Jose Cáceres",
+    "club": "Dinamo Moscow",
+    "position": "Defender",
+    "age": 26,
+    "nationality": "Paraguay",
+    "photo": null
+  },
+  "84774": {
+    "player_id": "84774",
+    "name": "Manuel Neuer",
+    "club": "Bayern München",
+    "position": "Goalkeeper",
+    "age": 40,
+    "nationality": "Germany",
+    "photo": null
+  },
+  "89090": {
+    "player_id": "89090",
+    "name": "Johny Placide",
+    "club": "Bastia",
+    "position": "Goalkeeper",
+    "age": 38,
+    "nationality": "Haiti",
+    "photo": null
+  },
+  "90721": {
+    "player_id": "90721",
+    "name": "Kim Jin-Gyu",
+    "club": "Jeonbuk Motors",
+    "position": "Midfielder",
+    "age": 29,
+    "nationality": "South Korea",
+    "photo": null
+  },
+  "93435": {
+    "player_id": "93435",
+    "name": "Ryan Christie",
+    "club": "AFC Bournemouth",
+    "position": "Midfielder",
+    "age": 31,
+    "nationality": "Scotland",
+    "photo": null
+  },
+  "97111": {
+    "player_id": "97111",
+    "name": "Hiroki Ito",
+    "club": "Bayern München",
+    "position": "Defender",
+    "age": 27,
+    "nationality": "Japan",
+    "photo": null
+  }
+}
