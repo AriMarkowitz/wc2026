@@ -1,0 +1,3 @@
+data/wc2026.json merge=ours
+data/player_profiles.json merge=ours
+web/data/wc2026.json merge=ours
