@@ -959,7 +959,7 @@ function AstroTable({ players }: { players: Player[] }) {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   const { widths, startResize, autoFit } = useColumnResize({
-    rank: 48, sign: 180, count: 70, goals: 70, assists: 80, ga: 70, ga90: 84, g_per_player: 90, mins: 80,
+    rank: 48, sign: 180, count: 70, goals: 70, assists: 80, ga: 70, ga_per_90: 100, g_per_player: 90, mins: 80,
   });
 
   const rows = useMemo(() => {
