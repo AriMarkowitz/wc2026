@@ -103,7 +103,7 @@ export default function FilterBar({ filters }: { filters: FilterSpec[] }) {
   const anyActive = filters.some((f) => f.selected.size > 0);
   return (
     <div className={styles.filterBar2}>
-      <span className={styles.filterBarLabel}>Filter</span>
+      <span className={styles.filterBarLabel}>Cut by</span>
       {filters.map((f) => <FilterChip key={f.label} spec={f} />)}
       {anyActive && (
         <button

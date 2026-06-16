@@ -1,56 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  /* ── Void palette ── */
-  --bg:        #07090E;
-  --surface:   #0d1017;
-  --surface2:  #121620;
-  --border:    #1e2330;
-  --border2:   #252d3d;
+  /* ── Technical Atelier palette ── */
+  --calico:      #F3F2EE;  /* raw calico ground */
+  --calico-2:    #EAE8E1;  /* shaded muslin */
+  --calico-3:    #E0DDD3;  /* fold shadow */
+  --carbon:      #1C1C19;  /* woven carbon ink */
+  --carbon-2:    #54534D;  /* graphite */
+  --carbon-3:    #8A887F;  /* chalk-line gray */
+  --thread:      #C9433B;  /* tailor's red thread — the one accent */
+  --thread-dim:  rgba(201,67,59,0.12);
+  --selvedge:    #B7813F;  /* brass/selvedge tone for warnings */
+  --selvedge-dim:rgba(183,129,63,0.14);
+  --rule:        #1C1C19;  /* pattern lines are ink, full strength but 1px */
+  --rule-soft:   #CFCCC2;  /* secondary draft lines */
 
-  /* ── Signal colors ── */
-  --accent:     #00FF66;
-  --accent-dim: #00cc52;
-  --accent-bg:  rgba(0,255,102,0.06);
-  --amber:      #FFB800;
-  --amber-bg:   rgba(255,184,0,0.06);
-  --red:        #FF3354;
-  --blue:       #3B82F6;
+  /* mapped tokens so existing class names still resolve */
+  --bg:        var(--calico);
+  --surface:   var(--calico);
+  --surface2:  var(--calico-2);
+  --border:    var(--rule-soft);
+  --border2:   var(--carbon-3);
+  --accent:    var(--thread);
+  --accent-dim:var(--thread);
+  --accent-bg: var(--thread-dim);
+  --amber:     var(--selvedge);
+  --amber-bg:  var(--selvedge-dim);
+  --red:       var(--thread);
+  --blue:      #3E5C76;
+  --text:      var(--carbon);
+  --text-2:    var(--carbon-2);
+  --text-3:    var(--carbon-3);
+  --yellow:    var(--selvedge);
 
-  /* ── Text ── */
-  --text:   #E4E7EC;
-  --text-2: #6B7694;
-  --text-3: #3A4258;
-
-  /* Legacy compat */
-  --yellow: var(--amber);
-  --font-sans: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'Barlow Condensed', monospace;
-  --font-display: 'Barlow Condensed', sans-serif;
+  --font-sans:    'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+  --font-display: 'IBM Plex Sans', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { height: 100%; color-scheme: dark; }
+html { height: 100%; color-scheme: light; }
 
 body {
   min-height: 100%;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--calico);
+  color: var(--carbon);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  /* subtle crosshair grid over the void */
+  /* faint woven-fabric tooth: two offset hairline weaves */
   background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  background-attachment: fixed;
+    repeating-linear-gradient(0deg,   rgba(28,28,25,0.018) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg,  rgba(28,28,25,0.018) 0 1px, transparent 1px 3px);
 }
 
 a { color: inherit; text-decoration: none; }
 
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 0; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--calico-2); }
+::-webkit-scrollbar-thumb { background: var(--carbon-3); border-radius: 0; }
+::selection { background: var(--carbon); color: var(--calico); }

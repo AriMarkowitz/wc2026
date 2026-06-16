@@ -1,243 +1,270 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   TACTICAL KINETIC TERMINAL — wc2026.module.css
-   Zero border-radius. 1px grid lines. High-density data.
+   TECHNICAL ATELIER — wc2026.module.css
+   A tailor's pattern sheet for World Cup club data.
+   1px draft lines instead of cards · care-tag metadata · thread-red accent.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Layout ────────────────────────────────────────────────────────────── */
+/* ── The pattern sheet ───────────────────────────────────────────────────── */
 .page {
-  max-width: 1400px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 0;
-  /* solid chassis frame */
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
+  background: var(--calico);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
   min-height: 100vh;
-  background: var(--bg);
 }
 
-/* ── Header ─────────────────────────────────────────────────────────────── */
+/* ── Masthead — like the header block of a cutting pattern ────────────────── */
 .header {
   position: relative;
-  padding: 2rem 2rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  padding: 2.25rem 2.25rem 1.75rem;
+  border-bottom: 1px solid var(--rule);
 }
 
-/* corner bracket accent — top-left */
+/* registration cross-mark, top-left — a real drafting notation */
 .header::before {
-  content: "";
+  content: "+";
   position: absolute;
-  top: 0; left: 0;
-  width: 48px; height: 48px;
-  border-top: 2px solid var(--accent);
-  border-left: 2px solid var(--accent);
-  pointer-events: none;
+  top: 0.5rem; left: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--carbon-3);
+  line-height: 1;
 }
 
 .dataCredit {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 0.62rem;
+  top: 1.1rem;
+  right: 2.25rem;
+  font-size: 0.6rem;
   font-family: var(--font-mono);
-  font-weight: 600;
-  color: var(--text-3);
+  font-weight: 500;
+  color: var(--carbon-3);
   text-decoration: none;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.6;
-  transition: opacity 0.1s, color 0.1s;
+  transition: color 0.12s;
 }
-.dataCredit:hover { opacity: 1; color: var(--accent); }
+.dataCredit:hover { color: var(--thread); }
 
+/* care-tag eyebrow: dense, structured, REAL metadata */
 .eyebrow {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
+  color: var(--carbon-2);
+  margin-bottom: 0.85rem;
 }
 
 .eyebrowDot {
   display: inline-block;
-  width: 5px; height: 5px;
-  background: var(--accent);
-  animation: blink 1.4s step-end infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+  width: 6px; height: 6px;
+  border: 1px solid var(--thread);
+  background: var(--thread);
 }
 
 .title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--carbon);
+  line-height: 0.98;
+  margin-bottom: 0.65rem;
 }
-
-.titleAccent { color: var(--accent); }
 
 .subtitle {
-  font-size: 0.8rem;
-  color: var(--text-2);
+  font-size: 0.85rem;
+  color: var(--carbon-2);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  font-family: var(--font-mono);
-  letter-spacing: 0.04em;
 }
 
+.subtitleText { max-width: 52ch; }
+
+/* SYNC stamp styled like a garment tag's wash instruction */
 .updatedBadge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   background: transparent;
-  border: 1px solid var(--border2);
-  padding: 0.15rem 0.5rem;
-  font-size: 0.62rem;
+  border: 1px solid var(--rule);
+  padding: 0.2rem 0.55rem;
+  font-size: 0.58rem;
   font-family: var(--font-mono);
-  color: var(--text-3);
-  letter-spacing: 0.1em;
+  color: var(--carbon-2);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-/* ── KPI strip ───────────────────────────────────────────────────────────── */
-.cards {
+/* ── KPI: the spec table of a pattern sheet ──────────────────────────────── */
+.kpiPrimary {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  border-bottom: 1px solid var(--border);
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--rule);
 }
 
-.card {
-  padding: 1.1rem 1.25rem;
-  border-right: 1px solid var(--border);
-  background: var(--surface);
-  transition: background 0.1s;
+.kpiCellLg {
   position: relative;
+  padding: 1.4rem 1.5rem 1.25rem;
+  border-right: 1px solid var(--rule-soft);
 }
+.kpiCellLg:last-child { border-right: none; }
 
-.card:last-child { border-right: none; }
+/* the headline metric gets a thread-red selvedge stripe */
+.kpiAccent { border-left: 3px solid var(--thread); }
 
-.card:hover { background: var(--surface2); }
-
-/* accent tick on active card hover */
-.card::after {
-  content: "";
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.15s;
+.kpiRef {
+  font-size: 0.56rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--carbon-3);
+  margin-bottom: 0.7rem;
 }
-.card:hover::after { transform: scaleX(1); }
 
 .cardValue {
   font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 0.35rem;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--carbon);
+  line-height: 0.9;
+  margin-bottom: 0.45rem;
   font-variant-numeric: tabular-nums;
 }
 
 .cardValueAccent {
   composes: cardValue;
-  color: var(--accent);
+  color: var(--thread);
 }
 
 .cardLabel {
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-3);
+  letter-spacing: 0.14em;
+  color: var(--carbon-2);
 }
 
-/* ── Tabs ────────────────────────────────────────────────────────────────── */
+.kpiSecondary {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--rule);
+}
+
+.kpiCellSm {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-right: 1px solid var(--rule-soft);
+}
+.kpiCellSm:last-child { border-right: none; }
+
+.cardValueSm {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--carbon);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardLabelSm {
+  font-size: 0.55rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--carbon-3);
+}
+
+.valAmber { color: var(--selvedge); }
+.valRed   { color: var(--thread); }
+
+/* ── Tabs — like the index notches on a pattern envelope ─────────────────── */
 .tabs {
   display: flex;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-  padding: 0 2rem;
+  border-bottom: 1px solid var(--rule);
+  padding: 0 2.25rem;
   gap: 0;
   overflow-x: auto;
 }
 
 .tab {
-  padding: 0.85rem 1.25rem;
+  padding: 0.85rem 1.15rem;
   border: none;
   border-bottom: 2px solid transparent;
   background: transparent;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  color: var(--text-3);
-  transition: color 0.1s, border-color 0.1s;
+  color: var(--carbon-3);
+  transition: color 0.12s, border-color 0.12s;
   white-space: nowrap;
   margin-bottom: -1px;
 }
 
-.tab:hover { color: var(--text-2); }
+.tab:hover { color: var(--carbon); }
 
 .tabActive {
-  color: var(--accent) !important;
-  border-bottom-color: var(--accent) !important;
+  color: var(--carbon) !important;
+  border-bottom-color: var(--thread) !important;
 }
 
-/* ── Tab content ─────────────────────────────────────────────────────────── */
-.tabContent {
-  padding: 1.5rem 2rem 3rem;
+.tabTag {
+  color: var(--carbon-3);
+  margin-right: 0.45rem;
+  font-weight: 600;
 }
+.tabActive .tabTag { color: var(--thread); }
+
+/* ── Tab content ─────────────────────────────────────────────────────────── */
+.tabContent { padding: 1.5rem 2.25rem 3rem; }
 
 /* ── Loading ─────────────────────────────────────────────────────────────── */
 .loading {
   text-align: center;
   padding: 5rem 2rem;
-  color: var(--text-3);
-  font-size: 0.7rem;
+  color: var(--carbon-3);
+  font-size: 0.65rem;
   font-family: var(--font-mono);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-/* ── Standalone filter bar ───────────────────────────────────────────────── */
+/* ── Filter set — drawn as a measurement annotation row ──────────────────── */
 .filterBar2 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px dashed var(--rule-soft);
 }
 
 .filterBarLabel {
   font-size: 0.58rem;
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-3);
+  letter-spacing: 0.12em;
+  color: var(--carbon-2);
   margin-right: 0.25rem;
 }
 
@@ -247,27 +274,26 @@
   gap: 0.35rem;
   padding: 0.3rem 0.7rem;
   background: transparent;
-  border: 1px solid var(--border2);
-  color: var(--text-2);
-  font-size: 0.72rem;
+  border: 1px solid var(--rule);
+  color: var(--carbon-2);
+  font-size: 0.68rem;
   font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.12s;
 }
 
 .filterChip:hover {
-  border-color: var(--text-3);
-  color: var(--text);
-  background: var(--surface2);
+  color: var(--carbon);
+  background: var(--calico-2);
 }
 
 .filterChipActive {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-bg);
+  color: var(--calico);
+  border-color: var(--thread);
+  background: var(--thread);
 }
 
 .filterChipCount {
@@ -277,47 +303,41 @@
   min-width: 14px;
   height: 14px;
   padding: 0 0.25rem;
-  background: var(--accent);
-  color: #000;
-  font-size: 0.6rem;
-  font-weight: 900;
+  background: var(--calico);
+  color: var(--thread);
+  font-size: 0.58rem;
+  font-weight: 700;
 }
 
-.filterChipCaret {
-  font-size: 0.55rem;
-  color: var(--text-3);
-}
+.filterChipCaret { font-size: 0.5rem; opacity: 0.7; }
 
 .clearBtn {
   padding: 0.3rem 0.7rem;
   background: transparent;
-  border: 1px solid var(--border2);
-  color: var(--text-3);
-  font-size: 0.65rem;
+  border: 1px solid var(--rule-soft);
+  color: var(--carbon-3);
+  font-size: 0.62rem;
   font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.12s;
 }
 
-.clearBtn:hover {
-  border-color: var(--red);
-  color: var(--red);
-}
+.clearBtn:hover { border-color: var(--thread); color: var(--thread); }
 
-/* ── Popover ─────────────────────────────────────────────────────────────── */
+/* ── Popover — a swatch card pinned to the sheet ─────────────────────────── */
 .popover {
   position: absolute;
-  top: calc(100% + 2px);
+  top: calc(100% + 3px);
   left: 0;
   z-index: 50;
   min-width: 200px;
   max-width: 280px;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+  background: var(--calico);
+  border: 1px solid var(--rule);
+  box-shadow: 4px 4px 0 var(--carbon-3);
   padding: 0.5rem;
   text-transform: none;
   letter-spacing: normal;
@@ -326,14 +346,13 @@
 .popoverSearch {
   width: 100%;
   padding: 0.35rem 0.6rem;
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-bottom: 1px solid var(--accent);
-  color: var(--text);
-  font-size: 0.78rem;
+  background: var(--calico-2);
+  border: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--thread);
+  color: var(--carbon);
+  font-size: 0.76rem;
   font-family: var(--font-mono);
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   outline: none;
   margin-bottom: 0.4rem;
 }
@@ -343,7 +362,6 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 1px;
 }
 
 .popoverItem {
@@ -353,24 +371,24 @@
   padding: 0.35rem 0.5rem;
   cursor: pointer;
   font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--text-2);
-  text-transform: none;
-  letter-spacing: normal;
+  font-weight: 400;
+  color: var(--carbon-2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-bottom: 1px solid var(--rule-soft);
   transition: background 0.08s, color 0.08s;
 }
+.popoverItem:last-child { border-bottom: none; }
 
-.popoverItem:hover { background: var(--surface); color: var(--text); }
+.popoverItem:hover { background: var(--calico-2); color: var(--carbon); }
 
-.popoverItemActive { color: var(--accent); background: var(--accent-bg); }
+.popoverItemActive { color: var(--thread); font-weight: 600; }
 
 .popoverCheck {
   width: 12px;
   flex-shrink: 0;
-  color: var(--accent);
+  color: var(--thread);
   font-size: 0.65rem;
 }
 
@@ -379,28 +397,27 @@
   justify-content: flex-end;
   margin-top: 0.4rem;
   padding-top: 0.4rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--rule-soft);
 }
 
 .popoverClear {
   background: none;
   border: none;
-  color: var(--text-3);
-  font-size: 0.65rem;
+  color: var(--carbon-3);
+  font-size: 0.62rem;
   font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   padding: 0.15rem 0.35rem;
 }
+.popoverClear:hover { color: var(--thread); }
 
-.popoverClear:hover { color: var(--red); }
-
-/* ── Tables ──────────────────────────────────────────────────────────────── */
+/* ── Tables — the cut-list grid of the pattern ───────────────────────────── */
 .tableWrap {
   overflow-x: auto;
-  border: 1px solid var(--border);
+  border: 1px solid var(--rule);
 }
 
 .table {
@@ -413,35 +430,34 @@
 
 .table th {
   text-align: left;
-  padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border2);
-  border-right: 1px solid var(--border);
-  font-size: 0.58rem;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule-soft);
+  font-size: 0.56rem;
   font-family: var(--font-mono);
-  font-weight: 700;
-  color: var(--text-3);
+  font-weight: 600;
+  color: var(--carbon-2);
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   white-space: nowrap;
-  background: var(--surface);
+  background: var(--calico-2);
   position: sticky;
   top: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   z-index: 2;
 }
-
 .table th:last-child { border-right: none; }
 
 .table td {
-  padding: 0.55rem 0.75rem;
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  color: var(--text-2);
+  padding: 0.3rem 0.7rem;
+  border-bottom: 1px solid var(--rule-soft);
+  border-right: 1px solid var(--rule-soft);
+  color: var(--carbon-2);
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.45;
 }
-
 .table td:last-child { border-right: none; }
 
 .table td.wrap {
@@ -449,27 +465,23 @@
   word-break: break-word;
   overflow-wrap: anywhere;
 }
-
 .table td.nowrap { white-space: nowrap; }
 
 .table tbody tr:last-child td { border-bottom: none; }
 
+/* focus model: hovered seam brightens, the rest recede like draft lines */
+.table tbody:hover tr td { opacity: 0.5; transition: opacity 0.08s; }
 .table tbody tr:hover td {
-  background: var(--surface2);
-  color: var(--text);
+  opacity: 1;
+  background: var(--calico-2);
+  color: var(--carbon);
 }
-
-/* active row bracket effect */
 .table tbody tr:hover td:first-child {
-  border-left: 2px solid var(--accent);
+  box-shadow: inset 3px 0 0 var(--thread);
 }
 
 /* ── Th inner / sort ─────────────────────────────────────────────────────── */
-.thInner {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
+.thInner { display: flex; align-items: center; gap: 0.3rem; }
 
 .thLabel {
   cursor: pointer;
@@ -479,17 +491,14 @@
   text-overflow: ellipsis;
   transition: color 0.1s;
 }
-
-.thLabel:hover { color: var(--text-2); }
+.thLabel:hover { color: var(--carbon); }
 
 .sortTh { cursor: pointer; user-select: none; }
-.sortTh:hover { color: var(--text-2); }
+.sortTh:hover { color: var(--carbon); }
+.sortThActive { color: var(--thread) !important; }
+.sortArrow { color: var(--thread); font-size: 0.55rem; }
 
-.sortThActive { color: var(--accent) !important; }
-
-.sortArrow { color: var(--accent); font-size: 0.55rem; }
-
-/* ── Resize handle ───────────────────────────────────────────────────────── */
+/* ── Resize handle — a notch mark ────────────────────────────────────────── */
 .resizeHandle {
   position: absolute;
   top: 0; right: 0;
@@ -498,66 +507,59 @@
   user-select: none;
   touch-action: none;
 }
-
 .resizeHandle::after {
   content: "";
   position: absolute;
   top: 20%; right: 1px;
   height: 60%; width: 1px;
-  background: var(--border2);
+  background: var(--rule-soft);
   transition: background 0.1s, width 0.1s;
 }
-
 .resizeHandle:hover::after,
-.resizeHandle.resizing::after {
-  background: var(--accent);
-  width: 2px;
-}
-
+.resizeHandle.resizing::after { background: var(--thread); width: 2px; }
 .thResizable { position: relative; }
 
-/* ── Rank ────────────────────────────────────────────────────────────────── */
+/* ── Rank — chalked seam number, low signal ──────────────────────────────── */
 .rank {
-  color: var(--text-3);
+  color: var(--carbon-3);
   font-size: 0.62rem;
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-weight: 500;
   width: 2rem;
   text-align: right;
   padding-right: 0.5rem !important;
 }
 
 /* ── Stat cells ──────────────────────────────────────────────────────────── */
-.statCell {
-  color: var(--text) !important;
-  font-weight: 600;
-}
+.statCell { color: var(--carbon) !important; font-weight: 600; }
 
 .statCellAccent {
-  color: var(--accent) !important;
+  color: var(--thread) !important;
   font-weight: 700;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ── Club name button ────────────────────────────────────────────────────── */
+/* card alerts: only inked when non-zero */
+.cellAmber { color: var(--selvedge) !important; font-weight: 700; }
+.cellRed   { color: var(--thread) !important; font-weight: 700; }
+
+/* ── Club name ───────────────────────────────────────────────────────────── */
 .clubLink {
   background: none;
   border: none;
   padding: 0;
-  color: var(--text);
+  color: var(--carbon);
   font-weight: 600;
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
   text-align: left;
-  transition: color 0.1s;
+  border-bottom: 1px solid transparent;
+  transition: color 0.1s, border-color 0.1s;
 }
+.clubLink:hover { color: var(--thread); border-bottom-color: var(--thread); }
 
-.clubLink:hover { color: var(--accent); }
-
-/* ── Tooltip ─────────────────────────────────────────────────────────────── */
+/* ── Tooltip — a pinned hand-written note ────────────────────────────────── */
 .tip { position: relative; display: inline-block; }
 
 .tipFixed {
@@ -565,16 +567,16 @@
   z-index: 1000;
   transform: translateY(-100%);
   white-space: nowrap;
-  background: var(--surface2);
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 0.65rem;
+  background: var(--carbon);
+  border: 1px solid var(--carbon);
+  color: var(--calico);
+  font-size: 0.62rem;
   font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
-  box-shadow: 0 0 12px rgba(0,255,102,0.15);
+  box-shadow: 3px 3px 0 var(--carbon-3);
   pointer-events: none;
 }
 
@@ -583,44 +585,36 @@
   margin-top: 0.6rem;
   font-size: 0.6rem;
   font-family: var(--font-mono);
-  color: var(--text-3);
+  color: var(--carbon-3);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .activeFilterRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.5rem; margin-bottom: 1rem;
 }
 
-/* ── Position badges ─────────────────────────────────────────────────────── */
+/* ── Position badges — woven content labels ──────────────────────────────── */
 .posBadge {
   display: inline-block;
-  padding: 0.1rem 0.4rem;
-  font-size: 0.58rem;
+  padding: 0.08rem 0.4rem;
+  font-size: 0.56rem;
   font-family: var(--font-mono);
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   border: 1px solid;
 }
+.posGoalkeeper { border-color: var(--selvedge); color: var(--selvedge); background: var(--selvedge-dim); }
+.posDefender   { border-color: var(--blue);     color: var(--blue);     background: rgba(62,92,118,0.08); }
+.posMidfielder { border-color: var(--carbon-2); color: var(--carbon-2); background: transparent; }
+.posForward    { border-color: var(--thread);   color: var(--thread);   background: var(--thread-dim); }
 
-.posGoalkeeper { border-color: rgba(255,184,0,0.4);  color: var(--amber);  background: var(--amber-bg); }
-.posDefender   { border-color: rgba(59,130,246,0.4); color: var(--blue);   background: rgba(59,130,246,0.06); }
-.posMidfielder { border-color: rgba(0,255,102,0.3);  color: var(--accent); background: var(--accent-bg); }
-.posForward    { border-color: rgba(255,51,84,0.4);  color: var(--red);    background: rgba(255,51,84,0.06); }
-
-/* ── Sign badge ──────────────────────────────────────────────────────────── */
 .signBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.75rem;
-  color: var(--text-2);
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-size: 0.74rem; color: var(--carbon-2);
 }
 
 /* ── Chart controls ──────────────────────────────────────────────────────── */
@@ -630,253 +624,141 @@
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px dashed var(--rule-soft);
 }
 
-.chartToggleGroup {
-  display: flex;
-  gap: 0;
-  border: 1px solid var(--border2);
-}
+.chartToggleGroup { display: flex; gap: 0; border: 1px solid var(--rule); }
 
 .chartToggle {
   padding: 0.35rem 0.9rem;
   border: none;
-  border-right: 1px solid var(--border2);
+  border-right: 1px solid var(--rule-soft);
   background: transparent;
-  color: var(--text-3);
-  font-size: 0.65rem;
+  color: var(--carbon-3);
+  font-size: 0.62rem;
   font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.1s, color 0.1s;
 }
-
 .chartToggle:last-child { border-right: none; }
+.chartToggle:hover { background: var(--calico-2); color: var(--carbon); }
+.chartToggleActive { background: var(--carbon) !important; color: var(--calico) !important; }
 
-.chartToggle:hover { background: var(--surface2); color: var(--text-2); }
-
-.chartToggleActive {
-  background: var(--accent) !important;
-  color: #000 !important;
-}
-
-/* ── Drill-down banner ───────────────────────────────────────────────────── */
+/* ── Drill banner ────────────────────────────────────────────────────────── */
 .drillBanner {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  display: flex; align-items: center; gap: 1rem;
   padding: 0.5rem 0.75rem;
-  background: var(--accent-bg);
-  border-left: 2px solid var(--accent);
-  font-size: 0.72rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  color: var(--accent);
-}
-
-/* ── Astro accordion ─────────────────────────────────────────────────────── */
-.astroIntro {
-  color: var(--text-3);
+  background: var(--thread-dim);
+  border-left: 3px solid var(--thread);
   font-size: 0.7rem;
   font-family: var(--font-mono);
+  font-weight: 500;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--thread);
+}
+
+/* ── Astro ───────────────────────────────────────────────────────────────── */
+.astroIntro {
+  color: var(--carbon-3);
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 1rem;
   max-width: 80ch;
 }
 
-.astroRow {
-  cursor: pointer;
-}
-
-.astroCaret {
-  color: var(--accent);
-  font-size: 0.65rem;
-}
+.astroRow { cursor: pointer; }
+.astroCaret { color: var(--thread); font-size: 0.65rem; }
 
 .astroExpandRow td {
-  background: var(--surface) !important;
-  border-top: 1px solid var(--border2) !important;
+  background: var(--calico-2) !important;
+  border-top: 1px solid var(--rule) !important;
 }
-
 .astroExpandCell { padding: 1rem !important; }
 
 .astroPlayerGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1px;
-  background: var(--border);
+  background: var(--rule-soft);
 }
 
 .astroPlayerItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  display: flex; flex-direction: column; gap: 0.15rem;
   padding: 0.6rem 0.75rem;
-  background: var(--surface2);
+  background: var(--calico);
 }
 
-.astroPlayerName {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text);
-}
+.astroPlayerName { font-size: 0.82rem; font-weight: 600; color: var(--carbon); }
 
 .astroPlayerMeta {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-family: var(--font-mono);
-  color: var(--text-3);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  letter-spacing: 0.04em;
+  color: var(--carbon-3);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  letter-spacing: 0.03em;
 }
 
 .astroPlayerStat {
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--thread);
   font-variant-numeric: tabular-nums;
   margin-top: 0.1rem;
 }
 
-/* ── Misc legacy (kept for compat) ──────────────────────────────────────── */
-.filterBar { display: none; }
-.filterLabel { display: none; }
-.select { display: none; }
+.signEmoji { color: var(--carbon); }
+
+/* ── Legacy compat (unused but referenced) ───────────────────────────────── */
+.filterBar, .filterLabel, .select { display: none; }
 
 .leagueBadge {
-  font-size: 0.62rem;
-  font-family: var(--font-mono);
-  color: var(--text-3);
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 0.62rem; font-family: var(--font-mono);
+  color: var(--carbon-3); font-weight: 500; letter-spacing: 0.03em;
 }
 
-.rowHighlighted td { background: var(--accent-bg) !important; }
+.rowHighlighted td { background: var(--thread-dim) !important; }
 
 .rowCount {
-  margin-left: auto;
-  font-size: 0.65rem;
-  font-family: var(--font-mono);
-  color: var(--text-3);
-  align-self: flex-end;
-  padding-bottom: 0.15rem;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  margin-left: auto; font-size: 0.62rem; font-family: var(--font-mono);
+  color: var(--carbon-3); align-self: flex-end; padding-bottom: 0.15rem;
+  font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase;
 }
 
 .tableFilters {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  margin-bottom: 1.25rem;
+  display: flex; gap: 0.75rem; align-items: flex-end;
+  flex-wrap: wrap; margin-bottom: 1.25rem;
 }
 
 .signGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1px;
-  background: var(--border);
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px; background: var(--rule-soft);
 }
-
-.signCard {
-  background: var(--surface2);
-  border: none;
-  padding: 1rem 1.1rem;
-  cursor: default;
-  transition: background 0.1s;
-}
-
-.signCard:hover { background: var(--surface); }
-
-.signCardTop {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 0.6rem;
-}
-
-.signEmoji { font-size: 1.4rem; line-height: 1; }
-
-.signName {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--text);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.signCount {
-  font-size: 0.6rem;
-  font-family: var(--font-mono);
-  color: var(--text-3);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
+.signCard { background: var(--calico); padding: 1rem 1.1rem; cursor: default; transition: background 0.1s; }
+.signCard:hover { background: var(--calico-2); }
+.signCardTop { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.6rem; }
+.signName { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--carbon); }
+.signCount { font-size: 0.58rem; font-family: var(--font-mono); color: var(--carbon-3); font-variant-numeric: tabular-nums; letter-spacing: 0.06em; text-transform: uppercase; }
 .signStats { display: flex; gap: 1rem; }
-
 .signStat { display: flex; flex-direction: column; gap: 0.1rem; }
+.signStatVal { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--carbon); font-variant-numeric: tabular-nums; }
+.signStatLbl { font-size: 0.54rem; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--carbon-3); }
+.signTopPlayers { margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid var(--rule-soft); display: flex; flex-direction: column; gap: 0.25rem; }
+.signPlayer { font-size: 0.72rem; color: var(--carbon-2); display: flex; justify-content: space-between; }
+.signPlayerStat { color: var(--thread); font-weight: 700; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
-.signStatVal {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: var(--text);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.01em;
-}
-
-.signStatLbl {
-  font-size: 0.55rem;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-3);
-}
-
-.signTopPlayers {
-  margin-top: 0.75rem;
-  padding-top: 0.6rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.signPlayer {
-  font-size: 0.72rem;
-  color: var(--text-2);
-  display: flex;
-  justify-content: space-between;
-}
-
-.signPlayerStat {
-  color: var(--accent);
-  font-weight: 700;
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
-
-/* ── Funnels (kept for popover positioning) ──────────────────────────────── */
 .funnelBtn {
   display: inline-flex; align-items: center; justify-content: center;
   width: 16px; height: 16px; border: none; background: transparent;
-  cursor: pointer; color: var(--text-3); font-size: 0.65rem;
+  cursor: pointer; color: var(--carbon-3); font-size: 0.65rem;
   transition: color 0.1s; flex-shrink: 0;
 }
-.funnelBtn:hover { color: var(--text-2); }
-.funnelBtnActive { color: var(--accent); }
+.funnelBtn:hover { color: var(--carbon); }
+.funnelBtnActive { color: var(--thread); }

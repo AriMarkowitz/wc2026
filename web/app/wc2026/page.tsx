@@ -163,8 +163,8 @@ function ClubTable({
                 <td className={styles.nowrap}>{fmtDec(c.assists_per_90)}</td>
                 <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{fmtDec(c.ga_per_90)}</td>
                 <td className={styles.nowrap}>{c.total_minutes}</td>
-                <td className={styles.nowrap}>{c.total_yellow_cards}</td>
-                <td className={styles.nowrap}>{c.total_red_cards}</td>
+                <td className={`${styles.nowrap} ${c.total_yellow_cards ? styles.cellAmber : ""}`}>{c.total_yellow_cards}</td>
+                <td className={`${styles.nowrap} ${c.total_red_cards ? styles.cellRed : ""}`}>{c.total_red_cards}</td>
                 <td className={styles.nowrap}>{fmt(c.avg_age)}</td>
               </tr>
             ))}
@@ -334,8 +334,8 @@ function PlayerTable({
                 <td className={styles.nowrap}>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
                 <td className={styles.nowrap}>{p.shots_on_target}</td>
                 <td className={styles.nowrap}>{p.minutes_played}</td>
-                <td className={styles.nowrap}>{p.yellow_cards}</td>
-                <td className={styles.nowrap}>{p.red_cards}</td>
+                <td className={`${styles.nowrap} ${p.yellow_cards ? styles.cellAmber : ""}`}>{p.yellow_cards}</td>
+                <td className={`${styles.nowrap} ${p.red_cards ? styles.cellRed : ""}`}>{p.red_cards}</td>
               </tr>
             ))}
           </tbody>
@@ -350,9 +350,11 @@ function PlayerTable({
 // Club trend chart (SVG line chart — top 10 clubs, cumulative G+A by matchday)
 // ---------------------------------------------------------------------------
 
+// Embroidery-floss spool: muted threads laid on calico. The active thread
+// pulls taut in tailor's red (--thread) via hover, so these stay restrained.
 const CHART_COLORS = [
-  "#e84a4a", "#f5a623", "#4aafe8", "#4ae877", "#c84ae8",
-  "#e8c84a", "#4ae8c8", "#e84a9a", "#a0a0ff", "#ff8c4a",
+  "#54534D", "#8A887F", "#3E5C76", "#7A6A53", "#9C7B4E",
+  "#5E6B5A", "#A2918C", "#6B5D6E", "#4F6F6A", "#8C6F5A",
 ];
 
 type Metric = "ga" | "goals" | "assists";
@@ -431,84 +433,109 @@ function TrendChart() {
       </div>
       <div style={{ overflowX: "auto" }}>
         <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W, display: "block" }}>
-          {/* Grid lines */}
+          {/* draft guide lines — faint chalk on the pattern sheet */}
           {yTicks.map((v) => (
             <line key={v}
               x1={PAD.left} x2={W - PAD.right}
               y1={yPos(v)} y2={yPos(v)}
-              stroke="var(--border)" strokeWidth={1}
+              stroke="var(--rule-soft)" strokeWidth={1}
+              strokeDasharray={v === 0 ? undefined : "2 4"}
             />
           ))}
-          {/* Y axis labels */}
           {yTicks.map((v) => (
-            <text key={v} x={PAD.left - 6} y={yPos(v) + 4}
-              textAnchor="end" fontSize={11} fill="var(--text-3)">{v}</text>
+            <text key={v} x={PAD.left - 8} y={yPos(v) + 3}
+              textAnchor="end" fontSize={9} fontFamily="var(--font-mono)"
+              fill="var(--carbon-3)">{v}</text>
           ))}
-          {/* X axis labels */}
+          {/* x axis — matchday marks, like seam notches */}
           {matchdays.map((d, i) => (
-            <text key={d}
-              x={xPos(i)} y={H - PAD.bottom + 16}
-              textAnchor="middle" fontSize={10} fill="var(--text-3)"
-              transform={matchdays.length > 8 ? `rotate(-35,${xPos(i)},${H - PAD.bottom + 16})` : undefined}
-            >
-              {`${d.slice(4, 6)}/${d.slice(6, 8)}`}
-            </text>
+            <g key={d}>
+              <line x1={xPos(i)} x2={xPos(i)} y1={PAD.top + chartH} y2={PAD.top + chartH + 4}
+                stroke="var(--carbon-3)" strokeWidth={1} />
+              <text
+                x={xPos(i)} y={H - PAD.bottom + 16}
+                textAnchor="middle" fontSize={9} fontFamily="var(--font-mono)"
+                fill="var(--carbon-3)"
+                transform={matchdays.length > 8 ? `rotate(-35,${xPos(i)},${H - PAD.bottom + 16})` : undefined}
+              >
+                {`${d.slice(4, 6)}.${d.slice(6, 8)}`}
+              </text>
+            </g>
           ))}
-          {/* Y axis title */}
+          {/* y axis caption */}
           <text
-            x={PAD.left - 36} y={PAD.top + chartH / 2}
-            textAnchor="middle" fontSize={11} fill="var(--text-3)"
-            transform={`rotate(-90,${PAD.left - 36},${PAD.top + chartH / 2})`}
+            x={PAD.left - 34} y={PAD.top + chartH / 2}
+            textAnchor="middle" fontSize={9} fontFamily="var(--font-mono)"
+            letterSpacing="0.1em" fill="var(--carbon-3)"
+            transform={`rotate(-90,${PAD.left - 34},${PAD.top + chartH / 2})`}
           >
-            Cumulative {metricLabel}
+            CUMULATIVE {metricLabel.toUpperCase()}
           </text>
-          {/* Lines */}
+
+          {/* threads — each club is a single taut strand */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
-            const dim = hovered !== null && hovered !== club;
+            const active = hovered === club;
+            const dim = hovered !== null && !active;
             return (
               <polyline key={club}
                 points={polyline(getSeries(club))}
                 fill="none"
-                stroke={color}
-                strokeWidth={hovered === club ? 3 : 2}
-                opacity={dim ? 0.12 : 1}
-                style={{ cursor: "pointer", transition: "opacity 0.15s" }}
+                stroke={active ? "var(--thread)" : color}
+                strokeWidth={active ? 2.25 : 1.25}
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                opacity={dim ? 0.18 : 1}
+                style={{ cursor: "pointer", transition: "opacity 0.15s, stroke-width 0.12s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
               />
             );
           })}
-          {/* Dots at last point */}
+          {/* knots — the end of each thread, pinned */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
             const vals = getSeries(club);
             const lastVal = vals[vals.length - 1];
-            const dim = hovered !== null && hovered !== club;
+            const active = hovered === club;
+            const dim = hovered !== null && !active;
             return (
               <circle key={club}
-                cx={xPos(matchdays.length - 1)} cy={yPos(lastVal)} r={3}
-                fill={color} opacity={dim ? 0.12 : 1}
+                cx={xPos(matchdays.length - 1)} cy={yPos(lastVal)} r={active ? 3 : 2}
+                fill={active ? "var(--thread)" : color}
+                stroke="var(--calico)" strokeWidth={1}
+                opacity={dim ? 0.18 : 1}
+                style={{ transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
               />
             );
           })}
-          {/* Legend */}
+          {/* spool index — pinned thread legend */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
-            const dim = hovered !== null && hovered !== club;
+            const active = hovered === club;
+            const dim = hovered !== null && !active;
             const vals = getSeries(club);
             const lastVal = vals[vals.length - 1];
+            const ly = PAD.top + ci * 20 + 8;
             return (
               <g key={club}
-                style={{ cursor: "pointer", opacity: dim ? 0.25 : 1, transition: "opacity 0.15s" }}
+                style={{ cursor: "pointer", opacity: dim ? 0.3 : 1, transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <rect x={W - PAD.right + 12} y={PAD.top + ci * 22} width={10} height={10} fill={color} rx={2} />
-                <text x={W - PAD.right + 26} y={PAD.top + ci * 22 + 9} fontSize={11} fill="var(--text-2)">
-                  {club.length > 18 ? club.slice(0, 17) + "…" : club} ({lastVal})
+                {/* a short stitch of the thread's own color */}
+                <line x1={W - PAD.right + 14} x2={W - PAD.right + 30}
+                  y1={ly} y2={ly}
+                  stroke={active ? "var(--thread)" : color}
+                  strokeWidth={active ? 2.25 : 1.5} strokeLinecap="round" />
+                <text x={W - PAD.right + 36} y={ly + 3.5}
+                  fontSize={10} fontFamily="var(--font-sans)"
+                  fontWeight={active ? 700 : 500}
+                  fill={active ? "var(--thread)" : "var(--carbon-2)"}>
+                  {club.length > 17 ? club.slice(0, 16) + "…" : club}
+                  <tspan fontFamily="var(--font-mono)" fill="var(--carbon-3)"> {lastVal}</tspan>
                 </text>
               </g>
             );
@@ -638,8 +665,8 @@ function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) 
                   {p.save_pct != null ? `${p.save_pct}%` : "—"}
                 </td>
                 <td className={styles.nowrap}>{fmtDec(p.goals_conceded_per_90)}</td>
-                <td className={styles.nowrap}>{p.yellow_cards}</td>
-                <td className={styles.nowrap}>{p.red_cards}</td>
+                <td className={`${styles.nowrap} ${p.yellow_cards ? styles.cellAmber : ""}`}>{p.yellow_cards}</td>
+                <td className={`${styles.nowrap} ${p.red_cards ? styles.cellRed : ""}`}>{p.red_cards}</td>
               </tr>
             ))}
           </tbody>
@@ -829,69 +856,77 @@ export default function WC2026Page() {
         </a>
         <div className={styles.eyebrow}>
           <span className={styles.eyebrowDot} />
-          FIFA World Cup 2026
+          FIFA WORLD CUP 2026 · {matchesPlayed} MATCHES · {clubs.length} CLUBS · {numLeagues} LEAGUES
         </div>
-        <h1 className={styles.title}>
-          Club <span className={styles.titleAccent}>Dashboard</span>
-        </h1>
+        <h1 className={styles.title}>Club Dashboard</h1>
         <p className={styles.subtitle}>
-          Which domestic clubs are showing out most at the World Cup?
-          {updatedStr && <span className={styles.updatedBadge}>Updated {updatedStr}</span>}
+          <span className={styles.subtitleText}>
+            Which domestic clubs are showing out most at the World Cup — every player&apos;s
+            tournament output, cut and sorted by the club they go home to.
+          </span>
+          {updatedStr && (
+            <span className={styles.updatedBadge}>SYNC {updatedStr}</span>
+          )}
         </p>
       </div>
 
-      {/* KPI cards */}
-      <div className={styles.cards}>
-        <div className={styles.card}>
-          <div className={styles.cardValue}>{matchesPlayed}</div>
-          <div className={styles.cardLabel}>Matches played</div>
-        </div>
-        <div className={styles.card}>
+      {/* KPI telemetry — primary signals dominate, ancillary readouts compressed */}
+      <div className={styles.kpiPrimary}>
+        <div className={`${styles.kpiCellLg} ${styles.kpiAccent}`}>
+          <div className={styles.kpiRef}>Tournament total</div>
           <div className={styles.cardValueAccent}>{totalGoals}</div>
           <div className={styles.cardLabel}>Goals scored</div>
         </div>
-        <div className={styles.card}>
-          <div className={styles.cardValue}>{totalAssists}</div>
-          <div className={styles.cardLabel}>Assists</div>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardValue}>{clubs.length}</div>
-          <div className={styles.cardLabel}>Clubs represented</div>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardValue}>{numLeagues}</div>
-          <div className={styles.cardLabel}>Leagues represented</div>
-        </div>
-        <div className={styles.card}>
+        <div className={styles.kpiCellLg}>
+          <div className={styles.kpiRef}>Across all WC squads</div>
           <div className={styles.cardValue}>{players.length}</div>
           <div className={styles.cardLabel}>Players tracked</div>
         </div>
-        <div className={styles.card}>
-          <div className={styles.cardValue}>{totalYellow}</div>
-          <div className={styles.cardLabel}>Yellow cards</div>
+        <div className={styles.kpiCellLg}>
+          <div className={styles.kpiRef}>Tournament total</div>
+          <div className={styles.cardValue}>{totalAssists}</div>
+          <div className={styles.cardLabel}>Assists</div>
         </div>
-        <div className={styles.card}>
-          <div className={styles.cardValue}>{totalRed}</div>
-          <div className={styles.cardLabel}>Red cards</div>
+      </div>
+      <div className={styles.kpiSecondary}>
+        <div className={styles.kpiCellSm}>
+          <div className={styles.cardValueSm}>{matchesPlayed}</div>
+          <div className={styles.cardLabelSm}>Matches</div>
+        </div>
+        <div className={styles.kpiCellSm}>
+          <div className={styles.cardValueSm}>{clubs.length}</div>
+          <div className={styles.cardLabelSm}>Clubs</div>
+        </div>
+        <div className={styles.kpiCellSm}>
+          <div className={styles.cardValueSm}>{numLeagues}</div>
+          <div className={styles.cardLabelSm}>Leagues</div>
+        </div>
+        <div className={styles.kpiCellSm}>
+          <div className={`${styles.cardValueSm} ${styles.valAmber}`}>{totalYellow}</div>
+          <div className={styles.cardLabelSm}>Yellow</div>
+        </div>
+        <div className={styles.kpiCellSm}>
+          <div className={`${styles.cardValueSm} ${styles.valRed}`}>{totalRed}</div>
+          <div className={styles.cardLabelSm}>Red</div>
         </div>
       </div>
 
       {/* Tabs */}
       <div className={styles.tabs}>
         <button className={`${styles.tab} ${tab === "clubs" ? styles.tabActive : ""}`} onClick={() => setTab("clubs")}>
-          Club Rankings
+          <span className={styles.tabTag}>[ CLB ]</span> Club Rankings
         </button>
         <button className={`${styles.tab} ${tab === "players" ? styles.tabActive : ""}`} onClick={() => setTab("players")}>
-          Player Stats
+          <span className={styles.tabTag}>[ PLR ]</span> Player Stats
         </button>
         <button className={`${styles.tab} ${tab === "chart" ? styles.tabActive : ""}`} onClick={() => setTab("chart")}>
-          📈 Trends
+          <span className={styles.tabTag}>[ TRN ]</span> Trends
         </button>
         <button className={`${styles.tab} ${tab === "gk" ? styles.tabActive : ""}`} onClick={() => setTab("gk")}>
-          🧤 Goalkeepers
+          <span className={styles.tabTag}>[ GK ]</span> Goalkeepers
         </button>
         <button className={`${styles.tab} ${tab === "astro" ? styles.tabActive : ""}`} onClick={() => setTab("astro")}>
-          ☀️ Astrology
+          <span className={styles.tabTag}>[ AST ]</span> Astrology
         </button>
       </div>
 
