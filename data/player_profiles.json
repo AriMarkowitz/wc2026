@@ -13105,8 +13105,15 @@
   },
   "341948": {
     "player_id": "341948",
+    "name": "Marvin Keller",
+    "club": "Young Boys",
+    "league": "Swiss Super League",
+    "position": "Goalkeeper",
+    "age": 23,
     "dob": "2002-07-03T07:00Z",
-    "sun_sign": "Cancer"
+    "sun_sign": "Cancer",
+    "nationality": "Switzerland",
+    "photo": null
   },
   "342631": {
     "player_id": "342631",
@@ -14526,8 +14533,15 @@
   },
   "401246": {
     "player_id": "401246",
+    "name": "Mladen Jurkas",
+    "club": "Borac Banja Luka",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 18,
     "dob": "2007-10-07T07:00Z",
-    "sun_sign": "Libra"
+    "sun_sign": "Libra",
+    "nationality": "Bosnia and Herzegovina",
+    "photo": null
   },
   "401990": {
     "player_id": "401990",
