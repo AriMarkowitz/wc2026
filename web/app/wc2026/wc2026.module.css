@@ -1,151 +1,158 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   TECHNICAL ATELIER — wc2026.module.css
-   A tailor's pattern sheet for World Cup club data.
-   1px draft lines instead of cards · care-tag metadata · thread-red accent.
+   TECHNICAL ATELIER × MATCH DAY EDITORIAL — wc2026.module.css
+   Raw calico drafting table · Cormorant Garamond display · JetBrains Mono tags.
+   Structure is seams, never boxes. Nothing decorates.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── The pattern sheet ───────────────────────────────────────────────────── */
+/* ── Drafting table ──────────────────────────────────────────────────────── */
 .page {
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0;
-  background: var(--calico);
-  border-left: 1px solid var(--rule);
-  border-right: 1px solid var(--rule);
-  min-height: 100vh;
+  /* the drafting mat: 40px grid of 0.5px lines at ~3.5% — present, not seen */
+  background-color: var(--calico);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(28,28,25,0.035)' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
+  border-left: 1px solid var(--seam);
+  border-right: 1px solid var(--seam);
+  min-height: auto;
 }
 
-/* ── Masthead — like the header block of a cutting pattern ────────────────── */
+/* ── Header block ────────────────────────────────────────────────────────── */
 .header {
   position: relative;
-  padding: 2.25rem 2.25rem 1.75rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-/* registration cross-mark, top-left — a real drafting notation */
-.header::before {
-  content: "+";
-  position: absolute;
-  top: 0.5rem; left: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--carbon-3);
-  line-height: 1;
+  padding: 3rem 2.5rem 2rem;
+  border-bottom: 1px solid var(--seam);
 }
 
 .dataCredit {
   position: absolute;
-  top: 1.1rem;
-  right: 2.25rem;
+  top: 1.5rem;
+  right: 2.5rem;
   font-size: 0.6rem;
   font-family: var(--font-mono);
   font-weight: 500;
-  color: var(--carbon-3);
+  color: var(--slate);
   text-decoration: none;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  transition: color 0.12s;
+  transition: color 0.15s;
 }
-.dataCredit:hover { color: var(--thread); }
+.dataCredit:hover { color: var(--gold); }
 
-/* care-tag eyebrow: dense, structured, REAL metadata */
+/* eyebrow — care-tag attribution */
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.6rem;
+  gap: 0.55rem;
+  font-size: 0.625rem;
   font-family: var(--font-mono);
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--carbon-2);
-  margin-bottom: 0.85rem;
+  color: var(--slate);
+  margin-bottom: 1rem;
 }
 
 .eyebrowDot {
   display: inline-block;
-  width: 6px; height: 6px;
-  border: 1px solid var(--thread);
-  background: var(--thread);
+  width: 5px; height: 5px;
+  background: var(--gold);
 }
 
-.title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--carbon);
-  line-height: 0.98;
-  margin-bottom: 0.65rem;
+.eyebrowLink {
+  color: var(--slate);
+  text-decoration: none;
+  transition: color 0.15s;
 }
+.eyebrowLink:hover { color: var(--gold); }
+
+.eyebrowRight {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* title: "Club" 300 carbon · "Dashboard" 600 italic gold — set inline */
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 6vw, 3.6rem);
+  line-height: 0.98;
+  margin-bottom: 0.85rem;
+}
+.titleLight { font-weight: 300; color: var(--carbon); }
+.titleAccent { font-weight: 600; font-style: italic; color: var(--gold); }
 
 .subtitle {
-  font-size: 0.85rem;
-  color: var(--carbon-2);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--slate);
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
 }
+.subtitleText { max-width: 58ch; line-height: 1.5; }
 
-.subtitleText { max-width: 52ch; }
-
-/* SYNC stamp styled like a garment tag's wash instruction */
 .updatedBadge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: transparent;
-  border: 1px solid var(--rule);
-  padding: 0.2rem 0.55rem;
-  font-size: 0.58rem;
+  border: 1px solid var(--seam);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.56rem;
   font-family: var(--font-mono);
-  color: var(--carbon-2);
+  font-weight: 500;
+  color: var(--slate);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-/* ── KPI: the spec table of a pattern sheet ──────────────────────────────── */
+/* ── Stat band — three tiles, vertical seams, crosshair anchors ──────────── */
 .kpiPrimary {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--seam);
 }
 
 .kpiCellLg {
   position: relative;
-  padding: 1.4rem 1.5rem 1.25rem;
-  border-right: 1px solid var(--rule-soft);
+  padding: 1.9rem 2.5rem 1.6rem;
+  border-right: 1px solid var(--seam);
 }
 .kpiCellLg:last-child { border-right: none; }
 
-/* the headline metric gets a thread-red selvedge stripe */
-.kpiAccent { border-left: 3px solid var(--thread); }
-
-.kpiRef {
-  font-size: 0.56rem;
+/* crosshair anchor: + at top-left, "here is where the data lives" */
+.kpiCellLg::before {
+  content: "+";
+  position: absolute;
+  top: 8px; left: 8px;
   font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--carbon-3);
-  margin-bottom: 0.7rem;
+  font-size: 0.6rem;
+  color: var(--slate);
+  line-height: 1;
 }
 
+.kpiRef { display: none; }
+
 .cardValue {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 2.75rem;
+  letter-spacing: -0.01em;
   color: var(--carbon);
   line-height: 0.9;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.55rem;
   font-variant-numeric: tabular-nums;
 }
 
 .cardValueAccent {
   composes: cardValue;
-  color: var(--thread);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--gold);
 }
 
 .cardLabel {
@@ -153,29 +160,25 @@
   font-family: var(--font-mono);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--carbon-2);
+  letter-spacing: 0.1em;
+  color: var(--slate);
 }
 
+/* secondary stat line — context layer, compressed */
 .kpiSecondary {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.25rem;
+  padding: 0.85rem 2.5rem;
+  border-bottom: 1px solid var(--seam);
 }
 
-.kpiCellSm {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  border-right: 1px solid var(--rule-soft);
-}
-.kpiCellSm:last-child { border-right: none; }
+.kpiCellSm { display: flex; align-items: baseline; gap: 0.5rem; }
 
 .cardValueSm {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.3rem;
   color: var(--carbon);
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -186,158 +189,144 @@
   font-family: var(--font-mono);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--carbon-3);
+  letter-spacing: 0.1em;
+  color: var(--slate);
 }
 
-.valAmber { color: var(--selvedge); }
-.valRed   { color: var(--thread); }
+.valAmber { color: var(--gold); }
+.valRed   { color: var(--gold); }
 
-/* ── Tabs — like the index notches on a pattern envelope ─────────────────── */
+/* ── Tab bar ─────────────────────────────────────────────────────────────── */
 .tabs {
   display: flex;
-  border-bottom: 1px solid var(--rule);
-  padding: 0 2.25rem;
-  gap: 0;
+  border-bottom: 1px solid var(--seam);
+  padding: 0 2.5rem;
+  gap: 1.75rem;
   overflow-x: auto;
 }
 
 .tab {
-  padding: 0.85rem 1.15rem;
+  position: relative;
+  padding: 1rem 0;
   border: none;
-  border-bottom: 2px solid transparent;
   background: transparent;
-  font-size: 0.7rem;
+  font-size: 0.625rem;
   font-family: var(--font-mono);
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
-  color: var(--carbon-3);
-  transition: color 0.12s, border-color 0.12s;
+  color: var(--slate);
+  transition: color 0.15s;
   white-space: nowrap;
-  margin-bottom: -1px;
 }
-
 .tab:hover { color: var(--carbon); }
+.tabActive { color: var(--gold) !important; }
 
-.tabActive {
-  color: var(--carbon) !important;
-  border-bottom-color: var(--thread) !important;
+.tabUnderline {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1.5px;
+  background: var(--gold);
 }
+.tabTag { display: none; }
 
-.tabTag {
-  color: var(--carbon-3);
-  margin-right: 0.45rem;
-  font-weight: 600;
-}
-.tabActive .tabTag { color: var(--thread); }
-
-/* ── Tab content ─────────────────────────────────────────────────────────── */
-.tabContent { padding: 1.5rem 2.25rem 3rem; }
+/* ── Content ─────────────────────────────────────────────────────────────── */
+.tabContent { padding: 2rem 2.5rem 2.5rem; }
 
 /* ── Loading ─────────────────────────────────────────────────────────────── */
 .loading {
   text-align: center;
-  padding: 5rem 2rem;
-  color: var(--carbon-3);
+  padding: 6rem 2rem;
+  color: var(--slate);
   font-size: 0.65rem;
   font-family: var(--font-mono);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
-/* ── Filter set — drawn as a measurement annotation row ──────────────────── */
+/* ── Filter row ──────────────────────────────────────────────────────────── */
 .filterBar2 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 1.1rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px dashed var(--rule-soft);
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--seam-soft);
 }
 
 .filterBarLabel {
   font-size: 0.58rem;
   font-family: var(--font-mono);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--carbon-2);
-  margin-right: 0.25rem;
+  letter-spacing: 0.14em;
+  color: var(--slate);
+  margin-right: 0.35rem;
 }
 
 .filterChip {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.7rem;
+  gap: 0.4rem;
+  padding: 0.32rem 0.75rem;
   background: transparent;
-  border: 1px solid var(--rule);
-  color: var(--carbon-2);
-  font-size: 0.68rem;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.12s;
-}
-
-.filterChip:hover {
-  color: var(--carbon);
-  background: var(--calico-2);
-}
-
-.filterChipActive {
-  color: var(--calico);
-  border-color: var(--thread);
-  background: var(--thread);
-}
-
-.filterChipCount {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 14px;
-  height: 14px;
-  padding: 0 0.25rem;
-  background: var(--calico);
-  color: var(--thread);
-  font-size: 0.58rem;
-  font-weight: 700;
-}
-
-.filterChipCaret { font-size: 0.5rem; opacity: 0.7; }
-
-.clearBtn {
-  padding: 0.3rem 0.7rem;
-  background: transparent;
-  border: 1px solid var(--rule-soft);
-  color: var(--carbon-3);
+  border: 1px solid var(--seam);
+  color: var(--slate);
   font-size: 0.62rem;
   font-family: var(--font-mono);
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.12s;
+  transition: all 0.15s;
 }
+.filterChip:hover { color: var(--carbon); border-color: var(--slate); }
+.filterChipActive {
+  color: var(--calico);
+  border-color: var(--gold);
+  background: var(--gold);
+}
+.filterChipCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14px; height: 14px;
+  padding: 0 0.25rem;
+  background: var(--calico);
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 700;
+}
+.filterChipCaret { font-size: 0.5rem; opacity: 0.6; }
 
-.clearBtn:hover { border-color: var(--thread); color: var(--thread); }
+.clearBtn {
+  padding: 0.32rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--seam-soft);
+  color: var(--slate);
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.clearBtn:hover { border-color: var(--gold); color: var(--gold); }
 
-/* ── Popover — a swatch card pinned to the sheet ─────────────────────────── */
+/* ── Popover — pinned swatch, hard shadow not soft ───────────────────────── */
 .popover {
   position: absolute;
-  top: calc(100% + 3px);
+  top: calc(100% + 4px);
   left: 0;
   z-index: 50;
   min-width: 200px;
   max-width: 280px;
   background: var(--calico);
-  border: 1px solid var(--rule);
-  box-shadow: 4px 4px 0 var(--carbon-3);
+  border: 1px solid var(--carbon);
+  box-shadow: 4px 4px 0 var(--slate);
   padding: 0.5rem;
   text-transform: none;
   letter-spacing: normal;
@@ -346,79 +335,59 @@
 .popoverSearch {
   width: 100%;
   padding: 0.35rem 0.6rem;
-  background: var(--calico-2);
-  border: 1px solid var(--rule-soft);
-  border-bottom: 1px solid var(--thread);
+  background: var(--surface2);
+  border: 1px solid var(--seam);
+  border-bottom: 1px solid var(--gold);
   color: var(--carbon);
   font-size: 0.76rem;
   font-family: var(--font-mono);
-  letter-spacing: 0.02em;
   outline: none;
   margin-bottom: 0.4rem;
 }
 
-.popoverList {
-  max-height: 240px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
+.popoverList { max-height: 240px; overflow-y: auto; display: flex; flex-direction: column; }
 
 .popoverItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.5rem;
+  padding: 0.38rem 0.5rem;
   cursor: pointer;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
   font-weight: 400;
-  color: var(--carbon-2);
+  color: var(--slate);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-bottom: 1px solid var(--rule-soft);
-  transition: background 0.08s, color 0.08s;
+  border-bottom: 1px solid var(--seam-soft);
+  transition: color 0.1s;
 }
 .popoverItem:last-child { border-bottom: none; }
+.popoverItem:hover { color: var(--carbon); }
+.popoverItemActive { color: var(--gold); }
 
-.popoverItem:hover { background: var(--calico-2); color: var(--carbon); }
-
-.popoverItemActive { color: var(--thread); font-weight: 600; }
-
-.popoverCheck {
-  width: 12px;
-  flex-shrink: 0;
-  color: var(--thread);
-  font-size: 0.65rem;
-}
+.popoverCheck { width: 12px; flex-shrink: 0; color: var(--gold); font-size: 0.65rem; }
 
 .popoverFooter {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 0.4rem;
-  padding-top: 0.4rem;
-  border-top: 1px solid var(--rule-soft);
+  display: flex; justify-content: flex-end;
+  margin-top: 0.4rem; padding-top: 0.4rem;
+  border-top: 1px solid var(--seam-soft);
 }
-
 .popoverClear {
-  background: none;
-  border: none;
-  color: var(--carbon-3);
-  font-size: 0.62rem;
+  background: none; border: none;
+  color: var(--slate);
+  font-size: 0.6rem;
   font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   padding: 0.15rem 0.35rem;
 }
-.popoverClear:hover { color: var(--thread); }
+.popoverClear:hover { color: var(--gold); }
 
-/* ── Tables — the cut-list grid of the pattern ───────────────────────────── */
-.tableWrap {
-  overflow-x: auto;
-  border: 1px solid var(--rule);
-}
+/* ── Data table ──────────────────────────────────────────────────────────── */
+.tableWrap { overflow-x: auto; }
 
 .table {
   width: 100%;
@@ -430,138 +399,142 @@
 
 .table th {
   text-align: left;
-  padding: 0.5rem 0.7rem;
-  border-bottom: 1px solid var(--rule);
-  border-right: 1px solid var(--rule-soft);
-  font-size: 0.56rem;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--seam);
+  font-size: 0.5625rem;       /* 9px */
   font-family: var(--font-mono);
-  font-weight: 600;
-  color: var(--carbon-2);
+  font-weight: 500;
+  color: var(--slate);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   white-space: nowrap;
-  background: var(--calico-2);
+  background: var(--calico);
   position: sticky;
   top: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   z-index: 2;
 }
-.table th:last-child { border-right: none; }
 
 .table td {
-  padding: 0.3rem 0.7rem;
-  border-bottom: 1px solid var(--rule-soft);
-  border-right: 1px solid var(--rule-soft);
-  color: var(--carbon-2);
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--seam-soft);
+  color: var(--slate);
+  font-family: var(--font-mono);
+  font-weight: 400;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.45;
+  line-height: 1.4;
+  position: relative;
 }
-.table td:last-child { border-right: none; }
 
-.table td.wrap {
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
+.table td.wrap { white-space: normal; word-break: break-word; overflow-wrap: anywhere; }
 .table td.nowrap { white-space: nowrap; }
-
 .table tbody tr:last-child td { border-bottom: none; }
 
-/* focus model: hovered seam brightens, the rest recede like draft lines */
-.table tbody:hover tr td { opacity: 0.5; transition: opacity 0.08s; }
+/* hover — the stitch: dashed seam draws left-to-right, NO background fill */
+.table tbody tr td::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; left: 0; right: 100%;
+  border-top: 1px dashed var(--seam-stitch);
+  transition: right 0.2s ease-out;
+}
 .table tbody tr:hover td {
-  opacity: 1;
-  background: var(--calico-2);
   color: var(--carbon);
+  border-bottom-color: transparent;
 }
-.table tbody tr:hover td:first-child {
-  box-shadow: inset 3px 0 0 var(--thread);
+.table tbody tr:hover td::after { right: 0; }
+
+/* featured / rank-1: gold left seam, square */
+.table tbody tr:first-child td:first-child {
+  box-shadow: inset 1.5px 0 0 var(--gold);
 }
 
-/* ── Th inner / sort ─────────────────────────────────────────────────────── */
+/* ── Th sort ─────────────────────────────────────────────────────────────── */
 .thInner { display: flex; align-items: center; gap: 0.3rem; }
-
 .thLabel {
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  cursor: pointer; user-select: none;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   transition: color 0.1s;
 }
 .thLabel:hover { color: var(--carbon); }
-
 .sortTh { cursor: pointer; user-select: none; }
 .sortTh:hover { color: var(--carbon); }
-.sortThActive { color: var(--thread) !important; }
-.sortArrow { color: var(--thread); font-size: 0.55rem; }
+.sortThActive { color: var(--gold) !important; }
+.sortArrow { color: var(--gold); font-size: 0.5rem; }
 
-/* ── Resize handle — a notch mark ────────────────────────────────────────── */
+/* ── Resize handle ───────────────────────────────────────────────────────── */
 .resizeHandle {
-  position: absolute;
-  top: 0; right: 0;
+  position: absolute; top: 0; right: 0;
   width: 6px; height: 100%;
-  cursor: col-resize;
-  user-select: none;
-  touch-action: none;
+  cursor: col-resize; user-select: none; touch-action: none;
 }
 .resizeHandle::after {
-  content: "";
-  position: absolute;
-  top: 20%; right: 1px;
-  height: 60%; width: 1px;
-  background: var(--rule-soft);
+  content: ""; position: absolute;
+  top: 25%; right: 1px; height: 50%; width: 1px;
+  background: var(--seam);
   transition: background 0.1s, width 0.1s;
 }
-.resizeHandle:hover::after,
-.resizeHandle.resizing::after { background: var(--thread); width: 2px; }
+.resizeHandle:hover::after, .resizeHandle.resizing::after { background: var(--gold); width: 1.5px; }
 .thResizable { position: relative; }
 
-/* ── Rank — chalked seam number, low signal ──────────────────────────────── */
+/* ── Rank — care-tag, de-emphasized ──────────────────────────────────────── */
 .rank {
-  color: var(--carbon-3);
-  font-size: 0.62rem;
+  color: var(--slate);
+  font-size: 0.5625rem;
   font-family: var(--font-mono);
-  font-weight: 500;
   width: 2rem;
   text-align: right;
-  padding-right: 0.5rem !important;
+  padding-right: 0.6rem !important;
 }
 
 /* ── Stat cells ──────────────────────────────────────────────────────────── */
-.statCell { color: var(--carbon) !important; font-weight: 600; }
+.statCell { color: var(--carbon) !important; font-weight: 500; }
 
+/* The signature: G+A/90 in Cormorant italic, 22px, flush-right, tier-colored */
 .statCellAccent {
-  color: var(--thread) !important;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
-/* card alerts: only inked when non-zero */
-.cellAmber { color: var(--selvedge) !important; font-weight: 700; }
-.cellRed   { color: var(--thread) !important; font-weight: 700; }
-
-/* ── Club name ───────────────────────────────────────────────────────────── */
-.clubLink {
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--carbon);
+  font-family: var(--font-serif) !important;
+  font-style: italic;
   font-weight: 600;
-  font-size: inherit;
-  font-family: inherit;
+  font-size: 1.375rem !important;   /* 22px */
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--slate);
+}
+.tierGold  { color: var(--gold) !important; }
+.tierSage  { color: var(--sage) !important; }
+.tierSlate { color: var(--slate) !important; }
+
+.cellAmber { color: var(--gold) !important; }
+.cellRed   { color: var(--gold) !important; }
+
+/* ── Club name — Cormorant, with league/city care-tag underneath ─────────── */
+.clubLink {
+  background: none; border: none; padding: 0;
+  color: var(--carbon);
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;     /* 17px */
+  font-weight: 500;
   cursor: pointer;
   text-align: left;
-  border-bottom: 1px solid transparent;
-  transition: color 0.1s, border-color 0.1s;
+  transition: color 0.12s;
 }
-.clubLink:hover { color: var(--thread); border-bottom-color: var(--thread); }
+.clubLink:hover { color: var(--gold); }
 
-/* ── Tooltip — a pinned hand-written note ────────────────────────────────── */
+/* league · city care-tag under the club name */
+.clubSub {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;       /* 9px */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-top: 0.15rem;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────────────────── */
 .tip { position: relative; display: inline-block; }
-
 .tipFixed {
   position: fixed;
   z-index: 1000;
@@ -569,196 +542,225 @@
   white-space: nowrap;
   background: var(--carbon);
   border: 1px solid var(--carbon);
-  color: var(--calico);
-  font-size: 0.62rem;
+  color: var(--bone);
+  font-size: 0.6rem;
   font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.25rem 0.5rem;
-  box-shadow: 3px 3px 0 var(--carbon-3);
+  padding: 0.28rem 0.55rem;
+  box-shadow: 3px 3px 0 var(--slate);
   pointer-events: none;
 }
 
 /* ── Table meta ──────────────────────────────────────────────────────────── */
 .tableMeta {
-  margin-top: 0.6rem;
-  font-size: 0.6rem;
+  margin-top: 0.85rem;
+  font-size: 0.58rem;
   font-family: var(--font-mono);
-  color: var(--carbon-3);
+  color: var(--slate);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+.activeFilterRow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
 
-.activeFilterRow {
-  display: flex; flex-wrap: wrap; align-items: center;
-  gap: 0.5rem; margin-bottom: 1rem;
-}
-
-/* ── Position badges — woven content labels ──────────────────────────────── */
+/* ── Position badges — outline care-tags ─────────────────────────────────── */
 .posBadge {
   display: inline-block;
   padding: 0.08rem 0.4rem;
-  font-size: 0.56rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: 1px solid;
-}
-.posGoalkeeper { border-color: var(--selvedge); color: var(--selvedge); background: var(--selvedge-dim); }
-.posDefender   { border-color: var(--blue);     color: var(--blue);     background: rgba(62,92,118,0.08); }
-.posMidfielder { border-color: var(--carbon-2); color: var(--carbon-2); background: transparent; }
-.posForward    { border-color: var(--thread);   color: var(--thread);   background: var(--thread-dim); }
-
-.signBadge {
-  display: inline-flex; align-items: center; gap: 0.3rem;
-  font-size: 0.74rem; color: var(--carbon-2);
-}
-
-/* ── Chart controls ──────────────────────────────────────────────────────── */
-.chartControls {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px dashed var(--rule-soft);
-}
-
-.chartToggleGroup { display: flex; gap: 0; border: 1px solid var(--rule); }
-
-.chartToggle {
-  padding: 0.35rem 0.9rem;
-  border: none;
-  border-right: 1px solid var(--rule-soft);
-  background: transparent;
-  color: var(--carbon-3);
-  font-size: 0.62rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.1s, color 0.1s;
-}
-.chartToggle:last-child { border-right: none; }
-.chartToggle:hover { background: var(--calico-2); color: var(--carbon); }
-.chartToggleActive { background: var(--carbon) !important; color: var(--calico) !important; }
-
-/* ── Drill banner ────────────────────────────────────────────────────────── */
-.drillBanner {
-  display: flex; align-items: center; gap: 1rem;
-  padding: 0.5rem 0.75rem;
-  background: var(--thread-dim);
-  border-left: 3px solid var(--thread);
-  font-size: 0.7rem;
+  font-size: 0.5625rem;
   font-family: var(--font-mono);
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  color: var(--thread);
+  border: 1px solid;
+}
+.posGoalkeeper { border-color: var(--gold);   color: var(--gold); }
+.posDefender   { border-color: var(--indigo); color: var(--indigo); }
+.posMidfielder { border-color: var(--sage);   color: var(--sage); }
+.posForward    { border-color: var(--carbon); color: var(--carbon); }
+
+.signBadge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--slate); }
+
+.signLink {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-size: 0.78rem; color: var(--slate);
+  background: none; border: none; padding: 0;
+  cursor: pointer; font-family: inherit;
+  text-decoration: underline dotted var(--seam-stitch);
+  text-underline-offset: 2px;
+  transition: color 0.12s;
+}
+.signLink:hover { color: var(--gold); }
+
+/* ── Chart controls ──────────────────────────────────────────────────────── */
+.chartControls {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 1.5rem; padding-bottom: 1rem;
+  border-bottom: 1px solid var(--seam-soft);
+}
+.chartToggleGroup { display: flex; gap: 0; border: 1px solid var(--seam); }
+.chartToggle {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  border-right: 1px solid var(--seam-soft);
+  background: transparent;
+  color: var(--slate);
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.12s, background 0.12s;
+}
+.chartToggle:last-child { border-right: none; }
+.chartToggle:hover { color: var(--carbon); }
+.chartToggleActive { background: var(--carbon) !important; color: var(--calico) !important; }
+
+/* ── Colophon ────────────────────────────────────────────────────────────── */
+.colophon {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
+  border-top: 1px solid var(--seam);
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.colophonLink { color: var(--gold); transition: opacity 0.12s; }
+.colophonLink:hover { opacity: 0.7; }
+
+/* ── Radar pick ──────────────────────────────────────────────────────────── */
+.radarPick {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.radarChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.radarChip {
+  padding: 0.22rem 0.65rem;
+  background: transparent;
+  border: 1px solid var(--seam);
+  color: var(--slate);
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.radarChip:hover { color: var(--carbon); border-color: var(--carbon); }
+.radarChipActive { font-weight: 700; }
+
+/* keep legacy radarSelect in case anything still uses it */
+.radarSelect {
+  background: transparent;
+  border: 1px solid var(--seam);
+  color: var(--carbon);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  outline: none;
+}
+.radarSelect:focus { border-color: var(--gold); }
+
+/* ── Drill banner ────────────────────────────────────────────────────────── */
+.drillBanner {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.55rem 0.75rem;
+  border-left: 1.5px solid var(--gold);
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  color: var(--gold);
 }
 
 /* ── Astro ───────────────────────────────────────────────────────────────── */
 .astroIntro {
-  color: var(--carbon-3);
-  font-size: 0.68rem;
+  color: var(--slate);
+  font-size: 0.62rem;
   font-family: var(--font-mono);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   max-width: 80ch;
 }
-
 .astroRow { cursor: pointer; }
-.astroCaret { color: var(--thread); font-size: 0.65rem; }
-
+.astroCaret { color: var(--gold); font-size: 0.6rem; }
 .astroExpandRow td {
-  background: var(--calico-2) !important;
-  border-top: 1px solid var(--rule) !important;
+  background: var(--surface2) !important;
+  border-top: 1px solid var(--seam) !important;
 }
-.astroExpandCell { padding: 1rem !important; }
-
+.astroExpandCell { padding: 1.25rem !important; }
 .astroPlayerGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1px;
-  background: var(--rule-soft);
+  background: var(--seam);
 }
-
 .astroPlayerItem {
   display: flex; flex-direction: column; gap: 0.15rem;
-  padding: 0.6rem 0.75rem;
+  padding: 0.65rem 0.8rem;
   background: var(--calico);
 }
-
-.astroPlayerName { font-size: 0.82rem; font-weight: 600; color: var(--carbon); }
-
+.astroPlayerName { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; color: var(--carbon); }
 .astroPlayerMeta {
-  font-size: 0.62rem;
+  font-size: 0.5625rem;
   font-family: var(--font-mono);
-  color: var(--carbon-3);
+  color: var(--slate);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em; text-transform: uppercase;
 }
-
 .astroPlayerStat {
-  font-family: var(--font-display);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--thread);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
   font-variant-numeric: tabular-nums;
   margin-top: 0.1rem;
 }
-
 .signEmoji { color: var(--carbon); }
 
-/* ── Legacy compat (unused but referenced) ───────────────────────────────── */
+/* ── Legacy compat ───────────────────────────────────────────────────────── */
 .filterBar, .filterLabel, .select { display: none; }
+.leagueBadge { font-size: 0.5625rem; font-family: var(--font-mono); color: var(--slate); letter-spacing: 0.04em; text-transform: uppercase; }
+.rowHighlighted td { box-shadow: inset 1.5px 0 0 var(--gold); }
+.rowCount { margin-left: auto; font-size: 0.6rem; font-family: var(--font-mono); color: var(--slate); align-self: flex-end; padding-bottom: 0.15rem; font-variant-numeric: tabular-nums; letter-spacing: 0.06em; text-transform: uppercase; }
+.tableFilters { display: flex; gap: 0.75rem; align-items: flex-end; flex-wrap: wrap; margin-bottom: 1.25rem; }
 
-.leagueBadge {
-  font-size: 0.62rem; font-family: var(--font-mono);
-  color: var(--carbon-3); font-weight: 500; letter-spacing: 0.03em;
-}
-
-.rowHighlighted td { background: var(--thread-dim) !important; }
-
-.rowCount {
-  margin-left: auto; font-size: 0.62rem; font-family: var(--font-mono);
-  color: var(--carbon-3); align-self: flex-end; padding-bottom: 0.15rem;
-  font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase;
-}
-
-.tableFilters {
-  display: flex; gap: 0.75rem; align-items: flex-end;
-  flex-wrap: wrap; margin-bottom: 1.25rem;
-}
-
-.signGrid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1px; background: var(--rule-soft);
-}
-.signCard { background: var(--calico); padding: 1rem 1.1rem; cursor: default; transition: background 0.1s; }
-.signCard:hover { background: var(--calico-2); }
+.signGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--seam); }
+.signCard { background: var(--calico); padding: 1.1rem 1.2rem; cursor: default; }
 .signCardTop { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.6rem; }
-.signName { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--carbon); }
-.signCount { font-size: 0.58rem; font-family: var(--font-mono); color: var(--carbon-3); font-variant-numeric: tabular-nums; letter-spacing: 0.06em; text-transform: uppercase; }
-.signStats { display: flex; gap: 1rem; }
+.signName { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 500; color: var(--carbon); }
+.signCount { font-size: 0.56rem; font-family: var(--font-mono); color: var(--slate); font-variant-numeric: tabular-nums; letter-spacing: 0.08em; text-transform: uppercase; }
+.signStats { display: flex; gap: 1.25rem; }
 .signStat { display: flex; flex-direction: column; gap: 0.1rem; }
-.signStatVal { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--carbon); font-variant-numeric: tabular-nums; }
-.signStatLbl { font-size: 0.54rem; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--carbon-3); }
-.signTopPlayers { margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid var(--rule-soft); display: flex; flex-direction: column; gap: 0.25rem; }
-.signPlayer { font-size: 0.72rem; color: var(--carbon-2); display: flex; justify-content: space-between; }
-.signPlayerStat { color: var(--thread); font-weight: 700; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.signStatVal { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; font-weight: 600; color: var(--carbon); font-variant-numeric: tabular-nums; }
+.signStatLbl { font-size: 0.54rem; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--slate); }
+.signTopPlayers { margin-top: 0.85rem; padding-top: 0.7rem; border-top: 1px solid var(--seam-soft); display: flex; flex-direction: column; gap: 0.25rem; }
+.signPlayer { font-size: 0.74rem; color: var(--slate); display: flex; justify-content: space-between; font-weight: 300; }
+.signPlayerStat { color: var(--gold); font-family: var(--font-serif); font-style: italic; font-weight: 600; font-variant-numeric: tabular-nums; }
 
-.funnelBtn {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 16px; height: 16px; border: none; background: transparent;
-  cursor: pointer; color: var(--carbon-3); font-size: 0.65rem;
-  transition: color 0.1s; flex-shrink: 0;
-}
+.funnelBtn { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border: none; background: transparent; cursor: pointer; color: var(--slate); font-size: 0.65rem; transition: color 0.1s; flex-shrink: 0; }
 .funnelBtn:hover { color: var(--carbon); }
-.funnelBtnActive { color: var(--thread); }
+.funnelBtnActive { color: var(--gold); }

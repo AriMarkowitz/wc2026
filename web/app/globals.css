@@ -1,41 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500&display=swap');
 
 :root {
-  /* ── Technical Atelier palette ── */
-  --calico:      #F3F2EE;  /* raw calico ground */
-  --calico-2:    #EAE8E1;  /* shaded muslin */
-  --calico-3:    #E0DDD3;  /* fold shadow */
-  --carbon:      #1C1C19;  /* woven carbon ink */
-  --carbon-2:    #54534D;  /* graphite */
-  --carbon-3:    #8A887F;  /* chalk-line gray */
-  --thread:      #C9433B;  /* tailor's red thread — the one accent */
-  --thread-dim:  rgba(201,67,59,0.12);
-  --selvedge:    #B7813F;  /* brass/selvedge tone for warnings */
-  --selvedge-dim:rgba(183,129,63,0.14);
-  --rule:        #1C1C19;  /* pattern lines are ink, full strength but 1px */
-  --rule-soft:   #CFCCC2;  /* secondary draft lines */
+  /* ── Material palette ── */
+  --calico:  #F3F2EE;  /* raw calico — drafting table */
+  --carbon:  #1C1C19;  /* woven carbon — ink, seams */
+  --gold:    #C4943A;  /* burnished gold — sole accent */
+  --sage:    #7FAD8F;  /* mid-tier */
+  --indigo:  #1E2A4F;  /* indigo dye — sparklines, depth */
+  --slate:   #6B7A8D;  /* metadata, labels, de-emphasis */
+  --bone:    #F2EDE4;  /* reversed text on dark */
 
-  /* mapped tokens so existing class names still resolve */
+  /* seam lines */
+  --seam:       rgba(28,28,25,0.10);
+  --seam-soft:  rgba(28,28,25,0.06);
+  --seam-stitch:rgba(28,28,25,0.22);
+  --gold-bg:    rgba(196,148,58,0.08);
+
+  /* mapped tokens so existing class names resolve */
   --bg:        var(--calico);
   --surface:   var(--calico);
-  --surface2:  var(--calico-2);
-  --border:    var(--rule-soft);
-  --border2:   var(--carbon-3);
-  --accent:    var(--thread);
-  --accent-dim:var(--thread);
-  --accent-bg: var(--thread-dim);
-  --amber:     var(--selvedge);
-  --amber-bg:  var(--selvedge-dim);
-  --red:       var(--thread);
-  --blue:      #3E5C76;
+  --surface2:  #EAE8E1;
+  --border:    var(--seam);
+  --border2:   var(--slate);
+  --accent:    var(--gold);
+  --accent-dim:var(--gold);
+  --accent-bg: var(--gold-bg);
+  --amber:     var(--gold);
+  --amber-bg:  var(--gold-bg);
+  --red:       var(--gold);
+  --blue:      var(--indigo);
   --text:      var(--carbon);
-  --text-2:    var(--carbon-2);
-  --text-3:    var(--carbon-3);
-  --yellow:    var(--selvedge);
+  --text-2:    var(--slate);
+  --text-3:    var(--slate);
+  --yellow:    var(--gold);
 
-  --font-sans:    'IBM Plex Sans', system-ui, sans-serif;
-  --font-mono:    'IBM Plex Mono', monospace;
-  --font-display: 'IBM Plex Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-mono:  'JetBrains Mono', monospace;
+  --font-sans:  'Space Grotesk', system-ui, sans-serif;
+  --font-display: var(--font-serif);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,18 +49,15 @@ body {
   background: var(--calico);
   color: var(--carbon);
   font-family: var(--font-sans);
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  /* faint woven-fabric tooth: two offset hairline weaves */
-  background-image:
-    repeating-linear-gradient(0deg,   rgba(28,28,25,0.018) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg,  rgba(28,28,25,0.018) 0 1px, transparent 1px 3px);
 }
 
 a { color: inherit; text-decoration: none; }
 
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--calico-2); }
-::-webkit-scrollbar-thumb { background: var(--carbon-3); border-radius: 0; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--slate); border-radius: 0; }
 ::selection { background: var(--carbon); color: var(--calico); }

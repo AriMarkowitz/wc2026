@@ -1,11 +1,19 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { Club, Player, WcMeta } from "@/types/wc";
 import styles from "./wc2026.module.css";
 import FilterBar from "./FilterBar";
 import Tooltip from "./Tooltip";
 import { useColumnResize } from "./useColumnResize";
+import { drape, tension, gather, layIn, stagger, useCountUp } from "./motion";
+
+// Count-up stat value (Cormorant numeral, spring-interpolated)
+function StatNumber({ value, className }: { value: number; className?: string }) {
+  const n = useCountUp(value);
+  return <div className={className}>{n}</div>;
+}
 
 // ---------------------------------------------------------------------------
 // Types
@@ -48,6 +56,29 @@ function posBadgeClass(pos: string): string {
 
 function distinct<T>(arr: T[]): T[] {
   return Array.from(new Set(arr));
+}
+
+/** Tier color for the signature G+A/90 column: gold ≥1.0, sage 0.6–1.0, slate <0.6. */
+function tierClass(v: number | null | undefined): string {
+  if (v == null) return styles.tierSlate;
+  if (v >= 1.0)  return styles.tierGold;
+  if (v >= 0.6)  return styles.tierSage;
+  return styles.tierSlate;
+}
+
+/** Compact league code for the care-tag line under a club name. */
+const LEAGUE_ABBR: Record<string, string> = {
+  "English Premier League": "PRL", "Spanish LALIGA": "LIGA",
+  "German Bundesliga": "BUN", "Italian Serie A": "SERIE A",
+  "French Ligue 1": "L1", "Dutch Eredivisie": "ERE",
+  "Portuguese Primeira Liga": "PRIM", "Scottish Premiership": "SCO",
+  "Belgian Pro League": "BEL", "Turkish Super Lig": "TUR",
+  "Saudi Pro League": "SPL", "MLS": "MLS", "Liga MX": "MX",
+  "Brazilian Serie A": "BRA", "Argentine Primera Division": "ARG",
+};
+function leagueCode(league: string | null | undefined): string {
+  if (!league) return "—";
+  return LEAGUE_ABBR[league] ?? league.toUpperCase().slice(0, 8);
 }
 
 // ---------------------------------------------------------------------------
@@ -146,7 +177,7 @@ function ClubTable({
           </thead>
           <tbody>
             {sorted.map((c, i) => (
-              <tr key={c.club}>
+              <motion.tr key={c.club} layout transition={tension}>
                 <td className={styles.rank}>{i + 1}</td>
                 <td className={styles.wrap}>
                   <Tooltip text={c.league ? `${c.league}` : "League unknown"}>
@@ -154,6 +185,7 @@ function ClubTable({
                       {c.club}
                     </button>
                   </Tooltip>
+                  <div className={styles.clubSub}>{leagueCode(c.league)}</div>
                 </td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.player_count}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goals}</td>
@@ -161,12 +193,12 @@ function ClubTable({
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goal_contributions}</td>
                 <td className={styles.nowrap}>{fmtDec(c.goals_per_90)}</td>
                 <td className={styles.nowrap}>{fmtDec(c.assists_per_90)}</td>
-                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{fmtDec(c.ga_per_90)}</td>
+                <td className={`${styles.statCellAccent} ${tierClass(c.ga_per_90)} ${styles.nowrap}`}>{fmtDec(c.ga_per_90)}</td>
                 <td className={styles.nowrap}>{c.total_minutes}</td>
                 <td className={`${styles.nowrap} ${c.total_yellow_cards ? styles.cellAmber : ""}`}>{c.total_yellow_cards}</td>
                 <td className={`${styles.nowrap} ${c.total_red_cards ? styles.cellRed : ""}`}>{c.total_red_cards}</td>
                 <td className={styles.nowrap}>{fmt(c.avg_age)}</td>
-              </tr>
+              </motion.tr>
             ))}
           </tbody>
         </table>
@@ -183,12 +215,13 @@ function ClubTable({
 type PlayerSort = keyof Player | "min_per_goal";
 
 function PlayerTable({
-  players, meta, fClub, setFClub,
+  players, meta, fClub, setFClub, onSignClick,
 }: {
   players: Player[];
   meta: WcMeta | null;
   fClub: Set<string>;
   setFClub: (s: Set<string>) => void;
+  onSignClick: () => void;
 }) {
   const [sort, setSort] = useState<PlayerSort>("goals");
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
@@ -322,15 +355,15 @@ function PlayerTable({
                 <td className={styles.nowrap}>{fmt(p.age)}</td>
                 <td className={styles.nowrap}>
                   {p.sun_sign ? (
-                    <span className={styles.signBadge} title={p.sun_sign}>
+                    <button className={styles.signLink} onClick={onSignClick} title="View astrology tab">
                       {SIGN_EMOJI[p.sun_sign] ?? ""} {p.sun_sign}
-                    </span>
+                    </button>
                   ) : "—"}
                 </td>
                 <td className={styles.nowrap}>{p.matches_played}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.goals}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.assists}</td>
-                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{fmtDec(p.goal_contributions_per_90)}</td>
+                <td className={`${styles.statCellAccent} ${tierClass(p.goal_contributions_per_90)} ${styles.nowrap}`}>{fmtDec(p.goal_contributions_per_90)}</td>
                 <td className={styles.nowrap}>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
                 <td className={styles.nowrap}>{p.shots_on_target}</td>
                 <td className={styles.nowrap}>{p.minutes_played}</td>
@@ -350,16 +383,221 @@ function PlayerTable({
 // Club trend chart (SVG line chart — top 10 clubs, cumulative G+A by matchday)
 // ---------------------------------------------------------------------------
 
-// Embroidery-floss spool: muted threads laid on calico. The active thread
-// pulls taut in tailor's red (--thread) via hover, so these stay restrained.
+// Distinguishable but theme-consistent: warm/muted hues spread across the
+// wheel so 10 lines stay legible. Paired with a dash cycle (below) so adjacent
+// strands differ in both color and stroke. Hovered line resolves to gold.
 const CHART_COLORS = [
-  "#54534D", "#8A887F", "#3E5C76", "#7A6A53", "#9C7B4E",
-  "#5E6B5A", "#A2918C", "#6B5D6E", "#4F6F6A", "#8C6F5A",
+  "#C4943A", // gold
+  "#7FAD8F", // sage
+  "#C97A6D", // terracotta
+  "#6B8FB5", // dusty blue
+  "#B58DB0", // mauve
+  "#D9B36B", // wheat
+  "#5E9E91", // teal
+  "#B0734A", // rust
+  "#8A93C2", // periwinkle
+  "#9DAE6B", // olive
 ];
 
-type Metric = "ga" | "goals" | "assists";
+// Dash patterns cycle every 3 colors so neighbors in the legend differ in style.
+const CHART_DASHES = ["", "5 3", "1 3"];
 
-function TrendChart() {
+// ---------------------------------------------------------------------------
+// Radar / player web — one club's stat profile as a taut gold thread
+// ---------------------------------------------------------------------------
+
+// Colors for multi-club radar overlay (reuse chart palette)
+const RADAR_COLORS = CHART_COLORS;
+
+function RadarChart({ players }: { players: Player[] }) {
+  const [pointTip, setPointTip] = useState<{ text: string; x: number; y: number } | null>(null);
+
+  // aggregate per club from the player list
+  const clubAgg = useMemo(() => {
+    const m = new Map<string, { goals: number; assists: number; mins: number; sot: number; players: number; ga: number; ga90: number }>();
+    for (const p of players) {
+      if (!p.club || p.club === "Unknown") continue;
+      const e = m.get(p.club) ?? { goals: 0, assists: 0, mins: 0, sot: 0, players: 0, ga: 0, ga90: 0 };
+      e.goals += p.goals; e.assists += p.assists; e.mins += p.minutes_played;
+      e.sot += p.shots_on_target; e.players += 1; e.ga += p.goals + p.assists;
+      m.set(p.club, e);
+    }
+    // compute ga/90 after accumulation
+    for (const [, e] of m) {
+      e.ga90 = e.mins > 0 ? Math.round((e.ga / e.mins) * 90 * 100) / 100 : 0;
+    }
+    return m;
+  }, [players]);
+
+  // default to top G+A club
+  const ranked = useMemo(
+    () => [...clubAgg.entries()].sort((a, b) => b[1].ga - a[1].ga).map(([c]) => c),
+    [clubAgg],
+  );
+
+  // multi-select: set of active clubs
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const activeClubs = useMemo(() => {
+    const s = selected.size > 0
+      ? ranked.filter((club) => selected.has(club))
+      : [ranked[0]].filter(Boolean);
+    return s.slice(0, RADAR_COLORS.length);
+  }, [selected, ranked]);
+
+  // axis maxima across all clubs
+  const maxes = useMemo(() => {
+    let g = 1, a = 1, st = 1, pl = 1, ga = 1, ga90 = 0.01;
+    for (const e of clubAgg.values()) {
+      g = Math.max(g, e.goals); a = Math.max(a, e.assists);
+      st = Math.max(st, e.sot); pl = Math.max(pl, e.players);
+      ga = Math.max(ga, e.ga); ga90 = Math.max(ga90, e.ga90);
+    }
+    return { g, a, st, pl, ga, ga90 };
+  }, [clubAgg]);
+
+  if (ranked.length === 0) return <div className={styles.loading}>No data yet.</div>;
+
+  const W = 680, H = 560, cx = W / 2, cy = H / 2, R = 190;
+  const axes = [
+    { label: "GOALS",    key: "goals"   as const, max: maxes.g },
+    { label: "G+A",      key: "ga"      as const, max: maxes.ga },
+    { label: "ASSISTS",  key: "assists" as const, max: maxes.a },
+    { label: "G+A/90",   key: "ga90"   as const, max: maxes.ga90 },
+    { label: "SHOTS OT", key: "sot"    as const, max: maxes.st },
+    { label: "SQUAD",    key: "players" as const, max: maxes.pl },
+  ];
+  const N = axes.length;
+  const angle = (i: number) => (Math.PI * 2 * i) / N - Math.PI / 2;
+  const pt = (i: number, r: number) => [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r];
+
+  function buildPath(clubName: string) {
+    const e = clubAgg.get(clubName);
+    if (!e) return "";
+    return axes
+      .map((ax, i) => {
+        const r = R * Math.min(1, (e[ax.key] as number) / ax.max);
+        const [x, y] = pt(i, r);
+        return `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
+      })
+      .join(" ") + "Z";
+  }
+
+  const rings = [0.25, 0.5, 0.75, 1];
+
+  function handleClubFilterChange(next: Set<string>) {
+    if (next.size <= RADAR_COLORS.length) {
+      setSelected(next);
+      return;
+    }
+
+    const limited = ranked.filter((club) => next.has(club)).slice(0, RADAR_COLORS.length);
+    setSelected(new Set(limited));
+  }
+
+  return (
+    <div>
+      <FilterBar filters={[
+        { label: "Clubs", options: ranked, selected, onChange: handleClubFilterChange },
+      ]} />
+
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W, display: "block", margin: "0 auto" }}>
+        {/* web rings */}
+        {rings.map((rr, ri) => (
+          <polygon key={ri}
+            points={axes.map((_, i) => pt(i, R * rr).map((n) => n.toFixed(1)).join(",")).join(" ")}
+            fill="none" stroke="var(--seam)" strokeWidth={1} />
+        ))}
+        {/* spokes + labels */}
+        {axes.map((ax, i) => {
+          const [ex, ey] = pt(i, R);
+          const [lx, ly] = pt(i, R + 30);
+          return (
+            <g key={ax.label}>
+              <line x1={cx} y1={cy} x2={ex} y2={ey} stroke="var(--seam)" strokeWidth={1} />
+              <text x={lx} y={ly} textAnchor="middle" dominantBaseline="middle"
+                fontSize={9} fontFamily="var(--font-mono)" letterSpacing="0.08em"
+                fill="var(--slate)">{ax.label}</text>
+            </g>
+          );
+        })}
+        {/* one path + knots per active club */}
+        {activeClubs.map((clubName, ci) => {
+          const color = RADAR_COLORS[ci % RADAR_COLORS.length];
+          const e = clubAgg.get(clubName);
+          if (!e) return null;
+          return (
+            <g key={clubName}>
+              <motion.path
+                key={`${clubName}-path`}
+                d={buildPath(clubName)}
+                fill={`${color}18`}
+                stroke={color}
+                strokeWidth={activeClubs.length === 1 ? 1.5 : 1.25}
+                strokeLinejoin="round"
+                pointerEvents="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 0.55, ease: "easeInOut", delay: ci * 0.08 }}
+              />
+              {axes.map((ax, i) => {
+                const r = R * Math.min(1, (e[ax.key] as number) / ax.max);
+                const [x, y] = pt(i, r);
+                const val = ax.key === "ga90" ? (e[ax.key] as number).toFixed(2) : e[ax.key];
+                return (
+                  <g key={`${clubName}-${ax.key}`}>
+                    <circle
+                      cx={x}
+                      cy={y}
+                      r={8}
+                      fill="rgba(0,0,0,0.001)"
+                      pointerEvents="all"
+                      onMouseEnter={(event) => setPointTip({ text: String(val), x: event.clientX, y: event.clientY })}
+                      onMouseMove={(event) => setPointTip({ text: String(val), x: event.clientX, y: event.clientY })}
+                      onMouseLeave={() => setPointTip(null)}
+                    />
+                    <circle cx={x} cy={y} r={2.5} fill={color} stroke="var(--calico)" strokeWidth={1} pointerEvents="none" />
+                    {activeClubs.length === 1 && (
+                      <text x={x} y={y - 8} textAnchor="middle" dominantBaseline="middle"
+                        fontSize={10} fontFamily="var(--font-serif)" fontStyle="italic" fontWeight={600}
+                        fill="var(--carbon)">{String(val)}</text>
+                    )}
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })}
+        {/* legend when multiple clubs */}
+        {activeClubs.length > 1 && activeClubs.map((clubName, ci) => {
+          const color = RADAR_COLORS[ci % RADAR_COLORS.length];
+          return (
+            <g key={`leg-${clubName}`}>
+              <rect x={16} y={16 + ci * 20} width={12} height={3} fill={color} />
+              <text x={34} y={16 + ci * 20 + 3} fontSize={10} fontFamily="var(--font-sans)" fontWeight={500} fill={color}>
+                {clubName}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      {pointTip && (
+        <div
+          className={styles.tipFixed}
+          role="tooltip"
+          style={{ left: pointTip.x + 10, top: pointTip.y - 8 }}
+        >
+          {pointTip.text}
+        </div>
+      )}
+    </div>
+  );
+}
+
+type Metric = "ga" | "goals" | "assists";
+type TrendView = "line" | "radar";
+
+function TrendChart({ players }: { players: Player[] }) {
+  const [view, setView] = useState<TrendView>("line");
   const [data, setData] = useState<{
     matchdays: string[];
     series: Record<string, { goals: number[]; assists: number[]; ga: number[] }>;
@@ -372,8 +610,37 @@ function TrendChart() {
     fetch("/api/v1/timeseries").then((r) => r.json()).then((j) => setData(j.response));
   }, []);
 
+  // view switch lives above the data guard so radar works without timeseries
+  const viewToggle = (
+    <div className={styles.chartToggleGroup}>
+      {(["line", "radar"] as TrendView[]).map((v) => (
+        <button
+          key={v}
+          className={`${styles.chartToggle} ${view === v ? styles.chartToggleActive : ""}`}
+          onClick={() => setView(v)}
+        >
+          {v === "line" ? "Trend" : "Profile"}
+        </button>
+      ))}
+    </div>
+  );
+
+  if (view === "radar") {
+    return (
+      <div>
+        <div className={styles.chartControls}>{viewToggle}</div>
+        <RadarChart players={players} />
+      </div>
+    );
+  }
+
   if (!data || data.matchdays.length === 0) {
-    return <div className={styles.loading}>No matchday data yet.</div>;
+    return (
+      <div>
+        <div className={styles.chartControls}>{viewToggle}</div>
+        <div className={styles.loading}>No matchday data yet.</div>
+      </div>
+    );
   }
 
   const { matchdays } = data;
@@ -388,7 +655,7 @@ function TrendChart() {
 
   const getSeries = (club: string) => data.series[club][metric];
 
-  const W = 900, H = 380, PAD = { top: 20, right: 160, bottom: 48, left: 48 };
+  const W = 1180, H = 560, PAD = { top: 28, right: 210, bottom: 56, left: 56 };
   const chartW = W - PAD.left - PAD.right;
   const chartH = H - PAD.top - PAD.bottom;
 
@@ -408,6 +675,7 @@ function TrendChart() {
   return (
     <div>
       <div className={styles.chartControls}>
+        {viewToggle}
         <div className={styles.chartToggleGroup}>
           {(["ga", "goals", "assists"] as Metric[]).map((m) => (
             <button
@@ -432,30 +700,30 @@ function TrendChart() {
         </div>
       </div>
       <div style={{ overflowX: "auto" }}>
-        <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W, display: "block" }}>
+        <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", minWidth: 720, display: "block" }}>
           {/* draft guide lines — faint chalk on the pattern sheet */}
-          {yTicks.map((v) => (
-            <line key={v}
+          {yTicks.map((v, ti) => (
+            <line key={ti}
               x1={PAD.left} x2={W - PAD.right}
               y1={yPos(v)} y2={yPos(v)}
-              stroke="var(--rule-soft)" strokeWidth={1}
+              stroke="var(--bone-10)" strokeWidth={1}
               strokeDasharray={v === 0 ? undefined : "2 4"}
             />
           ))}
-          {yTicks.map((v) => (
-            <text key={v} x={PAD.left - 8} y={yPos(v) + 3}
+          {yTicks.map((v, ti) => (
+            <text key={ti} x={PAD.left - 8} y={yPos(v) + 3}
               textAnchor="end" fontSize={9} fontFamily="var(--font-mono)"
-              fill="var(--carbon-3)">{v}</text>
+              fill="var(--slate)">{v}</text>
           ))}
           {/* x axis — matchday marks, like seam notches */}
           {matchdays.map((d, i) => (
             <g key={d}>
               <line x1={xPos(i)} x2={xPos(i)} y1={PAD.top + chartH} y2={PAD.top + chartH + 4}
-                stroke="var(--carbon-3)" strokeWidth={1} />
+                stroke="var(--slate)" strokeWidth={1} />
               <text
                 x={xPos(i)} y={H - PAD.bottom + 16}
                 textAnchor="middle" fontSize={9} fontFamily="var(--font-mono)"
-                fill="var(--carbon-3)"
+                fill="var(--slate)"
                 transform={matchdays.length > 8 ? `rotate(-35,${xPos(i)},${H - PAD.bottom + 16})` : undefined}
               >
                 {`${d.slice(4, 6)}.${d.slice(6, 8)}`}
@@ -466,7 +734,7 @@ function TrendChart() {
           <text
             x={PAD.left - 34} y={PAD.top + chartH / 2}
             textAnchor="middle" fontSize={9} fontFamily="var(--font-mono)"
-            letterSpacing="0.1em" fill="var(--carbon-3)"
+            letterSpacing="0.1em" fill="var(--slate)"
             transform={`rotate(-90,${PAD.left - 34},${PAD.top + chartH / 2})`}
           >
             CUMULATIVE {metricLabel.toUpperCase()}
@@ -475,17 +743,20 @@ function TrendChart() {
           {/* threads — each club is a single taut strand */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
+            // first 10 solid; if topN pushes past 10, the wrapped colors get a dash
+            const dash = ci < CHART_COLORS.length ? "" : "6 4";
             const active = hovered === club;
             const dim = hovered !== null && !active;
             return (
               <polyline key={club}
                 points={polyline(getSeries(club))}
                 fill="none"
-                stroke={active ? "var(--thread)" : color}
-                strokeWidth={active ? 2.25 : 1.25}
+                stroke={active ? "var(--gold)" : color}
+                strokeWidth={active ? 3.5 : 2}
+                strokeDasharray={active ? undefined : dash}
                 strokeLinejoin="round"
                 strokeLinecap="round"
-                opacity={dim ? 0.18 : 1}
+                opacity={dim ? 0.22 : 1}
                 style={{ cursor: "pointer", transition: "opacity 0.15s, stroke-width 0.12s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
@@ -502,8 +773,8 @@ function TrendChart() {
             return (
               <circle key={club}
                 cx={xPos(matchdays.length - 1)} cy={yPos(lastVal)} r={active ? 3 : 2}
-                fill={active ? "var(--thread)" : color}
-                stroke="var(--calico)" strokeWidth={1}
+                fill={active ? "var(--gold)" : color}
+                stroke="var(--ink)" strokeWidth={1}
                 opacity={dim ? 0.18 : 1}
                 style={{ transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
@@ -514,28 +785,30 @@ function TrendChart() {
           {/* spool index — pinned thread legend */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
+            const dash = ci < CHART_COLORS.length ? "" : "6 4";
             const active = hovered === club;
             const dim = hovered !== null && !active;
             const vals = getSeries(club);
             const lastVal = vals[vals.length - 1];
-            const ly = PAD.top + ci * 20 + 8;
+            const ly = PAD.top + ci * 24 + 10;
             return (
               <g key={club}
                 style={{ cursor: "pointer", opacity: dim ? 0.3 : 1, transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* a short stitch of the thread's own color */}
-                <line x1={W - PAD.right + 14} x2={W - PAD.right + 30}
+                {/* a short stitch of the thread's own color + style */}
+                <line x1={W - PAD.right + 16} x2={W - PAD.right + 38}
                   y1={ly} y2={ly}
-                  stroke={active ? "var(--thread)" : color}
-                  strokeWidth={active ? 2.25 : 1.5} strokeLinecap="round" />
-                <text x={W - PAD.right + 36} y={ly + 3.5}
-                  fontSize={10} fontFamily="var(--font-sans)"
+                  stroke={active ? "var(--gold)" : color}
+                  strokeDasharray={active ? undefined : dash}
+                  strokeWidth={active ? 3.5 : 2.25} strokeLinecap="round" />
+                <text x={W - PAD.right + 46} y={ly + 4}
+                  fontSize={12} fontFamily="var(--font-sans)"
                   fontWeight={active ? 700 : 500}
-                  fill={active ? "var(--thread)" : "var(--carbon-2)"}>
-                  {club.length > 17 ? club.slice(0, 16) + "…" : club}
-                  <tspan fontFamily="var(--font-mono)" fill="var(--carbon-3)"> {lastVal}</tspan>
+                  fill={active ? "var(--gold)" : "var(--bone-60)"}>
+                  {club.length > 18 ? club.slice(0, 17) + "…" : club}
+                  <tspan fontFamily="var(--font-mono)" fill="var(--slate)"> {lastVal}</tspan>
                 </text>
               </g>
             );
@@ -657,11 +930,11 @@ function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) 
                 <td className={styles.nowrap}>{fmt(p.age)}</td>
                 <td className={styles.nowrap}>{p.matches_played}</td>
                 <td className={styles.nowrap}>{p.minutes_played}</td>
-                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{p.saves}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{p.saves}</td>
                 <td className={styles.nowrap}>{p.shots_faced}</td>
                 <td className={styles.nowrap}>{p.goals_conceded}</td>
-                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>{p.clean_sheets}</td>
-                <td className={`${styles.statCellAccent} ${styles.nowrap}`}>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{p.clean_sheets}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`} style={{ color: p.save_pct != null ? "var(--gold)" : undefined }}>
                   {p.save_pct != null ? `${p.save_pct}%` : "—"}
                 </td>
                 <td className={styles.nowrap}>{fmtDec(p.goals_conceded_per_90)}</td>
@@ -754,7 +1027,7 @@ function AstroTable({ players }: { players: Player[] }) {
                     <td className={styles.statCell}>{r.goals}</td>
                     <td className={styles.statCell}>{r.assists}</td>
                     <td className={styles.statCell}>{r.ga}</td>
-                    <td className={styles.statCellAccent}>{r.ga_per_90.toFixed(2)}</td>
+                    <td className={`${styles.statCellAccent} ${tierClass(r.ga_per_90)}`}>{r.ga_per_90.toFixed(2)}</td>
                     <td>{r.g_per_player.toFixed(2)}</td>
                     <td>{r.mins}</td>
                   </tr>
@@ -846,19 +1119,33 @@ export default function WC2026Page() {
     <main className={styles.page}>
       {/* Header */}
       <div className={styles.header}>
-        <a
-          className={styles.dataCredit}
-          href="https://www.espn.com/soccer/league/_/name/fifa.world"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Data: ESPN
-        </a>
         <div className={styles.eyebrow}>
           <span className={styles.eyebrowDot} />
-          FIFA WORLD CUP 2026 · {matchesPlayed} MATCHES · {clubs.length} CLUBS · {numLeagues} LEAGUES
+          FIFA WORLD CUP 2026 — CLUB PERFORMANCE
+          <span className={styles.eyebrowRight}>
+            <a
+              href="https://github.com/pseudo-r/Public-ESPN-API"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.eyebrowLink}
+            >
+              DATA: PUBLIC ESPN API
+            </a>
+            ·
+            <a
+              href="https://claude.com/claude-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.eyebrowLink}
+            >
+              BUILT WITH CLAUDE
+            </a>
+          </span>
         </div>
-        <h1 className={styles.title}>Club Dashboard</h1>
+        <h1 className={styles.title}>
+          <span className={styles.titleLight}>Club </span>
+          <span className={styles.titleAccent}>Dashboard</span>
+        </h1>
         <p className={styles.subtitle}>
           <span className={styles.subtitleText}>
             Which domestic clubs are showing out most at the World Cup — every player&apos;s
@@ -870,79 +1157,98 @@ export default function WC2026Page() {
         </p>
       </div>
 
-      {/* KPI telemetry — primary signals dominate, ancillary readouts compressed */}
-      <div className={styles.kpiPrimary}>
-        <div className={`${styles.kpiCellLg} ${styles.kpiAccent}`}>
-          <div className={styles.kpiRef}>Tournament total</div>
-          <div className={styles.cardValueAccent}>{totalGoals}</div>
+      {/* Stat band — staggered lay-in, count-up numerals */}
+      <motion.div className={styles.kpiPrimary} variants={stagger(0.08)} initial="initial" animate="animate">
+        <motion.div className={`${styles.kpiCellLg} ${styles.kpiAccent}`} variants={layIn}>
+          <StatNumber value={totalGoals} className={styles.cardValueAccent} />
           <div className={styles.cardLabel}>Goals scored</div>
-        </div>
-        <div className={styles.kpiCellLg}>
-          <div className={styles.kpiRef}>Across all WC squads</div>
-          <div className={styles.cardValue}>{players.length}</div>
+        </motion.div>
+        <motion.div className={styles.kpiCellLg} variants={layIn}>
+          <StatNumber value={players.length} className={styles.cardValue} />
           <div className={styles.cardLabel}>Players tracked</div>
-        </div>
-        <div className={styles.kpiCellLg}>
-          <div className={styles.kpiRef}>Tournament total</div>
-          <div className={styles.cardValue}>{totalAssists}</div>
+        </motion.div>
+        <motion.div className={styles.kpiCellLg} variants={layIn}>
+          <StatNumber value={totalAssists} className={styles.cardValue} />
           <div className={styles.cardLabel}>Assists</div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className={styles.kpiSecondary}>
         <div className={styles.kpiCellSm}>
-          <div className={styles.cardValueSm}>{matchesPlayed}</div>
+          <StatNumber value={matchesPlayed} className={styles.cardValueSm} />
           <div className={styles.cardLabelSm}>Matches</div>
         </div>
         <div className={styles.kpiCellSm}>
-          <div className={styles.cardValueSm}>{clubs.length}</div>
+          <StatNumber value={clubs.length} className={styles.cardValueSm} />
           <div className={styles.cardLabelSm}>Clubs</div>
         </div>
         <div className={styles.kpiCellSm}>
-          <div className={styles.cardValueSm}>{numLeagues}</div>
+          <StatNumber value={numLeagues} className={styles.cardValueSm} />
           <div className={styles.cardLabelSm}>Leagues</div>
         </div>
         <div className={styles.kpiCellSm}>
-          <div className={`${styles.cardValueSm} ${styles.valAmber}`}>{totalYellow}</div>
+          <StatNumber value={totalYellow} className={`${styles.cardValueSm} ${styles.valAmber}`} />
           <div className={styles.cardLabelSm}>Yellow</div>
         </div>
         <div className={styles.kpiCellSm}>
-          <div className={`${styles.cardValueSm} ${styles.valRed}`}>{totalRed}</div>
+          <StatNumber value={totalRed} className={`${styles.cardValueSm} ${styles.valRed}`} />
           <div className={styles.cardLabelSm}>Red</div>
         </div>
       </div>
 
-      {/* Tabs */}
+      {/* Tabs — shared-layout gold underline */}
       <div className={styles.tabs}>
-        <button className={`${styles.tab} ${tab === "clubs" ? styles.tabActive : ""}`} onClick={() => setTab("clubs")}>
-          <span className={styles.tabTag}>[ CLB ]</span> Club Rankings
-        </button>
-        <button className={`${styles.tab} ${tab === "players" ? styles.tabActive : ""}`} onClick={() => setTab("players")}>
-          <span className={styles.tabTag}>[ PLR ]</span> Player Stats
-        </button>
-        <button className={`${styles.tab} ${tab === "chart" ? styles.tabActive : ""}`} onClick={() => setTab("chart")}>
-          <span className={styles.tabTag}>[ TRN ]</span> Trends
-        </button>
-        <button className={`${styles.tab} ${tab === "gk" ? styles.tabActive : ""}`} onClick={() => setTab("gk")}>
-          <span className={styles.tabTag}>[ GK ]</span> Goalkeepers
-        </button>
-        <button className={`${styles.tab} ${tab === "astro" ? styles.tabActive : ""}`} onClick={() => setTab("astro")}>
-          <span className={styles.tabTag}>[ AST ]</span> Astrology
-        </button>
+        {([
+          ["clubs", "Club Rankings"],
+          ["players", "Player Stats"],
+          ["chart", "Charts"],
+          ["gk", "Goalkeepers"],
+          ["astro", "Astrology"],
+        ] as [Tab, string][]).map(([key, label]) => (
+          <button
+            key={key}
+            className={`${styles.tab} ${tab === key ? styles.tabActive : ""}`}
+            onClick={() => setTab(key)}
+          >
+            {label}
+            {tab === key && (
+              <motion.span layoutId="tab-indicator" className={styles.tabUnderline} transition={tension} />
+            )}
+          </button>
+        ))}
       </div>
 
       {loading ? (
         <div className={styles.loading}>Loading data…</div>
       ) : (
-        <div className={styles.tabContent}>
-          {tab === "clubs" && <ClubTable clubs={clubs} meta={meta} onDrillDown={handleDrillDown} />}
-          {tab === "players" && (
-            <PlayerTable players={players} meta={meta} fClub={playerClubFilter} setFClub={setPlayerClubFilter} />
-          )}
-          {tab === "chart"   && <TrendChart />}
-          {tab === "gk"      && <GkTable players={players} meta={meta} />}
-          {tab === "astro"   && <AstroTable players={players} />}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            className={styles.tabContent}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0, transition: drape }}
+            exit={{ opacity: 0, y: -8, transition: { duration: 0.15, ease: "easeIn" } }}
+          >
+            {tab === "clubs" && <ClubTable clubs={clubs} meta={meta} onDrillDown={handleDrillDown} />}
+            {tab === "players" && (
+              <PlayerTable
+                players={players}
+                meta={meta}
+                fClub={playerClubFilter}
+                setFClub={setPlayerClubFilter}
+                onSignClick={() => setTab("astro")}
+              />
+            )}
+            {tab === "chart"   && <TrendChart players={players} />}
+            {tab === "gk"      && <GkTable players={players} meta={meta} />}
+            {tab === "astro"   && <AstroTable players={players} />}
+          </motion.div>
+        </AnimatePresence>
       )}
+
+      {/* Colophon */}
+      <footer className={styles.colophon}>
+        <span>FIFA WORLD CUP 2026 — CLUB SHOWOUT</span>
+      </footer>
     </main>
   );
 }
