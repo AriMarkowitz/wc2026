@@ -58,12 +58,26 @@ function distinct<T>(arr: T[]): T[] {
   return Array.from(new Set(arr));
 }
 
-/** Tier color for the signature G+A/90 column: gold ≥1.0, sage 0.6–1.0, slate <0.6. */
-function tierClass(v: number | null | undefined): string {
-  if (v == null) return styles.tierSlate;
-  if (v >= 1.0)  return styles.tierGold;
-  if (v >= 0.6)  return styles.tierSage;
-  return styles.tierSlate;
+/**
+ * Relative colormap for G+A/90 — interpolates from slate (min) through sage
+ * to gold (max) based on the actual distribution in the current table.
+ * Returns an inline style object so no CSS class needed.
+ */
+function ga90Color(v: number | null | undefined, min: number, max: number): React.CSSProperties {
+  if (v == null || max <= min) return { color: "var(--slate)" };
+  const t = (v - min) / (max - min); // 0 → 1
+  // slate #6B7A8D → sage #7FAD8F → gold #C4943A
+  // two-segment lerp: t<0.5 slate→sage, t≥0.5 sage→gold
+  function lerp(a: number, b: number, t: number) { return Math.round(a + (b - a) * t); }
+  let r: number, g: number, b: number;
+  if (t < 0.5) {
+    const tt = t * 2;
+    r = lerp(0x6B, 0x7F, tt); g = lerp(0x7A, 0xAD, tt); b = lerp(0x8D, 0x8F, tt);
+  } else {
+    const tt = (t - 0.5) * 2;
+    r = lerp(0x7F, 0xC4, tt); g = lerp(0xAD, 0x94, tt); b = lerp(0x8F, 0x3A, tt);
+  }
+  return { color: `rgb(${r},${g},${b})` };
 }
 
 /** Compact league code for the care-tag line under a club name. */
@@ -147,6 +161,10 @@ function ClubTable({
   const clubOptions = meta?.clubs ?? distinct(clubs.map((c) => c.club)).sort();
   const leagueOptions = meta?.leagues ?? distinct(clubs.map((c) => c.league).filter(Boolean) as string[]).sort();
 
+  const ga90Vals = sorted.map((c) => c.ga_per_90 ?? 0);
+  const ga90Min = Math.min(...ga90Vals);
+  const ga90Max = Math.max(...ga90Vals);
+
   return (
     <div>
       <FilterBar filters={[
@@ -193,7 +211,7 @@ function ClubTable({
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goal_contributions}</td>
                 <td className={styles.nowrap}>{fmtDec(c.goals_per_90)}</td>
                 <td className={styles.nowrap}>{fmtDec(c.assists_per_90)}</td>
-                <td className={`${styles.statCellAccent} ${tierClass(c.ga_per_90)} ${styles.nowrap}`}>{fmtDec(c.ga_per_90)}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={ga90Color(c.ga_per_90, ga90Min, ga90Max)}>{fmtDec(c.ga_per_90)}</td>
                 <td className={styles.nowrap}>{c.total_minutes}</td>
                 <td className={`${styles.nowrap} ${c.total_yellow_cards ? styles.cellAmber : ""}`}>{c.total_yellow_cards}</td>
                 <td className={`${styles.nowrap} ${c.total_red_cards ? styles.cellRed : ""}`}>{c.total_red_cards}</td>
@@ -261,6 +279,10 @@ function PlayerTable({
   const leagueOptions = meta?.leagues ?? distinct(players.map((p) => p.league).filter(Boolean) as string[]).sort();
   const natOptions    = meta?.nationalities ?? distinct(players.map((p) => p.nationality)).sort();
   const posOptions    = meta?.positions ?? distinct(players.map((p) => p.position)).sort();
+
+  const pGa90Vals = sorted.map((p) => p.goal_contributions_per_90 ?? 0);
+  const pGa90Min = Math.min(...pGa90Vals);
+  const pGa90Max = Math.max(...pGa90Vals);
 
   const numCols: { key: string; label: string; col: PlayerSort; title?: string; accent?: boolean }[] = [
     { key: "mp",     label: "MP",     col: "matches_played", title: "Matches played" },
@@ -363,7 +385,7 @@ function PlayerTable({
                 <td className={styles.nowrap}>{p.matches_played}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.goals}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.assists}</td>
-                <td className={`${styles.statCellAccent} ${tierClass(p.goal_contributions_per_90)} ${styles.nowrap}`}>{fmtDec(p.goal_contributions_per_90)}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={ga90Color(p.goal_contributions_per_90, pGa90Min, pGa90Max)}>{fmtDec(p.goal_contributions_per_90)}</td>
                 <td className={styles.nowrap}>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
                 <td className={styles.nowrap}>{p.shots_on_target}</td>
                 <td className={styles.nowrap}>{p.minutes_played}</td>
@@ -981,6 +1003,10 @@ function AstroTable({ players }: { players: Player[] }) {
     [...rows].sort((a, b) => ((b as unknown as Record<string, number>)[sort] ?? 0) - ((a as unknown as Record<string, number>)[sort] ?? 0)),
     [rows, sort]);
 
+  const aGa90Vals = sorted.map((r) => r.ga_per_90);
+  const aGa90Min = Math.min(...aGa90Vals);
+  const aGa90Max = Math.max(...aGa90Vals);
+
   const cols: { key: string; label: string; title?: string }[] = [
     { key: "count",        label: "Players" },
     { key: "goals",        label: "Goals" },
@@ -1040,7 +1066,7 @@ function AstroTable({ players }: { players: Player[] }) {
                     <td className={styles.statCell}>{r.goals}</td>
                     <td className={styles.statCell}>{r.assists}</td>
                     <td className={styles.statCell}>{r.ga}</td>
-                    <td className={`${styles.statCellAccent} ${tierClass(r.ga_per_90)}`}>{r.ga_per_90.toFixed(2)}</td>
+                    <td className={styles.statCellAccent} style={ga90Color(r.ga_per_90, aGa90Min, aGa90Max)}>{r.ga_per_90.toFixed(2)}</td>
                     <td>{r.g_per_player.toFixed(2)}</td>
                     <td>{r.mins}</td>
                   </tr>
