@@ -375,7 +375,12 @@ function TrendChart() {
   }
 
   const { matchdays } = data;
-  const allClubs = Object.keys(data.series);
+  const allClubs = Object.keys(data.series)
+    .sort((a, b) => {
+      const av = data.series[a][metric];
+      const bv = data.series[b][metric];
+      return (bv[bv.length - 1] ?? 0) - (av[av.length - 1] ?? 0);
+    });
   const clubs = allClubs.slice(0, topN);
   if (clubs.length === 0) return <div className={styles.loading}>No data yet.</div>;
 

@@ -1,20 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root {
-  --bg:        #0d0f14;
-  --surface:   #13161d;
-  --surface2:  #1a1e28;
-  --border:    #252a38;
-  --border2:   #2e3448;
-  --accent:    #00e5a0;
-  --accent-dim:#00b87d;
-  --accent-bg: rgba(0,229,160,0.07);
-  --text:      #e8eaf0;
-  --text-2:    #8b92a8;
-  --text-3:    #555d73;
-  --red:       #ff4d6a;
-  --yellow:    #ffc94d;
-  --blue:      #4d8fff;
-  --font-sans: var(--font-geist-sans), "Inter", system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), "JetBrains Mono", monospace;
+  /* ── Void palette ── */
+  --bg:        #07090E;
+  --surface:   #0d1017;
+  --surface2:  #121620;
+  --border:    #1e2330;
+  --border2:   #252d3d;
+
+  /* ── Signal colors ── */
+  --accent:     #00FF66;
+  --accent-dim: #00cc52;
+  --accent-bg:  rgba(0,255,102,0.06);
+  --amber:      #FFB800;
+  --amber-bg:   rgba(255,184,0,0.06);
+  --red:        #FF3354;
+  --blue:       #3B82F6;
+
+  /* ── Text ── */
+  --text:   #E4E7EC;
+  --text-2: #6B7694;
+  --text-3: #3A4258;
+
+  /* Legacy compat */
+  --yellow: var(--amber);
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Barlow Condensed', monospace;
+  --font-display: 'Barlow Condensed', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,10 +41,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* subtle crosshair grid over the void */
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-attachment: fixed;
 }
 
 a { color: inherit; text-decoration: none; }
 
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--surface); }
-::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 0; }

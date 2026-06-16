@@ -1,119 +1,158 @@
-/* ── Layout ───────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   TACTICAL KINETIC TERMINAL — wc2026.module.css
+   Zero border-radius. 1px grid lines. High-density data.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
 .page {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 0;
+  /* solid chassis frame */
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  min-height: 100vh;
+  background: var(--bg);
 }
 
-/* ── Header ──────────────────────────────────────────────────────────── */
+/* ── Header ─────────────────────────────────────────────────────────────── */
 .header {
   position: relative;
-  margin-bottom: 2rem;
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* corner bracket accent — top-left */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 48px; height: 48px;
+  border-top: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+  pointer-events: none;
 }
 
 .dataCredit {
   position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 0.7rem;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
   color: var(--text-3);
   text-decoration: none;
-  letter-spacing: 0.04em;
-  opacity: 0.7;
-  transition: opacity 0.15s;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  transition: opacity 0.1s, color 0.1s;
 }
-.dataCredit:hover {
-  opacity: 1;
-  color: var(--text-2);
-}
+.dataCredit:hover { opacity: 1; color: var(--accent); }
 
 .eyebrow {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
 }
 
 .eyebrowDot {
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+  width: 5px; height: 5px;
   background: var(--accent);
-  animation: pulse 2s infinite;
+  animation: blink 1.4s step-end infinite;
 }
 
-@keyframes pulse {
+@keyframes blink {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.3; }
+  50%       { opacity: 0; }
 }
 
 .title {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
   color: var(--text);
-  line-height: 1.1;
+  line-height: 1;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
-.titleAccent {
-  color: var(--accent);
-}
+.titleAccent { color: var(--accent); }
 
 .subtitle {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-2);
   display: flex;
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
 }
 
 .updatedBadge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.2rem 0.6rem;
-  font-size: 0.72rem;
-  color: var(--text-2);
+  background: transparent;
+  border: 1px solid var(--border2);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-/* ── KPI cards ───────────────────────────────────────────────────────── */
+/* ── KPI strip ───────────────────────────────────────────────────────────── */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  border-bottom: 1px solid var(--border);
 }
 
 .card {
+  padding: 1.1rem 1.25rem;
+  border-right: 1px solid var(--border);
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem 1.1rem;
-  transition: border-color 0.2s;
+  transition: background 0.1s;
+  position: relative;
 }
 
-.card:hover {
-  border-color: var(--border2);
+.card:last-child { border-right: none; }
+
+.card:hover { background: var(--surface2); }
+
+/* accent tick on active card hover */
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s;
 }
+.card:hover::after { transform: scaleX(1); }
 
 .cardValue {
-  font-size: 1.9rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
   color: var(--text);
   line-height: 1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -123,345 +162,180 @@
 }
 
 .cardLabel {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-3);
-}
-
-/* ── Filter bar ──────────────────────────────────────────────────────── */
-.filterBar {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  margin-bottom: 1.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-}
-
-.filterLabel {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  font-size: 0.68rem;
+  font-size: 0.58rem;
+  font-family: var(--font-mono);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   color: var(--text-3);
 }
 
-.select {
-  padding: 0.45rem 0.7rem;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  color: var(--text);
-  font-size: 0.85rem;
-  font-family: inherit;
-  min-width: 140px;
-  outline: none;
-  transition: border-color 0.15s;
-}
-
-.select:focus {
-  border-color: var(--accent);
-}
-
-.clearBtn {
-  padding: 0.45rem 1rem;
-  background: transparent;
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  color: var(--text-2);
-  font-size: 0.8rem;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s;
-  align-self: flex-end;
-}
-
-.clearBtn:hover {
-  background: var(--surface2);
-  color: var(--text);
-  border-color: var(--text-3);
-}
-
-.activePill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.75rem;
-  background: var(--accent-bg);
-  border: 1px solid rgba(0,229,160,0.25);
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--accent);
-  align-self: flex-end;
-}
-
-/* ── Tabs ────────────────────────────────────────────────────────────── */
+/* ── Tabs ────────────────────────────────────────────────────────────────── */
 .tabs {
   display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.3rem;
-  width: fit-content;
+  padding: 0 2rem;
+  gap: 0;
+  overflow-x: auto;
 }
 
 .tab {
-  padding: 0.5rem 1.25rem;
+  padding: 0.85rem 1.25rem;
   border: none;
-  border-radius: 9px;
+  border-bottom: 2px solid transparent;
   background: transparent;
-  font-size: 0.85rem;
-  font-weight: 600;
-  font-family: inherit;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   cursor: pointer;
-  color: var(--text-2);
-  transition: all 0.15s;
+  color: var(--text-3);
+  transition: color 0.1s, border-color 0.1s;
   white-space: nowrap;
+  margin-bottom: -1px;
 }
 
-.tab:hover {
-  color: var(--text);
-  background: var(--surface2);
-}
+.tab:hover { color: var(--text-2); }
 
 .tabActive {
-  background: var(--accent) !important;
-  color: #000 !important;
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent) !important;
 }
 
-/* ── Tab content panel ───────────────────────────────────────────────── */
+/* ── Tab content ─────────────────────────────────────────────────────────── */
 .tabContent {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.5rem 2rem 3rem;
 }
 
-/* ── Loading ─────────────────────────────────────────────────────────── */
+/* ── Loading ─────────────────────────────────────────────────────────────── */
 .loading {
   text-align: center;
   padding: 5rem 2rem;
   color: var(--text-3);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ── Standalone filter bar ───────────────────────────────────────────────── */
+.filterBar2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.filterBarLabel {
+  font-size: 0.58rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-3);
+  margin-right: 0.25rem;
+}
+
+.filterChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text-2);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.1s;
 }
 
-/* ── Drill-down banner ───────────────────────────────────────────────── */
-.drillBanner {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.65rem 1rem;
-  background: var(--accent-bg);
-  border: 1px solid rgba(0,229,160,0.2);
-  border-radius: 8px;
-  font-size: 0.85rem;
-  margin-bottom: 1.25rem;
-  color: var(--accent);
-  font-weight: 500;
-}
-
-/* ── Tables ──────────────────────────────────────────────────────────── */
-.tableWrap {
-  overflow-x: auto;
-  margin: 0 -0.25rem;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85rem;
-  font-variant-numeric: tabular-nums;
-  table-layout: fixed;          /* needed for column resizing */
-}
-
-.table th {
-  text-align: left;
-  padding: 0.55rem 0.85rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-  background: var(--surface);
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.table td {
-  padding: 0.65rem 0.85rem;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-2);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Numeric/stat cells never wrap; text columns wrap smartly */
-.table td.wrap {
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-.table td.nowrap {
-  white-space: nowrap;
-}
-
-.table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.table tbody tr:hover td {
-  background: var(--surface2);
+.filterChip:hover {
+  border-color: var(--text-3);
   color: var(--text);
+  background: var(--surface2);
 }
 
-/* ── Header cell layout (label + sort + funnel) ──────────────────────── */
-.thInner {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.thLabel {
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.thLabel:hover {
-  color: var(--text-2);
-}
-
-.sortTh {
-  cursor: pointer;
-  user-select: none;
-}
-
-.sortTh:hover {
-  color: var(--text-2);
-}
-
-.sortThActive {
-  color: var(--accent) !important;
-}
-
-.sortArrow {
+.filterChipActive {
   color: var(--accent);
-  font-size: 0.6rem;
+  border-color: var(--accent);
+  background: var(--accent-bg);
 }
 
-/* ── Column resize handle ────────────────────────────────────────────── */
-.resizeHandle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 7px;
-  height: 100%;
-  cursor: col-resize;
-  user-select: none;
-  touch-action: none;
-}
-
-.resizeHandle::after {
-  content: "";
-  position: absolute;
-  top: 25%;
-  right: 2px;
-  height: 50%;
-  width: 1px;
-  background: var(--border2);
-  transition: background 0.15s;
-}
-
-.resizeHandle:hover::after,
-.resizeHandle.resizing::after {
-  background: var(--accent);
-  width: 2px;
-}
-
-.thResizable {
-  position: relative;
-}
-
-/* ── Funnel filter button + popover ──────────────────────────────────── */
-.funnelBtn {
+.filterChipCount {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  border: none;
-  background: transparent;
-  border-radius: 4px;
-  cursor: pointer;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 0.25rem;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.6rem;
+  font-weight: 900;
+}
+
+.filterChipCaret {
+  font-size: 0.55rem;
   color: var(--text-3);
-  font-size: 0.7rem;
-  line-height: 1;
-  transition: all 0.15s;
-  flex-shrink: 0;
 }
 
-.funnelBtn:hover {
-  background: var(--surface2);
-  color: var(--text-2);
+.clearBtn {
+  padding: 0.3rem 0.7rem;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text-3);
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.1s;
 }
 
-.funnelBtnActive {
-  color: var(--accent);
-  background: var(--accent-bg);
+.clearBtn:hover {
+  border-color: var(--red);
+  color: var(--red);
 }
 
+/* ── Popover ─────────────────────────────────────────────────────────────── */
 .popover {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 2px);
   left: 0;
   z-index: 50;
   min-width: 200px;
   max-width: 280px;
   background: var(--surface2);
   border: 1px solid var(--border2);
-  border-radius: 10px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
-  padding: 0.6rem;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+  padding: 0.5rem;
   text-transform: none;
   letter-spacing: normal;
 }
 
 .popoverSearch {
   width: 100%;
-  padding: 0.4rem 0.6rem;
+  padding: 0.35rem 0.6rem;
   background: var(--bg);
   border: 1px solid var(--border2);
-  border-radius: 7px;
+  border-bottom: 1px solid var(--accent);
   color: var(--text);
-  font-size: 0.8rem;
-  font-family: inherit;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
   font-weight: 400;
+  letter-spacing: 0.04em;
   outline: none;
-  margin-bottom: 0.5rem;
-}
-
-.popoverSearch:focus {
-  border-color: var(--accent);
+  margin-bottom: 0.4rem;
 }
 
 .popoverList {
@@ -476,10 +350,9 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.5rem;
-  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
   cursor: pointer;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--text-2);
   text-transform: none;
@@ -487,29 +360,25 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: background 0.08s, color 0.08s;
 }
 
-.popoverItem:hover {
-  background: var(--surface);
-  color: var(--text);
-}
+.popoverItem:hover { background: var(--surface); color: var(--text); }
 
-.popoverItemActive {
-  color: var(--accent);
-  background: var(--accent-bg);
-}
+.popoverItemActive { color: var(--accent); background: var(--accent-bg); }
 
 .popoverCheck {
-  width: 14px;
+  width: 12px;
   flex-shrink: 0;
   color: var(--accent);
+  font-size: 0.65rem;
 }
 
 .popoverFooter {
   display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
   border-top: 1px solid var(--border);
 }
 
@@ -517,29 +386,148 @@
   background: none;
   border: none;
   color: var(--text-3);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  padding: 0.2rem 0.4rem;
-  border-radius: 5px;
-  font-family: inherit;
+  padding: 0.15rem 0.35rem;
 }
 
-.popoverClear:hover {
+.popoverClear:hover { color: var(--red); }
+
+/* ── Tables ──────────────────────────────────────────────────────────────── */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  table-layout: fixed;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border2);
+  border-right: 1px solid var(--border);
+  font-size: 0.58rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 2;
+}
+
+.table th:last-child { border-right: none; }
+
+.table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table td:last-child { border-right: none; }
+
+.table td.wrap {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.table td.nowrap { white-space: nowrap; }
+
+.table tbody tr:last-child td { border-bottom: none; }
+
+.table tbody tr:hover td {
+  background: var(--surface2);
   color: var(--text);
 }
 
-/* ── Rank cell ───────────────────────────────────────────────────────── */
+/* active row bracket effect */
+.table tbody tr:hover td:first-child {
+  border-left: 2px solid var(--accent);
+}
+
+/* ── Th inner / sort ─────────────────────────────────────────────────────── */
+.thInner {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.thLabel {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.1s;
+}
+
+.thLabel:hover { color: var(--text-2); }
+
+.sortTh { cursor: pointer; user-select: none; }
+.sortTh:hover { color: var(--text-2); }
+
+.sortThActive { color: var(--accent) !important; }
+
+.sortArrow { color: var(--accent); font-size: 0.55rem; }
+
+/* ── Resize handle ───────────────────────────────────────────────────────── */
+.resizeHandle {
+  position: absolute;
+  top: 0; right: 0;
+  width: 6px; height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.resizeHandle::after {
+  content: "";
+  position: absolute;
+  top: 20%; right: 1px;
+  height: 60%; width: 1px;
+  background: var(--border2);
+  transition: background 0.1s, width 0.1s;
+}
+
+.resizeHandle:hover::after,
+.resizeHandle.resizing::after {
+  background: var(--accent);
+  width: 2px;
+}
+
+.thResizable { position: relative; }
+
+/* ── Rank ────────────────────────────────────────────────────────────────── */
 .rank {
   color: var(--text-3);
-  font-size: 0.75rem;
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
   font-weight: 700;
   width: 2rem;
   text-align: right;
   padding-right: 0.5rem !important;
 }
 
-/* ── Stat cells ──────────────────────────────────────────────────────── */
+/* ── Stat cells ──────────────────────────────────────────────────────────── */
 .statCell {
   color: var(--text) !important;
   font-weight: 600;
@@ -548,9 +536,12 @@
 .statCellAccent {
   color: var(--accent) !important;
   font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
 }
 
-/* ── Club name button ────────────────────────────────────────────────── */
+/* ── Club name button ────────────────────────────────────────────────────── */
 .clubLink {
   background: none;
   border: none;
@@ -561,18 +552,13 @@
   font-family: inherit;
   cursor: pointer;
   text-align: left;
-  transition: color 0.15s;
+  transition: color 0.1s;
 }
 
-.clubLink:hover {
-  color: var(--accent);
-}
+.clubLink:hover { color: var(--accent); }
 
-/* ── Instant tooltip ─────────────────────────────────────────────────── */
-.tip {
-  position: relative;
-  display: inline-block;
-}
+/* ── Tooltip ─────────────────────────────────────────────────────────────── */
+.tip { position: relative; display: inline-block; }
 
 .tipFixed {
   position: fixed;
@@ -580,24 +566,27 @@
   transform: translateY(-100%);
   white-space: nowrap;
   background: var(--surface2);
-  border: 1px solid var(--border2);
-  color: var(--text);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: normal;
-  text-transform: none;
-  padding: 0.3rem 0.55rem;
-  border-radius: 6px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 0 0 12px rgba(0,255,102,0.15);
   pointer-events: none;
 }
 
-/* ── Table meta / active filters ─────────────────────────────────────── */
+/* ── Table meta ──────────────────────────────────────────────────────────── */
 .tableMeta {
-  margin-top: 0.85rem;
-  font-size: 0.75rem;
+  margin-top: 0.6rem;
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
   color: var(--text-3);
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .activeFilterRow {
@@ -608,211 +597,183 @@
   margin-bottom: 1rem;
 }
 
-/* ── Chart controls ──────────────────────────────────────────────────── */
+/* ── Position badges ─────────────────────────────────────────────────────── */
+.posBadge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.58rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+
+.posGoalkeeper { border-color: rgba(255,184,0,0.4);  color: var(--amber);  background: var(--amber-bg); }
+.posDefender   { border-color: rgba(59,130,246,0.4); color: var(--blue);   background: rgba(59,130,246,0.06); }
+.posMidfielder { border-color: rgba(0,255,102,0.3);  color: var(--accent); background: var(--accent-bg); }
+.posForward    { border-color: rgba(255,51,84,0.4);  color: var(--red);    background: rgba(255,51,84,0.06); }
+
+/* ── Sign badge ──────────────────────────────────────────────────────────── */
+.signBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--text-2);
+}
+
+/* ── Chart controls ──────────────────────────────────────────────────────── */
 .chartControls {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .chartToggleGroup {
   display: flex;
-  gap: 2px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 3px;
+  gap: 0;
+  border: 1px solid var(--border2);
 }
 
 .chartToggle {
-  padding: 4px 12px;
-  border-radius: 4px;
+  padding: 0.35rem 0.9rem;
   border: none;
+  border-right: 1px solid var(--border2);
   background: transparent;
-  color: var(--text-2);
-  font-size: 0.8rem;
-  font-weight: 500;
+  color: var(--text-3);
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.12s, color 0.12s;
+  transition: background 0.1s, color 0.1s;
 }
 
-.chartToggle:hover {
-  background: var(--surface);
-  color: var(--text);
-}
+.chartToggle:last-child { border-right: none; }
+
+.chartToggle:hover { background: var(--surface2); color: var(--text-2); }
 
 .chartToggleActive {
   background: var(--accent) !important;
-  color: #fff !important;
+  color: #000 !important;
 }
 
-.astroIntro {
-  color: var(--text-2);
-  font-size: 0.85rem;
-  margin-bottom: 1.25rem;
-  max-width: 60ch;
-}
-
-/* ── Standalone filter bar ───────────────────────────────────────────── */
-.filterBar2 {
+/* ── Drill-down banner ───────────────────────────────────────────────────── */
+.drillBanner {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.1rem;
-}
-
-.filterBarLabel {
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-3);
-  margin-right: 0.15rem;
-}
-
-.filterChip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.8rem;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 999px;
-  color: var(--text-2);
-  font-size: 0.82rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.filterChip:hover {
-  border-color: var(--text-3);
-  color: var(--text);
-}
-
-.filterChipActive {
-  color: var(--accent);
-  border-color: rgba(0,229,160,0.4);
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
   background: var(--accent-bg);
+  border-left: 2px solid var(--accent);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--accent);
 }
 
-.filterChipCount {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 0.3rem;
-  background: var(--accent);
-  color: #000;
-  font-size: 0.65rem;
-  font-weight: 800;
-  border-radius: 999px;
-}
-
-.filterChipCaret {
-  font-size: 0.6rem;
+/* ── Astro accordion ─────────────────────────────────────────────────────── */
+.astroIntro {
   color: var(--text-3);
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  max-width: 80ch;
 }
 
-/* ── Astro accordion ─────────────────────────────────────────────────── */
 .astroRow {
   cursor: pointer;
 }
 
 .astroCaret {
-  color: var(--text-3);
-  font-size: 0.7rem;
+  color: var(--accent);
+  font-size: 0.65rem;
 }
 
 .astroExpandRow td {
-  background: var(--bg) !important;
+  background: var(--surface) !important;
+  border-top: 1px solid var(--border2) !important;
 }
 
-.astroExpandCell {
-  padding: 1rem 1.25rem !important;
-}
+.astroExpandCell { padding: 1rem !important; }
 
 .astroPlayerGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
 }
 
 .astroPlayerItem {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
-  padding: 0.55rem 0.7rem;
+  gap: 0.15rem;
+  padding: 0.6rem 0.75rem;
   background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
 }
 
 .astroPlayerName {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text);
 }
 
 .astroPlayerMeta {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
   color: var(--text-3);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  letter-spacing: 0.04em;
 }
 
 .astroPlayerStat {
-  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
 }
 
-/* ── League badge ────────────────────────────────────────────────────── */
+/* ── Misc legacy (kept for compat) ──────────────────────────────────────── */
+.filterBar { display: none; }
+.filterLabel { display: none; }
+.select { display: none; }
+
 .leagueBadge {
-  display: inline-block;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
   color: var(--text-3);
   font-weight: 500;
-}
-
-/* ── Highlighted row ─────────────────────────────────────────────────── */
-.rowHighlighted td {
-  background: var(--accent-bg) !important;
-}
-
-/* ── Position badges ─────────────────────────────────────────────────── */
-.posBadge {
-  display: inline-block;
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
-  font-size: 0.65rem;
-  font-weight: 800;
   letter-spacing: 0.04em;
+}
+
+.rowHighlighted td { background: var(--accent-bg) !important; }
+
+.rowCount {
+  margin-left: auto;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--text-3);
+  align-self: flex-end;
+  padding-bottom: 0.15rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.posGoalkeeper { background: rgba(255,201,77,0.12);  color: #ffc94d; }
-.posDefender   { background: rgba(77,143,255,0.12);  color: #4d8fff; }
-.posMidfielder { background: rgba(0,229,160,0.12);   color: var(--accent); }
-.posForward    { background: rgba(255,77,106,0.12);  color: #ff4d6a; }
-
-/* ── Sun sign badge ──────────────────────────────────────────────────── */
-.signBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.78rem;
-  color: var(--text-2);
-}
-
-/* ── In-table filters ────────────────────────────────────────────────── */
 .tableFilters {
   display: flex;
   gap: 0.75rem;
@@ -821,97 +782,83 @@
   margin-bottom: 1.25rem;
 }
 
-.rowCount {
-  margin-left: auto;
-  font-size: 0.75rem;
-  color: var(--text-3);
-  align-self: flex-end;
-  padding-bottom: 0.15rem;
-  font-variant-numeric: tabular-nums;
-}
-
-/* ── Astro page ──────────────────────────────────────────────────────── */
 .signGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
 }
 
 .signCard {
   background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.1rem 1.25rem;
-  transition: border-color 0.2s, transform 0.15s;
+  border: none;
+  padding: 1rem 1.1rem;
   cursor: default;
+  transition: background 0.1s;
 }
 
-.signCard:hover {
-  border-color: var(--border2);
-  transform: translateY(-1px);
-}
+.signCard:hover { background: var(--surface); }
 
 .signCardTop {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
-.signEmoji {
-  font-size: 1.6rem;
-  line-height: 1;
-}
+.signEmoji { font-size: 1.4rem; line-height: 1; }
 
 .signName {
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
   color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .signCount {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
   color: var(--text-3);
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.signStats {
-  display: flex;
-  gap: 1rem;
-}
+.signStats { display: flex; gap: 1rem; }
 
-.signStat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
+.signStat { display: flex; flex-direction: column; gap: 0.1rem; }
 
 .signStatVal {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
   color: var(--text);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
 }
 
 .signStatLbl {
-  font-size: 0.65rem;
+  font-size: 0.55rem;
+  font-family: var(--font-mono);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   color: var(--text-3);
 }
 
 .signTopPlayers {
-  margin-top: 0.85rem;
-  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 
 .signPlayer {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--text-2);
   display: flex;
   justify-content: space-between;
@@ -919,6 +866,17 @@
 
 .signPlayerStat {
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
+  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
+
+/* ── Funnels (kept for popover positioning) ──────────────────────────────── */
+.funnelBtn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border: none; background: transparent;
+  cursor: pointer; color: var(--text-3); font-size: 0.65rem;
+  transition: color 0.1s; flex-shrink: 0;
+}
+.funnelBtn:hover { color: var(--text-2); }
+.funnelBtnActive { color: var(--accent); }
