@@ -958,6 +958,10 @@ function AstroTable({ players }: { players: Player[] }) {
   const [sort, setSort] = useState<string>("ga_per_90");
   const [expanded, setExpanded] = useState<string | null>(null);
 
+  const { widths, startResize, autoFit } = useColumnResize({
+    rank: 48, sign: 180, count: 70, goals: 70, assists: 80, ga: 70, ga90: 84, g_per_player: 90, mins: 80,
+  });
+
   const rows = useMemo(() => {
     return ALL_SIGNS.map((sign) => {
       const group = players.filter((p) => p.sun_sign === sign);
@@ -992,14 +996,23 @@ function AstroTable({ players }: { players: Player[] }) {
   return (
     <div>
       <p className={styles.astroIntro}>
-        Which star signs are outscoring the zodiac? Ranked by goal contributions per 90 minutes.
-        Click a sign to see every player born under it. Pure vibes.
-      </p>
-      <div className={styles.tableWrap}>
-        <table className={styles.table} style={{ tableLayout: "auto" }}>
+        Which star signs are outscoring>
+          <colgroup>
+            <col style={{ width: widths.rank }} />
+            <col style={{ width: widths.sign }} />
+            {cols.map((c) => <col key={c.key} style={{ width: widths[c.key as keyof typeof widths] }} />)}
+          </colgroup>
           <thead>
             <tr>
-              <th style={{ width: 48 }}>#</th>
+              <th>#</th>
+              <th className={styles.thResizable}>
+                Sign
+                <span className={styles.resizeHandle} onPointerDown={startResize("sign")} onDoubleClick={autoFit("sign", 1)} />
+              </th>
+              {cols.map((c, idx) => (
+                <th key={c.key} className={styles.thResizable}>
+                  <SortTh label={c.label} active={sort === c.key} onSort={() => setSort(c.key)} title={c.title} />
+                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} onDoubleClick={autoFit(c.key, 2 + idx)
               <th style={{ width: 180 }}>Sign</th>
               {cols.map((c) => (
                 <th key={c.key}>
