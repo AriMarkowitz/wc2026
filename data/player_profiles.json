@@ -14950,5 +14950,17 @@
     "sun_sign": "Aries",
     "nationality": "Austria",
     "photo": null
+  },
+  "354940": {
+    "player_id": "354940",
+    "name": "Ruslanbek Jiyanov",
+    "club": "Navbahor",
+    "league": null,
+    "position": "Midfielder",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Uzbekistan",
+    "photo": null
   }
 }
