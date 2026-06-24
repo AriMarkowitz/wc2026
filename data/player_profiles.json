@@ -14962,5 +14962,17 @@
     "sun_sign": null,
     "nationality": "Uzbekistan",
     "photo": null
+  },
+  "374533": {
+    "player_id": "374533",
+    "name": "Arjan Malic",
+    "club": "SK Sturm Graz",
+    "league": "Austrian Bundesliga",
+    "position": "Defender",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Slovenia",
+    "photo": null
   }
 }
