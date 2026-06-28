@@ -14974,5 +14974,17 @@
     "sun_sign": null,
     "nationality": "Slovenia",
     "photo": null
+  },
+  "233945": {
+    "player_id": "233945",
+    "name": "Marcos Senesi",
+    "club": "AFC Bournemouth",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Argentina",
+    "photo": null
   }
 }
