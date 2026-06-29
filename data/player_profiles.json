@@ -14986,5 +14986,17 @@
     "sun_sign": null,
     "nationality": "Argentina",
     "photo": null
+  },
+  "271352": {
+    "player_id": "271352",
+    "name": "Shuto Machino",
+    "club": "Borussia Mönchengladbach",
+    "league": "German Bundesliga",
+    "position": "Forward",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Japan",
+    "photo": null
   }
 }
