@@ -14998,5 +14998,17 @@
     "sun_sign": null,
     "nationality": "Japan",
     "photo": null
+  },
+  "230430": {
+    "player_id": "230430",
+    "name": "Marwane Saadane",
+    "club": "Al Fateh",
+    "league": null,
+    "position": "Defender",
+    "age": 34,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Morocco",
+    "photo": null
   }
 }
