@@ -1,26 +1,66 @@
-# FIFA World Cup 2026 — Club Dashboard
+# FIFA World Cup 2026 — Club Showout
 
-**Live at [clubshowout.vercel.app/wc2026](https://clubshowout.vercel.app/wc2026)**
+### ▶ [**clubshowout.vercel.app/wc2026**](https://clubshowout.vercel.app/wc2026)
 
-Which domestic clubs are showing out most at the World Cup? Every player's tournament output — goals, assists, minutes, cards — cut and sorted by the club they go home to.
+Which **domestic clubs** are showing out most at the World Cup? Every player's tournament
+output — goals, assists, decisive goals, minutes, cards — cut and sorted by the club they
+go home to. Auto-updated from live match data throughout the tournament.
 
-![Club Dashboard](dashboard-screenshot.png)
+![Club Rankings](docs/screenshots/01-club-rankings.png)
 
-## What it tracks
+---
 
-- **89 goals · 1,246 players · 62 assists** across all WC 2026 matches
-- Club rankings by goals, G+A, G/90, A/90, and G+A/90
-- Player stats leaderboard
-- Goalkeeper stats
-- Charts & astrology tab
-- Filter by club or league
+## The dashboard
 
-## Data
+**Six lenses on the same data**, each sortable, filterable, and switchable between a
+table and a chart.
 
-Sourced from ESPN's public API. A GitHub Actions workflow fetches fresh stats ~30 minutes after each match ends (150 min after kickoff) and commits the updated JSON to the repo, which triggers a Vercel redeploy.
+#### Player stats & decisive goals
+Rank every player by goals, assists, G+A/90 — and **decisive goals**: the game-winners
+and rescuing equalizers that actually changed a result.
+
+![Player Stats](docs/screenshots/02-player-stats.png)
+
+#### Nations — and who's still standing
+The same players regrouped by national team, with live **IN / OUT** elimination status
+derived from the knockout bracket. Eliminated nations dim out; the header tracks the
+current round and teams remaining.
+
+![Nations](docs/screenshots/03-nations.png)
+
+#### The G+A race
+A cumulative goal-contribution race across the tournament, direct-labelled and built to
+read cleanly as a screenshot.
+
+![G+A Race](docs/screenshots/04-ga-race.png)
+
+#### Club profiles & astrology
+A radar to compare any two clubs across six axes — plus a tongue-in-cheek look at which
+**star signs** are outscoring the zodiac.
+
+![Radar Profile](docs/screenshots/05-radar-profile.png)
+![Astrology](docs/screenshots/06-astrology.png)
+
+---
+
+## Architecture
+
+```
+ESPN public API ──▶ Python pipeline ──▶ wc2026.json ──▶ Next.js app ──▶ Vercel
+                    (fetch + transform)   (committed)     (API + UI)
+        ▲                                                      
+        └──────────── GitHub Actions cron (per kickoff slot) ──┘
+```
+
+- **Data pipeline** — Python fetches box scores, key events, and squads from ESPN's
+  public API, then derives real minutes, decisive goals, and elimination status into a
+  single `wc2026.json`.
+- **Frontend** — Next.js reads that JSON through thin `/api/v1/*` routes; all tables,
+  filters, and charts (hand-built SVG) render client-side.
+- **Automation** — a GitHub Actions cron runs ~150 min after each kickoff slot, commits
+  refreshed data, and triggers a Vercel redeploy. The site keeps itself current with zero
+  manual steps.
 
 ## Stack
 
-- **Data pipeline:** Python, ESPN public API
-- **Frontend:** Next.js, deployed on Vercel
-- **Automation:** GitHub Actions (cron per kickoff slot)
+**Python** · **Next.js** · **TypeScript** · **Vercel** · **GitHub Actions** · ESPN public API
