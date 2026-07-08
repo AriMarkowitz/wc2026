@@ -57,26 +57,114 @@ def date_range(start: str, end: str):
 # Step 1: Collect all completed WC event IDs
 # ---------------------------------------------------------------------------
 
-def fetch_event_ids() -> tuple[list[dict], dict[str, str]]:
-    """Return (completed matches, {national_team_id: name}) seen so far at the WC."""
+# ESPN season.slug values for knockout rounds (a loss here = elimination).
+KNOCKOUT_SLUGS = {
+    "round-of-32", "round-of-16",
+    "quarterfinal", "quarterfinals",
+    "semifinal", "semifinals",
+    "final", "3rd-place", "third-place",
+}
+
+# Human label + rank for each round, for the "current stage" badge.
+ROUND_LABELS = {
+    "group-stage": ("Group Stage", 0),
+    "round-of-32": ("Round of 32", 1),
+    "round-of-16": ("Round of 16", 2),
+    "quarterfinal": ("Quarterfinals", 3),
+    "quarterfinals": ("Quarterfinals", 3),
+    "semifinal": ("Semifinals", 4),
+    "semifinals": ("Semifinals", 4),
+    "third-place": ("Third-place Playoff", 5),
+    "3rd-place": ("Third-place Playoff", 5),
+    "final": ("Final", 6),
+}
+
+
+def fetch_event_ids() -> tuple[list[dict], dict[str, str], dict]:
+    """Return (completed matches, {team_id: name}, tournament_status).
+
+    tournament_status carries the knockout picture used for the "players
+    remaining" feature and the current-stage badge:
+      {
+        "stage": "Round of 16",                # furthest round reached
+        "eliminated_nations": [...],           # by player-facing nationality
+        "alive_nations": [...],
+        "teams_alive": 8,
+      }
+    Elimination rule (validated to reproduce the exact 48→32→…→1 bracket):
+      • a team is out if it LOST a knockout tie (winner flag reflects penalties);
+      • a team that played in the group stage but never reached the Round of 32
+        (i.e. never appears in a knockout match) is out on group-stage exit.
+    """
     events = []
     team_ids: dict[str, str] = {}
+
+    all_teams: set[str] = set()        # every team that played a match (by name)
+    ko_participants: set[str] = set()  # teams that appeared in any knockout match
+    ko_losers: set[str] = set()        # teams that lost a knockout tie
+    furthest = 0                       # highest round rank seen among completed matches
+    furthest_label = "Group Stage"
+
     for day in date_range(WC_START_DATE, WC_END_DATE):
         data = api_client.get(f"{ESPN_BASE}/scoreboard", {"dates": day})
         for event in data.get("events", []):
+            slug = event.get("season", {}).get("slug", "")
             for comp in event.get("competitions", []):
                 for c in comp.get("competitors", []):
                     t = c.get("team", {})
                     if t.get("id"):
                         team_ids[t["id"]] = t.get("displayName", "")
             status = event.get("status", {}).get("type", {}).get("state")
-            if status == "post":  # completed
-                events.append({
-                    "id": event["id"],
-                    "name": event.get("name", ""),
-                    "date": day,
-                })
-    return events, team_ids
+            if status != "post":  # only completed matches
+                continue
+            events.append({
+                "id": event["id"],
+                "name": event.get("name", ""),
+                "date": day,
+            })
+            # --- tournament progression bookkeeping ---
+            label, rank = ROUND_LABELS.get(slug, (None, None))
+            if rank is not None and rank > furthest:
+                furthest, furthest_label = rank, label
+            is_ko = slug in KNOCKOUT_SLUGS
+            for comp in event.get("competitions", []):
+                for c in comp.get("competitors", []):
+                    name = c.get("team", {}).get("displayName")
+                    if not name:
+                        continue
+                    all_teams.add(name)
+                    if is_ko:
+                        ko_participants.add(name)
+                        if c.get("winner") is False:
+                            ko_losers.add(name)
+
+    # Group-stage casualties: played but never reached the knockouts. Only prune
+    # this way once knockouts actually exist (otherwise mid-group everyone's in).
+    group_out = (all_teams - ko_participants) if ko_participants else set()
+    eliminated_teams = ko_losers | group_out
+    alive_teams = all_teams - eliminated_teams
+
+    # Map ESPN team displayNames → the nationality strings players carry.
+    def to_nat(name: str) -> str:
+        return TEAM_TO_NATIONALITY.get(name, name)
+
+    status = {
+        "stage": furthest_label,
+        "eliminated_nations": sorted({to_nat(t) for t in eliminated_teams}),
+        "alive_nations": sorted({to_nat(t) for t in alive_teams}),
+        "teams_alive": len(alive_teams),
+    }
+    return events, team_ids, status
+
+
+# A few ESPN team displayNames differ from the `citizenship` string players
+# carry in their athlete profile. Normalize the known cases so elimination maps
+# cleanly onto player nationality.
+TEAM_TO_NATIONALITY = {
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+    "Cape Verde": "Cape Verde Islands",
+    "United States": "USA",
+}
 
 
 def fetch_all_wc_team_ids() -> dict[str, str]:
@@ -375,10 +463,11 @@ def main():
     # squads: {team_id: [{"id": str, "dob": iso_str|None}, ...]}
     squads: dict = cache.get("squads", {})
 
-    # --- Collect all completed match IDs ---
+    # --- Collect all completed match IDs + tournament progression ---
     print("Scanning WC 2026 schedule...")
-    all_events, _ = fetch_event_ids()
+    all_events, _, tournament = fetch_event_ids()
     print(f"  Total completed matches found: {len(all_events)}")
+    print(f"  Stage: {tournament['stage']} — {tournament['teams_alive']} teams still alive")
 
     # --- Collect ALL 48 WC teams (so we capture full rosters even for teams
     #     that haven't kicked off yet) ---
@@ -476,7 +565,8 @@ def main():
     # --- Build aggregated output ---
     print("Building aggregated output...")
     from datetime import datetime
-    output = build_output(match_stats, player_profiles, squad_player_ids=all_player_ids)
+    output = build_output(match_stats, player_profiles, squad_player_ids=all_player_ids,
+                          tournament=tournament)
     output["match_stats"] = match_stats
     output["squads"] = squads
 

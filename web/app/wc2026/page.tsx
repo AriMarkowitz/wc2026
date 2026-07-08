@@ -42,7 +42,7 @@ function StatNumber({ value, className }: { value: number; className?: string })
 // Types
 // ---------------------------------------------------------------------------
 
-type Tab = "clubs" | "players" | "gk" | "chart" | "astro";
+type Tab = "clubs" | "players" | "nations" | "gk" | "chart" | "astro";
 
 const SIGN_EMOJI: Record<string, string> = {
   Aries: "♈", Taurus: "♉", Gemini: "♊", Cancer: "♋",
@@ -275,24 +275,217 @@ function ClubTable({
 }
 
 // ---------------------------------------------------------------------------
+// Nationality (national team) roll-up — a secondary lens on the same players,
+// grouped by the country they represent rather than the club they go home to.
+// Mirrors ClubTable's shape and recycles FilterBar / ViewToggle / MetricChart.
+// ---------------------------------------------------------------------------
+
+interface NationRow {
+  nation: string;
+  alive: boolean;
+  player_count: number;
+  total_goals: number;
+  total_assists: number;
+  total_decisive_goals: number;
+  total_goal_contributions: number;
+  total_minutes: number;
+  total_yellow_cards: number;
+  total_red_cards: number;
+  avg_age: number | null;
+  goals_per_90: number | null;
+  assists_per_90: number | null;
+  ga_per_90: number | null;
+}
+
+function NationTable({
+  players, meta, onDrillDown,
+}: {
+  players: Player[];
+  meta: WcMeta | null;
+  onDrillDown: (nat: string) => void;
+}) {
+  const [sort, setSort] = useState<keyof NationRow>("total_goals");
+  const [view, setView] = useState<View>("table");
+  const [fNat, setFNat] = useState<Set<string>>(new Set());
+
+  const { widths, startResize, autoFit } = useColumnResize({
+    rank: 48, nation: 190, players: 100, goals: 70, assists: 80, dec: 80,
+    ga: 70, g90: 70, a90: 70, ga90: 84, mins: 80, yc: 60, rc: 60, age: 80,
+  });
+
+  const rows = useMemo<NationRow[]>(() => {
+    const map = new Map<string, Player[]>();
+    for (const p of players) {
+      if (!p.nationality || p.nationality === "Unknown") continue;
+      const arr = map.get(p.nationality) ?? [];
+      arr.push(p);
+      map.set(p.nationality, arr);
+    }
+    const per90 = (v: number, m: number) => (m > 0 ? Math.round((v / m) * 90 * 100) / 100 : null);
+    const out: NationRow[] = [];
+    for (const [nation, ps] of map) {
+      const mins = ps.reduce((s, p) => s + p.minutes_played, 0);
+      const goals = ps.reduce((s, p) => s + p.goals, 0);
+      const assists = ps.reduce((s, p) => s + p.assists, 0);
+      const ages = ps.map((p) => p.age).filter((a): a is number => a != null);
+      out.push({
+        nation,
+        alive: ps.some((p) => p.alive),
+        player_count: ps.length,
+        total_goals: goals,
+        total_assists: assists,
+        total_decisive_goals: ps.reduce((s, p) => s + (p.decisive_goals ?? 0), 0),
+        total_goal_contributions: goals + assists,
+        total_minutes: mins,
+        total_yellow_cards: ps.reduce((s, p) => s + p.yellow_cards, 0),
+        total_red_cards: ps.reduce((s, p) => s + p.red_cards, 0),
+        avg_age: ages.length ? Math.round((ages.reduce((s, a) => s + a, 0) / ages.length) * 10) / 10 : null,
+        goals_per_90: per90(goals, mins),
+        assists_per_90: per90(assists, mins),
+        ga_per_90: per90(goals + assists, mins),
+      });
+    }
+    return out;
+  }, [players]);
+
+  const filtered = useMemo(
+    () => (fNat.size ? rows.filter((r) => fNat.has(r.nation)) : rows),
+    [rows, fNat],
+  );
+  const sorted = useMemo(
+    () => [...filtered].sort((a, b) => ((b[sort] as number) ?? -1) - ((a[sort] as number) ?? -1)),
+    [filtered, sort],
+  );
+
+  const natOptions = meta?.nationalities ?? distinct(rows.map((r) => r.nation)).sort();
+
+  const numCols: { key: string; label: string; col: keyof NationRow; title?: string; accent?: boolean; dec?: boolean }[] = [
+    { key: "players", label: "Players", col: "player_count", title: "Players from this nation tracked" },
+    { key: "goals",   label: "Goals",   col: "total_goals" },
+    { key: "assists", label: "Assists", col: "total_assists" },
+    { key: "dec",     label: "Decisive", col: "total_decisive_goals", accent: true, title: "Decisive goals — game-winners + rescuing equalizers" },
+    { key: "ga",      label: "G+A",     col: "total_goal_contributions", title: "Total goal contributions" },
+    { key: "g90",     label: "G/90",    col: "goals_per_90", dec: true },
+    { key: "a90",     label: "A/90",    col: "assists_per_90", dec: true },
+    { key: "ga90",    label: "G+A/90",  col: "ga_per_90", dec: true, accent: true },
+    { key: "mins",    label: "Mins",    col: "total_minutes" },
+    { key: "yc",      label: "YC",      col: "total_yellow_cards", title: "Yellow cards" },
+    { key: "rc",      label: "RC",      col: "total_red_cards", title: "Red cards" },
+    { key: "age",     label: "Avg Age", col: "avg_age" },
+  ];
+
+  const ga90Vals = sorted.map((r) => r.ga_per_90 ?? 0);
+  const ga90Min = Math.min(...ga90Vals);
+  const ga90Max = Math.max(...ga90Vals);
+
+  const anyEliminated = rows.some((r) => !r.alive);
+
+  const chartMetrics: MetricDef<NationRow>[] = [
+    { key: "player_count", label: "Players", value: (r) => r.player_count },
+    ...numCols.slice(1).map((c) => ({
+      key: c.key, label: c.label, dec: c.dec ? 2 : 0,
+      value: (r: NationRow) => r[c.col] as number | null,
+    })),
+  ];
+
+  return (
+    <div>
+      <p className={styles.astroIntro}>
+        The same players, grouped by national team instead of club. Click a nation to see its squad on the player page.
+        {anyEliminated && " Eliminated nations are marked OUT."}
+      </p>
+      <FilterBar filters={[
+        { label: "Nation", options: natOptions, selected: fNat, onChange: setFNat },
+      ]} />
+      <ViewToggle view={view} setView={setView} />
+      {view === "chart" ? (
+        <MetricChart
+          rows={filtered}
+          metrics={chartMetrics}
+          label={(r) => r.nation}
+          rowKey={(r) => r.nation}
+          defaultMetric="goals"
+        />
+      ) : (
+      <>
+      <div className={styles.tableWrap}>
+        <table className={styles.table}>
+          <colgroup>
+            <col style={{ width: widths.rank }} />
+            <col style={{ width: widths.nation }} />
+            {numCols.map((c) => <col key={c.key} style={{ width: widths[c.key] }} />)}
+          </colgroup>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th className={styles.thResizable}>
+                <SortTh label="Nation" active={false} onSort={() => {}} />
+                <span className={styles.resizeHandle} onPointerDown={startResize("nation")} onDoubleClick={autoFit("nation", 1)} />
+              </th>
+              {numCols.map((c, idx) => (
+                <th key={c.key} className={styles.thResizable}>
+                  <SortTh label={c.label} active={sort === c.col} onSort={() => setSort(c.col)} title={c.title} />
+                  <span className={styles.resizeHandle} onPointerDown={startResize(c.key)} onDoubleClick={autoFit(c.key, idx + 2)} />
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((r, i) => (
+              <motion.tr key={r.nation} layout transition={tension} style={{ opacity: r.alive ? 1 : 0.55 }}>
+                <td className={styles.rank}>{i + 1}</td>
+                <td className={styles.wrap}>
+                  <button className={styles.clubLink} onClick={() => onDrillDown(r.nation)}>
+                    {r.nation}
+                  </button>
+                  <span className={r.alive ? styles.aliveTag : styles.outTag}>
+                    {r.alive ? "IN" : "OUT"}
+                  </span>
+                </td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{r.player_count}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{r.total_goals}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{r.total_assists}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={{ color: r.total_decisive_goals ? "var(--gold)" : "var(--slate)" }}>{r.total_decisive_goals}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{r.total_goal_contributions}</td>
+                <td className={styles.nowrap}>{fmtDec(r.goals_per_90)}</td>
+                <td className={styles.nowrap}>{fmtDec(r.assists_per_90)}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={ga90Color(r.ga_per_90, ga90Min, ga90Max)}>{fmtDec(r.ga_per_90)}</td>
+                <td className={styles.nowrap}>{r.total_minutes}</td>
+                <td className={`${styles.nowrap} ${r.total_yellow_cards ? styles.cellAmber : ""}`}>{r.total_yellow_cards}</td>
+                <td className={`${styles.nowrap} ${r.total_red_cards ? styles.cellRed : ""}`}>{r.total_red_cards}</td>
+                <td className={styles.nowrap}>{fmt(r.avg_age)}</td>
+              </motion.tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className={styles.tableMeta}>{sorted.length} nations</div>
+      </>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Player table
 // ---------------------------------------------------------------------------
 
 type PlayerSort = keyof Player | "min_per_goal";
 
 function PlayerTable({
-  players, meta, fClub, setFClub, onSignClick,
+  players, meta, fClub, setFClub, fNat, setFNat, onSignClick,
 }: {
   players: Player[];
   meta: WcMeta | null;
   fClub: Set<string>;
   setFClub: (s: Set<string>) => void;
+  fNat: Set<string>;
+  setFNat: (s: Set<string>) => void;
   onSignClick: () => void;
 }) {
   const [sort, setSort] = useState<PlayerSort>("goals");
   const [view, setView] = useState<View>("table");
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
-  const [fNat, setFNat] = useState<Set<string>>(new Set());
   const [fPos, setFPos] = useState<Set<string>>(new Set());
   const [fSign, setFSign] = useState<Set<string>>(new Set());
 
@@ -1293,6 +1486,7 @@ export default function WC2026Page() {
   const [matchesPlayed, setMatchesPlayed] = useState(0);
   const [loading, setLoading] = useState(true);
   const [playerClubFilter, setPlayerClubFilter] = useState<Set<string>>(new Set());
+  const [playerNatFilter, setPlayerNatFilter] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     async function load() {
@@ -1317,6 +1511,13 @@ export default function WC2026Page() {
 
   function handleDrillDown(club: string) {
     setPlayerClubFilter(new Set([club]));
+    setPlayerNatFilter(new Set());
+    setTab("players");
+  }
+
+  function handleNatDrillDown(nat: string) {
+    setPlayerNatFilter(new Set([nat]));
+    setPlayerClubFilter(new Set());
     setTab("players");
   }
 
@@ -1330,6 +1531,11 @@ export default function WC2026Page() {
   const totalYellow  = players.reduce((s, p) => s + p.yellow_cards, 0);
   const totalRed     = players.reduce((s, p) => s + p.red_cards, 0);
   const numLeagues   = meta?.leagues.length ?? 0;
+  // Players remaining: prefer the pipeline's precomputed count, fall back to
+  // deriving it from the loaded players (both agree; the fallback covers old data).
+  const playersRemaining = meta?.players_remaining ?? players.filter((p) => p.alive).length;
+  const stage = meta?.stage ?? null;
+  const teamsAlive = meta?.teams_alive ?? null;
 
   return (
     <main className={styles.page}>
@@ -1367,6 +1573,12 @@ export default function WC2026Page() {
             Which domestic clubs are showing out most at the World Cup — every player&apos;s
             tournament output, cut and sorted by the club they go home to.
           </span>
+          {stage && (
+            <span className={styles.stageBadge}>
+              ◉ {stage.toUpperCase()}
+              {teamsAlive != null && ` · ${teamsAlive} TEAMS LEFT`}
+            </span>
+          )}
           {updatedStr && (
             <span className={styles.updatedBadge}>SYNC {updatedStr}</span>
           )}
@@ -1389,6 +1601,10 @@ export default function WC2026Page() {
         </motion.div>
       </motion.div>
       <div className={styles.kpiSecondary}>
+        <div className={styles.kpiCellSm} title="Players whose national team is still in the tournament">
+          <StatNumber value={playersRemaining} className={`${styles.cardValueSm} ${styles.valGold}`} />
+          <div className={styles.cardLabelSm}>Remaining</div>
+        </div>
         <div className={styles.kpiCellSm}>
           <StatNumber value={totalDecisive} className={`${styles.cardValueSm} ${styles.valGold}`} />
           <div className={styles.cardLabelSm}>Decisive</div>
@@ -1420,6 +1636,7 @@ export default function WC2026Page() {
         {([
           ["clubs", "Club Rankings"],
           ["players", "Player Stats"],
+          ["nations", "Nations"],
           ["chart", "Charts"],
           ["gk", "Goalkeepers"],
           ["astro", "Astrology"],
@@ -1455,9 +1672,12 @@ export default function WC2026Page() {
                 meta={meta}
                 fClub={playerClubFilter}
                 setFClub={setPlayerClubFilter}
+                fNat={playerNatFilter}
+                setFNat={setPlayerNatFilter}
                 onSignClick={() => setTab("astro")}
               />
             )}
+            {tab === "nations" && <NationTable players={players} meta={meta} onDrillDown={handleNatDrillDown} />}
             {tab === "chart"   && <TrendChart players={players} />}
             {tab === "gk"      && <GkTable players={players} meta={meta} />}
             {tab === "astro"   && <AstroTable players={players} />}

@@ -7,6 +7,7 @@ export interface Player {
   age: number | null;
   dob: string | null;
   sun_sign: string | null;
+  alive: boolean;
   position: "Goalkeeper" | "Defender" | "Midfielder" | "Forward" | string;
   photo: string | null;
   matches_played: number;
@@ -55,6 +56,9 @@ export interface WcMeta {
   positions: string[];
   sun_signs: string[];
   matchdays: string[];
+  stage: string | null;
+  teams_alive: number | null;
+  players_remaining: number | null;
 }
 
 export interface WcData {

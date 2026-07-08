@@ -13,7 +13,11 @@ def build_output(
     match_stats: dict,       # {str(event_id): [player_stat_dict, ...]}
     player_profiles: dict,   # {str(player_id): profile_dict}
     squad_player_ids: set[str] | None = None,  # full universe of WC squad players
+    tournament: dict | None = None,  # {stage, eliminated_nations, alive_nations, teams_alive}
 ) -> dict:
+
+    tournament = tournament or {}
+    eliminated_nations = set(tournament.get("eliminated_nations", []))
 
     # --- Aggregate per player across all matches ---
     player_agg: dict[str, dict] = {}
@@ -48,6 +52,7 @@ def build_output(
             "age": profile.get("age"),
             "dob": profile.get("dob"),
             "sun_sign": profile.get("sun_sign"),
+            "alive": (profile.get("nationality") or UNKNOWN) not in eliminated_nations,
             "position": profile.get("position") or UNKNOWN,
             "photo": profile.get("photo"),
             "matches_played": agg["matches_played"],
@@ -175,8 +180,17 @@ def build_output(
             "positions": positions,
             "sun_signs": sun_signs,
             "matchdays": all_dates,
+            "stage": tournament.get("stage"),
+            "teams_alive": tournament.get("teams_alive"),
+            "players_remaining": sum(1 for p in players if p["alive"]),
         },
         "club_timeseries": club_timeseries,
+        "tournament": {
+            "stage": tournament.get("stage"),
+            "teams_alive": tournament.get("teams_alive"),
+            "eliminated_nations": sorted(eliminated_nations),
+            "alive_nations": tournament.get("alive_nations", []),
+        },
     }
 
 

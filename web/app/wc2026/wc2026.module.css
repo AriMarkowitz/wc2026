@@ -110,6 +110,36 @@
   text-transform: uppercase;
 }
 
+/* Current-stage badge — sits by the SYNC badge, gold to signal "live now" */
+.stageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--gold);
+  padding: 0.2rem 0.6rem;
+  margin-right: 0.5rem;
+  font-size: 0.56rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* IN / OUT chips on the Nations roll-up */
+.aliveTag, .outTag {
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.35rem;
+  font-size: 0.5rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  border: 1px solid currentColor;
+}
+.aliveTag { color: var(--gold); }
+.outTag { color: var(--slate); opacity: 0.8; }
+
 /* ── Stat band — three tiles, vertical seams, crosshair anchors ──────────── */
 .kpiPrimary {
   display: grid;
