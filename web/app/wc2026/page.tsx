@@ -480,23 +480,28 @@ function PlayerTable({
 // Club trend chart (SVG line chart — top 10 clubs, cumulative G+A by matchday)
 // ---------------------------------------------------------------------------
 
-// Distinguishable but theme-consistent: warm/muted hues spread across the
-// wheel so 10 lines stay legible. Paired with a dash cycle (below) so adjacent
-// strands differ in both color and stroke. Hovered line resolves to gold.
+// Race-chart palette — engineered for separation, not just variety. The old
+// set packed ten same-lightness pastels (three greens, blue/periwinkle, three
+// warm mid-tones) that collided in a static screenshot with no hover to help.
+// This set spreads hue widely AND ladders lightness (dark/light/dark…) so any
+// two adjacent slots differ in *value*, staying legible in greyscale / CVD.
+// Ordered so the top-ranked lines (which run highest and matter most) get the
+// most saturated, highest-contrast hues.
 const CHART_COLORS = [
-  "#C4943A", // gold
-  "#7FAD8F", // sage
-  "#C97A6D", // terracotta
-  "#6B8FB5", // dusty blue
-  "#B58DB0", // mauve
-  "#D9B36B", // wheat
-  "#5E9E91", // teal
-  "#B0734A", // rust
-  "#8A93C2", // periwinkle
-  "#9DAE6B", // olive
+  "#C4943A", // 1 · gold        (warm, dark)
+  "#3E6E8E", // 2 · deep teal-blue
+  "#C2603D", // 3 · burnt orange
+  "#6FA98C", // 4 · sage green  (light)
+  "#8B4A6F", // 5 · plum        (dark)
+  "#D9B36B", // 6 · wheat       (light)
+  "#2E6E5E", // 7 · pine        (dark, distinct from sage)
+  "#B58DB0", // 8 · mauve       (light)
+  "#4B5A8A", // 9 · indigo      (dark, distinct from teal-blue)
+  "#9DAE6B", // 10 · olive
 ];
 
-// Dash patterns cycle every 3 colors so neighbors in the legend differ in style.
+// Beyond the palette length we fall back to a dash so wrapped colors still read
+// as a different strand.
 const CHART_DASHES = ["", "5 3", "1 3"];
 
 // ---------------------------------------------------------------------------
@@ -752,7 +757,7 @@ function TrendChart({ players }: { players: Player[] }) {
 
   const getSeries = (club: string) => data.series[club][metric];
 
-  const W = 1180, H = 560, PAD = { top: 28, right: 210, bottom: 56, left: 56 };
+  const W = 1180, H = 560, PAD = { top: 52, right: 232, bottom: 56, left: 56 };
   const chartW = W - PAD.left - PAD.right;
   const chartH = H - PAD.top - PAD.bottom;
 
@@ -768,6 +773,36 @@ function TrendChart({ players }: { players: Player[] }) {
   const yTicks = Array.from({ length: 5 }, (_, i) => Math.round((maxVal * i) / 4));
 
   const metricLabel = metric === "ga" ? "G+A" : metric === "goals" ? "Goals" : "Assists";
+
+  // Direct end-of-line labels replace the side legend: put each club's name at
+  // the end of its own strand so the eye never leaves the data. Lines that
+  // finish at nearly the same height would overlap, so we lay out the label
+  // y-positions greedily (top→bottom) and push each down to clear the previous.
+  const LABEL_GAP = 15; // min vertical spacing between stacked labels
+  const endLabels = (() => {
+    const items = clubs.map((club, ci) => {
+      const vals = getSeries(club);
+      return { club, ci, lastVal: vals[vals.length - 1], yData: yPos(vals[vals.length - 1]) };
+    });
+    // sort by natural y (highest line first), then de-collide downward
+    const ordered = [...items].sort((a, b) => a.yData - b.yData);
+    let prevY = -Infinity;
+    for (const it of ordered) {
+      const y = Math.max(it.yData, prevY + LABEL_GAP);
+      (it as typeof it & { yLabel: number }).yLabel = y;
+      prevY = y;
+    }
+    return ordered as (typeof items[number] & { yLabel: number })[];
+  })();
+
+  // x-axis: with a long tournament, labelling every day is noise. Show ~10
+  // evenly spaced date ticks; keep a faint notch on the rest.
+  const xTickEvery = Math.max(1, Math.ceil(matchdays.length / 10));
+
+  const lastDate = matchdays[matchdays.length - 1];
+  const asOf = lastDate
+    ? `${lastDate.slice(4, 6)}/${lastDate.slice(6, 8)}/${lastDate.slice(0, 4)}`
+    : "";
 
   return (
     <div>
@@ -798,12 +833,26 @@ function TrendChart({ players }: { players: Player[] }) {
       </div>
       <div style={{ overflowX: "auto" }}>
         <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", minWidth: 720, display: "block" }}>
+          {/* Baked-in title + as-of date so the screenshot is self-contained */}
+          <text x={PAD.left} y={22} fontSize={15} fontFamily="var(--font-serif)"
+            fontStyle="italic" fontWeight={600} fill="var(--carbon)">
+            Club {metricLabel} Race
+            <tspan fontFamily="var(--font-sans)" fontStyle="normal" fontWeight={500}
+              fontSize={11} fill="var(--slate)"> · Cumulative, top {clubs.length}</tspan>
+          </text>
+          {asOf && (
+            <text x={W - PAD.right} y={22} textAnchor="end" fontSize={10}
+              fontFamily="var(--font-mono)" letterSpacing="0.08em" fill="var(--slate)">
+              AS OF {asOf}
+            </text>
+          )}
+
           {/* draft guide lines — faint chalk on the pattern sheet */}
           {yTicks.map((v, ti) => (
             <line key={ti}
               x1={PAD.left} x2={W - PAD.right}
               y1={yPos(v)} y2={yPos(v)}
-              stroke="var(--bone-10)" strokeWidth={1}
+              stroke="var(--seam-soft)" strokeWidth={1}
               strokeDasharray={v === 0 ? undefined : "2 4"}
             />
           ))}
@@ -812,21 +861,25 @@ function TrendChart({ players }: { players: Player[] }) {
               textAnchor="end" fontSize={9} fontFamily="var(--font-mono)"
               fill="var(--slate)">{v}</text>
           ))}
-          {/* x axis — matchday marks, like seam notches */}
-          {matchdays.map((d, i) => (
-            <g key={d}>
-              <line x1={xPos(i)} x2={xPos(i)} y1={PAD.top + chartH} y2={PAD.top + chartH + 4}
-                stroke="var(--slate)" strokeWidth={1} />
-              <text
-                x={xPos(i)} y={H - PAD.bottom + 16}
-                textAnchor="middle" fontSize={9} fontFamily="var(--font-mono)"
-                fill="var(--slate)"
-                transform={matchdays.length > 8 ? `rotate(-35,${xPos(i)},${H - PAD.bottom + 16})` : undefined}
-              >
-                {`${d.slice(4, 6)}.${d.slice(6, 8)}`}
-              </text>
-            </g>
-          ))}
+          {/* x axis — notch every day, label ~every 10th to cut clutter */}
+          {matchdays.map((d, i) => {
+            const show = i % xTickEvery === 0 || i === matchdays.length - 1;
+            return (
+              <g key={d}>
+                <line x1={xPos(i)} x2={xPos(i)} y1={PAD.top + chartH} y2={PAD.top + chartH + (show ? 5 : 3)}
+                  stroke={show ? "var(--slate)" : "var(--seam)"} strokeWidth={1} />
+                {show && (
+                  <text
+                    x={xPos(i)} y={H - PAD.bottom + 16}
+                    textAnchor="middle" fontSize={9} fontFamily="var(--font-mono)"
+                    fill="var(--slate)"
+                  >
+                    {`${d.slice(4, 6)}.${d.slice(6, 8)}`}
+                  </text>
+                )}
+              </g>
+            );
+          })}
           {/* y axis caption */}
           <text
             x={PAD.left - 34} y={PAD.top + chartH / 2}
@@ -837,23 +890,24 @@ function TrendChart({ players }: { players: Player[] }) {
             CUMULATIVE {metricLabel.toUpperCase()}
           </text>
 
-          {/* threads — each club is a single taut strand */}
+          {/* threads — each club is a single taut strand. Leaders (top 3) run
+              slightly heavier so the eye reads the race order first. */}
           {clubs.map((club, ci) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
-            // first 10 solid; if topN pushes past 10, the wrapped colors get a dash
             const dash = ci < CHART_COLORS.length ? "" : "6 4";
             const active = hovered === club;
             const dim = hovered !== null && !active;
+            const base = ci < 3 ? 2.75 : 2;
             return (
               <polyline key={club}
                 points={polyline(getSeries(club))}
                 fill="none"
                 stroke={active ? "var(--gold)" : color}
-                strokeWidth={active ? 3.5 : 2}
+                strokeWidth={active ? 3.75 : base}
                 strokeDasharray={active ? undefined : dash}
                 strokeLinejoin="round"
                 strokeLinecap="round"
-                opacity={dim ? 0.22 : 1}
+                opacity={dim ? 0.18 : 1}
                 style={{ cursor: "pointer", transition: "opacity 0.15s, stroke-width 0.12s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
@@ -869,9 +923,9 @@ function TrendChart({ players }: { players: Player[] }) {
             const dim = hovered !== null && !active;
             return (
               <circle key={club}
-                cx={xPos(matchdays.length - 1)} cy={yPos(lastVal)} r={active ? 3 : 2}
+                cx={xPos(matchdays.length - 1)} cy={yPos(lastVal)} r={active ? 3.5 : 2.5}
                 fill={active ? "var(--gold)" : color}
-                stroke="var(--ink)" strokeWidth={1}
+                stroke="var(--calico)" strokeWidth={1.25}
                 opacity={dim ? 0.18 : 1}
                 style={{ transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
@@ -879,33 +933,35 @@ function TrendChart({ players }: { players: Player[] }) {
               />
             );
           })}
-          {/* spool index — pinned thread legend */}
-          {clubs.map((club, ci) => {
+          {/* direct end-of-line labels — replace the side legend. A short
+              connector runs from the line's true end up/down to the de-collided
+              label so it stays legible even when lines finish close together. */}
+          {endLabels.map(({ club, ci, lastVal, yData, yLabel }) => {
             const color = CHART_COLORS[ci % CHART_COLORS.length];
-            const dash = ci < CHART_COLORS.length ? "" : "6 4";
             const active = hovered === club;
             const dim = hovered !== null && !active;
-            const vals = getSeries(club);
-            const lastVal = vals[vals.length - 1];
-            const ly = PAD.top + ci * 24 + 10;
+            const x0 = xPos(matchdays.length - 1);
+            const xText = W - PAD.right + 12;
             return (
               <g key={club}
-                style={{ cursor: "pointer", opacity: dim ? 0.3 : 1, transition: "opacity 0.15s" }}
+                style={{ cursor: "pointer", opacity: dim ? 0.28 : 1, transition: "opacity 0.15s" }}
                 onMouseEnter={() => setHovered(club)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* a short stitch of the thread's own color + style */}
-                <line x1={W - PAD.right + 16} x2={W - PAD.right + 38}
-                  y1={ly} y2={ly}
+                {/* elbow connector from knot to label row */}
+                <path
+                  d={`M${x0},${yData} L${xText - 6},${yLabel}`}
+                  fill="none"
                   stroke={active ? "var(--gold)" : color}
-                  strokeDasharray={active ? undefined : dash}
-                  strokeWidth={active ? 3.5 : 2.25} strokeLinecap="round" />
-                <text x={W - PAD.right + 46} y={ly + 4}
+                  strokeWidth={1}
+                  opacity={0.5}
+                />
+                <text x={xText} y={yLabel + 3.5}
                   fontSize={12} fontFamily="var(--font-sans)"
-                  fontWeight={active ? 700 : 500}
-                  fill={active ? "var(--gold)" : "var(--bone-60)"}>
-                  {club.length > 18 ? club.slice(0, 17) + "…" : club}
-                  <tspan fontFamily="var(--font-mono)" fill="var(--slate)"> {lastVal}</tspan>
+                  fontWeight={active ? 700 : ci < 3 ? 600 : 500}
+                  fill={active ? "var(--gold)" : color}>
+                  {club.length > 17 ? club.slice(0, 16) + "…" : club}
+                  <tspan fontFamily="var(--font-mono)" fontWeight={500} fill="var(--slate)"> {lastVal}</tspan>
                 </text>
               </g>
             );
