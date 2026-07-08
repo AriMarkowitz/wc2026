@@ -68,6 +68,7 @@ function deriveClubTotals(players: Player[]): Club[] {
     const ages = ps.map((p) => p.age).filter((a): a is number => a != null);
     const totalMins    = ps.reduce((s, p) => s + p.minutes_played, 0);
     const totalGoals   = ps.reduce((s, p) => s + p.goals, 0);
+    const totalDecisive = ps.reduce((s, p) => s + (p.decisive_goals ?? 0), 0);
     const totalAssists = ps.reduce((s, p) => s + p.assists, 0);
     const totalGa      = totalGoals + totalAssists;
     const league       = ps.find((p) => p.league)?.league ?? null;
@@ -76,6 +77,7 @@ function deriveClubTotals(players: Player[]): Club[] {
       league,
       player_count: ps.length,
       total_goals: totalGoals,
+      total_decisive_goals: totalDecisive,
       total_assists: totalAssists,
       total_goal_contributions: totalGa,
       total_minutes: totalMins,

@@ -12,6 +12,7 @@ export interface Player {
   matches_played: number;
   minutes_played: number;
   goals: number;
+  decisive_goals: number;
   assists: number;
   yellow_cards: number;
   red_cards: number;
@@ -34,6 +35,7 @@ export interface Club {
   league: string | null;
   player_count: number;
   total_goals: number;
+  total_decisive_goals: number;
   total_assists: number;
   total_goal_contributions: number;
   total_minutes: number;

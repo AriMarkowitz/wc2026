@@ -53,6 +53,7 @@ def build_output(
             "matches_played": agg["matches_played"],
             "minutes_played": mins,
             "goals": agg["goals"],
+            "decisive_goals": agg["decisive_goals"],
             "assists": agg["assists"],
             "yellow_cards": agg["yellow_cards"],
             "red_cards": agg["red_cards"],
@@ -87,6 +88,7 @@ def build_output(
         total_ga   = sum(p["goals"] + p["assists"] for p in club_players)
         total_goals   = sum(p["goals"]   for p in club_players)
         total_assists = sum(p["assists"] for p in club_players)
+        total_decisive = sum(p["decisive_goals"] for p in club_players)
         leagues = [p.get("league") for p in club_players if p.get("league")]
         league = leagues[0] if leagues else None
         clubs.append({
@@ -94,6 +96,7 @@ def build_output(
             "league": league,
             "player_count": len(club_players),
             "total_goals": total_goals,
+            "total_decisive_goals": total_decisive,
             "total_assists": total_assists,
             "total_goal_contributions": total_ga,
             "total_minutes": total_mins,
@@ -184,6 +187,7 @@ def _empty_agg(pid: str, first_stat: dict) -> dict:
         "matches_played": 0,
         "minutes": 0,
         "goals": 0,
+        "decisive_goals": 0,
         "assists": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -201,6 +205,7 @@ def _merge_stat(agg: dict, stat: dict):
     agg["matches_played"] += 1
     agg["minutes"] += stat.get("minutes") or 0
     agg["goals"] += stat.get("goals") or 0
+    agg["decisive_goals"] += stat.get("decisive_goals") or 0
     agg["assists"] += stat.get("assists") or 0
     agg["yellow_cards"] += stat.get("yellow_cards") or 0
     agg["red_cards"] += stat.get("red_cards") or 0

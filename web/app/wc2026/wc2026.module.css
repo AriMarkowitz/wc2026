@@ -195,6 +195,7 @@
 
 .valAmber { color: var(--gold); }
 .valRed   { color: var(--gold); }
+.valGold  { color: var(--gold); }
 
 /* ── Tab bar ─────────────────────────────────────────────────────────────── */
 .tabs {

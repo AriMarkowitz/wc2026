@@ -116,9 +116,93 @@ def fetch_squad(team_id: str) -> list[dict]:
 # Step 2: Fetch per-player stats from match summary
 # ---------------------------------------------------------------------------
 
+def _decisive_goals(data: dict) -> dict[str, int]:
+    """{player_id: decisive_goal_count} for one completed match.
+
+    A goal is *decisive* if removing it would change the result:
+      • the go-ahead goal the winner never relinquished — but only in a
+        one-goal-margin win, where that single goal is the whole difference
+        between a win and a draw; or
+      • the final equalizer in a drawn match (turned a loss into a draw).
+
+    Penalties count and credit their taker. Own goals count toward the score
+    (they can be the decisive goal) but credit no player — the scorer put it
+    into their own net, so no one earns the stat.
+    """
+    header = data.get("header", {})
+    comps = header.get("competitions", [])
+    if not comps:
+        return {}
+    comp = comps[0]
+    if comp.get("status", {}).get("type", {}).get("state") != "post":
+        return {}  # only completed matches
+    competitors = comp.get("competitors", [])
+    if len(competitors) != 2:
+        return {}
+    score = {c["id"]: int(c.get("score") or 0) for c in competitors}
+    a, b = list(score.keys())
+
+    goals: list[dict] = []
+    for e in data.get("keyEvents", []):
+        if not e.get("scoringPlay"):
+            continue
+        etype = e.get("type", {}).get("type", "")
+        is_own = etype.startswith("own-goal")
+        is_goal = etype.startswith("goal") or etype.startswith("penalty---scored")
+        if not (is_goal or is_own):
+            continue
+        tid = e.get("team", {}).get("id")  # team credited (benefiting side for own goals)
+        if tid not in score:
+            continue
+        parts = e.get("participants", [])
+        pid = "" if is_own else (str(parts[0].get("athlete", {}).get("id", "")) if parts else "")
+        goals.append({
+            "pid": pid, "tid": tid,
+            "period": e.get("period", {}).get("number", 0),
+            "clock": e.get("clock", {}).get("value", 0.0),
+        })
+    goals.sort(key=lambda g: (g["period"], g["clock"]))
+
+    result: dict[str, int] = {}
+
+    def credit(pid: str):
+        if pid:  # own goals (blank pid) credit no one
+            result[pid] = result.get(pid, 0) + 1
+
+    if score[a] == score[b]:
+        # Draw: the last goal is decisive iff it brought the match level.
+        if goals:
+            last = goals[-1]
+            run = {a: 0, b: 0}
+            for g in goals[:-1]:
+                run[g["tid"]] += 1
+            was_behind = run[last["tid"]] == min(run[a], run[b])
+            run[last["tid"]] += 1
+            if run[a] == run[b] and was_behind:
+                credit(last["pid"])
+        return result
+
+    # Win: only a one-goal margin has a single decisive (go-ahead-and-held) goal.
+    if abs(score[a] - score[b]) != 1:
+        return result
+    winner = a if score[a] > score[b] else b
+    loser = b if winner == a else a
+    need = score[loser] + 1  # winner's Nth goal is the one that broke the tie for good
+    seen = 0
+    for g in goals:
+        if g["tid"] == winner:
+            seen += 1
+            if seen == need:
+                credit(g["pid"])
+                break
+    return result
+
+
 def parse_match_stats(event_id: str) -> list[dict]:
     """Return a flat list of per-player stat dicts with real minutes played."""
     data = api_client.get(f"{ESPN_BASE}/summary", {"event": event_id})
+
+    decisive = _decisive_goals(data)
 
     # --- Derive real minutes from substitution + red card events ---
     # clock.value is seconds elapsed; we cap at full-time (90+ injury time)
@@ -190,6 +274,7 @@ def parse_match_stats(event_id: str) -> list[dict]:
                 "event_id": event_id,
                 "minutes": mins,
                 "goals": int(raw_stats.get("totalGoals", 0)),
+                "decisive_goals": int(decisive.get(pid, 0)),
                 "assists": int(raw_stats.get("goalAssists", 0)),
                 "yellow_cards": int(raw_stats.get("yellowCards", 0)),
                 "red_cards": int(raw_stats.get("redCards", 0)),
@@ -312,6 +397,24 @@ def main():
         for row in stats:
             row["match_date"] = event["date"]
         match_stats[eid] = stats
+
+    # --- Backfill decisive_goals into already-cached matches that predate the
+    #     field. Only re-hits /summary (cheap) for the goal events; leaves all
+    #     other cached stats untouched. ---
+    stale = [eid for eid, rows in match_stats.items()
+             if eid not in {e["id"] for e in new_events}
+             and rows and "decisive_goals" not in rows[0]]
+    if stale:
+        print(f"Backfilling decisive goals for {len(stale)} cached matches...")
+        for eid in stale:
+            try:
+                data = api_client.get(f"{ESPN_BASE}/summary", {"event": eid})
+                decisive = _decisive_goals(data)
+            except Exception as e:
+                print(f"  Warning: could not backfill {eid}: {e}")
+                decisive = {}
+            for row in match_stats[eid]:
+                row["decisive_goals"] = int(decisive.get(str(row.get("player_id", "")), 0))
 
     # --- Fetch full WC squads (every selected player, not just those who have
     #     appeared). Only fetch squads we don't have yet. ---
