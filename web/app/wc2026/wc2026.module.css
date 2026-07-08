@@ -764,3 +764,109 @@
 .funnelBtn { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border: none; background: transparent; cursor: pointer; color: var(--slate); font-size: 0.65rem; transition: color 0.1s; flex-shrink: 0; }
 .funnelBtn:hover { color: var(--carbon); }
 .funnelBtnActive { color: var(--gold); }
+
+/* ── View toggle (Table | Chart) — sits above each tab's content ──────────── */
+.viewToggle {
+  display: flex;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--seam);
+  width: fit-content;
+}
+.viewToggleBtn {
+  padding: 0.4rem 1.1rem;
+  border: none;
+  border-right: 1px solid var(--seam-soft);
+  background: transparent;
+  color: var(--slate);
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.12s, background 0.12s;
+}
+.viewToggleBtn:last-child { border-right: none; }
+.viewToggleBtn:hover { color: var(--carbon); }
+.viewToggleActive { background: var(--carbon) !important; color: var(--calico) !important; }
+
+/* ── Metric picker (native select styled to match the mono controls) ──────── */
+.metricPickerWrap { display: flex; align-items: center; gap: 0.6rem; }
+.metricPickerLabel {
+  font-size: 0.56rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.metricSelect {
+  background: transparent;
+  border: 1px solid var(--seam);
+  color: var(--carbon);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  padding: 0.32rem 0.65rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.12s;
+}
+.metricSelect:hover { border-color: var(--carbon); }
+.metricSelect:focus { border-color: var(--gold); }
+
+/* ── Horizontal bar chart (reusable MetricChart) ──────────────────────────── */
+.barChart { display: flex; flex-direction: column; gap: 0.5rem; padding-top: 0.25rem; }
+.barChartNote {
+  font-size: 0.56rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.35rem;
+}
+.barRow {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(7rem, 12rem) 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  transition: opacity 0.15s;
+}
+.barRank {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--slate);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.barLabel {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--carbon);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.barTrack {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 1.35rem;
+  border-bottom: 1px solid var(--seam-soft);
+}
+.barFill {
+  height: 0.7rem;
+  border-radius: 0 3px 3px 0;
+  min-width: 2px;
+}
+.barValue {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--carbon);
+  font-variant-numeric: tabular-nums;
+  margin-left: 0.6rem;
+  white-space: nowrap;
+}

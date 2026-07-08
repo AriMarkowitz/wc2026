@@ -6,8 +6,31 @@ import type { Club, Player, WcMeta } from "@/types/wc";
 import styles from "./wc2026.module.css";
 import FilterBar from "./FilterBar";
 import Tooltip from "./Tooltip";
+import MetricChart, { type MetricDef } from "./MetricChart";
 import { useColumnResize } from "./useColumnResize";
 import { drape, tension, gather, layIn, stagger, useCountUp } from "./motion";
+
+// ---------------------------------------------------------------------------
+// Shared Table | Chart view toggle
+// ---------------------------------------------------------------------------
+
+type View = "table" | "chart";
+
+function ViewToggle({ view, setView }: { view: View; setView: (v: View) => void }) {
+  return (
+    <div className={styles.viewToggle}>
+      {(["table", "chart"] as View[]).map((v) => (
+        <button
+          key={v}
+          className={`${styles.viewToggleBtn} ${view === v ? styles.viewToggleActive : ""}`}
+          onClick={() => setView(v)}
+        >
+          {v === "table" ? "Table" : "Chart"}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 // Count-up stat value (Cormorant numeral, spring-interpolated)
 function StatNumber({ value, className }: { value: number; className?: string }) {
@@ -125,6 +148,7 @@ function ClubTable({
   onDrillDown: (c: string) => void;
 }) {
   const [sort, setSort] = useState<keyof Club>("total_goals");
+  const [view, setView] = useState<View>("table");
   const [fClub, setFClub] = useState<Set<string>>(new Set());
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
 
@@ -165,12 +189,32 @@ function ClubTable({
   const ga90Min = Math.min(...ga90Vals);
   const ga90Max = Math.max(...ga90Vals);
 
+  // Chart metrics are the same numeric columns the table sorts by — no dup config.
+  const chartMetrics: MetricDef<Club>[] = [
+    { key: "player_count", label: "Players in WC", value: (c) => c.player_count },
+    ...numCols.map((c) => ({
+      key: c.key, label: c.label, dec: c.dec ? 2 : 0,
+      value: (club: Club) => club[c.col] as number | null,
+    })),
+  ];
+
   return (
     <div>
       <FilterBar filters={[
         { label: "Club", options: clubOptions, selected: fClub, onChange: setFClub },
         { label: "League", options: leagueOptions, selected: fLeague, onChange: setFLeague },
       ]} />
+      <ViewToggle view={view} setView={setView} />
+      {view === "chart" ? (
+        <MetricChart
+          rows={filtered}
+          metrics={chartMetrics}
+          label={(c) => c.club}
+          rowKey={(c) => c.club}
+          defaultMetric="goals"
+        />
+      ) : (
+      <>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <colgroup>
@@ -222,6 +266,8 @@ function ClubTable({
         </table>
       </div>
       <div className={styles.tableMeta}>{sorted.length} clubs</div>
+      </>
+      )}
     </div>
   );
 }
@@ -242,6 +288,7 @@ function PlayerTable({
   onSignClick: () => void;
 }) {
   const [sort, setSort] = useState<PlayerSort>("goals");
+  const [view, setView] = useState<View>("table");
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
   const [fNat, setFNat] = useState<Set<string>>(new Set());
   const [fPos, setFPos] = useState<Set<string>>(new Set());
@@ -296,6 +343,18 @@ function PlayerTable({
     { key: "rc",     label: "RC",     col: "red_cards", title: "Red cards" },
   ];
 
+  const playerVal = (p: Player, col: PlayerSort): number | null => {
+    if (col === "min_per_goal") return p.goals ? Math.round(p.minutes_played / p.goals) : null;
+    return (p as unknown as Record<string, number | null>)[col as string] ?? null;
+  };
+  const chartMetrics: MetricDef<Player>[] = numCols.map((c) => ({
+    key: c.key,
+    label: c.label,
+    dec: c.col === "goal_contributions_per_90" ? 2 : 0,
+    lowerBetter: c.col === "min_per_goal",
+    value: (p: Player) => playerVal(p, c.col),
+  }));
+
   return (
     <div>
       <FilterBar filters={[
@@ -305,7 +364,17 @@ function PlayerTable({
         { label: "Position", options: posOptions, selected: fPos, onChange: setFPos },
         { label: "Sun Sign", options: ALL_SIGNS, selected: fSign, onChange: setFSign, renderOption: (s) => `${SIGN_EMOJI[s] ?? ""} ${s}` },
       ]} />
-
+      <ViewToggle view={view} setView={setView} />
+      {view === "chart" ? (
+        <MetricChart
+          rows={filtered}
+          metrics={chartMetrics}
+          label={(p) => p.name}
+          rowKey={(p) => String(p.player_id)}
+          defaultMetric="goals"
+        />
+      ) : (
+      <>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <colgroup>
@@ -397,6 +466,8 @@ function PlayerTable({
         </table>
       </div>
       <div className={styles.tableMeta}>{sorted.length} players</div>
+      </>
+      )}
     </div>
   );
 }
@@ -849,6 +920,7 @@ type GkSort = keyof Player | "goals_conceded_per_90" | "save_pct";
 
 function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) {
   const [sort, setSort] = useState<GkSort>("saves");
+  const [view, setView] = useState<View>("table");
   const [fNat, setFNat]     = useState<Set<string>>(new Set());
   const [fClub, setFClub]   = useState<Set<string>>(new Set());
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
@@ -894,6 +966,15 @@ function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) 
     { key: "rc",      label: "RC",      col: "red_cards",           title: "Red cards" },
   ];
 
+  const chartMetrics: MetricDef<Player>[] = numCols.map((c) => ({
+    key: c.key,
+    label: c.label,
+    dec: c.col === "goals_conceded_per_90" ? 2 : 0,
+    suffix: c.col === "save_pct" ? "%" : undefined,
+    lowerBetter: c.col === "goals_conceded_per_90",
+    value: (p: Player) => (p as unknown as Record<string, number | null>)[c.col as string] ?? null,
+  }));
+
   return (
     <div>
       <FilterBar filters={[
@@ -901,6 +982,17 @@ function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) 
         { label: "Club",        options: clubOptions,   selected: fClub,   onChange: setFClub },
         { label: "League",      options: leagueOptions, selected: fLeague, onChange: setFLeague },
       ]} />
+      <ViewToggle view={view} setView={setView} />
+      {view === "chart" ? (
+        <MetricChart
+          rows={filtered}
+          metrics={chartMetrics}
+          label={(p) => p.name}
+          rowKey={(p) => String(p.player_id)}
+          defaultMetric="sv"
+        />
+      ) : (
+      <>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <colgroup>
@@ -968,6 +1060,8 @@ function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) 
         </table>
       </div>
       <div className={styles.tableMeta}>{sorted.length} goalkeepers</div>
+      </>
+      )}
     </div>
   );
 }
@@ -978,6 +1072,7 @@ function GkTable({ players, meta }: { players: Player[]; meta: WcMeta | null }) 
 
 function AstroTable({ players }: { players: Player[] }) {
   const [sort, setSort] = useState<string>("ga_per_90");
+  const [view, setView] = useState<View>("table");
   const [expanded, setExpanded] = useState<string | null>(null);
 
   const { widths, startResize, autoFit } = useColumnResize({
@@ -1019,12 +1114,31 @@ function AstroTable({ players }: { players: Player[] }) {
 
   const COL_COUNT = 3 + cols.length; // #, sign, expand-caret implicit + stat cols
 
+  type AstroRow = (typeof rows)[number];
+  const chartMetrics: MetricDef<AstroRow>[] = cols.map((c) => ({
+    key: c.key,
+    label: c.label,
+    dec: c.key === "ga_per_90" || c.key === "g_per_player" ? 2 : 0,
+    value: (r: AstroRow) => (r as unknown as Record<string, number>)[c.key] ?? null,
+  }));
+
   return (
     <div>
       <p className={styles.astroIntro}>
         Which star signs are outscoring the zodiac? Ranked by goal contributions per 90 minutes.
         Click a sign to see every player born under it. Pure vibes.
       </p>
+      <ViewToggle view={view} setView={setView} />
+      {view === "chart" ? (
+        <MetricChart
+          rows={rows}
+          metrics={chartMetrics}
+          label={(r) => `${SIGN_EMOJI[r.sign] ?? ""} ${r.sign}`}
+          rowKey={(r) => r.sign}
+          defaultMetric="ga_per_90"
+        />
+      ) : (
+      <>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <colgroup>
@@ -1095,6 +1209,8 @@ function AstroTable({ players }: { players: Player[] }) {
           </tbody>
         </table>
       </div>
+      </>
+      )}
     </div>
   );
 }
