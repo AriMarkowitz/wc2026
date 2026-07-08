@@ -14962,5 +14962,53 @@
     "sun_sign": null,
     "nationality": "Uzbekistan",
     "photo": null
+  },
+  "374533": {
+    "player_id": "374533",
+    "name": "Arjan Malic",
+    "club": "SK Sturm Graz",
+    "league": "Austrian Bundesliga",
+    "position": "Defender",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Slovenia",
+    "photo": null
+  },
+  "233945": {
+    "player_id": "233945",
+    "name": "Marcos Senesi",
+    "club": "AFC Bournemouth",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Argentina",
+    "photo": null
+  },
+  "271352": {
+    "player_id": "271352",
+    "name": "Shuto Machino",
+    "club": "Borussia Mönchengladbach",
+    "league": "German Bundesliga",
+    "position": "Forward",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Japan",
+    "photo": null
+  },
+  "230430": {
+    "player_id": "230430",
+    "name": "Marwane Saadane",
+    "club": "Al Fateh",
+    "league": null,
+    "position": "Defender",
+    "age": 34,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Morocco",
+    "photo": null
   }
 }
