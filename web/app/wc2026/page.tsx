@@ -153,7 +153,7 @@ function ClubTable({
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
 
   const { widths, startResize, autoFit } = useColumnResize({
-    rank: 48, club: 180, players: 110, goals: 70, dec: 60, assists: 80, ga: 70,
+    rank: 48, club: 180, players: 110, goals: 70, dec: 80, assists: 80, ga: 70,
     g90: 70, a90: 70, ga90: 84, mins: 80, yc: 60, rc: 60, age: 80,
   });
 
@@ -171,8 +171,8 @@ function ClubTable({
   const numCols: { key: string; label: string; col: keyof Club; title?: string; accent?: boolean; dec?: boolean }[] = [
     { key: "players", label: "Players in WC", col: "player_count", title: "Players selected in this club's WC squads" },
     { key: "goals",   label: "Goals",   col: "total_goals" },
-    { key: "dec",     label: "Dec.",    col: "total_decisive_goals", accent: true, title: "Decisive goals by this club's players — game-winners (in one-goal wins) + rescuing equalizers" },
     { key: "assists", label: "Assists", col: "total_assists" },
+    { key: "dec",     label: "Decisive", col: "total_decisive_goals", accent: true, title: "Decisive goals by this club's players — the goal that decided the result: a game-winner in a one-goal win, or the equalizer that rescued a draw. Own goals and blowout goals don't count." },
     { key: "ga",      label: "G+A",     col: "total_goal_contributions", title: "Total goal contributions" },
     { key: "g90",     label: "G/90",    col: "goals_per_90", dec: true, title: "Goals per 90 (all squad minutes)" },
     { key: "a90",     label: "A/90",    col: "assists_per_90", dec: true, title: "Assists per 90 (all squad minutes)" },
@@ -252,8 +252,8 @@ function ClubTable({
                 </td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.player_count}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goals}</td>
-                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={{ color: c.total_decisive_goals ? "var(--gold)" : "var(--slate)" }}>{c.total_decisive_goals}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_assists}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={{ color: c.total_decisive_goals ? "var(--gold)" : "var(--slate)" }} title="Decisive goals — decided the result (game-winner or rescuing equalizer)">{c.total_decisive_goals}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{c.total_goal_contributions}</td>
                 <td className={styles.nowrap}>{fmtDec(c.goals_per_90)}</td>
                 <td className={styles.nowrap}>{fmtDec(c.assists_per_90)}</td>
@@ -298,7 +298,7 @@ function PlayerTable({
 
   const { widths, startResize, autoFit } = useColumnResize({
     rank: 48, name: 170, club: 150, nat: 120, pos: 70, age: 56, sign: 110,
-    mp: 50, goals: 64, dec: 56, assists: 76, ga90: 80, mpg: 72, sot: 56, mins: 64, yc: 50, rc: 50,
+    mp: 50, goals: 64, assists: 76, dec: 78, ga90: 80, mpg: 72, sot: 56, mins: 64, yc: 50, rc: 50,
   });
 
   const filtered = useMemo(() => {
@@ -336,8 +336,8 @@ function PlayerTable({
   const numCols: { key: string; label: string; col: PlayerSort; title?: string; accent?: boolean }[] = [
     { key: "mp",     label: "MP",     col: "matches_played", title: "Matches played" },
     { key: "goals",  label: "Goals",  col: "goals" },
-    { key: "dec",    label: "Dec.",   col: "decisive_goals", accent: true, title: "Decisive goals — game-winners (in one-goal wins) + rescuing equalizers" },
     { key: "assists",label: "Assists",col: "assists" },
+    { key: "dec",    label: "Decisive", col: "decisive_goals", accent: true, title: "Decisive goals — the goal that decided the result: a game-winner in a one-goal win, or the equalizer that rescued a draw. Own goals and blowout goals don't count." },
     { key: "ga90",   label: "G+A/90", col: "goal_contributions_per_90", accent: true, title: "Goal contributions per 90" },
     { key: "mpg",    label: "Min/G",  col: "min_per_goal", title: "Minutes per goal — lower is better" },
     { key: "sot",    label: "SOT",    col: "shots_on_target", title: "Shots on target" },
@@ -456,8 +456,8 @@ function PlayerTable({
                 </td>
                 <td className={styles.nowrap}>{p.matches_played}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.goals}</td>
-                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={{ color: p.decisive_goals ? "var(--gold)" : "var(--slate)" }}>{p.decisive_goals}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.assists}</td>
+                <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={{ color: p.decisive_goals ? "var(--gold)" : "var(--slate)" }} title="Decisive goals — decided the result (game-winner or rescuing equalizer)">{p.decisive_goals}</td>
                 <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={ga90Color(p.goal_contributions_per_90, pGa90Min, pGa90Max)}>{fmtDec(p.goal_contributions_per_90)}</td>
                 <td className={styles.nowrap}>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
                 <td className={styles.nowrap}>{p.shots_on_target}</td>
