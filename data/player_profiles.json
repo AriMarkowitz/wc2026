@@ -15010,5 +15010,17 @@
     "sun_sign": null,
     "nationality": "Morocco",
     "photo": null
+  },
+  "314388": {
+    "player_id": "314388",
+    "name": "Amine Sbaï",
+    "club": "Angers",
+    "league": "French Ligue 1",
+    "position": "Forward",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Morocco",
+    "photo": null
   }
 }
