@@ -15022,5 +15022,17 @@
     "sun_sign": null,
     "nationality": "Morocco",
     "photo": null
+  },
+  "227784": {
+    "player_id": "227784",
+    "name": "Trevoh Chalobah",
+    "club": "Chelsea",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "England",
+    "photo": null
   }
 }
