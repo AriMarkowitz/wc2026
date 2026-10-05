@@ -43,6 +43,24 @@ A radar to compare any two clubs across six axes — plus a tongue-in-cheek look
 
 ---
 
+## International breaks — [`/intl`](https://clubshowout.vercel.app/intl)
+
+The same club lens applied to every FIFA window after the World Cup (friendlies,
+Nations League, qualifiers): which clubs' players got minutes, what they produced, and
+**who came back injured**.
+
+- `python scripts/fetch_intl.py` scans each window in `scripts/intl/config.py`
+  (check dates against FIFA's calendar; add new windows there) and writes
+  `data/intl/intl.json`, mirrored to `web/data/intl.json`.
+- Injuries come from three sources, shown together in the Injuries tab:
+  **match** (ESPN commentary: subbed off injured / treated on the pitch),
+  **profile** (injury status on the player's ESPN profile, where ESPN has one), and
+  **manual** (`data/intl/injuries_manual.json`, for camp withdrawals and club-confirmed
+  diagnoses).
+- Clubs are re-read from player profiles every 14 days, so summer transfers are reflected.
+  The World Cup data and caches are never touched.
+- Run it from the **Fetch International Break Data** workflow (manual trigger).
+
 ## Architecture
 
 ```
@@ -55,11 +73,36 @@ ESPN public API ──▶ Python pipeline ──▶ wc2026.json ──▶ Next.j
 - **Data pipeline** — Python fetches box scores, key events, and squads from ESPN's
   public API, then derives real minutes, decisive goals, and elimination status into a
   single `wc2026.json`.
-- **Frontend** — Next.js reads that JSON through thin `/api/v1/*` routes; all tables,
+- **Frontend** — Next.js reads that JSON through thin `/api/v1/wc2026/*` routes (old
+  `/api/v1/*` paths still work via rewrites); all tables,
   filters, and charts (hand-built SVG) render client-side.
 - **Automation** — a GitHub Actions cron runs ~150 min after each kickoff slot, commits
   refreshed data, and triggers a Vercel redeploy. The site keeps itself current with zero
   manual steps.
+
+## Layout
+
+Each competition is self-contained; shared code lives in `core` / `components`.
+
+```
+scripts/
+  core/            ESPN client, match parsing, athlete profiles, league names, paths
+  wc2026/          World Cup config, fetch, transform     → python scripts/fetch_wc2026.py
+  intl/            International-break config + fetch     → python scripts/fetch_intl.py
+data/
+  wc2026/          WC pipeline caches (frozen — tournament is over)
+  intl/            break caches + injuries_manual.json
+web/
+  app/page.tsx     home: links to both dashboards
+  app/wc2026/      World Cup dashboard           app/api/v1/wc2026/*
+  app/intl/        International-break dashboard app/api/v1/intl
+  components/      FilterBar, Tooltip, MetricChart, motion, column resize, dashboard.module.css
+  lib/stores/      one data reader per competition (wc2026.ts, intl.ts)
+  data/            wc2026.json, intl.json (pipeline output the app reads)
+```
+
+Adding a new competition = a `scripts/<name>/` package + `data/<name>/` + `web/app/<name>/`
++ `web/lib/stores/<name>.ts`, reusing `core` and `components`.
 
 ## Stack
 
