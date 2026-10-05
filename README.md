@@ -43,6 +43,24 @@ A radar to compare any two clubs across six axes — plus a tongue-in-cheek look
 
 ---
 
+## International breaks — [`/intl`](https://clubshowout.vercel.app/intl)
+
+The same club lens applied to every FIFA window after the World Cup (friendlies,
+Nations League, qualifiers): which clubs' players got minutes, what they produced, and
+**who came back injured**.
+
+- `python scripts/fetch_intl.py` scans each window in `scripts/intl_config.py`
+  (check dates against FIFA's calendar; add new windows there) and writes
+  `data/intl/intl.json`, mirrored to `web/data/intl.json`.
+- Injuries come from three sources, shown together in the Injuries tab:
+  **match** (ESPN commentary: subbed off injured / treated on the pitch),
+  **profile** (injury status on the player's ESPN profile, where ESPN has one), and
+  **manual** (`data/intl/injuries_manual.json`, for camp withdrawals and club-confirmed
+  diagnoses).
+- Clubs are re-read from player profiles every 14 days, so summer transfers are reflected.
+  The World Cup data and caches are never touched.
+- Run it from the **Fetch International Break Data** workflow (manual trigger).
+
 ## Architecture
 
 ```

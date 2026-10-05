@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Club, Player, WcMeta } from "@/types/wc";
 import styles from "./wc2026.module.css";
@@ -1545,6 +1546,10 @@ export default function WC2026Page() {
           <span className={styles.eyebrowDot} />
           FIFA WORLD CUP 2026 — CLUB PERFORMANCE
           <span className={styles.eyebrowRight}>
+            <Link href="/intl" className={styles.eyebrowLink}>
+              INTL BREAKS →
+            </Link>
+            ·
             <a
               href="https://github.com/pseudo-r/Public-ESPN-API"
               target="_blank"

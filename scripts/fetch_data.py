@@ -286,9 +286,14 @@ def _decisive_goals(data: dict) -> dict[str, int]:
     return result
 
 
-def parse_match_stats(event_id: str) -> list[dict]:
-    """Return a flat list of per-player stat dicts with real minutes played."""
-    data = api_client.get(f"{ESPN_BASE}/summary", {"event": event_id})
+def parse_match_stats(event_id: str, base: str = ESPN_BASE, data: dict | None = None) -> list[dict]:
+    """Return a flat list of per-player stat dicts with real minutes played.
+
+    `base` lets other competitions (international breaks) reuse this parser;
+    pass an already-fetched `data` summary to avoid a second request.
+    """
+    if data is None:
+        data = api_client.get(f"{base}/summary", {"event": event_id})
 
     decisive = _decisive_goals(data)
 
@@ -414,6 +419,22 @@ def _sun_sign(dob_str: str | None) -> str | None:
     return None
 
 
+def _injury_status(athlete: dict) -> dict | None:
+    """Latest listed injury on an ESPN athlete profile, if any. ESPN only
+    populates `injuries` for some leagues, so this is best-effort."""
+    injuries = athlete.get("injuries") or []
+    if not injuries:
+        return None
+    inj = injuries[0]
+    details = inj.get("details") or {}
+    return {
+        "status": inj.get("status") or (inj.get("type") or {}).get("description"),
+        "date": inj.get("date"),
+        "type": details.get("type") or details.get("location"),
+        "return_date": details.get("returnDate"),
+    }
+
+
 def fetch_athlete_profile(player_id: str, iso_dob: str | None = None) -> dict:
     try:
         data = api_client.get(f"{ESPN_ATHLETE_BASE}/{player_id}")
@@ -438,6 +459,7 @@ def fetch_athlete_profile(player_id: str, iso_dob: str | None = None) -> dict:
             "sun_sign": sun_sign,
             "nationality": athlete.get("citizenship"),
             "photo": None,
+            "injury_status": _injury_status(athlete),
         }
     except Exception as e:
         print(f"  Warning: could not fetch profile for player {player_id}: {e}")

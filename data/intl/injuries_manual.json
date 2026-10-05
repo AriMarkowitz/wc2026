@@ -1,0 +1,4 @@
+{
+  "_format": "Append entries to `injuries`. Required: name, window (e.g. '2026-09'). Optional: player_id (ESPN id, links to club data), nationality, club, date (YYYY-MM-DD), kind ('withdrawn' | 'training' | 'forced_off' | 'treated'), injury, status, source_url, note.",
+  "injuries": []
+}
