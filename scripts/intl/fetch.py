@@ -86,6 +86,9 @@ def scan_window(w: dict) -> list[dict]:
                     "window": w["id"],
                     "teams": teams,
                 })
+    if dead and dead == set(COMPETITIONS):
+        raise SystemExit("ESPN refused every competition — likely blocked (see errors above). "
+                         "Not writing data.")
     # The same match can be listed under two slugs (e.g. friendly + qualifier)
     return list({e["id"]: e for e in events}.values())
 
