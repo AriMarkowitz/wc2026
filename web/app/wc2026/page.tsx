@@ -4,12 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Club, Player, WcMeta } from "@/types/wc";
-import styles from "./wc2026.module.css";
-import FilterBar from "./FilterBar";
-import Tooltip from "./Tooltip";
-import MetricChart, { type MetricDef } from "./MetricChart";
-import { useColumnResize } from "./useColumnResize";
-import { drape, tension, gather, layIn, stagger, useCountUp } from "./motion";
+import styles from "@/components/dashboard.module.css";
+import FilterBar from "@/components/FilterBar";
+import Tooltip from "@/components/Tooltip";
+import MetricChart, { type MetricDef } from "@/components/MetricChart";
+import { useColumnResize } from "@/components/useColumnResize";
+import { drape, tension, gather, layIn, stagger, useCountUp } from "@/components/motion";
 
 // ---------------------------------------------------------------------------
 // Shared Table | Chart view toggle
@@ -903,7 +903,7 @@ function TrendChart({ players }: { players: Player[] }) {
   const [topN, setTopN] = useState(10);
 
   useEffect(() => {
-    fetch("/api/v1/timeseries").then((r) => r.json()).then((j) => setData(j.response));
+    fetch("/api/v1/wc2026/timeseries").then((r) => r.json()).then((j) => setData(j.response));
   }, []);
 
   // view switch lives above the data guard so radar works without timeseries
@@ -1493,9 +1493,9 @@ export default function WC2026Page() {
     async function load() {
       setLoading(true);
       const [clubsRes, playersRes, metaRes] = await Promise.all([
-        fetch("/api/v1/clubs"),
-        fetch("/api/v1/players"),
-        fetch("/api/v1/meta"),
+        fetch("/api/v1/wc2026/clubs"),
+        fetch("/api/v1/wc2026/players"),
+        fetch("/api/v1/wc2026/meta"),
       ]);
       const [clubsJson, playersJson, metaJson] = await Promise.all([
         clubsRes.json(), playersRes.json(), metaRes.json(),

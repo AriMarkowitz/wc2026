@@ -4,10 +4,10 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import type { IntlAppearance, IntlData, IntlInjury, InjuryKind } from "@/types/intl";
-// Shared design system — lives under wc2026/ for now; see README "Layout".
-import styles from "../wc2026/wc2026.module.css";
-import FilterBar from "../wc2026/FilterBar";
-import { drape, tension } from "../wc2026/motion";
+// Shared design system — see components/.
+import styles from "@/components/dashboard.module.css";
+import FilterBar from "@/components/FilterBar";
+import { drape, tension } from "@/components/motion";
 
 type Tab = "clubs" | "players" | "injuries" | "matches";
 

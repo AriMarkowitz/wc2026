@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WC 2026 Club Dashboard",
-  description: "Which domestic clubs are showing out most at the World Cup — player output cut and sorted by club.",
+  title: "Club Showout",
+  description: "Domestic clubs, measured by what their players do for their countries — World Cup 2026 and every international break.",
 };
 
 export default function RootLayout({

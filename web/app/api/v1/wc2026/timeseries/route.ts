@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getIntlData } from "@/lib/stores/intl";
+import { getTimeseries } from "@/lib/stores/wc2026";
 
 export async function GET() {
-  const data = await getIntlData();
+  const data = await getTimeseries();
   return NextResponse.json({ response: data });
 }
