@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
-import { getIntlData } from "@/lib/stores/intl";
+import { NextResponse, type NextRequest } from "next/server";
+import { getIntlWindow } from "@/lib/stores/intl";
 
-export async function GET() {
-  const data = await getIntlData();
+// ?window=2026-09 | all — defaults to the latest window with matches.
+export async function GET(req: NextRequest) {
+  const data = await getIntlWindow(req.nextUrl.searchParams.get("window"));
   return NextResponse.json({ response: data });
 }

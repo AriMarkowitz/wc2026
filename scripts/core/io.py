@@ -11,9 +11,12 @@ def load_json(path: Path, default=None):
     return {} if default is None else default
 
 
-def save_json(path: Path, data):
+def save_json(path: Path, data, compact: bool = False):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+    if compact:  # ~40% smaller; for files the browser downloads
+        path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    else:
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     print(f"  Wrote {path}")
 
 

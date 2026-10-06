@@ -143,11 +143,14 @@ def parse_match_injuries(data: dict) -> list[dict]:
 # Profiles (separate cache from the WC — clubs change every transfer window)
 # ---------------------------------------------------------------------------
 
-def refresh_profiles(pids: set[str], profiles: dict, force: bool) -> dict:
+def refresh_profiles(pids: set[str], current: set[str], profiles: dict, force: bool) -> dict:
+    """Fetch profiles we don't have yet. Re-fetch an existing profile (club,
+    injury status) only for players in the current window — `current` — once
+    it's older than PROFILE_TTL_DAYS, so past windows cost no requests."""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=PROFILE_TTL_DAYS)).isoformat()
     stale = sorted(pid for pid in pids
-                   if force or not profiles.get(pid, {}).get("club")
-                   or profiles[pid].get("fetched_at", "") < cutoff)
+                   if force or pid not in profiles
+                   or (pid in current and profiles[pid].get("fetched_at", "") < cutoff))
     if stale:
         print(f"Fetching {len(stale)} player profiles...")
     for pid in stale:
@@ -291,12 +294,18 @@ def main():
     events: dict = {e["id"]: e for e in cache.get("matches", [])}
     profiles: dict = {} if args.full else load_json(INTL_PROFILE_FILE, {})
 
+    # A window that had already finished when we last scanned it can't gain
+    # matches, so it's never rescanned.
+    done: set[str] = set() if args.full else set(cache.get("scanned_complete", []))
     for w in WINDOWS:
-        if window_status(w) == "upcoming":
+        status = window_status(w)
+        if status == "upcoming" or w["id"] in done:
             continue
         print(f"Scanning window {w['label']}...")
         for ev in scan_window(w):
             events[ev["id"]] = ev
+        if status == "complete":
+            done.add(w["id"])
 
     new = [e for e in events.values() if e["id"] not in match_stats]
     print(f"  {len(events)} completed matches, {len(new)} new")
@@ -313,15 +322,19 @@ def main():
     pids = {str(r["player_id"]) for rows in match_stats.values() for r in rows}
     manual = load_json(INTL_MANUAL_INJURIES, {}).get("injuries", [])
     pids |= {str(m["player_id"]) for m in manual if m.get("player_id")}
-    profiles = refresh_profiles(pids, profiles, args.full)
+    active = [w["id"] for w in WINDOWS if window_status(w) != "upcoming"]
+    current = {str(r["player_id"]) for eid, rows in match_stats.items()
+               if active and events.get(eid, {}).get("window") == active[-1] for r in rows}
+    profiles = refresh_profiles(pids, current, profiles, args.full)
     save_json(INTL_PROFILE_FILE, profiles)
 
     output = build_output(events, match_stats, match_injuries, profiles, manual)
     web_output = dict(output)
     output["match_stats"] = match_stats
     output["match_injuries"] = match_injuries
+    output["scanned_complete"] = sorted(done)
     save_json(INTL_CACHE_FILE, output)
-    save_json(WEB_INTL_FILE, web_output)  # web copy omits raw per-match rows
+    save_json(WEB_INTL_FILE, web_output, compact=True)  # web copy omits raw per-match rows
 
     print(f"\nDone. {len(output['appearances'])} player-window rows, "
           f"{len(output['injuries'])} injuries recorded.")
