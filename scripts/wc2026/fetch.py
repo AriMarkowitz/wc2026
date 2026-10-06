@@ -30,27 +30,27 @@ from wc2026.transform import build_output
 # Step 1: Collect all completed WC event IDs
 # ---------------------------------------------------------------------------
 
-# ESPN season.slug values for knockout rounds (a loss here = elimination).
-KNOCKOUT_SLUGS = {
-    "round-of-32", "round-of-16",
-    "quarterfinal", "quarterfinals",
-    "semifinal", "semifinals",
-    "final", "3rd-place", "third-place",
-}
+# Human label + rank for each round, for the "current stage" badge. ESPN's
+# season.slug varies ("3rd-place", "third-place-match", "semifinals", …), so
+# match on keywords rather than exact strings. Rank >= 1 = knockout round
+# (a loss there = elimination).
+_ROUND_KEYWORDS = [  # checked in order — "third" before "final", "semi"/"quarter" before "final"
+    (("third", "3rd"), "Third-place Playoff", 5),
+    (("semi",), "Semifinals", 4),
+    (("quarter",), "Quarterfinals", 3),
+    (("round-of-16", "round-of-sixteen"), "Round of 16", 2),
+    (("round-of-32",), "Round of 32", 1),
+    (("final",), "Final", 6),
+]
 
-# Human label + rank for each round, for the "current stage" badge.
-ROUND_LABELS = {
-    "group-stage": ("Group Stage", 0),
-    "round-of-32": ("Round of 32", 1),
-    "round-of-16": ("Round of 16", 2),
-    "quarterfinal": ("Quarterfinals", 3),
-    "quarterfinals": ("Quarterfinals", 3),
-    "semifinal": ("Semifinals", 4),
-    "semifinals": ("Semifinals", 4),
-    "third-place": ("Third-place Playoff", 5),
-    "3rd-place": ("Third-place Playoff", 5),
-    "final": ("Final", 6),
-}
+
+def round_info(slug: str) -> tuple[str, int]:
+    """(label, rank) for an ESPN season slug; unknown slugs are group stage."""
+    slug = (slug or "").lower()
+    for keys, label, rank in _ROUND_KEYWORDS:
+        if any(k in slug for k in keys):
+            return label, rank
+    return "Group Stage", 0
 
 
 def fetch_event_ids() -> tuple[list[dict], dict[str, str], dict]:
@@ -96,10 +96,10 @@ def fetch_event_ids() -> tuple[list[dict], dict[str, str], dict]:
                 "date": day,
             })
             # --- tournament progression bookkeeping ---
-            label, rank = ROUND_LABELS.get(slug, (None, None))
-            if rank is not None and rank > furthest:
+            label, rank = round_info(slug)
+            if rank > furthest:
                 furthest, furthest_label = rank, label
-            is_ko = slug in KNOCKOUT_SLUGS
+            is_ko = rank >= 1
             for comp in event.get("competitions", []):
                 for c in comp.get("competitors", []):
                     name = c.get("team", {}).get("displayName")

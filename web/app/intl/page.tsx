@@ -243,22 +243,21 @@ function MatchTable({ rows }: { rows: IntlData["matches"] }) {
 // ---------------------------------------------------------------------------
 
 export default function IntlPage() {
-  const [data, setData] = useState<IntlData | null>(null);
+  const [data, setData] = useState<(IntlData & { selected: string }) | null>(null);
   const [tab, setTab] = useState<Tab>("clubs");
-  const [win, setWin] = useState<string>("all");
+  // "" until the API tells us the latest window; each window loads on demand
+  const [win, setWin] = useState<string>("");
   const [fClub, setFClub] = useState<Set<string>>(new Set());
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
   const [fNat, setFNat] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    fetch("/api/v1/intl").then((r) => r.json()).then((j) => {
-      const d: IntlData = j.response;
-      setData(d);
-      // Default to the most recent window that has matches
-      const latest = [...d.windows].reverse().find((w) => w.matches > 0);
-      if (latest) setWin(latest.id);
+    if (data && data.selected === win) return;
+    fetch(`/api/v1/intl${win ? `?window=${win}` : ""}`).then((r) => r.json()).then((j) => {
+      setData(j.response);
+      if (!win) setWin(j.response.selected);
     });
-  }, []);
+  }, [win]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const inScope = <T extends { window: string; club: string; league: string | null; nationality: string | null }>(r: T) =>
     (win === "all" || r.window === win) &&
@@ -356,7 +355,7 @@ export default function IntlPage() {
               ]}
             />
           </div>
-          {!data.matches.length ? (
+          {!data.windows.some((w) => w.matches > 0) ? (
             <div className={styles.loading}>No international-break data yet — run scripts/fetch_intl.py.</div>
           ) : (
             <AnimatePresence mode="wait">

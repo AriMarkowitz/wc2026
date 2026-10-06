@@ -5,7 +5,7 @@ ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world"
 
 # WC 2026 dates
 WC_START_DATE = "20260611"
-WC_END_DATE   = "20260718"
+WC_END_DATE   = "20260719"  # the final
 
 # Paths
 DATA_DIR          = DATA_ROOT / "wc2026"
