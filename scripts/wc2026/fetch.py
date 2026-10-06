@@ -12,7 +12,7 @@ from pathlib import Path
 from core import espn
 from core.paths import WEB_DATA_DIR
 from core.io import date_range, load_json, save_json
-from core.matches import _decisive_goals, parse_match_stats
+from core.matches import _decisive_goals, backfill_started, parse_match_stats
 from core.profiles import _sun_sign, fetch_athlete_profile
 from wc2026.config import (
     CACHE_FILE,
@@ -233,6 +233,16 @@ def main():
                 decisive = {}
             for row in match_stats[eid]:
                 row["decisive_goals"] = int(decisive.get(str(row.get("player_id", "")), 0))
+
+    # --- Backfill the `started` flag into cached matches that predate it. ---
+    no_starts = [eid for eid, rows in match_stats.items() if rows and "started" not in rows[0]]
+    if no_starts:
+        print(f"Backfilling starts for {len(no_starts)} cached matches...")
+        for eid in no_starts:
+            try:
+                backfill_started(match_stats[eid], espn.get(f"{ESPN_BASE}/summary", {"event": eid}))
+            except Exception as e:
+                print(f"  Warning: could not backfill starts for {eid}: {e}")
 
     # --- Fetch full WC squads (every selected player, not just those who have
     #     appeared). Only fetch squads we don't have yet. ---

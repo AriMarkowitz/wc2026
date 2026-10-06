@@ -148,14 +148,14 @@ function ClubTable({
   meta: WcMeta | null;
   onDrillDown: (c: string) => void;
 }) {
-  const [sort, setSort] = useState<keyof Club>("total_goals");
+  const [sort, setSort] = useState<keyof Club>("total_goal_contributions");
   const [view, setView] = useState<View>("table");
   const [fClub, setFClub] = useState<Set<string>>(new Set());
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
 
   const { widths, startResize, autoFit } = useColumnResize({
     rank: 48, club: 180, players: 110, goals: 70, dec: 80, assists: 80, ga: 70,
-    g90: 70, a90: 70, ga90: 84, mins: 80, yc: 60, rc: 60, age: 80,
+    g90: 70, a90: 70, ga90: 84, mins: 80, sh: 64, sot: 60, yc: 60, rc: 60, age: 80,
   });
 
   const filtered = useMemo(() => {
@@ -179,6 +179,8 @@ function ClubTable({
     { key: "a90",     label: "A/90",    col: "assists_per_90", dec: true, title: "Assists per 90 (all squad minutes)" },
     { key: "ga90",    label: "G+A/90",  col: "ga_per_90", dec: true, accent: true, title: "Goal contributions per 90 — accounts for squad minutes" },
     { key: "mins",    label: "Mins",    col: "total_minutes", title: "Total player-minutes" },
+    { key: "sh",      label: "Shots",   col: "total_shots", title: "Total shots" },
+    { key: "sot",     label: "SOT",     col: "total_shots_on_target", title: "Shots on target" },
     { key: "yc",      label: "YC",      col: "total_yellow_cards", title: "Yellow cards" },
     { key: "rc",      label: "RC",      col: "total_red_cards", title: "Red cards" },
     { key: "age",     label: "Avg Age", col: "avg_age" },
@@ -213,7 +215,7 @@ function ClubTable({
           metrics={chartMetrics}
           label={(c) => c.club}
           rowKey={(c) => c.club}
-          defaultMetric="goals"
+          defaultMetric="ga"
         />
       ) : (
       <>
@@ -260,6 +262,8 @@ function ClubTable({
                 <td className={styles.nowrap}>{fmtDec(c.assists_per_90)}</td>
                 <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={ga90Color(c.ga_per_90, ga90Min, ga90Max)}>{fmtDec(c.ga_per_90)}</td>
                 <td className={styles.nowrap}>{c.total_minutes}</td>
+                <td className={styles.nowrap}>{c.total_shots}</td>
+                <td className={styles.nowrap}>{c.total_shots_on_target}</td>
                 <td className={`${styles.nowrap} ${c.total_yellow_cards ? styles.cellAmber : ""}`}>{c.total_yellow_cards}</td>
                 <td className={`${styles.nowrap} ${c.total_red_cards ? styles.cellRed : ""}`}>{c.total_red_cards}</td>
                 <td className={styles.nowrap}>{fmt(c.avg_age)}</td>
@@ -305,7 +309,7 @@ function NationTable({
   meta: WcMeta | null;
   onDrillDown: (nat: string) => void;
 }) {
-  const [sort, setSort] = useState<keyof NationRow>("total_goals");
+  const [sort, setSort] = useState<keyof NationRow>("total_goal_contributions");
   const [view, setView] = useState<View>("table");
   const [fNat, setFNat] = useState<Set<string>>(new Set());
 
@@ -405,7 +409,7 @@ function NationTable({
           metrics={chartMetrics}
           label={(r) => r.nation}
           rowKey={(r) => r.nation}
-          defaultMetric="goals"
+          defaultMetric="ga"
         />
       ) : (
       <>
@@ -471,7 +475,11 @@ function NationTable({
 // Player table
 // ---------------------------------------------------------------------------
 
-type PlayerSort = keyof Player | "min_per_goal";
+type PlayerSort = keyof Player | "min_per_goal" | "g_a" | "shot_pct";
+
+// G+A and shot accuracy are derived client-side so older data files still sort.
+const gA = (p: Player) => p.goals + p.assists;
+const shotPct = (p: Player) => (p.total_shots ? Math.round((p.shots_on_target / p.total_shots) * 100) : null);
 
 function PlayerTable({
   players, meta, fClub, setFClub, fNat, setFNat, onSignClick,
@@ -484,7 +492,7 @@ function PlayerTable({
   setFNat: (s: Set<string>) => void;
   onSignClick: () => void;
 }) {
-  const [sort, setSort] = useState<PlayerSort>("goals");
+  const [sort, setSort] = useState<PlayerSort>("g_a");
   const [view, setView] = useState<View>("table");
   const [fLeague, setFLeague] = useState<Set<string>>(new Set());
   const [fPos, setFPos] = useState<Set<string>>(new Set());
@@ -492,7 +500,8 @@ function PlayerTable({
 
   const { widths, startResize, autoFit } = useColumnResize({
     rank: 48, name: 170, club: 150, nat: 120, pos: 70, age: 56, sign: 110,
-    mp: 50, goals: 64, assists: 76, dec: 78, ga90: 80, mpg: 72, sot: 56, mins: 64, yc: 50, rc: 50,
+    mp: 50, gs: 50, goals: 64, assists: 76, ga: 56, dec: 78, ga90: 80, mpg: 72,
+    sh: 60, sot: 56, sotp: 64, fls: 56, mins: 64, yc: 50, rc: 50,
   });
 
   const filtered = useMemo(() => {
@@ -512,6 +521,8 @@ function PlayerTable({
         const bv = b.goals ? b.minutes_played / b.goals : Infinity;
         return av - bv;
       }
+      if (sort === "g_a") return gA(b) - gA(a) || b.goals - a.goals;
+      if (sort === "shot_pct") return (shotPct(b) ?? -1) - (shotPct(a) ?? -1);
       const av = ((a as unknown as Record<string, unknown>)[sort as string] as number) ?? 0;
       const bv = ((b as unknown as Record<string, unknown>)[sort as string] as number) ?? 0;
       return bv - av;
@@ -529,12 +540,17 @@ function PlayerTable({
 
   const numCols: { key: string; label: string; col: PlayerSort; title?: string; accent?: boolean }[] = [
     { key: "mp",     label: "MP",     col: "matches_played", title: "Matches played" },
+    { key: "gs",     label: "GS",     col: "starts", title: "Games started" },
     { key: "goals",  label: "Goals",  col: "goals" },
     { key: "assists",label: "Assists",col: "assists" },
+    { key: "ga",     label: "G+A",    col: "g_a", title: "Goals + assists" },
     { key: "dec",    label: "Decisive", col: "decisive_goals", accent: true, title: "Decisive goals — the goal that decided the result: a game-winner in a one-goal win, or the equalizer that rescued a draw. Own goals and blowout goals don't count." },
     { key: "ga90",   label: "G+A/90", col: "goal_contributions_per_90", accent: true, title: "Goal contributions per 90" },
     { key: "mpg",    label: "Min/G",  col: "min_per_goal", title: "Minutes per goal — lower is better" },
+    { key: "sh",     label: "Shots",  col: "total_shots", title: "Total shots" },
     { key: "sot",    label: "SOT",    col: "shots_on_target", title: "Shots on target" },
+    { key: "sotp",   label: "SoT%",   col: "shot_pct", title: "Share of shots on target" },
+    { key: "fls",    label: "Fouls",  col: "fouls_committed", title: "Fouls committed" },
     { key: "mins",   label: "Mins",   col: "minutes_played" },
     { key: "yc",     label: "YC",     col: "yellow_cards", title: "Yellow cards" },
     { key: "rc",     label: "RC",     col: "red_cards", title: "Red cards" },
@@ -542,6 +558,8 @@ function PlayerTable({
 
   const playerVal = (p: Player, col: PlayerSort): number | null => {
     if (col === "min_per_goal") return p.goals ? Math.round(p.minutes_played / p.goals) : null;
+    if (col === "g_a") return gA(p);
+    if (col === "shot_pct") return shotPct(p);
     return (p as unknown as Record<string, number | null>)[col as string] ?? null;
   };
   const chartMetrics: MetricDef<Player>[] = numCols.map((c) => ({
@@ -568,7 +586,7 @@ function PlayerTable({
           metrics={chartMetrics}
           label={(p) => p.name}
           rowKey={(p) => String(p.player_id)}
-          defaultMetric="goals"
+          defaultMetric="ga"
         />
       ) : (
       <>
@@ -649,12 +667,17 @@ function PlayerTable({
                   ) : "—"}
                 </td>
                 <td className={styles.nowrap}>{p.matches_played}</td>
+                <td className={styles.nowrap}>{fmt(p.starts)}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.goals}</td>
                 <td className={`${styles.statCell} ${styles.nowrap}`}>{p.assists}</td>
+                <td className={`${styles.statCell} ${styles.nowrap}`}>{gA(p)}</td>
                 <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={{ color: p.decisive_goals ? "var(--gold)" : "var(--slate)" }} title="Decisive goals — decided the result (game-winner or rescuing equalizer)">{p.decisive_goals}</td>
                 <td className={`${styles.statCellAccent} ${styles.nowrap}`} style={ga90Color(p.goal_contributions_per_90, pGa90Min, pGa90Max)}>{fmtDec(p.goal_contributions_per_90)}</td>
                 <td className={styles.nowrap}>{p.goals ? Math.round(p.minutes_played / p.goals) : "—"}</td>
+                <td className={styles.nowrap}>{p.total_shots}</td>
                 <td className={styles.nowrap}>{p.shots_on_target}</td>
+                <td className={styles.nowrap}>{shotPct(p) == null ? "—" : `${shotPct(p)}%`}</td>
+                <td className={styles.nowrap}>{p.fouls_committed}</td>
                 <td className={styles.nowrap}>{p.minutes_played}</td>
                 <td className={`${styles.nowrap} ${p.yellow_cards ? styles.cellAmber : ""}`}>{p.yellow_cards}</td>
                 <td className={`${styles.nowrap} ${p.red_cards ? styles.cellRed : ""}`}>{p.red_cards}</td>

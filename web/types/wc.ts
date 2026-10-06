@@ -11,14 +11,17 @@ export interface Player {
   position: "Goalkeeper" | "Defender" | "Midfielder" | "Forward" | string;
   photo: string | null;
   matches_played: number;
+  starts?: number;
   minutes_played: number;
   goals: number;
   decisive_goals: number;
   assists: number;
+  goal_contributions?: number;
   yellow_cards: number;
   red_cards: number;
   shots_on_target: number;
   total_shots: number;
+  shot_accuracy?: number | null;
   saves: number;
   fouls_committed: number;
   goals_conceded: number;
@@ -40,6 +43,8 @@ export interface Club {
   total_assists: number;
   total_goal_contributions: number;
   total_minutes: number;
+  total_shots: number;
+  total_shots_on_target: number;
   total_yellow_cards: number;
   total_red_cards: number;
   avg_age: number | null;

@@ -28,11 +28,15 @@ export interface IntlAppearance {
   position: string;
   age: number | null;
   matches: number;
+  starts?: number;
   minutes: number;
   goals: number;
   assists: number;
   yellow_cards: number;
   red_cards: number;
+  total_shots?: number;
+  shots_on_target?: number;
+  fouls_committed?: number;
   competitions: string[];
   injured: boolean;
 }

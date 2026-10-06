@@ -167,6 +167,7 @@ def parse_match_stats(event_id: str, base: str, data: dict | None = None) -> lis
                 "name": athlete.get("displayName", ""),
                 "event_id": event_id,
                 "minutes": mins,
+                "started": int(is_starter),
                 "goals": int(raw_stats.get("totalGoals", 0)),
                 "decisive_goals": int(decisive.get(pid, 0)),
                 "assists": int(raw_stats.get("goalAssists", 0)),
@@ -181,3 +182,16 @@ def parse_match_stats(event_id: str, base: str, data: dict | None = None) -> lis
             })
 
     return players
+
+
+def backfill_started(rows: list[dict], data: dict) -> None:
+    """Add the `started` flag to cached rows that predate it, from a freshly
+    fetched summary; every other cached stat is left untouched."""
+    starters = {
+        str(e.get("athlete", {}).get("id", ""))
+        for team in data.get("rosters", [])
+        for e in team.get("roster", [])
+        if e.get("starter")
+    }
+    for row in rows:
+        row["started"] = int(str(row.get("player_id", "")) in starters)

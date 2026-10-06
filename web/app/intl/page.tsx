@@ -50,6 +50,8 @@ function useSort<T>(rows: T[], initial: keyof T) {
 // Club rollup — who sent the most players, minutes, and who came back hurt
 // ---------------------------------------------------------------------------
 
+const per90 = (v: number, mins: number) => (mins > 0 ? Math.round((v / mins) * 90 * 100) / 100 : null);
+
 interface ClubRow {
   club: string;
   league: string;
@@ -57,6 +59,12 @@ interface ClubRow {
   minutes: number;
   goals: number;
   assists: number;
+  ga: number;
+  ga90: number | null;
+  shots: number;
+  sot: number;
+  yc: number;
+  rc: number;
   injuries: number;
   injured_names: string;
 }
@@ -66,8 +74,8 @@ function rollupClubs(apps: IntlAppearance[], injuries: IntlInjury[]): ClubRow[] 
   const row = (club: string, league: string | null) => {
     if (!map.has(club))
       map.set(club, {
-        club, league: league ?? "—", players: 0, minutes: 0, goals: 0, assists: 0,
-        injuries: 0, injured_names: "", ids: new Set(),
+        club, league: league ?? "—", players: 0, minutes: 0, goals: 0, assists: 0, ga: 0, ga90: null,
+        shots: 0, sot: 0, yc: 0, rc: 0, injuries: 0, injured_names: "", ids: new Set(),
       });
     return map.get(club)!;
   };
@@ -78,6 +86,10 @@ function rollupClubs(apps: IntlAppearance[], injuries: IntlInjury[]): ClubRow[] 
     r.minutes += a.minutes;
     r.goals += a.goals;
     r.assists += a.assists;
+    r.shots += a.total_shots ?? 0;
+    r.sot += a.shots_on_target ?? 0;
+    r.yc += a.yellow_cards;
+    r.rc += a.red_cards;
   }
   for (const i of injuries) {
     if (i.club === "Unknown") continue;
@@ -85,14 +97,24 @@ function rollupClubs(apps: IntlAppearance[], injuries: IntlInjury[]): ClubRow[] 
     r.injuries += 1;
     r.injured_names = r.injured_names ? `${r.injured_names}, ${i.name}` : i.name;
   }
-  return [...map.values()].map(({ ids, ...r }) => ({ ...r, players: ids.size }));
+  return [...map.values()].map(({ ids, ...r }) => ({
+    ...r, players: ids.size, ga: r.goals + r.assists, ga90: per90(r.goals + r.assists, r.minutes),
+  }));
 }
 
-function ClubTable({ rows }: { rows: ClubRow[] }) {
-  const { sorted, Th } = useSort(rows, "minutes");
+function ClubLink({ club, onClick }: { club: string; onClick: (club: string) => void }) {
+  return (
+    <button className={styles.clubLink} onClick={() => onClick(club)} title={`Show ${club}'s players`}>
+      {club}
+    </button>
+  );
+}
+
+function ClubTable({ rows, onClub }: { rows: ClubRow[]; onClub: (club: string) => void }) {
+  const { sorted, Th } = useSort(rows, "ga");
   return (
     <>
-      <div className={styles.tableMeta}>{sorted.length} clubs</div>
+      <div className={styles.tableMeta}>{sorted.length} clubs · click a club for its players</div>
       <div className={styles.tableWrap}>
         <table className={styles.table} style={autoTable}>
           <thead>
@@ -100,9 +122,15 @@ function ClubTable({ rows }: { rows: ClubRow[] }) {
               <th>#</th>
               <Th k="club" label="Club" />
               <Th k="players" label="Called up" />
-              <Th k="minutes" label="Minutes" />
+              <Th k="minutes" label="Min" />
               <Th k="goals" label="G" />
               <Th k="assists" label="A" />
+              <Th k="ga" label="G+A" />
+              <Th k="ga90" label="G+A/90" />
+              <Th k="shots" label="Shots" />
+              <Th k="sot" label="SOT" />
+              <Th k="yc" label="YC" />
+              <Th k="rc" label="RC" />
               <Th k="injuries" label="Injuries" />
               <th>Injured</th>
             </tr>
@@ -112,12 +140,18 @@ function ClubTable({ rows }: { rows: ClubRow[] }) {
               <tr key={c.club}>
                 <td className={styles.rank}>{i + 1}</td>
                 <td className={styles.nowrap}>
-                  {c.club} <span className={styles.leagueBadge}>{c.league}</span>
+                  <ClubLink club={c.club} onClick={onClub} /> <span className={styles.leagueBadge}>{c.league}</span>
                 </td>
                 <td className={styles.statCell}>{c.players}</td>
-                <td className={styles.statCell}>{c.minutes}</td>
+                <td>{c.minutes}</td>
                 <td>{c.goals}</td>
                 <td>{c.assists}</td>
+                <td className={styles.statCell}>{c.ga}</td>
+                <td>{c.ga90?.toFixed(2) ?? "—"}</td>
+                <td>{c.shots}</td>
+                <td>{c.sot}</td>
+                <td className={c.yc ? styles.cellAmber : ""}>{c.yc}</td>
+                <td className={c.rc ? styles.cellRed : ""}>{c.rc}</td>
                 <td className={c.injuries ? styles.cellRed : ""}>{c.injuries || "—"}</td>
                 <td className={styles.wrap}>{c.injured_names || "—"}</td>
               </tr>
@@ -129,8 +163,20 @@ function ClubTable({ rows }: { rows: ClubRow[] }) {
   );
 }
 
-function PlayerTable({ rows }: { rows: IntlAppearance[] }) {
-  const { sorted, Th } = useSort(rows, "minutes");
+type PlayerRow = IntlAppearance & { ga: number; ga90: number | null; shot_pct: number | null };
+
+function PlayerTable({ apps, onClub }: { apps: IntlAppearance[]; onClub: (club: string) => void }) {
+  const rows = useMemo<PlayerRow[]>(
+    () =>
+      apps.map((a) => ({
+        ...a,
+        ga: a.goals + a.assists,
+        ga90: per90(a.goals + a.assists, a.minutes),
+        shot_pct: a.total_shots ? Math.round(((a.shots_on_target ?? 0) / a.total_shots) * 100) : null,
+      })),
+    [apps],
+  );
+  const { sorted, Th } = useSort(rows, "ga");
   return (
     <>
       <div className={styles.tableMeta}>{sorted.length} player-windows</div>
@@ -144,10 +190,18 @@ function PlayerTable({ rows }: { rows: IntlAppearance[] }) {
               <Th k="nationality" label="Nation" />
               <Th k="window" label="Window" />
               <Th k="matches" label="MP" />
+              <Th k="starts" label="GS" />
               <Th k="minutes" label="Min" />
               <Th k="goals" label="G" />
               <Th k="assists" label="A" />
+              <Th k="ga" label="G+A" />
+              <Th k="ga90" label="G+A/90" />
+              <Th k="total_shots" label="Shots" />
+              <Th k="shots_on_target" label="SOT" />
+              <Th k="shot_pct" label="SoT%" />
+              <Th k="fouls_committed" label="Fouls" />
               <Th k="yellow_cards" label="YC" />
+              <Th k="red_cards" label="RC" />
             </tr>
           </thead>
           <tbody>
@@ -158,14 +212,22 @@ function PlayerTable({ rows }: { rows: IntlAppearance[] }) {
                   {p.name}
                   {p.injured && <span className={styles.cellRed} title="Injury recorded this window"> ✚</span>}
                 </td>
-                <td className={styles.nowrap}>{p.club}</td>
+                <td className={styles.nowrap}><ClubLink club={p.club} onClick={onClub} /></td>
                 <td className={styles.nowrap}>{p.nationality}</td>
                 <td className={styles.nowrap}>{p.window}</td>
                 <td>{p.matches}</td>
-                <td className={styles.statCell}>{p.minutes}</td>
+                <td>{p.starts ?? "—"}</td>
+                <td>{p.minutes}</td>
                 <td>{p.goals}</td>
                 <td>{p.assists}</td>
-                <td>{p.yellow_cards}</td>
+                <td className={styles.statCell}>{p.ga}</td>
+                <td>{p.ga90?.toFixed(2) ?? "—"}</td>
+                <td>{p.total_shots ?? "—"}</td>
+                <td>{p.shots_on_target ?? "—"}</td>
+                <td>{p.shot_pct == null ? "—" : `${p.shot_pct}%`}</td>
+                <td>{p.fouls_committed ?? "—"}</td>
+                <td className={p.yellow_cards ? styles.cellAmber : ""}>{p.yellow_cards}</td>
+                <td className={p.red_cards ? styles.cellRed : ""}>{p.red_cards}</td>
               </tr>
             ))}
           </tbody>
@@ -270,6 +332,12 @@ export default function IntlPage() {
   const matches = useMemo(() => (data?.matches ?? []).filter((m) => win === "all" || m.window === win), [data, win]);
   const clubs = useMemo(() => rollupClubs(apps, injuries), [apps, injuries]);
 
+  // Club name → Players tab filtered to that club
+  function showClub(club: string) {
+    setFClub(new Set([club]));
+    setTab("players");
+  }
+
   const opts = (f: (a: IntlAppearance) => string | null) =>
     Array.from(new Set((data?.appearances ?? []).map(f).filter((v): v is string => !!v && v !== "Unknown"))).sort();
 
@@ -360,8 +428,8 @@ export default function IntlPage() {
           ) : (
             <AnimatePresence mode="wait">
               <motion.div key={tab} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0, transition: drape }}>
-                {tab === "clubs" && <ClubTable rows={clubs} />}
-                {tab === "players" && <PlayerTable rows={apps} />}
+                {tab === "clubs" && <ClubTable rows={clubs} onClub={showClub} />}
+                {tab === "players" && <PlayerTable apps={apps} onClub={showClub} />}
                 {tab === "injuries" && <InjuryTable rows={injuries} />}
                 {tab === "matches" && <MatchTable rows={matches} />}
               </motion.div>
