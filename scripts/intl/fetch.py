@@ -21,7 +21,7 @@ from datetime import date, datetime, timedelta, timezone
 
 from core import espn
 from core.io import load_json, save_json
-from core.matches import parse_match_stats
+from core.matches import backfill_started, parse_match_stats
 from core.profiles import fetch_athlete_profile
 from intl.config import (
     COMPETITIONS,
@@ -164,6 +164,10 @@ def refresh_profiles(pids: set[str], current: set[str], profiles: dict, force: b
 # Output
 # ---------------------------------------------------------------------------
 
+_SUM_FIELDS = ("goals", "assists", "yellow_cards", "red_cards",
+               "total_shots", "shots_on_target", "fouls_committed")
+
+
 def build_output(events: dict, match_stats: dict, match_injuries: dict,
                  profiles: dict, manual: list[dict]) -> dict:
     def prof(pid):
@@ -178,13 +182,13 @@ def build_output(events: dict, match_stats: dict, match_injuries: dict,
         for r in rows:
             key = (str(r["player_id"]), ev["window"])
             agg = pw.setdefault(key, {
-                "player_id": key[0], "window": key[1], "matches": 0, "minutes": 0,
-                "goals": 0, "assists": 0, "yellow_cards": 0, "red_cards": 0,
-                "competitions": set(),
+                "player_id": key[0], "window": key[1], "matches": 0, "starts": 0, "minutes": 0,
+                **{f: 0 for f in _SUM_FIELDS}, "competitions": set(),
             })
             agg["matches"] += 1
+            agg["starts"] += r.get("started") or 0
             agg["minutes"] += r.get("minutes") or 0
-            for f in ("goals", "assists", "yellow_cards", "red_cards"):
+            for f in _SUM_FIELDS:
                 agg[f] += r.get(f) or 0
             agg["competitions"].add(ev["competition"])
 
@@ -266,7 +270,7 @@ def build_output(events: dict, match_stats: dict, match_injuries: dict,
             "age": p.get("age"),
             "injured": (pid, win) in injured_keys,
         })
-    appearances.sort(key=lambda a: (-a["minutes"], a["name"]))
+    appearances.sort(key=lambda a: (-(a["goals"] + a["assists"]), -a["minutes"], a["name"]))
 
     match_counts = defaultdict(int)
     for ev in events.values():
@@ -318,6 +322,18 @@ def main():
             continue
         match_stats[ev["id"]] = parse_match_stats(ev["id"], f"{ESPN_SOCCER}/{ev['slug']}", data=data)
         match_injuries[ev["id"]] = parse_match_injuries(data)
+
+    # Backfill the `started` flag into cached matches that predate it.
+    no_starts = [eid for eid, rows in match_stats.items()
+                 if rows and "started" not in rows[0] and eid in events]
+    if no_starts:
+        print(f"Backfilling starts for {len(no_starts)} cached matches...")
+    for eid in no_starts:
+        ev = events[eid]
+        try:
+            backfill_started(match_stats[eid], espn.get(f"{ESPN_SOCCER}/{ev['slug']}/summary", {"event": eid}))
+        except Exception as e:
+            print(f"    Warning: could not backfill starts for {eid}: {e}")
 
     pids = {str(r["player_id"]) for rows in match_stats.values() for r in rows}
     manual = load_json(INTL_MANUAL_INJURIES, {}).get("injuries", [])

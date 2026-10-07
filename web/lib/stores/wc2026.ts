@@ -81,6 +81,8 @@ function deriveClubTotals(players: Player[]): Club[] {
       total_assists: totalAssists,
       total_goal_contributions: totalGa,
       total_minutes: totalMins,
+      total_shots: ps.reduce((s, p) => s + p.total_shots, 0),
+      total_shots_on_target: ps.reduce((s, p) => s + p.shots_on_target, 0),
       total_yellow_cards: ps.reduce((s, p) => s + p.yellow_cards, 0),
       total_red_cards: ps.reduce((s, p) => s + p.red_cards, 0),
       avg_age: ages.length ? Math.round((ages.reduce((s, a) => s + a, 0) / ages.length) * 10) / 10 : null,

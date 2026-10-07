@@ -56,14 +56,17 @@ def build_output(
             "position": profile.get("position") or UNKNOWN,
             "photo": profile.get("photo"),
             "matches_played": agg["matches_played"],
+            "starts": agg["starts"],
             "minutes_played": mins,
             "goals": agg["goals"],
             "decisive_goals": agg["decisive_goals"],
             "assists": agg["assists"],
+            "goal_contributions": agg["goals"] + agg["assists"],
             "yellow_cards": agg["yellow_cards"],
             "red_cards": agg["red_cards"],
             "shots_on_target": agg["shots_on_target"],
             "total_shots": agg["total_shots"],
+            "shot_accuracy": round(agg["shots_on_target"] / agg["total_shots"] * 100) if agg["total_shots"] else None,
             "saves": agg["saves"],
             "fouls_committed": agg["fouls_committed"],
             "goals_conceded": agg["goals_conceded"],
@@ -77,7 +80,7 @@ def build_output(
         }
         players.append(record)
 
-    players.sort(key=lambda p: (-p["goals"], -p["assists"]))
+    players.sort(key=lambda p: (-p["goal_contributions"], -p["goals"]))
 
     # --- Roll up to club level ---
     club_buckets: dict[str, list] = defaultdict(list)
@@ -105,6 +108,8 @@ def build_output(
             "total_assists": total_assists,
             "total_goal_contributions": total_ga,
             "total_minutes": total_mins,
+            "total_shots": sum(p["total_shots"] for p in club_players),
+            "total_shots_on_target": sum(p["shots_on_target"] for p in club_players),
             "total_yellow_cards": sum(p["yellow_cards"] for p in club_players),
             "total_red_cards": sum(p["red_cards"] for p in club_players),
             "avg_age": round(sum(ages) / len(ages), 1) if ages else None,
@@ -199,6 +204,7 @@ def _empty_agg(pid: str, first_stat: dict) -> dict:
         "player_id": pid,
         "name": first_stat.get("name"),
         "matches_played": 0,
+        "starts": 0,
         "minutes": 0,
         "goals": 0,
         "decisive_goals": 0,
@@ -217,6 +223,7 @@ def _empty_agg(pid: str, first_stat: dict) -> dict:
 
 def _merge_stat(agg: dict, stat: dict):
     agg["matches_played"] += 1
+    agg["starts"] += stat.get("started") or 0
     agg["minutes"] += stat.get("minutes") or 0
     agg["goals"] += stat.get("goals") or 0
     agg["decisive_goals"] += stat.get("decisive_goals") or 0
