@@ -69,4 +69,11 @@ export interface IntlData {
   matches: IntlMatch[];
   appearances: IntlAppearance[];
   injuries: IntlInjury[];
+  /** Club race per window id and "all" (cumulative goals/assists by match date). */
+  timeseries?: Record<string, IntlRace>;
+}
+
+export interface IntlRace {
+  matchdays: string[];
+  series: Record<string, { goals: number[]; assists: number[]; ga: number[] }>;
 }

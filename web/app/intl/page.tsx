@@ -3,13 +3,14 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import type { IntlAppearance, IntlData, IntlInjury, InjuryKind } from "@/types/intl";
+import type { IntlAppearance, IntlData, IntlInjury, IntlRace, InjuryKind } from "@/types/intl";
+import ClubRaceChart from "@/components/ClubRaceChart";
 // Shared design system — see components/.
 import styles from "@/components/dashboard.module.css";
 import FilterBar from "@/components/FilterBar";
 import { drape, tension } from "@/components/motion";
 
-type Tab = "clubs" | "players" | "injuries" | "matches";
+type Tab = "clubs" | "players" | "race" | "injuries" | "matches";
 
 const KIND_LABEL: Record<InjuryKind, string> = {
   forced_off: "Forced off",
@@ -114,7 +115,7 @@ function ClubTable({ rows, onClub }: { rows: ClubRow[]; onClub: (club: string) =
   const { sorted, Th } = useSort(rows, "ga");
   return (
     <>
-      <div className={styles.tableMeta}>{sorted.length} clubs · click a club for its players</div>
+      <div className={styles.tableMeta}>{sorted.length} clubs</div>
       <div className={styles.tableWrap}>
         <table className={styles.table} style={autoTable}>
           <thead>
@@ -305,7 +306,7 @@ function MatchTable({ rows }: { rows: IntlData["matches"] }) {
 // ---------------------------------------------------------------------------
 
 export default function IntlPage() {
-  const [data, setData] = useState<(IntlData & { selected: string }) | null>(null);
+  const [data, setData] = useState<(Omit<IntlData, "timeseries"> & { selected: string; race: IntlRace | null }) | null>(null);
   const [tab, setTab] = useState<Tab>("clubs");
   // "" until the API tells us the latest window; each window loads on demand
   const [win, setWin] = useState<string>("");
@@ -387,7 +388,7 @@ export default function IntlPage() {
       </div>
 
       <div className={styles.tabs}>
-        {([["clubs", "Clubs"], ["players", "Players"], ["injuries", "Injuries"], ["matches", "Matches"]] as [Tab, string][]).map(
+        {([["clubs", "Clubs"], ["players", "Players"], ["race", "Race"], ["injuries", "Injuries"], ["matches", "Matches"]] as [Tab, string][]).map(
           ([key, label]) => (
             <button key={key} className={`${styles.tab} ${tab === key ? styles.tabActive : ""}`} onClick={() => setTab(key)}>
               {label}
@@ -430,6 +431,13 @@ export default function IntlPage() {
               <motion.div key={tab} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0, transition: drape }}>
                 {tab === "clubs" && <ClubTable rows={clubs} onClub={showClub} />}
                 {tab === "players" && <PlayerTable apps={apps} onClub={showClub} />}
+                {tab === "race" && (
+                  <ClubRaceChart
+                    matchdays={data.race?.matchdays ?? []}
+                    series={data.race?.series ?? {}}
+                    title="Break"
+                  />
+                )}
                 {tab === "injuries" && <InjuryTable rows={injuries} />}
                 {tab === "matches" && <MatchTable rows={matches} />}
               </motion.div>
