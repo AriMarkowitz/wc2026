@@ -23,10 +23,6 @@ export const CHART_COLORS = [
   "#9DAE6B", // 10 · olive
 ];
 
-// Beyond the palette length we fall back to a dash so wrapped colors still read
-// as a different strand.
-const CHART_DASHES = ["", "5 3", "1 3"];
-
 export type RaceMetric = "ga" | "goals" | "assists";
 export type RaceSeries = Record<string, { goals: number[]; assists: number[]; ga: number[] }>;
 

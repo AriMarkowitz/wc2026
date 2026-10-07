@@ -64,10 +64,10 @@ Nations League, qualifiers): which clubs' players got minutes, what they produce
 ## Architecture
 
 ```
-ESPN public API ──▶ Python pipeline ──▶ wc2026.json ──▶ Next.js app ──▶ Vercel
+ESPN public API ──▶ Python pipeline ──▶ JSON files  ──▶ Next.js app ──▶ Vercel
                     (fetch + transform)   (committed)     (API + UI)
         ▲                                                      
-        └──────────── GitHub Actions cron (per kickoff slot) ──┘
+        └──────────── GitHub Actions (run on demand) ───────────┘
 ```
 
 - **Data pipeline** — Python fetches box scores, key events, and squads from ESPN's
@@ -76,9 +76,10 @@ ESPN public API ──▶ Python pipeline ──▶ wc2026.json ──▶ Next.j
 - **Frontend** — Next.js reads that JSON through thin `/api/v1/wc2026/*` routes (old
   `/api/v1/*` paths still work via rewrites); all tables,
   filters, and charts (hand-built SVG) render client-side.
-- **Automation** — a GitHub Actions cron runs ~150 min after each kickoff slot, commits
-  refreshed data, and triggers a Vercel redeploy. The site keeps itself current with zero
-  manual steps.
+- **Automation** — the **Fetch WC 2026 Data** and **Fetch International Break Data** GitHub
+  Actions workflows (run from the Actions tab) commit refreshed data, which triggers a
+  Vercel redeploy. The World Cup is over, so only the break workflow needs running, once
+  per FIFA window.
 
 ## Layout
 

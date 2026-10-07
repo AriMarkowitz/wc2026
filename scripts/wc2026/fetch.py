@@ -303,7 +303,6 @@ def main():
 
     # --- Build aggregated output ---
     print("Building aggregated output...")
-    from datetime import datetime
     output = build_output(match_stats, player_profiles, squad_player_ids=all_player_ids,
                           tournament=tournament)
     output["match_stats"] = match_stats
@@ -315,7 +314,7 @@ def main():
     WEB_DATA_DIR.mkdir(parents=True, exist_ok=True)
     save_json(Path(WEB_CACHE_FILE), output)
 
-    print(f"\nDone.")
+    print("\nDone.")
     print(f"  Matches cached: {len(match_stats)}")
     print(f"  Players tracked: {len(output.get('players', []))}")
     print(f"  Clubs tracked:   {len(output.get('clubs', []))}")

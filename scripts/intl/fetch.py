@@ -164,8 +164,7 @@ def refresh_profiles(pids: set[str], current: set[str], profiles: dict, force: b
 # Output
 # ---------------------------------------------------------------------------
 
-_SUM_FIELDS = ("goals", "assists", "yellow_cards", "red_cards",
-               "total_shots", "shots_on_target", "fouls_committed")
+_SUM_FIELDS = ("goals", "assists", "yellow_cards", "red_cards", "fouls_committed")
 
 
 def _club_race(dates: list[str], clubs: dict, top: int = 20) -> dict:
