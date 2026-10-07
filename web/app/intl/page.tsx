@@ -62,8 +62,6 @@ interface ClubRow {
   assists: number;
   ga: number;
   ga90: number | null;
-  shots: number;
-  sot: number;
   yc: number;
   rc: number;
   injuries: number;
@@ -76,7 +74,7 @@ function rollupClubs(apps: IntlAppearance[], injuries: IntlInjury[]): ClubRow[] 
     if (!map.has(club))
       map.set(club, {
         club, league: league ?? "—", players: 0, minutes: 0, goals: 0, assists: 0, ga: 0, ga90: null,
-        shots: 0, sot: 0, yc: 0, rc: 0, injuries: 0, injured_names: "", ids: new Set(),
+        yc: 0, rc: 0, injuries: 0, injured_names: "", ids: new Set(),
       });
     return map.get(club)!;
   };
@@ -87,8 +85,6 @@ function rollupClubs(apps: IntlAppearance[], injuries: IntlInjury[]): ClubRow[] 
     r.minutes += a.minutes;
     r.goals += a.goals;
     r.assists += a.assists;
-    r.shots += a.total_shots ?? 0;
-    r.sot += a.shots_on_target ?? 0;
     r.yc += a.yellow_cards;
     r.rc += a.red_cards;
   }
@@ -128,8 +124,6 @@ function ClubTable({ rows, onClub }: { rows: ClubRow[]; onClub: (club: string) =
               <Th k="assists" label="A" />
               <Th k="ga" label="G+A" />
               <Th k="ga90" label="G+A/90" />
-              <Th k="shots" label="Shots" />
-              <Th k="sot" label="SOT" />
               <Th k="yc" label="YC" />
               <Th k="rc" label="RC" />
               <Th k="injuries" label="Injuries" />
@@ -149,8 +143,6 @@ function ClubTable({ rows, onClub }: { rows: ClubRow[]; onClub: (club: string) =
                 <td>{c.assists}</td>
                 <td className={styles.statCell}>{c.ga}</td>
                 <td>{c.ga90?.toFixed(2) ?? "—"}</td>
-                <td>{c.shots}</td>
-                <td>{c.sot}</td>
                 <td className={c.yc ? styles.cellAmber : ""}>{c.yc}</td>
                 <td className={c.rc ? styles.cellRed : ""}>{c.rc}</td>
                 <td className={c.injuries ? styles.cellRed : ""}>{c.injuries || "—"}</td>
@@ -164,7 +156,7 @@ function ClubTable({ rows, onClub }: { rows: ClubRow[]; onClub: (club: string) =
   );
 }
 
-type PlayerRow = IntlAppearance & { ga: number; ga90: number | null; shot_pct: number | null };
+type PlayerRow = IntlAppearance & { ga: number; ga90: number | null };
 
 function PlayerTable({ apps, onClub }: { apps: IntlAppearance[]; onClub: (club: string) => void }) {
   const rows = useMemo<PlayerRow[]>(
@@ -173,7 +165,6 @@ function PlayerTable({ apps, onClub }: { apps: IntlAppearance[]; onClub: (club: 
         ...a,
         ga: a.goals + a.assists,
         ga90: per90(a.goals + a.assists, a.minutes),
-        shot_pct: a.total_shots ? Math.round(((a.shots_on_target ?? 0) / a.total_shots) * 100) : null,
       })),
     [apps],
   );
@@ -197,9 +188,6 @@ function PlayerTable({ apps, onClub }: { apps: IntlAppearance[]; onClub: (club: 
               <Th k="assists" label="A" />
               <Th k="ga" label="G+A" />
               <Th k="ga90" label="G+A/90" />
-              <Th k="total_shots" label="Shots" />
-              <Th k="shots_on_target" label="SOT" />
-              <Th k="shot_pct" label="SoT%" />
               <Th k="fouls_committed" label="Fouls" />
               <Th k="yellow_cards" label="YC" />
               <Th k="red_cards" label="RC" />
@@ -223,9 +211,6 @@ function PlayerTable({ apps, onClub }: { apps: IntlAppearance[]; onClub: (club: 
                 <td>{p.assists}</td>
                 <td className={styles.statCell}>{p.ga}</td>
                 <td>{p.ga90?.toFixed(2) ?? "—"}</td>
-                <td>{p.total_shots ?? "—"}</td>
-                <td>{p.shots_on_target ?? "—"}</td>
-                <td>{p.shot_pct == null ? "—" : `${p.shot_pct}%`}</td>
                 <td>{p.fouls_committed ?? "—"}</td>
                 <td className={p.yellow_cards ? styles.cellAmber : ""}>{p.yellow_cards}</td>
                 <td className={p.red_cards ? styles.cellRed : ""}>{p.red_cards}</td>

@@ -7,7 +7,13 @@ const DATA_FILE = path.resolve(process.cwd(), "data/intl.json");
 
 export async function getIntlData(): Promise<IntlData> {
   const raw = await fs.readFile(DATA_FILE, "utf-8");
-  return JSON.parse(raw) as IntlData;
+  const data = JSON.parse(raw) as IntlData;
+  // ESPN lists the national team as the "club" for players it has no club for.
+  // The pipeline already drops these; this also covers data fetched before that fix.
+  const nationalTeams = new Set(data.matches.flatMap((m) => m.teams));
+  const declub = <T extends { club: string; league: string | null }>(r: T): T =>
+    nationalTeams.has(r.club) ? { ...r, club: "Unknown", league: null } : r;
+  return { ...data, appearances: data.appearances.map(declub), injuries: data.injuries.map(declub) };
 }
 
 /**

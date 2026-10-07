@@ -29,7 +29,6 @@ export function useCountUp(value: number) {
 
   useEffect(() => {
     if (reduce) {
-      setDisplay(value);
       prev.current = value;
       return;
     }
@@ -41,7 +40,8 @@ export function useCountUp(value: number) {
     return () => controls.stop();
   }, [value, reduce]);
 
-  return display;
+  // Reduced motion: show the value directly, no animation
+  return reduce ? value : display;
 }
 
 export { useMotionValue, useSpring, useReducedMotion };
