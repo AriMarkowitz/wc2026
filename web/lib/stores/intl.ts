@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import type { IntlData } from "@/types/intl";
+import type { IntlData, IntlRace } from "@/types/intl";
 
 // Written by scripts/fetch_intl.py — independent of the World Cup data file.
 const DATA_FILE = path.resolve(process.cwd(), "data/intl.json");
@@ -14,15 +14,19 @@ export async function getIntlData(): Promise<IntlData> {
  * One window's rows (or "all"), so the browser doesn't download the whole
  * season. No window given → the most recent window that has matches.
  */
-export async function getIntlWindow(window?: string | null): Promise<IntlData & { selected: string }> {
-  const data = await getIntlData();
+export async function getIntlWindow(
+  window?: string | null,
+): Promise<Omit<IntlData, "timeseries"> & { selected: string; race: IntlRace | null }> {
+  const { timeseries, ...data } = await getIntlData();
   const latest = [...data.windows].reverse().find((w) => w.matches > 0)?.id ?? "all";
   const selected = window && (window === "all" || data.windows.some((w) => w.id === window)) ? window : latest;
-  if (selected === "all") return { ...data, selected };
+  const race = timeseries?.[selected] ?? null;
+  if (selected === "all") return { ...data, selected, race };
   const inWin = <T extends { window: string }>(rows: T[]) => rows.filter((r) => r.window === selected);
   return {
     ...data,
     selected,
+    race,
     matches: inWin(data.matches),
     appearances: inWin(data.appearances),
     injuries: inWin(data.injuries),

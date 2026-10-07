@@ -168,10 +168,34 @@ _SUM_FIELDS = ("goals", "assists", "yellow_cards", "red_cards",
                "total_shots", "shots_on_target", "fouls_committed")
 
 
+def _club_race(dates: list[str], clubs: dict, top: int = 20) -> dict:
+    """{matchdays, series: {club: {goals, assists, ga}}} — running totals per
+    match date for the `top` clubs by final G+A (same shape as the WC race)."""
+    totals = {c: sum(g + a for g, a in by_date.values()) for c, by_date in clubs.items()}
+    series = {}
+    for club in sorted(totals, key=lambda c: -totals[c])[:top]:
+        g = a = 0
+        gs, as_ = [], []
+        for d in dates:
+            dg, da = clubs[club].get(d, (0, 0))
+            g, a = g + dg, a + da
+            gs.append(g)
+            as_.append(a)
+        series[club] = {"goals": gs, "assists": as_, "ga": [x + y for x, y in zip(gs, as_)]}
+    return {"matchdays": dates, "series": series}
+
+
 def build_output(events: dict, match_stats: dict, match_injuries: dict,
                  profiles: dict, manual: list[dict]) -> dict:
+    # ESPN lists the national team as the "club" for players it has no club
+    # for (mostly smaller nations); treat those as unknown rather than a club.
+    national_teams = {t for ev in events.values() for t in ev.get("teams", [])}
+
     def prof(pid):
-        return profiles.get(str(pid), {})
+        p = profiles.get(str(pid), {})
+        if p.get("club") in national_teams:
+            return {**p, "club": None, "league": None}
+        return p
 
     # player × window aggregates
     pw: dict[tuple[str, str], dict] = {}
@@ -272,6 +296,27 @@ def build_output(events: dict, match_stats: dict, match_injuries: dict,
         })
     appearances.sort(key=lambda a: (-(a["goals"] + a["assists"]), -a["minutes"], a["name"]))
 
+    # Club race: cumulative goals/assists per match date, per window and overall
+    daily: dict[str, dict[str, dict[str, list[int]]]] = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0])))
+    for eid, rows in match_stats.items():
+        ev = events.get(eid)
+        if not ev:
+            continue
+        for r in rows:
+            club = prof(r["player_id"]).get("club")
+            if not club or not (r.get("goals") or r.get("assists")):
+                continue
+            for scope in (ev["window"], "all"):
+                cell = daily[scope][club][ev["date"]]
+                cell[0] += r.get("goals") or 0
+                cell[1] += r.get("assists") or 0
+    dates_by_scope = defaultdict(set)
+    for ev in events.values():
+        dates_by_scope[ev["window"]].add(ev["date"])
+        dates_by_scope["all"].add(ev["date"])
+    timeseries = {scope: _club_race(sorted(dates_by_scope[scope]), clubs)
+                  for scope, clubs in daily.items()}
+
     match_counts = defaultdict(int)
     for ev in events.values():
         match_counts[ev["window"]] += 1
@@ -284,6 +329,7 @@ def build_output(events: dict, match_stats: dict, match_injuries: dict,
         "matches": sorted(events.values(), key=lambda e: e["date"]),
         "appearances": appearances,
         "injuries": injuries,
+        "timeseries": timeseries,
     }
 
 
