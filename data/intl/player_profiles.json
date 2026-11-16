@@ -25,7 +25,7 @@
     "nationality": "Croatia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:57:31.026602+00:00"
+    "fetched_at": "2026-11-16T07:50:05.772363+00:00"
   },
   "104497": {
     "player_id": "104497",
@@ -1355,7 +1355,7 @@
     "nationality": "Spain",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:58:46.241077+00:00"
+    "fetched_at": "2026-11-16T07:50:06.332369+00:00"
   },
   "159383": {
     "player_id": "159383",
@@ -3651,7 +3651,7 @@
     "nationality": "Türkiye",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:00:49.403863+00:00"
+    "fetched_at": "2026-11-16T07:50:06.943615+00:00"
   },
   "193282": {
     "player_id": "193282",
@@ -4225,7 +4225,7 @@
     "nationality": "England",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:01:19.284291+00:00"
+    "fetched_at": "2026-11-16T07:50:09.339465+00:00"
   },
   "197881": {
     "player_id": "197881",
@@ -8047,7 +8047,7 @@
     "nationality": "Spain",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:04:43.968692+00:00"
+    "fetched_at": "2026-11-16T07:50:10.127842+00:00"
   },
   "229418": {
     "player_id": "229418",
@@ -8481,7 +8481,7 @@
     "nationality": "France",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:05:07.642935+00:00"
+    "fetched_at": "2026-11-16T07:50:10.681000+00:00"
   },
   "231674": {
     "player_id": "231674",
@@ -8531,13 +8531,13 @@
     "club": "Arsenal",
     "league": "English Premier League",
     "position": "Defender",
-    "age": 28,
+    "age": 29,
     "dob": null,
     "sun_sign": null,
     "nationality": "England",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:05:10.838898+00:00"
+    "fetched_at": "2026-11-16T07:50:11.228546+00:00"
   },
   "231984": {
     "player_id": "231984",
@@ -11225,7 +11225,7 @@
     "nationality": "Czechia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:07:30.131527+00:00"
+    "fetched_at": "2026-11-16T07:50:11.911250+00:00"
   },
   "249548": {
     "player_id": "249548",
@@ -13367,7 +13367,7 @@
     "nationality": "Netherlands",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:09:20.789301+00:00"
+    "fetched_at": "2026-11-16T07:50:13.904123+00:00"
   },
   "259453": {
     "player_id": "259453",
@@ -17189,7 +17189,7 @@
     "nationality": "Italy",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:38.439966+00:00"
+    "fetched_at": "2026-11-16T07:50:15.775956+00:00"
   },
   "276262": {
     "player_id": "276262",
@@ -17343,7 +17343,7 @@
     "nationality": "Czechia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:45.855748+00:00"
+    "fetched_at": "2026-11-16T07:50:16.369237+00:00"
   },
   "276603": {
     "player_id": "276603",
@@ -19933,7 +19933,7 @@
     "nationality": "Türkiye",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:58.678465+00:00"
+    "fetched_at": "2026-11-16T07:50:18.184308+00:00"
   },
   "287786": {
     "player_id": "287786",
@@ -25113,7 +25113,7 @@
     "nationality": "Croatia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:19:20.872748+00:00"
+    "fetched_at": "2026-11-16T07:50:19.410119+00:00"
   },
   "306764": {
     "player_id": "306764",
@@ -25247,13 +25247,13 @@
     "club": "Leeds United",
     "league": "English Premier League",
     "position": "Goalkeeper",
-    "age": 23,
+    "age": 24,
     "dob": null,
     "sun_sign": null,
     "nationality": "England",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:19:27.834326+00:00"
+    "fetched_at": "2026-11-16T07:50:20.905125+00:00"
   },
   "307171": {
     "player_id": "307171",
@@ -25491,7 +25491,7 @@
     "nationality": "Belgium",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:19:39.879775+00:00"
+    "fetched_at": "2026-11-16T07:50:21.472333+00:00"
   },
   "308228": {
     "player_id": "308228",
@@ -27409,7 +27409,7 @@
     "nationality": "Spain",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:21:17.570925+00:00"
+    "fetched_at": "2026-11-16T07:50:22.012992+00:00"
   },
   "312182": {
     "player_id": "312182",
@@ -31945,7 +31945,7 @@
     "nationality": "France",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:02.831126+00:00"
+    "fetched_at": "2026-11-16T07:50:22.695552+00:00"
   },
   "324364": {
     "player_id": "324364",
@@ -31973,7 +31973,7 @@
     "nationality": "Czechia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:04.215696+00:00"
+    "fetched_at": "2026-11-16T07:50:23.233458+00:00"
   },
   "324450": {
     "player_id": "324450",
@@ -36005,7 +36005,7 @@
     "nationality": "Panama",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:28:27.158178+00:00"
+    "fetched_at": "2026-11-16T07:50:25.120106+00:00"
   },
   "342256": {
     "player_id": "342256",
@@ -37209,7 +37209,7 @@
     "nationality": "England",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:29:27.357816+00:00"
+    "fetched_at": "2026-11-16T07:50:26.780530+00:00"
   },
   "352759": {
     "player_id": "352759",
@@ -38959,7 +38959,7 @@
     "nationality": "Spain",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:30:56.512041+00:00"
+    "fetched_at": "2026-11-16T07:50:29.303251+00:00"
   },
   "362151": {
     "player_id": "362151",
@@ -59680,5 +59680,271 @@
     "photo": null,
     "injury_status": null,
     "fetched_at": "2026-11-15T21:36:21.591991+00:00"
+  },
+  "194766": {
+    "player_id": "194766",
+    "name": "Duje Caleta-Car",
+    "club": "Sassuolo",
+    "league": "Italian Serie A",
+    "position": "Defender",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Croatia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:07.590766+00:00"
+  },
+  "195326": {
+    "player_id": "195326",
+    "name": "Ismael Díaz",
+    "club": "León",
+    "league": "Liga MX",
+    "position": "Forward",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Panama",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:08.696137+00:00"
+  },
+  "251634": {
+    "player_id": "251634",
+    "name": "Ibrahima Konaté",
+    "club": "Real Madrid",
+    "league": "Spanish LALIGA",
+    "position": "Defender",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "France",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:12.482715+00:00"
+  },
+  "257267": {
+    "player_id": "257267",
+    "name": "Berke Özer",
+    "club": "Lille",
+    "league": "French Ligue 1",
+    "position": "Goalkeeper",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Türkiye",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:13.301745+00:00"
+  },
+  "267711": {
+    "player_id": "267711",
+    "name": "Djed Spence",
+    "club": "Internazionale",
+    "league": "Italian Serie A",
+    "position": "Defender",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "England",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:14.543717+00:00"
+  },
+  "270807": {
+    "player_id": "270807",
+    "name": "Roshon van Eijma",
+    "club": "Curaçao",
+    "league": null,
+    "position": "Defender",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Curaçao",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:15.203185+00:00"
+  },
+  "280711": {
+    "player_id": "280711",
+    "name": "Emir Han Topcu",
+    "club": "Besiktas",
+    "league": "Turkish Super Lig",
+    "position": "Defender",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Türkiye",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:17.017451+00:00"
+  },
+  "284787": {
+    "player_id": "284787",
+    "name": "Nigel Thomas",
+    "club": "Curaçao",
+    "league": null,
+    "position": "Forward",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Curaçao",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:17.634070+00:00"
+  },
+  "304222": {
+    "player_id": "304222",
+    "name": "Arthur Theate",
+    "club": "Bologna",
+    "league": "Italian Serie A",
+    "position": "Defender",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Belgium",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:18.817442+00:00"
+  },
+  "306899": {
+    "player_id": "306899",
+    "name": "Krystof Danek",
+    "club": "LASK Linz",
+    "league": "Austrian Bundesliga",
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Czechia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:20.216601+00:00"
+  },
+  "334359": {
+    "player_id": "334359",
+    "name": "Pablo Pagis",
+    "club": "Paris FC",
+    "league": null,
+    "position": "Forward",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "France",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:23.896826+00:00"
+  },
+  "341333": {
+    "player_id": "341333",
+    "name": "Luca Koleosho",
+    "club": "Paris FC",
+    "league": null,
+    "position": "Forward",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Italy",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:24.582216+00:00"
+  },
+  "345581": {
+    "player_id": "345581",
+    "name": "Warren Zaïre-Emery",
+    "club": "Paris Saint-Germain",
+    "league": "French Ligue 1",
+    "position": "Midfielder",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "France",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:26.081762+00:00"
+  },
+  "359754": {
+    "player_id": "359754",
+    "name": "Alphadjo Cissè",
+    "club": "AC Milan",
+    "league": "Italian Serie A",
+    "position": "Midfielder",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Italy",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:27.387817+00:00"
+  },
+  "360235": {
+    "player_id": "360235",
+    "name": "Niccolò Pisilli",
+    "club": "AS Roma",
+    "league": "Italian Serie A",
+    "position": "Midfielder",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Italy",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:28.059498+00:00"
+  },
+  "360381": {
+    "player_id": "360381",
+    "name": "Filip Prebsl",
+    "club": "Viktoria Plzen",
+    "league": "Czech First League",
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Czechia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:28.726825+00:00"
+  },
+  "362486": {
+    "player_id": "362486",
+    "name": "Marco Palestra",
+    "club": "Chelsea",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Italy",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:29.847315+00:00"
+  },
+  "386474": {
+    "player_id": "386474",
+    "name": "David Kozel",
+    "club": "Mlada Boleslav",
+    "league": null,
+    "position": "Midfielder",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Czechia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:30.406229+00:00"
+  },
+  "388592": {
+    "player_id": "388592",
+    "name": "Jerolldino Bergraaf",
+    "club": "AZ Alkmaar",
+    "league": "Dutch Eredivisie",
+    "position": "Forward",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Netherlands",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-16T07:50:31.079658+00:00"
   }
 }
