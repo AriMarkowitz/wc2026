@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-17T05:20:17.298229+00:00",
+  "last_updated": "2026-11-17T13:15:33.494369+00:00",
   "windows": [
     {
       "id": "2026-09",
@@ -15,7 +15,7 @@
       "start": "20261109",
       "end": "20261117",
       "status": "live",
-      "matches": 122
+      "matches": 123
     },
     {
       "id": "2027-03",
@@ -5120,6 +5120,18 @@
         "Eritrea",
         "Guinea"
       ]
+    },
+    {
+      "id": "401916335",
+      "name": "Brazil at Singapore",
+      "date": "20261117",
+      "slug": "fifa.friendly",
+      "competition": "International Friendly",
+      "window": "2026-11",
+      "teams": [
+        "Singapore",
+        "Brazil"
+      ]
     }
   ],
   "appearances": [
@@ -5581,6 +5593,28 @@
       "club": "Atalanta",
       "league": "Italian Serie A",
       "nationality": "Montenegro",
+      "position": "Forward",
+      "age": 26,
+      "injured": false
+    },
+    {
+      "player_id": "252107",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 150,
+      "goals": 5,
+      "assists": 0,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "fouls_committed": 3,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Vinícius Júnior",
+      "club": "Real Madrid",
+      "league": "Spanish LALIGA",
+      "nationality": "Brazil",
       "position": "Forward",
       "age": 26,
       "injured": false
@@ -7522,6 +7556,28 @@
       "injured": false
     },
     {
+      "player_id": "218522",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 150,
+      "goals": 0,
+      "assists": 3,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Bruno Guimarães",
+      "club": "Arsenal",
+      "league": "English Premier League",
+      "nationality": "Brazil",
+      "position": "Midfielder",
+      "age": 28,
+      "injured": true
+    },
+    {
       "player_id": "210042",
       "window": "2026-11",
       "matches": 2,
@@ -7695,6 +7751,28 @@
       "nationality": "Guinea",
       "position": "Forward",
       "age": 28,
+      "injured": false
+    },
+    {
+      "player_id": "376481",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 127,
+      "goals": 1,
+      "assists": 2,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 3,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Estêvão",
+      "club": "Chelsea",
+      "league": "English Premier League",
+      "nationality": "Brazil",
+      "position": "Forward",
+      "age": 19,
       "injured": false
     },
     {
@@ -11583,6 +11661,28 @@
       "injured": false
     },
     {
+      "player_id": "346612",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 1,
+      "minutes": 109,
+      "goals": 1,
+      "assists": 1,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Endrick",
+      "club": "Real Madrid",
+      "league": "Spanish LALIGA",
+      "nationality": "Brazil",
+      "position": "Forward",
+      "age": 20,
+      "injured": false
+    },
+    {
       "player_id": "297099",
       "window": "2026-11",
       "matches": 2,
@@ -11757,28 +11857,6 @@
       "position": "Midfielder",
       "age": 23,
       "injured": false
-    },
-    {
-      "player_id": "218522",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 90,
-      "goals": 0,
-      "assists": 2,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Bruno Guimarães",
-      "club": "Arsenal",
-      "league": "English Premier League",
-      "nationality": "Brazil",
-      "position": "Midfielder",
-      "age": 28,
-      "injured": true
     },
     {
       "player_id": "260643",
@@ -12042,28 +12120,6 @@
       "nationality": "Sweden",
       "position": "Forward",
       "age": 28,
-      "injured": false
-    },
-    {
-      "player_id": "252107",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 90,
-      "goals": 2,
-      "assists": 0,
-      "yellow_cards": 1,
-      "red_cards": 0,
-      "fouls_committed": 1,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Vinícius Júnior",
-      "club": "Real Madrid",
-      "league": "Spanish LALIGA",
-      "nationality": "Brazil",
-      "position": "Forward",
-      "age": 26,
       "injured": false
     },
     {
@@ -19267,6 +19323,28 @@
       "injured": false
     },
     {
+      "player_id": "195100",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 178,
+      "goals": 0,
+      "assists": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 2,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Kyoga Nakamura",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 30,
+      "injured": false
+    },
+    {
       "player_id": "236747",
       "window": "2026-11",
       "matches": 2,
@@ -21426,6 +21504,28 @@
       "injured": false
     },
     {
+      "player_id": "236322",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 150,
+      "goals": 0,
+      "assists": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 2,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Gabriel Magalhães",
+      "club": "Arsenal",
+      "league": "English Premier League",
+      "nationality": "Brazil",
+      "position": "Defender",
+      "age": 28,
+      "injured": true
+    },
+    {
       "player_id": "357112",
       "window": "2026-09",
       "matches": 2,
@@ -22392,6 +22492,28 @@
       "nationality": "Kazakhstan",
       "position": "Defender",
       "age": 30,
+      "injured": false
+    },
+    {
+      "player_id": "321675",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 132,
+      "goals": 1,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Song Ui-young",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 33,
       "injured": false
     },
     {
@@ -25329,28 +25451,6 @@
       "injured": false
     },
     {
-      "player_id": "195100",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 90,
-      "goals": 0,
-      "assists": 1,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Kyoga Nakamura",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 30,
-      "injured": false
-    },
-    {
       "player_id": "362150",
       "window": "2026-11",
       "matches": 1,
@@ -26955,6 +27055,28 @@
       "nationality": "South Korea",
       "position": "Forward",
       "age": 30,
+      "injured": false
+    },
+    {
+      "player_id": "357719",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 1,
+      "minutes": 80,
+      "goals": 1,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 3,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Rayan",
+      "club": "AFC Bournemouth",
+      "league": "English Premier League",
+      "nationality": "Brazil",
+      "position": "Forward",
+      "age": 20,
       "injured": false
     },
     {
@@ -29159,28 +29281,6 @@
       "injured": false
     },
     {
-      "player_id": "321675",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 62,
-      "goals": 1,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Song Ui-young",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 33,
-      "injured": false
-    },
-    {
       "player_id": "256587",
       "window": "2026-11",
       "matches": 1,
@@ -30809,6 +30909,28 @@
       "nationality": "Uruguay",
       "position": "Forward",
       "age": 32,
+      "injured": false
+    },
+    {
+      "player_id": "382966",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 30,
+      "goals": 0,
+      "assists": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Allan Elias",
+      "club": "Manchester City",
+      "league": "English Premier League",
+      "nationality": "Brazil",
+      "position": "Forward",
+      "age": 22,
       "injured": false
     },
     {
@@ -56684,6 +56806,28 @@
       "injured": false
     },
     {
+      "player_id": "382044",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 178,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 2,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Harhys Stewart",
+      "club": "Unknown",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 25,
+      "injured": false
+    },
+    {
       "player_id": "391153",
       "window": "2026-09",
       "matches": 4,
@@ -58405,6 +58549,28 @@
       "injured": false
     },
     {
+      "player_id": "313187",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 169,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Shah Shahiran",
+      "club": "Tampines Rovers FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 27,
+      "injured": false
+    },
+    {
       "player_id": "370168",
       "window": "2026-11",
       "matches": 2,
@@ -58578,6 +58744,28 @@
       "nationality": "Moldova",
       "position": "Defender",
       "age": 28,
+      "injured": false
+    },
+    {
+      "player_id": "355967",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 168,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Ryhan Stewart",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Defender",
+      "age": 26,
       "injured": false
     },
     {
@@ -60717,6 +60905,28 @@
       "injured": false
     },
     {
+      "player_id": "216075",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 158,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Safuwan Baharudin",
+      "club": "Selangor FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Defender",
+      "age": 35,
+      "injured": false
+    },
+    {
       "player_id": "326687",
       "window": "2026-11",
       "matches": 2,
@@ -62589,6 +62799,28 @@
       "injured": false
     },
     {
+      "player_id": "282251",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 150,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Jacob Mahler",
+      "club": "Tampines Rovers FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Defender",
+      "age": 26,
+      "injured": false
+    },
+    {
       "player_id": "211776",
       "window": "2026-09",
       "matches": 2,
@@ -62873,6 +63105,50 @@
       "position": "Midfielder",
       "age": 34,
       "injured": false
+    },
+    {
+      "player_id": "115657",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 148,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Hariss Harun",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Defender",
+      "age": 35,
+      "injured": false
+    },
+    {
+      "player_id": "241164",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 148,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Izwan Mahbud",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Goalkeeper",
+      "age": 36,
+      "injured": true
     },
     {
       "player_id": "302163",
@@ -63910,6 +64186,28 @@
       "nationality": "San Marino",
       "position": "Midfielder",
       "age": 19,
+      "injured": false
+    },
+    {
+      "player_id": "332225",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 140,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Ilhan Fandi",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Forward",
+      "age": 24,
       "injured": false
     },
     {
@@ -67923,6 +68221,28 @@
       "injured": false
     },
     {
+      "player_id": "296769",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 2,
+      "minutes": 120,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Farhan Zulkifi",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 24,
+      "injured": false
+    },
+    {
       "player_id": "288359",
       "window": "2026-11",
       "matches": 2,
@@ -71495,6 +71815,28 @@
       "injured": false
     },
     {
+      "player_id": "363020",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 1,
+      "minutes": 102,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Jonathan Jesus",
+      "club": "Cruzeiro",
+      "league": "Brazilian Serie A",
+      "nationality": "Brazil",
+      "position": "Defender",
+      "age": 22,
+      "injured": false
+    },
+    {
       "player_id": "363394",
       "window": "2026-09",
       "matches": 2,
@@ -71558,6 +71900,28 @@
       "nationality": "Aruba",
       "position": "Defender",
       "age": 29,
+      "injured": false
+    },
+    {
+      "player_id": "310640",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 1,
+      "minutes": 102,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Vanderson",
+      "club": "AS Monaco",
+      "league": "French Ligue 1",
+      "nationality": "Brazil",
+      "position": "Defender",
+      "age": 25,
       "injured": false
     },
     {
@@ -78851,6 +79215,28 @@
       "injured": false
     },
     {
+      "player_id": "186575",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 1,
+      "minutes": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Douglas Santos",
+      "club": "Zenit St Petersburg",
+      "league": "Russian Premier League",
+      "nationality": "Brazil",
+      "position": "Defender",
+      "age": 32,
+      "injured": false
+    },
+    {
       "player_id": "194766",
       "window": "2026-11",
       "matches": 1,
@@ -79995,28 +80381,6 @@
       "injured": false
     },
     {
-      "player_id": "236322",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 90,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 1,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Gabriel Magalhães",
-      "club": "Arsenal",
-      "league": "English Premier League",
-      "nationality": "Brazil",
-      "position": "Defender",
-      "age": 28,
-      "injured": true
-    },
-    {
       "player_id": "222037",
       "window": "2026-09",
       "matches": 1,
@@ -80740,50 +81104,6 @@
       "nationality": "Tanzania",
       "position": "Defender",
       "age": 24,
-      "injured": false
-    },
-    {
-      "player_id": "382044",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 90,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Harhys Stewart",
-      "club": "Unknown",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 25,
-      "injured": false
-    },
-    {
-      "player_id": "115657",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 90,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Hariss Harun",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Defender",
-      "age": 35,
       "injured": false
     },
     {
@@ -81840,28 +82160,6 @@
       "nationality": "Spain",
       "position": "Defender",
       "age": 22,
-      "injured": false
-    },
-    {
-      "player_id": "241164",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 90,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Izwan Mahbud",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Goalkeeper",
-      "age": 36,
       "injured": false
     },
     {
@@ -85030,6 +85328,28 @@
       "nationality": "Montserrat",
       "position": "Defender",
       "age": 23,
+      "injured": false
+    },
+    {
+      "player_id": "252406",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 1,
+      "minutes": 90,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Lucas Perri",
+      "club": "Torino",
+      "league": "Italian Serie A",
+      "nationality": "Brazil",
+      "position": "Goalkeeper",
+      "age": 28,
       "injured": false
     },
     {
@@ -97115,28 +97435,6 @@
       "injured": true
     },
     {
-      "player_id": "282251",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 80,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Jacob Mahler",
-      "club": "Tampines Rovers FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Defender",
-      "age": 26,
-      "injured": false
-    },
-    {
       "player_id": "392320",
       "window": "2026-11",
       "matches": 1,
@@ -97313,28 +97611,6 @@
       "injured": false
     },
     {
-      "player_id": "355967",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 80,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Ryhan Stewart",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Defender",
-      "age": 26,
-      "injured": false
-    },
-    {
       "player_id": "300278",
       "window": "2026-09",
       "matches": 1,
@@ -97354,28 +97630,6 @@
       "nationality": "North Macedonia",
       "position": "Defender",
       "age": 29,
-      "injured": false
-    },
-    {
-      "player_id": "313187",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 80,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Shah Shahiran",
-      "club": "Tampines Rovers FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 27,
       "injured": false
     },
     {
@@ -101080,6 +101334,28 @@
       "injured": false
     },
     {
+      "player_id": "301524",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 1,
+      "minutes": 72,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 5,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "João Gomes",
+      "club": "Aston Villa",
+      "league": "English Premier League",
+      "nationality": "Brazil",
+      "position": "Midfielder",
+      "age": 25,
+      "injured": false
+    },
+    {
       "player_id": "371434",
       "window": "2026-11",
       "matches": 1,
@@ -101939,28 +102215,6 @@
       "injured": false
     },
     {
-      "player_id": "332225",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 70,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Ilhan Fandi",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Forward",
-      "age": 24,
-      "injured": false
-    },
-    {
       "player_id": "377037",
       "window": "2026-09",
       "matches": 2,
@@ -102311,28 +102565,6 @@
       "nationality": "Poland",
       "position": "Forward",
       "age": 38,
-      "injured": false
-    },
-    {
-      "player_id": "216075",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 70,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Safuwan Baharudin",
-      "club": "Selangor FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Defender",
-      "age": 35,
       "injured": false
     },
     {
@@ -103125,6 +103357,28 @@
       "nationality": "Iran",
       "position": "Forward",
       "age": 26,
+      "injured": false
+    },
+    {
+      "player_id": "409662",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 1,
+      "minutes": 68,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "André",
+      "club": "Corinthians",
+      "league": "Brazilian Serie A",
+      "nationality": "Brazil",
+      "position": "Midfielder",
+      "age": 20,
       "injured": false
     },
     {
@@ -107199,28 +107453,6 @@
       "injured": false
     },
     {
-      "player_id": "296769",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 62,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Farhan Zulkifi",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 24,
-      "injured": false
-    },
-    {
       "player_id": "301127",
       "window": "2026-09",
       "matches": 1,
@@ -107460,6 +107692,28 @@
       "nationality": "United Arab Emirates",
       "position": "Defender",
       "age": 26,
+      "injured": false
+    },
+    {
+      "player_id": "314851",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 62,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Marlon Gomes",
+      "club": "Shakhtar Donetsk",
+      "league": "Ukrainian Premier League",
+      "nationality": "Brazil",
+      "position": "Midfielder",
+      "age": 22,
       "injured": false
     },
     {
@@ -108673,6 +108927,28 @@
       "injured": false
     },
     {
+      "player_id": "374383",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 60,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Glenn Kweh",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 26,
+      "injured": false
+    },
+    {
       "player_id": "363300",
       "window": "2026-11",
       "matches": 2,
@@ -109532,28 +109808,6 @@
       "injured": false
     },
     {
-      "player_id": "409662",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 58,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 1,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "André",
-      "club": "Corinthians",
-      "league": "Brazilian Serie A",
-      "nationality": "Brazil",
-      "position": "Midfielder",
-      "age": 20,
-      "injured": false
-    },
-    {
       "player_id": "207288",
       "window": "2026-09",
       "matches": 2,
@@ -110014,28 +110268,6 @@
       "nationality": "Türkiye",
       "position": "Forward",
       "age": 29,
-      "injured": false
-    },
-    {
-      "player_id": "376481",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 1,
-      "minutes": 57,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 1,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Estêvão",
-      "club": "Chelsea",
-      "league": "English Premier League",
-      "nationality": "Brazil",
-      "position": "Forward",
-      "age": 19,
       "injured": false
     },
     {
@@ -111296,6 +111528,28 @@
       "injured": false
     },
     {
+      "player_id": "359420",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 53,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Alisson Santana",
+      "club": "Shakhtar Donetsk",
+      "league": "Ukrainian Premier League",
+      "nationality": "Brazil",
+      "position": "Midfielder",
+      "age": 21,
+      "injured": false
+    },
+    {
       "player_id": "323950",
       "window": "2026-11",
       "matches": 1,
@@ -111711,6 +111965,28 @@
       "nationality": "Argentina",
       "position": "Defender",
       "age": 34,
+      "injured": false
+    },
+    {
+      "player_id": "385197",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 52,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Raoul Bin Suhaimi",
+      "club": "Tampines Rovers FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Defender",
+      "age": 21,
       "injured": false
     },
     {
@@ -112149,6 +112425,28 @@
       "club": "San Diego FC",
       "league": null,
       "nationality": "Tunisia",
+      "position": "Midfielder",
+      "age": 27,
+      "injured": false
+    },
+    {
+      "player_id": "298800",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 48,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Hami Syahin",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
       "position": "Midfielder",
       "age": 27,
       "injured": false
@@ -118646,6 +118944,28 @@
       "injured": false
     },
     {
+      "player_id": "255158",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 40,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Shawal Anuar",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Forward",
+      "age": 35,
+      "injured": false
+    },
+    {
       "player_id": "381766",
       "window": "2026-11",
       "matches": 1,
@@ -120165,28 +120485,6 @@
       "injured": false
     },
     {
-      "player_id": "359420",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 33,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Alisson Santana",
-      "club": "Shakhtar Donetsk",
-      "league": "Ukrainian Premier League",
-      "nationality": "Brazil",
-      "position": "Midfielder",
-      "age": 21,
-      "injured": false
-    },
-    {
       "player_id": "367591",
       "window": "2026-09",
       "matches": 2,
@@ -120803,28 +121101,6 @@
       "injured": false
     },
     {
-      "player_id": "363020",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 32,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Jonathan Jesus",
-      "club": "Cruzeiro",
-      "league": "Brazilian Serie A",
-      "nationality": "Brazil",
-      "position": "Defender",
-      "age": 22,
-      "injured": false
-    },
-    {
       "player_id": "353951",
       "window": "2026-09",
       "matches": 1,
@@ -120932,28 +121208,6 @@
       "nationality": "Chile",
       "position": "Midfielder",
       "age": 21,
-      "injured": false
-    },
-    {
-      "player_id": "314851",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 32,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 1,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Marlon Gomes",
-      "club": "Shakhtar Donetsk",
-      "league": "Ukrainian Premier League",
-      "nationality": "Brazil",
-      "position": "Midfielder",
-      "age": 22,
       "injured": false
     },
     {
@@ -121086,6 +121340,28 @@
       "nationality": "Dominica",
       "position": "Midfielder",
       "age": 30,
+      "injured": false
+    },
+    {
+      "player_id": "250358",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 32,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Syazwan Buhari",
+      "club": "Tampines Rovers FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Goalkeeper",
+      "age": 34,
       "injured": false
     },
     {
@@ -121705,6 +121981,28 @@
       "injured": false
     },
     {
+      "player_id": "399179",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 30,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Gabriel Bontempo",
+      "club": "Santos",
+      "league": "Brazilian Serie A",
+      "nationality": "Brazil",
+      "position": "Midfielder",
+      "age": 21,
+      "injured": true
+    },
+    {
       "player_id": "366066",
       "window": "2026-09",
       "matches": 1,
@@ -121812,6 +122110,28 @@
       "nationality": "Estonia",
       "position": "Forward",
       "age": 21,
+      "injured": false
+    },
+    {
+      "player_id": "343316",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 30,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Lionel Tan",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Defender",
+      "age": 29,
       "injured": false
     },
     {
@@ -121945,6 +122265,28 @@
       "nationality": "Sierra Leone",
       "position": "Midfielder",
       "age": 29,
+      "injured": false
+    },
+    {
+      "player_id": "361434",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 30,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 1,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Vitor Reis",
+      "club": "Manchester City",
+      "league": "English Premier League",
+      "nationality": "Brazil",
+      "position": "Defender",
+      "age": 20,
       "injured": false
     },
     {
@@ -122982,28 +123324,6 @@
       "injured": false
     },
     {
-      "player_id": "374383",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 28,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Glenn Kweh",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 26,
-      "injured": false
-    },
-    {
       "player_id": "3097481",
       "window": "2026-09",
       "matches": 1,
@@ -123023,28 +123343,6 @@
       "nationality": "Unknown",
       "position": "Midfielder",
       "age": null,
-      "injured": false
-    },
-    {
-      "player_id": "298800",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 28,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Hami Syahin",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 27,
       "injured": false
     },
     {
@@ -129101,6 +129399,28 @@
       "injured": false
     },
     {
+      "player_id": "381170",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 20,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Arthur Dias",
+      "club": "Athletico Paranaense",
+      "league": "Brazilian Serie A",
+      "nationality": "Brazil",
+      "position": "Defender",
+      "age": 19,
+      "injured": false
+    },
+    {
       "player_id": "375380",
       "window": "2026-11",
       "matches": 1,
@@ -129673,28 +129993,6 @@
       "injured": false
     },
     {
-      "player_id": "385197",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 20,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Raoul Bin Suhaimi",
-      "club": "Tampines Rovers FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Defender",
-      "age": 21,
-      "injured": false
-    },
-    {
       "player_id": "3123579",
       "window": "2026-11",
       "matches": 1,
@@ -129736,28 +130034,6 @@
       "nationality": "Unknown",
       "position": "Midfielder",
       "age": null,
-      "injured": false
-    },
-    {
-      "player_id": "255158",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 20,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Shawal Anuar",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Forward",
-      "age": 35,
       "injured": false
     },
     {
@@ -129934,28 +130210,6 @@
       "nationality": "Armenia",
       "position": "Midfielder",
       "age": 25,
-      "injured": false
-    },
-    {
-      "player_id": "346612",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 19,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 1,
-      "red_cards": 0,
-      "fouls_committed": 1,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Endrick",
-      "club": "Real Madrid",
-      "league": "Spanish LALIGA",
-      "nationality": "Brazil",
-      "position": "Forward",
-      "age": 20,
       "injured": false
     },
     {
@@ -135306,28 +135560,6 @@
       "injured": false
     },
     {
-      "player_id": "301524",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 12,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "João Gomes",
-      "club": "Aston Villa",
-      "league": "English Premier League",
-      "nationality": "Brazil",
-      "position": "Midfielder",
-      "age": 25,
-      "injured": false
-    },
-    {
       "player_id": "370720",
       "window": "2026-09",
       "matches": 1,
@@ -135725,28 +135957,6 @@
       "injured": false
     },
     {
-      "player_id": "310640",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 12,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Vanderson",
-      "club": "AS Monaco",
-      "league": "French Ligue 1",
-      "nationality": "Brazil",
-      "position": "Defender",
-      "age": 25,
-      "injured": false
-    },
-    {
       "player_id": "341733",
       "window": "2026-09",
       "matches": 1,
@@ -136096,6 +136306,28 @@
       "nationality": "Belgium",
       "position": "Forward",
       "age": 29,
+      "injured": false
+    },
+    {
+      "player_id": "313195",
+      "window": "2026-11",
+      "matches": 2,
+      "starts": 0,
+      "minutes": 11,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Joel Chew",
+      "club": "Tampines Rovers FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 26,
       "injured": false
     },
     {
@@ -136759,28 +136991,6 @@
       "injured": false
     },
     {
-      "player_id": "313195",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 10,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Joel Chew",
-      "club": "Tampines Rovers FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Midfielder",
-      "age": 26,
-      "injured": false
-    },
-    {
       "player_id": "321737",
       "window": "2026-11",
       "matches": 1,
@@ -136800,28 +137010,6 @@
       "nationality": "Uzbekistan",
       "position": "Forward",
       "age": 24,
-      "injured": false
-    },
-    {
-      "player_id": "343316",
-      "window": "2026-11",
-      "matches": 1,
-      "starts": 0,
-      "minutes": 10,
-      "goals": 0,
-      "assists": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "fouls_committed": 0,
-      "competitions": [
-        "International Friendly"
-      ],
-      "name": "Lionel Tan",
-      "club": "Lion City Sailors FC",
-      "league": null,
-      "nationality": "Singapore",
-      "position": "Defender",
-      "age": 29,
       "injured": false
     },
     {
@@ -142392,6 +142580,28 @@
       "injured": false
     },
     {
+      "player_id": "5332693",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Darren Teh Ting Wei",
+      "club": "Unknown",
+      "league": null,
+      "nationality": "Unknown",
+      "position": "Defender",
+      "age": null,
+      "injured": false
+    },
+    {
       "player_id": "277158",
       "window": "2026-11",
       "matches": 1,
@@ -142477,6 +142687,28 @@
       "nationality": "Unknown",
       "position": "Forward",
       "age": null,
+      "injured": false
+    },
+    {
+      "player_id": "350705",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Joshua Pereira",
+      "club": "Unknown",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 29,
       "injured": false
     },
     {
@@ -142590,6 +142822,28 @@
       "injured": false
     },
     {
+      "player_id": "366110",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Nathan Mao",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
+      "age": 18,
+      "injured": false
+    },
+    {
       "player_id": "369970",
       "window": "2026-11",
       "matches": 1,
@@ -142630,6 +142884,28 @@
       "league": null,
       "nationality": "Bolivia",
       "position": "Defender",
+      "age": 27,
+      "injured": false
+    },
+    {
+      "player_id": "320012",
+      "window": "2026-11",
+      "matches": 1,
+      "starts": 0,
+      "minutes": 2,
+      "goals": 0,
+      "assists": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "fouls_committed": 0,
+      "competitions": [
+        "International Friendly"
+      ],
+      "name": "Saifullah Akbar",
+      "club": "Tampines Rovers FC",
+      "league": null,
+      "nationality": "Singapore",
+      "position": "Midfielder",
       "age": 27,
       "injured": false
     },
@@ -144638,6 +144914,38 @@
     }
   ],
   "injuries": [
+    {
+      "player_id": "241164",
+      "name": "Izwan Mahbud",
+      "nationality": "Singapore",
+      "club": "Lion City Sailors FC",
+      "league": null,
+      "window": "2026-11",
+      "date": "2026-11-17",
+      "match": "Brazil at Singapore",
+      "competition": "International Friendly",
+      "minute": "42'",
+      "kind": "treated",
+      "injury": null,
+      "status": null,
+      "source": "match"
+    },
+    {
+      "player_id": "399179",
+      "name": "Gabriel Bontempo",
+      "nationality": "Brazil",
+      "club": "Santos",
+      "league": "Brazilian Serie A",
+      "window": "2026-11",
+      "date": "2026-11-17",
+      "match": "Brazil at Singapore",
+      "competition": "International Friendly",
+      "minute": "83'",
+      "kind": "treated",
+      "injury": null,
+      "status": null,
+      "source": "match"
+    },
     {
       "player_id": "305080",
       "name": "Martin Agnarsson",
@@ -153375,7 +153683,8 @@
         "20261113",
         "20261114",
         "20261115",
-        "20261116"
+        "20261116",
+        "20261117"
       ],
       "series": {
         "Arsenal": {
@@ -153400,6 +153709,7 @@
             14,
             16,
             18,
+            18,
             18
           ],
           "assists": [
@@ -153423,7 +153733,8 @@
             7,
             9,
             10,
-            10
+            10,
+            12
           ],
           "ga": [
             0,
@@ -153446,7 +153757,8 @@
             21,
             25,
             28,
-            28
+            28,
+            30
           ]
         },
         "Real Madrid": {
@@ -153471,7 +153783,8 @@
             5,
             8,
             8,
-            8
+            8,
+            12
           ],
           "assists": [
             0,
@@ -153494,7 +153807,8 @@
             11,
             11,
             13,
-            13
+            13,
+            14
           ],
           "ga": [
             0,
@@ -153517,7 +153831,8 @@
             16,
             19,
             21,
-            21
+            21,
+            26
           ]
         },
         "Bayern München": {
@@ -153542,6 +153857,7 @@
             13,
             13,
             14,
+            14,
             14
           ],
           "assists": [
@@ -153565,6 +153881,7 @@
             5,
             5,
             5,
+            6,
             6
           ],
           "ga": [
@@ -153588,6 +153905,7 @@
             18,
             18,
             19,
+            20,
             20
           ]
         },
@@ -153605,6 +153923,7 @@
             7,
             7,
             10,
+            11,
             11,
             11,
             11,
@@ -153636,6 +153955,7 @@
             8,
             8,
             9,
+            9,
             9
           ],
           "ga": [
@@ -153658,6 +153978,7 @@
             19,
             19,
             19,
+            20,
             20,
             20
           ]
@@ -153684,6 +154005,7 @@
             6,
             7,
             9,
+            9,
             9
           ],
           "assists": [
@@ -153707,6 +154029,7 @@
             6,
             6,
             10,
+            10,
             10
           ],
           "ga": [
@@ -153729,6 +154052,7 @@
             12,
             12,
             13,
+            19,
             19,
             19
           ]
@@ -153755,6 +154079,7 @@
             12,
             12,
             12,
+            13,
             13
           ],
           "assists": [
@@ -153775,6 +154100,7 @@
             3,
             3,
             3,
+            6,
             6,
             6,
             6,
@@ -153801,7 +154127,82 @@
             18,
             18,
             18,
+            19,
             19
+          ]
+        },
+        "Manchester City": {
+          "goals": [
+            0,
+            0,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            6,
+            6,
+            6
+          ],
+          "assists": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            6,
+            7,
+            8,
+            9,
+            9,
+            10
+          ],
+          "ga": [
+            0,
+            0,
+            2,
+            2,
+            3,
+            4,
+            5,
+            5,
+            5,
+            5,
+            6,
+            7,
+            7,
+            8,
+            8,
+            8,
+            10,
+            11,
+            13,
+            15,
+            15,
+            16
           ]
         },
         "Internazionale": {
@@ -153826,6 +154227,7 @@
             10,
             10,
             11,
+            11,
             11
           ],
           "assists": [
@@ -153845,6 +154247,7 @@
             4,
             4,
             4,
+            5,
             5,
             5,
             5,
@@ -153872,6 +154275,7 @@
             15,
             15,
             16,
+            16,
             16
           ]
         },
@@ -153897,6 +154301,7 @@
             12,
             12,
             13,
+            13,
             13
           ],
           "assists": [
@@ -153919,6 +154324,7 @@
             1,
             1,
             1,
+            2,
             2,
             2
           ],
@@ -153943,76 +154349,6 @@
             13,
             13,
             15,
-            15
-          ]
-        },
-        "Manchester City": {
-          "goals": [
-            0,
-            0,
-            2,
-            2,
-            2,
-            3,
-            3,
-            3,
-            3,
-            3,
-            3,
-            3,
-            3,
-            4,
-            4,
-            4,
-            4,
-            4,
-            5,
-            6,
-            6
-          ],
-          "assists": [
-            0,
-            0,
-            0,
-            0,
-            1,
-            1,
-            2,
-            2,
-            2,
-            2,
-            3,
-            4,
-            4,
-            4,
-            4,
-            4,
-            6,
-            7,
-            8,
-            9,
-            9
-          ],
-          "ga": [
-            0,
-            0,
-            2,
-            2,
-            3,
-            4,
-            5,
-            5,
-            5,
-            5,
-            6,
-            7,
-            7,
-            8,
-            8,
-            8,
-            10,
-            11,
-            13,
             15,
             15
           ]
@@ -154039,6 +154375,7 @@
             5,
             6,
             6,
+            6,
             6
           ],
           "assists": [
@@ -154062,6 +154399,7 @@
             6,
             6,
             6,
+            7,
             7
           ],
           "ga": [
@@ -154085,6 +154423,7 @@
             11,
             12,
             12,
+            13,
             13
           ]
         },
@@ -154110,6 +154449,7 @@
             10,
             10,
             10,
+            10,
             10
           ],
           "assists": [
@@ -154122,6 +154462,7 @@
             1,
             1,
             1,
+            2,
             2,
             2,
             2,
@@ -154153,6 +154494,7 @@
             10,
             10,
             10,
+            12,
             12,
             12,
             12,
@@ -154181,6 +154523,7 @@
             4,
             4,
             4,
+            4,
             4
           ],
           "assists": [
@@ -154200,6 +154543,7 @@
             5,
             5,
             5,
+            8,
             8,
             8,
             8,
@@ -154227,6 +154571,81 @@
             12,
             12,
             12,
+            12,
+            12
+          ]
+        },
+        "Chelsea": {
+          "goals": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            4,
+            4,
+            4,
+            4,
+            5
+          ],
+          "assists": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            3,
+            3,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            7
+          ],
+          "ga": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            5,
+            5,
+            6,
+            7,
+            7,
+            8,
+            9,
+            9,
+            9,
+            9,
             12
           ]
         },
@@ -154252,6 +154671,7 @@
             2,
             3,
             4,
+            4,
             4
           ],
           "assists": [
@@ -154266,6 +154686,7 @@
             6,
             6,
             6,
+            7,
             7,
             7,
             7,
@@ -154298,6 +154719,7 @@
             9,
             10,
             11,
+            11,
             11
           ]
         },
@@ -154323,6 +154745,7 @@
             6,
             6,
             6,
+            8,
             8
           ],
           "assists": [
@@ -154344,6 +154767,7 @@
             2,
             2,
             2,
+            3,
             3,
             3,
             3
@@ -154369,6 +154793,7 @@
             8,
             9,
             9,
+            11,
             11
           ]
         },
@@ -154394,6 +154819,7 @@
             6,
             8,
             8,
+            8,
             8
           ],
           "assists": [
@@ -154417,6 +154843,7 @@
             2,
             2,
             3,
+            3,
             3
           ],
           "ga": [
@@ -154439,6 +154866,7 @@
             8,
             8,
             10,
+            11,
             11,
             11
           ]
@@ -154465,6 +154893,7 @@
             8,
             8,
             8,
+            9,
             9
           ],
           "assists": [
@@ -154475,6 +154904,7 @@
             0,
             0,
             1,
+            2,
             2,
             2,
             2,
@@ -154511,6 +154941,7 @@
             10,
             10,
             10,
+            11,
             11
           ]
         },
@@ -154530,6 +154961,7 @@
             4,
             4,
             4,
+            7,
             7,
             7,
             7,
@@ -154559,6 +154991,7 @@
             3,
             3,
             3,
+            3,
             3
           ],
           "ga": [
@@ -154576,6 +155009,7 @@
             6,
             6,
             6,
+            10,
             10,
             10,
             10,
@@ -154607,6 +155041,7 @@
             4,
             4,
             5,
+            5,
             5
           ],
           "assists": [
@@ -154627,6 +155062,7 @@
             3,
             3,
             4,
+            5,
             5,
             5,
             5,
@@ -154652,6 +155088,7 @@
             8,
             9,
             9,
+            10,
             10,
             10
           ]
@@ -154678,6 +155115,7 @@
             5,
             7,
             7,
+            8,
             8
           ],
           "assists": [
@@ -154698,6 +155136,7 @@
             1,
             1,
             1,
+            2,
             2,
             2,
             2,
@@ -154724,77 +155163,7 @@
             7,
             9,
             9,
-            10
-          ]
-        },
-        "Brentford": {
-          "goals": [
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            2,
-            2,
-            2,
-            3,
-            3,
-            3,
-            4,
-            4,
-            4,
-            4,
-            4,
-            4,
-            4,
-            4,
-            5
-          ],
-          "assists": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            2,
-            2,
-            4,
-            5,
-            5
-          ],
-          "ga": [
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            2,
-            2,
-            2,
-            4,
-            4,
-            4,
-            5,
-            5,
-            5,
-            5,
-            6,
-            6,
-            8,
-            9,
+            10,
             10
           ]
         }
@@ -154807,7 +155176,8 @@
         "20261113",
         "20261114",
         "20261115",
-        "20261116"
+        "20261116",
+        "20261117"
       ],
       "series": {
         "Real Madrid": {
@@ -154817,7 +155187,8 @@
             1,
             4,
             4,
-            4
+            4,
+            8
           ],
           "assists": [
             0,
@@ -154825,7 +155196,8 @@
             5,
             5,
             7,
-            7
+            7,
+            8
           ],
           "ga": [
             0,
@@ -154833,7 +155205,8 @@
             6,
             9,
             11,
-            11
+            11,
+            16
           ]
         },
         "Arsenal": {
@@ -154843,6 +155216,7 @@
             2,
             4,
             6,
+            6,
             6
           ],
           "assists": [
@@ -154851,7 +155225,8 @@
             1,
             3,
             4,
-            4
+            4,
+            6
           ],
           "ga": [
             0,
@@ -154859,7 +155234,8 @@
             3,
             7,
             10,
-            10
+            10,
+            12
           ]
         },
         "Atalanta": {
@@ -154869,6 +155245,7 @@
             2,
             3,
             5,
+            5,
             5
           ],
           "assists": [
@@ -154876,6 +155253,7 @@
             0,
             0,
             0,
+            4,
             4,
             4
           ],
@@ -154885,7 +155263,37 @@
             2,
             3,
             9,
+            9,
             9
+          ]
+        },
+        "Manchester City": {
+          "goals": [
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "assists": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            5,
+            6
+          ],
+          "ga": [
+            0,
+            2,
+            3,
+            5,
+            7,
+            7,
+            8
           ]
         },
         "Atlético de Madrid": {
@@ -154895,11 +155303,13 @@
             4,
             4,
             4,
+            5,
             5
           ],
           "assists": [
             0,
             0,
+            3,
             3,
             3,
             3,
@@ -154911,6 +155321,7 @@
             7,
             7,
             7,
+            8,
             8
           ]
         },
@@ -154921,6 +155332,7 @@
             1,
             1,
             1,
+            4,
             4
           ],
           "assists": [
@@ -154929,6 +155341,7 @@
             2,
             3,
             3,
+            4,
             4
           ],
           "ga": [
@@ -154937,33 +155350,8 @@
             3,
             4,
             4,
+            8,
             8
-          ]
-        },
-        "Manchester City": {
-          "goals": [
-            0,
-            0,
-            0,
-            1,
-            2,
-            2
-          ],
-          "assists": [
-            0,
-            2,
-            3,
-            4,
-            5,
-            5
-          ],
-          "ga": [
-            0,
-            2,
-            3,
-            5,
-            7,
-            7
           ]
         },
         "Al Hilal Omdurman": {
@@ -154973,6 +155361,7 @@
             2,
             2,
             2,
+            3,
             3
           ],
           "assists": [
@@ -154981,6 +155370,7 @@
             2,
             2,
             2,
+            3,
             3
           ],
           "ga": [
@@ -154989,6 +155379,7 @@
             4,
             4,
             4,
+            6,
             6
           ]
         },
@@ -154999,6 +155390,7 @@
             2,
             2,
             3,
+            3,
             3
           ],
           "assists": [
@@ -155007,6 +155399,7 @@
             1,
             1,
             1,
+            2,
             2
           ],
           "ga": [
@@ -155015,6 +155408,36 @@
             3,
             3,
             4,
+            5,
+            5
+          ]
+        },
+        "Chelsea": {
+          "goals": [
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            3
+          ],
+          "assists": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "ga": [
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
             5
           ]
         },
@@ -155025,10 +155448,12 @@
             3,
             3,
             4,
+            4,
             4
           ],
           "assists": [
             0,
+            1,
             1,
             1,
             1,
@@ -155040,6 +155465,7 @@
             4,
             4,
             4,
+            5,
             5,
             5
           ]
@@ -155051,6 +155477,7 @@
             0,
             0,
             0,
+            1,
             1
           ],
           "assists": [
@@ -155058,6 +155485,7 @@
             1,
             1,
             3,
+            4,
             4,
             4
           ],
@@ -155067,6 +155495,7 @@
             1,
             3,
             4,
+            5,
             5
           ]
         },
@@ -155077,9 +155506,11 @@
             4,
             4,
             4,
+            5,
             5
           ],
           "assists": [
+            0,
             0,
             0,
             0,
@@ -155093,6 +155524,7 @@
             4,
             4,
             4,
+            5,
             5
           ]
         },
@@ -155103,6 +155535,7 @@
             2,
             2,
             2,
+            3,
             3
           ],
           "assists": [
@@ -155111,6 +155544,7 @@
             1,
             1,
             1,
+            2,
             2
           ],
           "ga": [
@@ -155119,6 +155553,7 @@
             3,
             3,
             3,
+            5,
             5
           ]
         },
@@ -155129,6 +155564,7 @@
             1,
             2,
             2,
+            3,
             3
           ],
           "assists": [
@@ -155137,6 +155573,7 @@
             0,
             0,
             0,
+            2,
             2
           ],
           "ga": [
@@ -155145,6 +155582,7 @@
             1,
             2,
             2,
+            5,
             5
           ]
         },
@@ -155155,6 +155593,7 @@
             1,
             1,
             2,
+            2,
             2
           ],
           "assists": [
@@ -155163,6 +155602,7 @@
             1,
             1,
             2,
+            2,
             2
           ],
           "ga": [
@@ -155170,6 +155610,7 @@
             2,
             2,
             2,
+            4,
             4,
             4
           ]
@@ -155181,6 +155622,7 @@
             1,
             3,
             3,
+            3,
             3
           ],
           "assists": [
@@ -155189,6 +155631,7 @@
             0,
             0,
             1,
+            1,
             1
           ],
           "ga": [
@@ -155196,6 +155639,7 @@
             1,
             1,
             3,
+            4,
             4,
             4
           ]
@@ -155207,6 +155651,7 @@
             1,
             1,
             1,
+            1,
             1
           ],
           "assists": [
@@ -155215,10 +155660,12 @@
             3,
             3,
             3,
+            3,
             3
           ],
           "ga": [
             0,
+            4,
             4,
             4,
             4,
@@ -155233,6 +155680,7 @@
             2,
             2,
             2,
+            3,
             3
           ],
           "assists": [
@@ -155241,6 +155689,7 @@
             0,
             0,
             0,
+            1,
             1
           ],
           "ga": [
@@ -155249,6 +155698,7 @@
             2,
             2,
             2,
+            4,
             4
           ]
         },
@@ -155259,6 +155709,7 @@
             1,
             1,
             1,
+            1,
             1
           ],
           "assists": [
@@ -155267,6 +155718,7 @@
             2,
             2,
             3,
+            3,
             3
           ],
           "ga": [
@@ -155274,6 +155726,7 @@
             1,
             3,
             3,
+            4,
             4,
             4
           ]
@@ -155285,6 +155738,7 @@
             1,
             2,
             3,
+            3,
             3
           ],
           "assists": [
@@ -155293,6 +155747,7 @@
             0,
             0,
             0,
+            1,
             1
           ],
           "ga": [
@@ -155301,32 +155756,7 @@
             1,
             2,
             3,
-            4
-          ]
-        },
-        "Blackburn Rovers": {
-          "goals": [
-            0,
-            0,
-            3,
-            3,
-            3,
-            4
-          ],
-          "assists": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "ga": [
-            0,
-            0,
-            3,
-            3,
-            3,
+            4,
             4
           ]
         }
@@ -369157,6 +369587,728 @@
         "goals_conceded": 1,
         "shots_faced": 0
       }
+    ],
+    "401916335": [
+      {
+        "player_id": "241164",
+        "name": "Izwan Mahbud",
+        "event_id": "401916335",
+        "minutes": 58,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 4,
+        "fouls_committed": 0,
+        "goals_conceded": 5,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "216075",
+        "name": "Safuwan Baharudin",
+        "event_id": "401916335",
+        "minutes": 88,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 1,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1,
+        "goals_conceded": 7,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "282251",
+        "name": "Jacob Mahler",
+        "event_id": "401916335",
+        "minutes": 70,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 1,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 1,
+        "goals_conceded": 6,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "115657",
+        "name": "Hariss Harun",
+        "event_id": "401916335",
+        "minutes": 58,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 5,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "296769",
+        "name": "Farhan Zulkifi",
+        "event_id": "401916335",
+        "minutes": 58,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 5,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "355967",
+        "name": "Ryhan Stewart",
+        "event_id": "401916335",
+        "minutes": 88,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 7,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "313187",
+        "name": "Shah Shahiran",
+        "event_id": "401916335",
+        "minutes": 89,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 7,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "195100",
+        "name": "Kyoga Nakamura",
+        "event_id": "401916335",
+        "minutes": 88,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 2,
+        "goals_conceded": 7,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "382044",
+        "name": "Harhys Stewart",
+        "event_id": "401916335",
+        "minutes": 88,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 2,
+        "goals_conceded": 7,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "321675",
+        "name": "Song Ui-young",
+        "event_id": "401916335",
+        "minutes": 70,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 6,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "332225",
+        "name": "Ilhan Fandi",
+        "event_id": "401916335",
+        "minutes": 70,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 3,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 2,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "298800",
+        "name": "Hami Syahin",
+        "event_id": "401916335",
+        "minutes": 20,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1,
+        "goals_conceded": 1,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "5332693",
+        "name": "Darren Teh Ting Wei",
+        "event_id": "401916335",
+        "minutes": 2,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "374383",
+        "name": "Glenn Kweh",
+        "event_id": "401916335",
+        "minutes": 32,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 2,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "366110",
+        "name": "Nathan Mao",
+        "event_id": "401916335",
+        "minutes": 2,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "343316",
+        "name": "Lionel Tan",
+        "event_id": "401916335",
+        "minutes": 20,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 1,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "320012",
+        "name": "Saifullah Akbar",
+        "event_id": "401916335",
+        "minutes": 2,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "255158",
+        "name": "Shawal Anuar",
+        "event_id": "401916335",
+        "minutes": 20,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 1,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 1,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "350705",
+        "name": "Joshua Pereira",
+        "event_id": "401916335",
+        "minutes": 2,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "313195",
+        "name": "Joel Chew",
+        "event_id": "401916335",
+        "minutes": 1,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "250358",
+        "name": "Syazwan Buhari",
+        "event_id": "401916335",
+        "minutes": 32,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 1,
+        "fouls_committed": 0,
+        "goals_conceded": 2,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "385197",
+        "name": "Raoul Bin Suhaimi",
+        "event_id": "401916335",
+        "minutes": 32,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 2,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "252406",
+        "name": "Lucas Perri",
+        "event_id": "401916335",
+        "minutes": 90,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 1,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "236322",
+        "name": "Gabriel Magalhães",
+        "event_id": "401916335",
+        "minutes": 60,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 1,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "363020",
+        "name": "Jonathan Jesus",
+        "event_id": "401916335",
+        "minutes": 70,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "186575",
+        "name": "Douglas Santos",
+        "event_id": "401916335",
+        "minutes": 90,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "310640",
+        "name": "Vanderson",
+        "event_id": "401916335",
+        "minutes": 90,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "301524",
+        "name": "João Gomes",
+        "event_id": "401916335",
+        "minutes": 60,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 5,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "357719",
+        "name": "Rayan",
+        "event_id": "401916335",
+        "minutes": 80,
+        "started": 1,
+        "goals": 1,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 2,
+        "total_shots": 5,
+        "saves": 0,
+        "fouls_committed": 3,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "218522",
+        "name": "Bruno Guimarães",
+        "event_id": "401916335",
+        "minutes": 60,
+        "started": 1,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 1,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "346612",
+        "name": "Endrick",
+        "event_id": "401916335",
+        "minutes": 90,
+        "started": 1,
+        "goals": 1,
+        "decisive_goals": 0,
+        "assists": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 2,
+        "total_shots": 3,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "252107",
+        "name": "Vinícius Júnior",
+        "event_id": "401916335",
+        "minutes": 60,
+        "started": 1,
+        "goals": 3,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 6,
+        "total_shots": 7,
+        "saves": 0,
+        "fouls_committed": 2,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "376481",
+        "name": "Estêvão",
+        "event_id": "401916335",
+        "minutes": 70,
+        "started": 1,
+        "goals": 1,
+        "decisive_goals": 0,
+        "assists": 2,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 1,
+        "total_shots": 2,
+        "saves": 0,
+        "fouls_committed": 2,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "381170",
+        "name": "Arthur Dias",
+        "event_id": "401916335",
+        "minutes": 20,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "359420",
+        "name": "Alisson Santana",
+        "event_id": "401916335",
+        "minutes": 20,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "399179",
+        "name": "Gabriel Bontempo",
+        "event_id": "401916335",
+        "minutes": 30,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "409662",
+        "name": "André",
+        "event_id": "401916335",
+        "minutes": 10,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "314851",
+        "name": "Marlon Gomes",
+        "event_id": "401916335",
+        "minutes": 30,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "382966",
+        "name": "Allan Elias",
+        "event_id": "401916335",
+        "minutes": 30,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 1,
+        "saves": 0,
+        "fouls_committed": 0,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      },
+      {
+        "player_id": "361434",
+        "name": "Vitor Reis",
+        "event_id": "401916335",
+        "minutes": 30,
+        "started": 0,
+        "goals": 0,
+        "decisive_goals": 0,
+        "assists": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "shots_on_target": 0,
+        "total_shots": 0,
+        "saves": 0,
+        "fouls_committed": 1,
+        "goals_conceded": 0,
+        "shots_faced": 0
+      }
     ]
   },
   "match_injuries": {
@@ -373145,7 +374297,23 @@
     "401927173": [],
     "401927177": [],
     "401927172": [],
-    "401927176": []
+    "401927176": [],
+    "401916335": [
+      {
+        "player_id": "241164",
+        "name": "Izwan Mahbud",
+        "team": "Singapore",
+        "minute": "42'",
+        "kind": "treated"
+      },
+      {
+        "player_id": "399179",
+        "name": "Gabriel Bontempo",
+        "team": "Brazil",
+        "minute": "83'",
+        "kind": "treated"
+      }
+    ]
   },
   "scanned_complete": [
     "2026-09"

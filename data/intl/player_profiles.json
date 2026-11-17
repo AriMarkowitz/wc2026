@@ -3007,7 +3007,7 @@
     "nationality": "Brazil",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:00:14.927274+00:00"
+    "fetched_at": "2026-11-17T13:15:26.206525+00:00"
   },
   "186943": {
     "player_id": "186943",
@@ -37867,7 +37867,7 @@
     "nationality": "Brazil",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:30:00.622240+00:00"
+    "fetched_at": "2026-11-17T13:15:29.501892+00:00"
   },
   "357781": {
     "player_id": "357781",
@@ -38875,7 +38875,7 @@
     "nationality": "Brazil",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:30:52.669353+00:00"
+    "fetched_at": "2026-11-17T13:15:30.180928+00:00"
   },
   "361803": {
     "player_id": "361803",
@@ -42795,7 +42795,7 @@
     "nationality": "Brazil",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:34:06.409586+00:00"
+    "fetched_at": "2026-11-17T13:15:31.438993+00:00"
   },
   "381333": {
     "player_id": "381333",
@@ -45497,7 +45497,7 @@
     "nationality": "Brazil",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:36:15.629819+00:00"
+    "fetched_at": "2026-11-17T13:15:32.766637+00:00"
   },
   "399200": {
     "player_id": "399200",
@@ -60926,5 +60926,103 @@
     "photo": null,
     "injury_status": null,
     "fetched_at": "2026-11-17T05:20:17.187156+00:00"
+  },
+  "250358": {
+    "player_id": "250358",
+    "name": "Syazwan Buhari",
+    "club": "Tampines Rovers FC",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 34,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Singapore",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-17T13:15:26.805462+00:00"
+  },
+  "252406": {
+    "player_id": "252406",
+    "name": "Lucas Perri",
+    "club": "Torino",
+    "league": "Italian Serie A",
+    "position": "Goalkeeper",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Brazil",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-17T13:15:27.585052+00:00"
+  },
+  "320012": {
+    "player_id": "320012",
+    "name": "Saifullah Akbar",
+    "club": "Tampines Rovers FC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Singapore",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-17T13:15:28.317468+00:00"
+  },
+  "350705": {
+    "player_id": "350705",
+    "name": "Joshua Pereira",
+    "club": "Singapore",
+    "league": null,
+    "position": "Midfielder",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Singapore",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-17T13:15:28.950883+00:00"
+  },
+  "366110": {
+    "player_id": "366110",
+    "name": "Nathan Mao",
+    "club": "Lion City Sailors FC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 18,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Singapore",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-17T13:15:30.814646+00:00"
+  },
+  "382966": {
+    "player_id": "382966",
+    "name": "Allan Elias",
+    "club": "Manchester City",
+    "league": "English Premier League",
+    "position": "Forward",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Brazil",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-17T13:15:32.103988+00:00"
+  },
+  "5332693": {
+    "player_id": "5332693",
+    "name": "Darren Teh Ting Wei",
+    "club": "Singapore",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-17T13:15:33.411646+00:00"
   }
 }
