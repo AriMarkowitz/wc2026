@@ -207,7 +207,7 @@
     "nationality": "Paraguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:57:42.093104+00:00"
+    "fetched_at": "2026-11-18T04:33:21.275979+00:00"
   },
   "118537": {
     "player_id": "118537",
@@ -711,7 +711,7 @@
     "nationality": "Mali",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:58:09.835335+00:00"
+    "fetched_at": "2026-11-18T04:33:22.122293+00:00"
   },
   "137716": {
     "player_id": "137716",
@@ -1299,7 +1299,7 @@
     "nationality": "Argentina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:58:42.762564+00:00"
+    "fetched_at": "2026-11-18T04:33:26.385760+00:00"
   },
   "159042": {
     "player_id": "159042",
@@ -1643,13 +1643,13 @@
     "club": "Barcelona SC",
     "league": "Ecuadorian LigaPro",
     "position": "Goalkeeper",
-    "age": 31,
+    "age": 32,
     "dob": null,
     "sun_sign": null,
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:59:01.373049+00:00"
+    "fetched_at": "2026-11-18T04:33:27.212254+00:00"
   },
   "165892": {
     "player_id": "165892",
@@ -1839,13 +1839,13 @@
     "club": "Hull City",
     "league": "English Premier League",
     "position": "Defender",
-    "age": 33,
+    "age": 34,
     "dob": null,
     "sun_sign": null,
     "nationality": "Republic of Ireland",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:59:11.728746+00:00"
+    "fetched_at": "2026-11-18T04:33:27.906312+00:00"
   },
   "168478": {
     "player_id": "168478",
@@ -1957,7 +1957,7 @@
     "nationality": "Costa Rica",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:59:17.655012+00:00"
+    "fetched_at": "2026-11-18T04:33:28.457610+00:00"
   },
   "170553": {
     "player_id": "170553",
@@ -2279,7 +2279,7 @@
     "nationality": "Portugal",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:59:35.282048+00:00"
+    "fetched_at": "2026-11-18T04:33:29.296743+00:00"
   },
   "176678": {
     "player_id": "176678",
@@ -2363,7 +2363,7 @@
     "nationality": "Poland",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:59:40.153871+00:00"
+    "fetched_at": "2026-11-18T04:33:30.631130+00:00"
   },
   "177955": {
     "player_id": "177955",
@@ -2489,7 +2489,7 @@
     "nationality": "Wales",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-05T23:59:46.615173+00:00"
+    "fetched_at": "2026-11-18T04:33:31.477425+00:00"
   },
   "178746": {
     "player_id": "178746",
@@ -3035,12 +3035,12 @@
     "nationality": "Wales",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:00:16.523833+00:00"
+    "fetched_at": "2026-11-18T04:33:32.129704+00:00"
   },
   "187249": {
     "player_id": "187249",
     "name": "Ferjani Sassi",
-    "club": "AL GHARAFA AL GHARAFA",
+    "club": "Al-Gharafa",
     "league": null,
     "position": "Midfielder",
     "age": 34,
@@ -3049,7 +3049,7 @@
     "nationality": "Tunisia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:00:17.239154+00:00"
+    "fetched_at": "2026-11-18T04:33:32.899660+00:00"
   },
   "187449": {
     "player_id": "187449",
@@ -3203,7 +3203,7 @@
     "nationality": "Uruguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:00:24.704291+00:00"
+    "fetched_at": "2026-11-18T04:33:34.549345+00:00"
   },
   "188412": {
     "player_id": "188412",
@@ -3749,7 +3749,7 @@
     "nationality": "Norway",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:00:54.838869+00:00"
+    "fetched_at": "2026-11-18T04:33:36.138353+00:00"
   },
   "193649": {
     "player_id": "193649",
@@ -3847,7 +3847,7 @@
     "nationality": "Nigeria",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:00:59.926395+00:00"
+    "fetched_at": "2026-11-18T04:33:36.959543+00:00"
   },
   "194711": {
     "player_id": "194711",
@@ -3978,8 +3978,8 @@
   "195266": {
     "player_id": "195266",
     "name": "Odiljon Xamrobekov",
-    "club": "Traktor Sazi FC",
-    "league": null,
+    "club": "Tractor",
+    "league": "Iranian Pro League",
     "position": "Midfielder",
     "age": 30,
     "dob": null,
@@ -3987,7 +3987,7 @@
     "nationality": "Uzbekistan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:01:06.900547+00:00"
+    "fetched_at": "2026-11-18T04:33:37.709692+00:00"
   },
   "195274": {
     "player_id": "195274",
@@ -4253,7 +4253,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:01:20.930988+00:00"
+    "fetched_at": "2026-11-18T04:33:39.602794+00:00"
   },
   "199030": {
     "player_id": "199030",
@@ -4533,7 +4533,7 @@
     "nationality": "Uruguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:01:36.225801+00:00"
+    "fetched_at": "2026-11-18T04:33:40.153375+00:00"
   },
   "203072": {
     "player_id": "203072",
@@ -4589,7 +4589,7 @@
     "nationality": "Sweden",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:01:39.198598+00:00"
+    "fetched_at": "2026-11-18T04:33:40.698849+00:00"
   },
   "204329": {
     "player_id": "204329",
@@ -5653,7 +5653,7 @@
     "nationality": "Paraguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:02:37.529248+00:00"
+    "fetched_at": "2026-11-18T04:33:42.143022+00:00"
   },
   "215528": {
     "player_id": "215528",
@@ -5723,7 +5723,7 @@
     "nationality": "Egypt",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:02:41.280402+00:00"
+    "fetched_at": "2026-11-18T04:33:43.003624+00:00"
   },
   "216225": {
     "player_id": "216225",
@@ -6011,13 +6011,13 @@
     "club": "Las Vegas Lights FC",
     "league": null,
     "position": "Forward",
-    "age": 30,
+    "age": 31,
     "dob": null,
     "sun_sign": null,
     "nationality": "St Vincent and Grenadines",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:02:56.415510+00:00"
+    "fetched_at": "2026-11-18T04:33:44.300093+00:00"
   },
   "217999": {
     "player_id": "217999",
@@ -6381,7 +6381,7 @@
     "nationality": "Mauritania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:03:16.022281+00:00"
+    "fetched_at": "2026-11-18T04:33:45.113340+00:00"
   },
   "219531": {
     "player_id": "219531",
@@ -6871,7 +6871,7 @@
     "nationality": "Poland",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:03:41.271371+00:00"
+    "fetched_at": "2026-11-18T04:33:45.679535+00:00"
   },
   "221805": {
     "player_id": "221805",
@@ -7235,7 +7235,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:04:00.896660+00:00"
+    "fetched_at": "2026-11-18T04:33:46.501283+00:00"
   },
   "223818": {
     "player_id": "223818",
@@ -7389,7 +7389,7 @@
     "nationality": "Cape Verde Islands",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:04:09.291169+00:00"
+    "fetched_at": "2026-11-18T04:33:47.076184+00:00"
   },
   "225119": {
     "player_id": "225119",
@@ -7669,7 +7669,7 @@
     "nationality": "Liberia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:04:24.396156+00:00"
+    "fetched_at": "2026-11-18T04:33:49.277903+00:00"
   },
   "227441": {
     "player_id": "227441",
@@ -8643,13 +8643,13 @@
     "club": "Valencia",
     "league": "Spanish LALIGA",
     "position": "Midfielder",
-    "age": 28,
+    "age": 29,
     "dob": null,
     "sun_sign": null,
     "nationality": "Mali",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:05:16.765115+00:00"
+    "fetched_at": "2026-11-18T04:33:53.752286+00:00"
   },
   "232899": {
     "player_id": "232899",
@@ -8873,7 +8873,7 @@
     "nationality": "Denmark",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:05:28.047653+00:00"
+    "fetched_at": "2026-11-18T04:33:55.116517+00:00"
   },
   "234878": {
     "player_id": "234878",
@@ -9111,7 +9111,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:05:40.312429+00:00"
+    "fetched_at": "2026-11-18T04:33:56.374959+00:00"
   },
   "236269": {
     "player_id": "236269",
@@ -10007,7 +10007,7 @@
     "nationality": "Romania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:06:26.347033+00:00"
+    "fetched_at": "2026-11-18T04:33:58.488916+00:00"
   },
   "239807": {
     "player_id": "239807",
@@ -10021,7 +10021,7 @@
     "nationality": "Romania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:06:27.024970+00:00"
+    "fetched_at": "2026-11-18T04:33:59.037309+00:00"
   },
   "239813": {
     "player_id": "239813",
@@ -10035,7 +10035,7 @@
     "nationality": "Romania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:06:27.729975+00:00"
+    "fetched_at": "2026-11-18T04:33:59.602312+00:00"
   },
   "239870": {
     "player_id": "239870",
@@ -10077,7 +10077,7 @@
     "nationality": "Mozambique",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:06:29.833528+00:00"
+    "fetched_at": "2026-11-18T04:34:00.277042+00:00"
   },
   "239972": {
     "player_id": "239972",
@@ -10105,7 +10105,7 @@
     "nationality": "Colombia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:06:31.398586+00:00"
+    "fetched_at": "2026-11-18T04:34:00.989219+00:00"
   },
   "240062": {
     "player_id": "240062",
@@ -10399,7 +10399,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:06:46.428614+00:00"
+    "fetched_at": "2026-11-18T04:34:01.641095+00:00"
   },
   "241882": {
     "player_id": "241882",
@@ -10735,7 +10735,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:07:04.525071+00:00"
+    "fetched_at": "2026-11-18T04:34:06.132933+00:00"
   },
   "245422": {
     "player_id": "245422",
@@ -11393,7 +11393,7 @@
     "nationality": "Wales",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:07:38.595763+00:00"
+    "fetched_at": "2026-11-18T04:34:08.330218+00:00"
   },
   "250543": {
     "player_id": "250543",
@@ -11589,7 +11589,7 @@
     "nationality": "Congo",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:07:49.006657+00:00"
+    "fetched_at": "2026-11-18T04:34:08.941389+00:00"
   },
   "251593": {
     "player_id": "251593",
@@ -12233,7 +12233,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:08:22.994697+00:00"
+    "fetched_at": "2026-11-18T04:34:11.839797+00:00"
   },
   "255089": {
     "player_id": "255089",
@@ -12616,16 +12616,16 @@
   "256724": {
     "player_id": "256724",
     "name": "Song Bum-Keun",
-    "club": "Jeonbuk Motors",
+    "club": "Jeonbuk Hyundai Motors",
     "league": null,
     "position": "Goalkeeper",
-    "age": 28,
+    "age": 29,
     "dob": null,
     "sun_sign": null,
     "nationality": "South Korea",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:08:43.438079+00:00"
+    "fetched_at": "2026-11-18T04:34:13.627242+00:00"
   },
   "256732": {
     "player_id": "256732",
@@ -12779,7 +12779,7 @@
     "nationality": "Israel",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:08:51.291787+00:00"
+    "fetched_at": "2026-11-18T04:34:15.775624+00:00"
   },
   "257261": {
     "player_id": "257261",
@@ -13081,13 +13081,13 @@
     "club": "Associação Black Bulls",
     "league": null,
     "position": "Defender",
-    "age": 29,
+    "age": 30,
     "dob": null,
     "sun_sign": null,
     "nationality": "Mozambique",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:09:06.840987+00:00"
+    "fetched_at": "2026-11-18T04:34:18.191675+00:00"
   },
   "258421": {
     "player_id": "258421",
@@ -13255,7 +13255,7 @@
     "nationality": "Georgia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:09:15.358137+00:00"
+    "fetched_at": "2026-11-18T04:34:18.755190+00:00"
   },
   "258933": {
     "player_id": "258933",
@@ -13487,13 +13487,13 @@
     "club": "Sassuolo",
     "league": "Italian Serie A",
     "position": "Goalkeeper",
-    "age": 27,
+    "age": 28,
     "dob": null,
     "sun_sign": null,
     "nationality": "Kosovo",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:09:27.170966+00:00"
+    "fetched_at": "2026-11-18T04:34:19.896820+00:00"
   },
   "259878": {
     "player_id": "259878",
@@ -14156,8 +14156,8 @@
   "263121": {
     "player_id": "263121",
     "name": "Mo Sangare",
-    "club": "Morecambe",
-    "league": "English Premier League",
+    "club": "Racing Club de France",
+    "league": null,
     "position": "Midfielder",
     "age": 27,
     "dob": null,
@@ -14165,7 +14165,7 @@
     "nationality": "Liberia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:10:02.597941+00:00"
+    "fetched_at": "2026-11-18T04:34:21.419059+00:00"
   },
   "263247": {
     "player_id": "263247",
@@ -14193,7 +14193,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:10:03.826985+00:00"
+    "fetched_at": "2026-11-18T04:34:22.699931+00:00"
   },
   "264269": {
     "player_id": "264269",
@@ -14277,7 +14277,7 @@
     "nationality": "Uganda",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:10:08.001150+00:00"
+    "fetched_at": "2026-11-18T04:34:24.806408+00:00"
   },
   "265426": {
     "player_id": "265426",
@@ -14515,7 +14515,7 @@
     "nationality": "Mali",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:10:19.955847+00:00"
+    "fetched_at": "2026-11-18T04:34:25.705000+00:00"
   },
   "266180": {
     "player_id": "266180",
@@ -15131,7 +15131,7 @@
     "nationality": "Dominica",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:10:52.559824+00:00"
+    "fetched_at": "2026-11-18T04:34:30.578578+00:00"
   },
   "269136": {
     "player_id": "269136",
@@ -15173,7 +15173,7 @@
     "nationality": "England",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:10:54.797923+00:00"
+    "fetched_at": "2026-11-18T04:34:31.346400+00:00"
   },
   "269457": {
     "player_id": "269457",
@@ -15215,7 +15215,7 @@
     "nationality": "Mauritania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:10:56.954678+00:00"
+    "fetched_at": "2026-11-18T04:34:32.987682+00:00"
   },
   "269604": {
     "player_id": "269604",
@@ -15397,7 +15397,7 @@
     "nationality": "Sint Maarten",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:11:06.425395+00:00"
+    "fetched_at": "2026-11-18T04:34:34.488741+00:00"
   },
   "271129": {
     "player_id": "271129",
@@ -15495,7 +15495,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:11:11.270181+00:00"
+    "fetched_at": "2026-11-18T04:34:35.200898+00:00"
   },
   "271271": {
     "player_id": "271271",
@@ -15509,7 +15509,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:11:11.931390+00:00"
+    "fetched_at": "2026-11-18T04:34:35.949749+00:00"
   },
   "271288": {
     "player_id": "271288",
@@ -15593,7 +15593,7 @@
     "nationality": "St Lucia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:11:16.644718+00:00"
+    "fetched_at": "2026-11-18T04:34:38.086568+00:00"
   },
   "271624": {
     "player_id": "271624",
@@ -15635,7 +15635,7 @@
     "nationality": "South Korea",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:11:18.882602+00:00"
+    "fetched_at": "2026-11-18T04:34:39.552393+00:00"
   },
   "271788": {
     "player_id": "271788",
@@ -16111,7 +16111,7 @@
     "nationality": "Togo",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:11:43.537990+00:00"
+    "fetched_at": "2026-11-18T04:34:40.976983+00:00"
   },
   "273240": {
     "player_id": "273240",
@@ -16181,7 +16181,7 @@
     "nationality": "Haiti",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:11:47.167287+00:00"
+    "fetched_at": "2026-11-18T04:34:41.683146+00:00"
   },
   "274005": {
     "player_id": "274005",
@@ -16881,7 +16881,7 @@
     "nationality": "Wales",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:22.401736+00:00"
+    "fetched_at": "2026-11-18T04:34:43.177758+00:00"
   },
   "275599": {
     "player_id": "275599",
@@ -17007,7 +17007,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:28.881254+00:00"
+    "fetched_at": "2026-11-18T04:34:43.915519+00:00"
   },
   "275842": {
     "player_id": "275842",
@@ -17077,7 +17077,7 @@
     "nationality": "Ukraine",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:32.456484+00:00"
+    "fetched_at": "2026-11-18T04:34:45.104708+00:00"
   },
   "276081": {
     "player_id": "276081",
@@ -17091,7 +17091,7 @@
     "nationality": "Ukraine",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:33.110187+00:00"
+    "fetched_at": "2026-11-18T04:34:45.710426+00:00"
   },
   "276109": {
     "player_id": "276109",
@@ -17231,7 +17231,7 @@
     "nationality": "Japan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:40.446897+00:00"
+    "fetched_at": "2026-11-18T04:34:47.348115+00:00"
   },
   "276327": {
     "player_id": "276327",
@@ -17623,7 +17623,7 @@
     "nationality": "Japan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:12:59.921965+00:00"
+    "fetched_at": "2026-11-18T04:34:49.061467+00:00"
   },
   "277377": {
     "player_id": "277377",
@@ -18701,7 +18701,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:13:54.488274+00:00"
+    "fetched_at": "2026-11-18T04:34:52.722107+00:00"
   },
   "283394": {
     "player_id": "283394",
@@ -18729,7 +18729,7 @@
     "nationality": "Lesotho",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:13:55.916794+00:00"
+    "fetched_at": "2026-11-18T04:34:53.567026+00:00"
   },
   "283471": {
     "player_id": "283471",
@@ -18771,7 +18771,7 @@
     "nationality": "Cayman Islands",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:13:58.076756+00:00"
+    "fetched_at": "2026-11-18T04:34:54.487496+00:00"
   },
   "283517": {
     "player_id": "283517",
@@ -18855,7 +18855,7 @@
     "nationality": "Mexico",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:02.510760+00:00"
+    "fetched_at": "2026-11-18T04:34:55.721651+00:00"
   },
   "283896": {
     "player_id": "283896",
@@ -18995,7 +18995,7 @@
     "nationality": "Iran",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:09.801426+00:00"
+    "fetched_at": "2026-11-18T04:34:56.558662+00:00"
   },
   "284335": {
     "player_id": "284335",
@@ -19031,13 +19031,13 @@
     "club": "FC Fleury 91",
     "league": null,
     "position": "Defender",
-    "age": 33,
+    "age": 34,
     "dob": null,
     "sun_sign": null,
     "nationality": "Madagascar",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:11.986815+00:00"
+    "fetched_at": "2026-11-18T04:34:57.340867+00:00"
   },
   "284596": {
     "player_id": "284596",
@@ -19177,7 +19177,7 @@
     "nationality": "Colombia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:19.420580+00:00"
+    "fetched_at": "2026-11-18T04:34:58.591365+00:00"
   },
   "285150": {
     "player_id": "285150",
@@ -19737,7 +19737,7 @@
     "nationality": "Burundi",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:48.283899+00:00"
+    "fetched_at": "2026-11-18T04:35:00.994854+00:00"
   },
   "287140": {
     "player_id": "287140",
@@ -19835,7 +19835,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:53.841639+00:00"
+    "fetched_at": "2026-11-18T04:35:01.576086+00:00"
   },
   "287434": {
     "player_id": "287434",
@@ -19877,7 +19877,7 @@
     "nationality": "Uruguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:55.970198+00:00"
+    "fetched_at": "2026-11-18T04:35:02.300019+00:00"
   },
   "287497": {
     "player_id": "287497",
@@ -19891,7 +19891,7 @@
     "nationality": "Uruguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:14:56.610612+00:00"
+    "fetched_at": "2026-11-18T04:35:02.998889+00:00"
   },
   "287572": {
     "player_id": "287572",
@@ -20017,7 +20017,7 @@
     "nationality": "Colombia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:15:03.138990+00:00"
+    "fetched_at": "2026-11-18T04:35:04.323880+00:00"
   },
   "288041": {
     "player_id": "288041",
@@ -22187,7 +22187,7 @@
     "nationality": "Haiti",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:16:52.939636+00:00"
+    "fetched_at": "2026-11-18T04:35:15.768381+00:00"
   },
   "297183": {
     "player_id": "297183",
@@ -22705,7 +22705,7 @@
     "nationality": "Algeria",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:17:19.070247+00:00"
+    "fetched_at": "2026-11-18T04:35:18.438999+00:00"
   },
   "298938": {
     "player_id": "298938",
@@ -22803,7 +22803,7 @@
     "nationality": "Israel",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:17:23.962124+00:00"
+    "fetched_at": "2026-11-18T04:35:20.144081+00:00"
   },
   "299119": {
     "player_id": "299119",
@@ -23125,7 +23125,7 @@
     "nationality": "Sierra Leone",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:17:40.125361+00:00"
+    "fetched_at": "2026-11-18T04:35:21.730992+00:00"
   },
   "301249": {
     "player_id": "301249",
@@ -23195,7 +23195,7 @@
     "nationality": "Sweden",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:17:43.522282+00:00"
+    "fetched_at": "2026-11-18T04:35:23.786997+00:00"
   },
   "301374": {
     "player_id": "301374",
@@ -23693,13 +23693,13 @@
     "club": "SC Freiburg",
     "league": "German Bundesliga",
     "position": "Midfielder",
-    "age": 24,
+    "age": 25,
     "dob": null,
     "sun_sign": null,
     "nationality": "Japan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:18:09.118282+00:00"
+    "fetched_at": "2026-11-18T04:35:25.273218+00:00"
   },
   "303084": {
     "player_id": "303084",
@@ -23741,7 +23741,7 @@
     "nationality": "Ecuador",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:18:11.204328+00:00"
+    "fetched_at": "2026-11-18T04:35:25.975520+00:00"
   },
   "303444": {
     "player_id": "303444",
@@ -24371,7 +24371,7 @@
     "nationality": "Bosnia and Herzegovina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:18:43.846409+00:00"
+    "fetched_at": "2026-11-18T04:35:28.209070+00:00"
   },
   "305189": {
     "player_id": "305189",
@@ -24861,7 +24861,7 @@
     "nationality": "Austria",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:19:08.861901+00:00"
+    "fetched_at": "2026-11-18T04:35:29.560972+00:00"
   },
   "306029": {
     "player_id": "306029",
@@ -25267,7 +25267,7 @@
     "nationality": "Romania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:19:28.450216+00:00"
+    "fetched_at": "2026-11-18T04:35:30.987487+00:00"
   },
   "307215": {
     "player_id": "307215",
@@ -26009,7 +26009,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:20:05.865207+00:00"
+    "fetched_at": "2026-11-18T04:35:35.412093+00:00"
   },
   "3097071": {
     "player_id": "3097071",
@@ -26303,7 +26303,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:20:20.863616+00:00"
+    "fetched_at": "2026-11-18T04:35:36.160057+00:00"
   },
   "3097783": {
     "player_id": "3097783",
@@ -26485,7 +26485,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:20:29.939119+00:00"
+    "fetched_at": "2026-11-18T04:35:38.081985+00:00"
   },
   "309840": {
     "player_id": "309840",
@@ -27297,7 +27297,7 @@
     "nationality": "Argentina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:21:11.978364+00:00"
+    "fetched_at": "2026-11-18T04:35:40.311869+00:00"
   },
   "311796": {
     "player_id": "311796",
@@ -27353,7 +27353,7 @@
     "nationality": "Zambia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:21:14.881716+00:00"
+    "fetched_at": "2026-11-18T04:35:41.146086+00:00"
   },
   "312108": {
     "player_id": "312108",
@@ -27675,7 +27675,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:21:31.017323+00:00"
+    "fetched_at": "2026-11-18T04:35:41.742602+00:00"
   },
   "313044": {
     "player_id": "313044",
@@ -27689,7 +27689,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:21:31.711924+00:00"
+    "fetched_at": "2026-11-18T04:35:42.479150+00:00"
   },
   "313046": {
     "player_id": "313046",
@@ -27703,7 +27703,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:21:32.631894+00:00"
+    "fetched_at": "2026-11-18T04:35:43.297585+00:00"
   },
   "313068": {
     "player_id": "313068",
@@ -28291,7 +28291,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:22:02.855212+00:00"
+    "fetched_at": "2026-11-18T04:35:46.400203+00:00"
   },
   "3142614": {
     "player_id": "3142614",
@@ -28375,7 +28375,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:22:07.379778+00:00"
+    "fetched_at": "2026-11-18T04:35:47.160928+00:00"
   },
   "3142657": {
     "player_id": "3142657",
@@ -29075,7 +29075,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:22:41.853527+00:00"
+    "fetched_at": "2026-11-18T04:35:49.303314+00:00"
   },
   "3143182": {
     "player_id": "3143182",
@@ -29103,7 +29103,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:22:43.133142+00:00"
+    "fetched_at": "2026-11-18T04:35:50.032046+00:00"
   },
   "3143184": {
     "player_id": "3143184",
@@ -29439,7 +29439,7 @@
     "nationality": "Algeria",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:22:59.353737+00:00"
+    "fetched_at": "2026-11-18T04:35:51.542913+00:00"
   },
   "315384": {
     "player_id": "315384",
@@ -29565,7 +29565,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:23:05.917813+00:00"
+    "fetched_at": "2026-11-18T04:35:53.149607+00:00"
   },
   "316354": {
     "player_id": "316354",
@@ -29649,7 +29649,7 @@
     "nationality": "South Korea",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:23:09.895637+00:00"
+    "fetched_at": "2026-11-18T04:35:54.625709+00:00"
   },
   "316526": {
     "player_id": "316526",
@@ -29887,7 +29887,7 @@
     "nationality": "Dominica",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:23:22.081279+00:00"
+    "fetched_at": "2026-11-18T04:35:57.493292+00:00"
   },
   "317135": {
     "player_id": "317135",
@@ -29943,7 +29943,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:23:24.973259+00:00"
+    "fetched_at": "2026-11-18T04:35:58.246588+00:00"
   },
   "317259": {
     "player_id": "317259",
@@ -30139,7 +30139,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:23:34.554028+00:00"
+    "fetched_at": "2026-11-18T04:36:02.335855+00:00"
   },
   "318090": {
     "player_id": "318090",
@@ -30195,7 +30195,7 @@
     "nationality": "Bosnia and Herzegovina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:23:37.404332+00:00"
+    "fetched_at": "2026-11-18T04:36:05.537261+00:00"
   },
   "318429": {
     "player_id": "318429",
@@ -31071,13 +31071,13 @@
     "club": "Lyon",
     "league": "French Ligue 1",
     "position": "Defender",
-    "age": 25,
+    "age": 26,
     "dob": null,
     "sun_sign": null,
     "nationality": "Austria",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:24:21.754570+00:00"
+    "fetched_at": "2026-11-18T04:36:12.044058+00:00"
   },
   "321099": {
     "player_id": "321099",
@@ -31105,7 +31105,7 @@
     "nationality": "El Salvador",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:24:23.203246+00:00"
+    "fetched_at": "2026-11-18T04:36:13.167108+00:00"
   },
   "321310": {
     "player_id": "321310",
@@ -31287,7 +31287,7 @@
     "nationality": "Bosnia and Herzegovina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:24:31.570003+00:00"
+    "fetched_at": "2026-11-18T04:36:17.192322+00:00"
   },
   "322273": {
     "player_id": "322273",
@@ -31693,7 +31693,7 @@
     "nationality": "Israel",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:24:50.971192+00:00"
+    "fetched_at": "2026-11-18T04:36:19.045081+00:00"
   },
   "323790": {
     "player_id": "323790",
@@ -31749,7 +31749,7 @@
     "nationality": "Argentina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:24:53.429818+00:00"
+    "fetched_at": "2026-11-18T04:36:19.609492+00:00"
   },
   "323850": {
     "player_id": "323850",
@@ -31889,7 +31889,7 @@
     "nationality": "Republic of Ireland",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:00.216171+00:00"
+    "fetched_at": "2026-11-18T04:36:21.403739+00:00"
   },
   "324228": {
     "player_id": "324228",
@@ -31903,7 +31903,7 @@
     "nationality": "Israel",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:00.913245+00:00"
+    "fetched_at": "2026-11-18T04:36:22.002487+00:00"
   },
   "324256": {
     "player_id": "324256",
@@ -32057,7 +32057,7 @@
     "nationality": "Togo",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:08.346250+00:00"
+    "fetched_at": "2026-11-18T04:36:22.816179+00:00"
   },
   "324705": {
     "player_id": "324705",
@@ -32281,7 +32281,7 @@
     "nationality": "Ethiopia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:19.540827+00:00"
+    "fetched_at": "2026-11-18T04:36:24.281227+00:00"
   },
   "326001": {
     "player_id": "326001",
@@ -32757,7 +32757,7 @@
     "nationality": "Cape Verde Islands",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:42.630845+00:00"
+    "fetched_at": "2026-11-18T04:36:26.454329+00:00"
   },
   "327990": {
     "player_id": "327990",
@@ -32771,7 +32771,7 @@
     "nationality": "Kenya",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:25:43.498038+00:00"
+    "fetched_at": "2026-11-18T04:36:27.352676+00:00"
   },
   "328008": {
     "player_id": "328008",
@@ -33644,7 +33644,7 @@
   "332892": {
     "player_id": "332892",
     "name": "Peter Federico",
-    "club": "Dominican Republic",
+    "club": "Gornik Zabrze",
     "league": null,
     "position": "Midfielder",
     "age": 24,
@@ -33653,7 +33653,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:26:27.978534+00:00"
+    "fetched_at": "2026-11-18T04:36:31.790131+00:00"
   },
   "332948": {
     "player_id": "332948",
@@ -33877,7 +33877,7 @@
     "nationality": "Rwanda",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:26:39.309042+00:00"
+    "fetched_at": "2026-11-18T04:36:33.364128+00:00"
   },
   "333444": {
     "player_id": "333444",
@@ -34073,7 +34073,7 @@
     "nationality": "Mauritania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:26:49.120041+00:00"
+    "fetched_at": "2026-11-18T04:36:34.650917+00:00"
   },
   "334814": {
     "player_id": "334814",
@@ -34479,7 +34479,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:27:10.620014+00:00"
+    "fetched_at": "2026-11-18T04:36:37.053643+00:00"
   },
   "336595": {
     "player_id": "336595",
@@ -35355,13 +35355,13 @@
     "club": "Zira FK",
     "league": null,
     "position": "Midfielder",
-    "age": 30,
+    "age": 31,
     "dob": null,
     "sun_sign": null,
     "nationality": "Mozambique",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:27:55.014564+00:00"
+    "fetched_at": "2026-11-18T04:36:41.656260+00:00"
   },
   "341367": {
     "player_id": "341367",
@@ -36159,7 +36159,7 @@
     "nationality": "Kosovo",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:28:34.407537+00:00"
+    "fetched_at": "2026-11-18T04:36:45.383316+00:00"
   },
   "342837": {
     "player_id": "342837",
@@ -36565,7 +36565,7 @@
     "nationality": "Japan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:28:54.194310+00:00"
+    "fetched_at": "2026-11-18T04:36:49.928618+00:00"
   },
   "346250": {
     "player_id": "346250",
@@ -36859,7 +36859,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:29:08.996101+00:00"
+    "fetched_at": "2026-11-18T04:36:52.169015+00:00"
   },
   "347565": {
     "player_id": "347565",
@@ -36901,7 +36901,7 @@
     "nationality": "Nigeria",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:29:10.964134+00:00"
+    "fetched_at": "2026-11-18T04:36:53.602104+00:00"
   },
   "348273": {
     "player_id": "348273",
@@ -37391,7 +37391,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:29:36.819257+00:00"
+    "fetched_at": "2026-11-18T04:36:55.222724+00:00"
   },
   "354999": {
     "player_id": "354999",
@@ -37763,13 +37763,13 @@
     "club": "Sheffield Wednesday",
     "league": "English Premier League",
     "position": "Midfielder",
-    "age": 19,
+    "age": 20,
     "dob": null,
     "sun_sign": null,
     "nationality": "Northern Ireland",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:29:55.684334+00:00"
+    "fetched_at": "2026-11-18T04:36:56.556645+00:00"
   },
   "357205": {
     "player_id": "357205",
@@ -37797,7 +37797,7 @@
     "nationality": "Ethiopia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:29:57.043282+00:00"
+    "fetched_at": "2026-11-18T04:36:57.242013+00:00"
   },
   "357341": {
     "player_id": "357341",
@@ -37853,7 +37853,7 @@
     "nationality": "Chile",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:29:59.900416+00:00"
+    "fetched_at": "2026-11-18T04:36:57.842228+00:00"
   },
   "357719": {
     "player_id": "357719",
@@ -38791,7 +38791,7 @@
     "nationality": "Cayman Islands",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:30:48.127378+00:00"
+    "fetched_at": "2026-11-18T04:37:00.929753+00:00"
   },
   "361110": {
     "player_id": "361110",
@@ -38945,7 +38945,7 @@
     "nationality": "Romania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:30:55.955941+00:00"
+    "fetched_at": "2026-11-18T04:37:03.523351+00:00"
   },
   "362150": {
     "player_id": "362150",
@@ -38967,13 +38967,13 @@
     "club": "El Paso Locomotive FC",
     "league": null,
     "position": "Defender",
-    "age": 26,
+    "age": 27,
     "dob": null,
     "sun_sign": null,
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:30:57.246431+00:00"
+    "fetched_at": "2026-11-18T04:37:04.922266+00:00"
   },
   "362211": {
     "player_id": "362211",
@@ -39183,7 +39183,7 @@
     "nationality": "Guinea-Bissau",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:07.438160+00:00"
+    "fetched_at": "2026-11-18T04:37:05.692762+00:00"
   },
   "362674": {
     "player_id": "362674",
@@ -39239,7 +39239,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:09.929553+00:00"
+    "fetched_at": "2026-11-18T04:37:07.044090+00:00"
   },
   "362926": {
     "player_id": "362926",
@@ -39342,8 +39342,8 @@
   "363096": {
     "player_id": "363096",
     "name": "Diego Arroyo",
-    "club": "Hapoel Petah Tikva",
-    "league": null,
+    "club": "Nueva Chicago",
+    "league": "Argentine Primera Division",
     "position": "Defender",
     "age": 21,
     "dob": null,
@@ -39351,7 +39351,7 @@
     "nationality": "Bolivia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:15.099276+00:00"
+    "fetched_at": "2026-11-18T04:37:07.751700+00:00"
   },
   "363150": {
     "player_id": "363150",
@@ -39499,13 +39499,13 @@
     "club": "Dominican Republic",
     "league": null,
     "position": "Midfielder",
-    "age": 25,
+    "age": 26,
     "dob": null,
     "sun_sign": null,
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:22.537353+00:00"
+    "fetched_at": "2026-11-18T04:37:09.154747+00:00"
   },
   "363518": {
     "player_id": "363518",
@@ -39589,7 +39589,7 @@
     "nationality": "South Sudan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:26.547340+00:00"
+    "fetched_at": "2026-11-18T04:37:09.908525+00:00"
   },
   "363608": {
     "player_id": "363608",
@@ -39706,7 +39706,7 @@
   "364088": {
     "player_id": "364088",
     "name": "Rico Browne",
-    "club": "Walsall",
+    "club": "Woking",
     "league": "English Premier League",
     "position": "Defender",
     "age": 22,
@@ -39715,7 +39715,7 @@
     "nationality": "St Kitts and Nevis",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:32.948650+00:00"
+    "fetched_at": "2026-11-18T04:37:11.560960+00:00"
   },
   "364180": {
     "player_id": "364180",
@@ -39897,7 +39897,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:42.085491+00:00"
+    "fetched_at": "2026-11-18T04:37:12.761913+00:00"
   },
   "364880": {
     "player_id": "364880",
@@ -40065,7 +40065,7 @@
     "nationality": "Italy",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:50.511552+00:00"
+    "fetched_at": "2026-11-18T04:37:13.316416+00:00"
   },
   "365703": {
     "player_id": "365703",
@@ -40093,7 +40093,7 @@
     "nationality": "Sweden",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:51.933852+00:00"
+    "fetched_at": "2026-11-18T04:37:14.012945+00:00"
   },
   "365810": {
     "player_id": "365810",
@@ -40135,7 +40135,7 @@
     "nationality": "Paraguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:54.228409+00:00"
+    "fetched_at": "2026-11-18T04:37:14.786985+00:00"
   },
   "366012": {
     "player_id": "366012",
@@ -40227,13 +40227,13 @@
     "club": "Philadelphia Union",
     "league": "MLS",
     "position": "Defender",
-    "age": 18,
+    "age": 19,
     "dob": null,
     "sun_sign": null,
     "nationality": "USA",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:31:59.279480+00:00"
+    "fetched_at": "2026-11-18T04:37:17.623586+00:00"
   },
   "366579": {
     "player_id": "366579",
@@ -40289,7 +40289,7 @@
     "nationality": "South Africa",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:32:02.341267+00:00"
+    "fetched_at": "2026-11-18T04:37:18.531311+00:00"
   },
   "367146": {
     "player_id": "367146",
@@ -40577,13 +40577,13 @@
     "club": "Malawi",
     "league": null,
     "position": "Defender",
-    "age": 27,
+    "age": 28,
     "dob": null,
     "sun_sign": null,
     "nationality": "Malawi",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:32:17.299611+00:00"
+    "fetched_at": "2026-11-18T04:37:22.213768+00:00"
   },
   "369622": {
     "player_id": "369622",
@@ -40989,7 +40989,7 @@
     "nationality": "Dominican Republic",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:32:37.395495+00:00"
+    "fetched_at": "2026-11-18T04:37:22.858280+00:00"
   },
   "370703": {
     "player_id": "370703",
@@ -41913,7 +41913,7 @@
     "nationality": "Mexico",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:33:23.803393+00:00"
+    "fetched_at": "2026-11-18T04:37:26.405314+00:00"
   },
   "376339": {
     "player_id": "376339",
@@ -41927,7 +41927,7 @@
     "nationality": "Morocco",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:33:24.481046+00:00"
+    "fetched_at": "2026-11-18T04:37:27.793385+00:00"
   },
   "376370": {
     "player_id": "376370",
@@ -41983,7 +41983,7 @@
     "nationality": "Argentina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:33:27.220302+00:00"
+    "fetched_at": "2026-11-18T04:37:28.608828+00:00"
   },
   "376481": {
     "player_id": "376481",
@@ -42207,7 +42207,7 @@
     "nationality": "Uganda",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:33:38.157602+00:00"
+    "fetched_at": "2026-11-18T04:37:29.907608+00:00"
   },
   "376823": {
     "player_id": "376823",
@@ -42263,7 +42263,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:33:40.912833+00:00"
+    "fetched_at": "2026-11-18T04:37:31.288562+00:00"
   },
   "377022": {
     "player_id": "377022",
@@ -42613,7 +42613,7 @@
     "nationality": "Morocco",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:33:57.496112+00:00"
+    "fetched_at": "2026-11-18T04:37:35.168917+00:00"
   },
   "379110": {
     "player_id": "379110",
@@ -42669,7 +42669,7 @@
     "nationality": "Mexico",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:34:00.279753+00:00"
+    "fetched_at": "2026-11-18T04:37:36.423948+00:00"
   },
   "379452": {
     "player_id": "379452",
@@ -42879,7 +42879,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:34:10.235788+00:00"
+    "fetched_at": "2026-11-18T04:37:37.932157+00:00"
   },
   "382139": {
     "player_id": "382139",
@@ -43229,7 +43229,7 @@
     "nationality": "USA",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:34:26.841163+00:00"
+    "fetched_at": "2026-11-18T04:37:41.400275+00:00"
   },
   "384551": {
     "player_id": "384551",
@@ -43453,7 +43453,7 @@
     "nationality": "Liberia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:34:37.911106+00:00"
+    "fetched_at": "2026-11-18T04:37:42.936184+00:00"
   },
   "384919": {
     "player_id": "384919",
@@ -43957,7 +43957,7 @@
     "nationality": "Ivory Coast",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:35:02.091176+00:00"
+    "fetched_at": "2026-11-18T04:37:45.280761+00:00"
   },
   "386992": {
     "player_id": "386992",
@@ -44867,7 +44867,7 @@
     "nationality": "Mauritania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:35:44.831270+00:00"
+    "fetched_at": "2026-11-18T04:37:50.010930+00:00"
   },
   "393700": {
     "player_id": "393700",
@@ -45026,7 +45026,7 @@
   "395817": {
     "player_id": "395817",
     "name": "Kim Bong-Soo",
-    "club": "Daejeon Hana Citizen",
+    "club": "Daejeon Hana Citizen FC",
     "league": null,
     "position": "Midfielder",
     "age": 26,
@@ -45035,7 +45035,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:35:52.696244+00:00"
+    "fetched_at": "2026-11-18T04:37:50.574988+00:00"
   },
   "395942": {
     "player_id": "395942",
@@ -45231,7 +45231,7 @@
     "nationality": "Barbados",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:36:02.603929+00:00"
+    "fetched_at": "2026-11-18T04:37:51.273326+00:00"
   },
   "396387": {
     "player_id": "396387",
@@ -45378,14 +45378,14 @@
     "name": "Mohammed Bajaber",
     "club": "Simba SC",
     "league": null,
-    "position": "Midfielder",
+    "position": "Forward",
     "age": 23,
     "dob": null,
     "sun_sign": null,
     "nationality": "Kenya",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:36:10.172366+00:00"
+    "fetched_at": "2026-11-18T04:37:53.231774+00:00"
   },
   "398438": {
     "player_id": "398438",
@@ -45735,7 +45735,7 @@
     "nationality": "Tanzania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:36:27.048712+00:00"
+    "fetched_at": "2026-11-18T04:37:54.658653+00:00"
   },
   "401964": {
     "player_id": "401964",
@@ -45889,7 +45889,7 @@
     "nationality": "Mali",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:36:34.164113+00:00"
+    "fetched_at": "2026-11-18T04:37:56.877813+00:00"
   },
   "402479": {
     "player_id": "402479",
@@ -45945,7 +45945,7 @@
     "nationality": "Mauritania",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:36:36.737763+00:00"
+    "fetched_at": "2026-11-18T04:37:57.475269+00:00"
   },
   "402841": {
     "player_id": "402841",
@@ -46211,7 +46211,7 @@
     "nationality": "Tunisia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:36:49.462377+00:00"
+    "fetched_at": "2026-11-18T04:37:59.006247+00:00"
   },
   "404779": {
     "player_id": "404779",
@@ -46771,7 +46771,7 @@
     "nationality": "Kosovo",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:37:16.164219+00:00"
+    "fetched_at": "2026-11-18T04:37:59.631040+00:00"
   },
   "405713": {
     "player_id": "405713",
@@ -47079,7 +47079,7 @@
     "nationality": "Guinea-Bissau",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:37:30.838842+00:00"
+    "fetched_at": "2026-11-18T04:38:00.733506+00:00"
   },
   "409885": {
     "player_id": "409885",
@@ -47121,7 +47121,7 @@
     "nationality": "South Sudan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:37:32.955398+00:00"
+    "fetched_at": "2026-11-18T04:38:01.552875+00:00"
   },
   "410093": {
     "player_id": "410093",
@@ -47681,7 +47681,7 @@
     "nationality": "Liberia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:38:00.687299+00:00"
+    "fetched_at": "2026-11-18T04:38:02.884491+00:00"
   },
   "415155": {
     "player_id": "415155",
@@ -47709,7 +47709,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:38:02.179741+00:00"
+    "fetched_at": "2026-11-18T04:38:03.625169+00:00"
   },
   "415403": {
     "player_id": "415403",
@@ -47891,7 +47891,7 @@
     "nationality": "Netherlands",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:38:10.942980+00:00"
+    "fetched_at": "2026-11-18T04:38:05.161357+00:00"
   },
   "419091": {
     "player_id": "419091",
@@ -48297,7 +48297,7 @@
     "nationality": "Venezuela",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:38:30.335442+00:00"
+    "fetched_at": "2026-11-18T04:38:23.649797+00:00"
   },
   "84295": {
     "player_id": "84295",
@@ -48311,7 +48311,7 @@
     "nationality": "Paraguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T00:38:31.133397+00:00"
+    "fetched_at": "2026-11-18T04:38:24.731989+00:00"
   },
   "84982": {
     "player_id": "84982",
@@ -48806,7 +48806,7 @@
   "308612": {
     "player_id": "308612",
     "name": "Abduvohid Nematov",
-    "club": "Nasaf Qarshi",
+    "club": "FC Nasaf",
     "league": null,
     "position": "Goalkeeper",
     "age": 25,
@@ -48815,7 +48815,7 @@
     "nationality": "Uzbekistan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T18:31:03.827729+00:00"
+    "fetched_at": "2026-11-18T04:35:34.105148+00:00"
   },
   "3100730": {
     "player_id": "3100730",
@@ -48899,7 +48899,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T18:31:08.098199+00:00"
+    "fetched_at": "2026-11-18T04:35:50.794034+00:00"
   },
   "316610": {
     "player_id": "316610",
@@ -48941,7 +48941,7 @@
     "nationality": "Uruguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T18:31:09.917868+00:00"
+    "fetched_at": "2026-11-18T04:36:03.158144+00:00"
   },
   "320005": {
     "player_id": "320005",
@@ -48997,7 +48997,7 @@
     "nationality": "Uzbekistan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T18:31:12.640138+00:00"
+    "fetched_at": "2026-11-18T04:36:39.377245+00:00"
   },
   "353514": {
     "player_id": "353514",
@@ -49053,7 +49053,7 @@
     "nationality": "Uruguay",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-06T18:31:15.375396+00:00"
+    "fetched_at": "2026-11-18T04:37:01.515820+00:00"
   },
   "362266": {
     "player_id": "362266",
@@ -49333,7 +49333,7 @@
     "nationality": "Argentina",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:20.791603+00:00"
+    "fetched_at": "2026-11-18T04:33:24.292036+00:00"
   },
   "174136": {
     "player_id": "174136",
@@ -49450,7 +49450,7 @@
   "229023": {
     "player_id": "229023",
     "name": "Mahmoud Al-Mardi",
-    "club": "Al Hussein",
+    "club": "Al-Hussein SC",
     "league": null,
     "position": "Forward",
     "age": 33,
@@ -49459,7 +49459,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:27.034472+00:00"
+    "fetched_at": "2026-11-18T04:33:50.548486+00:00"
   },
   "236764": {
     "player_id": "236764",
@@ -49529,7 +49529,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:30.542882+00:00"
+    "fetched_at": "2026-11-18T04:34:17.439112+00:00"
   },
   "264195": {
     "player_id": "264195",
@@ -49669,7 +49669,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:38.099131+00:00"
+    "fetched_at": "2026-11-18T04:34:59.997712+00:00"
   },
   "289004": {
     "player_id": "289004",
@@ -49716,7 +49716,7 @@
   "293352": {
     "player_id": "293352",
     "name": "Abdallah Al-Fakhouri",
-    "club": "Al-Faisaly",
+    "club": "Al-Faisaly SC",
     "league": null,
     "position": "Goalkeeper",
     "age": 26,
@@ -49725,12 +49725,12 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:40.993858+00:00"
+    "fetched_at": "2026-11-18T04:35:09.825532+00:00"
   },
   "295462": {
     "player_id": "295462",
     "name": "Noor Al-Rawabdeh",
-    "club": "Al-Faisaly",
+    "club": "Al-Faisaly SC",
     "league": null,
     "position": "Midfielder",
     "age": 29,
@@ -49739,7 +49739,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:41.751636+00:00"
+    "fetched_at": "2026-11-18T04:35:11.212080+00:00"
   },
   "297754": {
     "player_id": "297754",
@@ -49921,12 +49921,12 @@
     "nationality": "Colombia",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:50.767493+00:00"
+    "fetched_at": "2026-11-18T04:35:59.500534+00:00"
   },
   "317819": {
     "player_id": "317819",
     "name": "Abdallah Nasib",
-    "club": "Al Hussein",
+    "club": "Al-Hussein SC",
     "league": null,
     "position": "Defender",
     "age": 32,
@@ -49935,7 +49935,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:51.551318+00:00"
+    "fetched_at": "2026-11-18T04:36:00.841776+00:00"
   },
   "317847": {
     "player_id": "317847",
@@ -49949,7 +49949,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:52.286674+00:00"
+    "fetched_at": "2026-11-18T04:36:01.517187+00:00"
   },
   "320908": {
     "player_id": "320908",
@@ -49963,7 +49963,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:52.930330+00:00"
+    "fetched_at": "2026-11-18T04:36:08.363298+00:00"
   },
   "320910": {
     "player_id": "320910",
@@ -49977,12 +49977,12 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:53.787036+00:00"
+    "fetched_at": "2026-11-18T04:36:10.658848+00:00"
   },
   "321515": {
     "player_id": "321515",
     "name": "Nizar Al-Rashdan",
-    "club": "Al-Faisaly",
+    "club": "Al-Faisaly SC",
     "league": null,
     "position": "Midfielder",
     "age": 27,
@@ -49991,7 +49991,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:42:54.590381+00:00"
+    "fetched_at": "2026-11-18T04:36:16.616743+00:00"
   },
   "322106": {
     "player_id": "322106",
@@ -50159,7 +50159,7 @@
     "nationality": "Algeria",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:43:02.962483+00:00"
+    "fetched_at": "2026-11-18T04:37:15.590169+00:00"
   },
   "368045": {
     "player_id": "368045",
@@ -50187,7 +50187,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:43:04.494676+00:00"
+    "fetched_at": "2026-11-18T04:37:21.401080+00:00"
   },
   "374200": {
     "player_id": "374200",
@@ -50257,7 +50257,7 @@
     "nationality": "Niger",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:43:07.906109+00:00"
+    "fetched_at": "2026-11-18T04:37:43.832028+00:00"
   },
   "385649": {
     "player_id": "385649",
@@ -50276,7 +50276,7 @@
   "389219": {
     "player_id": "389219",
     "name": "Ahmad Assaf",
-    "club": "Al Hussein",
+    "club": "Al-Hussein SC",
     "league": null,
     "position": "Defender",
     "age": 27,
@@ -50285,7 +50285,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:43:09.210399+00:00"
+    "fetched_at": "2026-11-18T04:37:46.032574+00:00"
   },
   "396078": {
     "player_id": "396078",
@@ -50327,7 +50327,7 @@
     "nationality": null,
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:43:11.347512+00:00"
+    "fetched_at": "2026-11-18T04:37:56.057487+00:00"
   },
   "405256": {
     "player_id": "405256",
@@ -50430,7 +50430,7 @@
   "422263": {
     "player_id": "422263",
     "name": "Anas Badawi",
-    "club": "Al-Faisaly",
+    "club": "Al-Faisaly SC",
     "league": null,
     "position": "Defender",
     "age": 29,
@@ -50439,7 +50439,7 @@
     "nationality": "Jordan",
     "photo": null,
     "injury_status": null,
-    "fetched_at": "2026-10-07T01:43:16.779212+00:00"
+    "fetched_at": "2026-11-18T04:38:06.587276+00:00"
   },
   "45843": {
     "player_id": "45843",
@@ -61024,5 +61024,2917 @@
     "photo": null,
     "injury_status": null,
     "fetched_at": "2026-11-17T13:15:33.411646+00:00"
+  },
+  "144157": {
+    "player_id": "144157",
+    "name": "Eduard Bello",
+    "club": "Deportivo Cali",
+    "league": "Colombian Primera A",
+    "position": "Forward",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Venezuela",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:23.469275+00:00"
+  },
+  "147193": {
+    "player_id": "147193",
+    "name": "Cédric Bakambu",
+    "club": "San Diego FC",
+    "league": null,
+    "position": "Forward",
+    "age": 35,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Congo DR",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:25.196825+00:00"
+  },
+  "150903": {
+    "player_id": "150903",
+    "name": "Khaled Sabah",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Defender",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:25.815477+00:00"
+  },
+  "177219": {
+    "player_id": "177219",
+    "name": "Jefferson Savarino",
+    "club": "Fluminense",
+    "league": "Brazilian Serie A",
+    "position": "Forward",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Venezuela",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:30.074340+00:00"
+  },
+  "188230": {
+    "player_id": "188230",
+    "name": "Alexander Sørloth",
+    "club": "Atlético de Madrid",
+    "league": "Spanish LALIGA",
+    "position": "Forward",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Norway",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:33.747005+00:00"
+  },
+  "190327": {
+    "player_id": "190327",
+    "name": "Tomasz Kedziora",
+    "club": "Dynamo Kyiv",
+    "league": "Russian Premier League",
+    "position": "Defender",
+    "age": 32,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Poland",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:35.454240+00:00"
+  },
+  "195282": {
+    "player_id": "195282",
+    "name": "Rustam Ashurmatov",
+    "club": "Esteghlal FC",
+    "league": null,
+    "position": "Defender",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Uzbekistan",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:38.483219+00:00"
+  },
+  "196556": {
+    "player_id": "196556",
+    "name": "Issoufou Dayo",
+    "club": "Umm Salal",
+    "league": "Qatar Stars League",
+    "position": "Defender",
+    "age": 35,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Burkina Faso",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:39.050213+00:00"
+  },
+  "212351": {
+    "player_id": "212351",
+    "name": "Aaron Collins",
+    "club": "Milton Keynes Dons",
+    "league": "English Premier League",
+    "position": "Forward",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Wales",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:41.450915+00:00"
+  },
+  "217556": {
+    "player_id": "217556",
+    "name": "Ignacio De Arruabarrena",
+    "club": "Arouca",
+    "league": "Portuguese Primeira Liga",
+    "position": "Goalkeeper",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Uruguay",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:43.742225+00:00"
+  },
+  "225510": {
+    "player_id": "225510",
+    "name": "Daniel Arzani",
+    "club": "Ferencvaros",
+    "league": null,
+    "position": "Forward",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Australia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:47.721693+00:00"
+  },
+  "226947": {
+    "player_id": "226947",
+    "name": "Komail Al-Aswad",
+    "club": "Al-Khaldiya SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 32,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:48.442574+00:00"
+  },
+  "227608": {
+    "player_id": "227608",
+    "name": "Gabriel Leiva",
+    "club": "Sporting San José",
+    "league": null,
+    "position": "Midfielder",
+    "age": 32,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Costa Rica",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:49.840169+00:00"
+  },
+  "231890": {
+    "player_id": "231890",
+    "name": "Paul Smyth",
+    "club": "Queens Park Rangers",
+    "league": "English Premier League",
+    "position": "Forward",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Northern Ireland",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:51.429584+00:00"
+  },
+  "232415": {
+    "player_id": "232415",
+    "name": "Zak Vyner",
+    "club": "Wrexham",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kenya",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:52.257327+00:00"
+  },
+  "232492": {
+    "player_id": "232492",
+    "name": "Meschack Elia",
+    "club": "Alanyaspor",
+    "league": null,
+    "position": "Forward",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Congo DR",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:53.052325+00:00"
+  },
+  "234300": {
+    "player_id": "234300",
+    "name": "Devis Vásquez",
+    "club": "AS Roma",
+    "league": "Italian Serie A",
+    "position": "Goalkeeper",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Colombia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:54.536687+00:00"
+  },
+  "236141": {
+    "player_id": "236141",
+    "name": "Callum Styles",
+    "club": "West Bromwich Albion",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Hungary",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:55.668892+00:00"
+  },
+  "236741": {
+    "player_id": "236741",
+    "name": "Thierry Manzi",
+    "club": "Al Ahli Tripoli",
+    "league": null,
+    "position": "Defender",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Rwanda",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:57.130754+00:00"
+  },
+  "238764": {
+    "player_id": "238764",
+    "name": "Babacar Niasse",
+    "club": "Difaâ Hassani El Jadid",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Mauritania",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:33:57.916237+00:00"
+  },
+  "24412": {
+    "player_id": "24412",
+    "name": "Juan Cabal",
+    "club": "Juventus",
+    "league": "Italian Serie A",
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Colombia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:02.396668+00:00"
+  },
+  "244201": {
+    "player_id": "244201",
+    "name": "Sayed Dhiya Saeed",
+    "club": "Al-Khaldiya SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 34,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:03.283043+00:00"
+  },
+  "244202": {
+    "player_id": "244202",
+    "name": "Waleed Al-Hayam",
+    "club": "Al-Muharraq SC",
+    "league": null,
+    "position": "Defender",
+    "age": 35,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:03.875762+00:00"
+  },
+  "244677": {
+    "player_id": "244677",
+    "name": "Aymen Hussein",
+    "club": "Pakhtakor",
+    "league": null,
+    "position": "Forward",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:04.525371+00:00"
+  },
+  "244734": {
+    "player_id": "244734",
+    "name": "Yousef Naser",
+    "club": "Kuwait SC",
+    "league": null,
+    "position": "Forward",
+    "age": 36,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:05.352062+00:00"
+  },
+  "248617": {
+    "player_id": "248617",
+    "name": "Dayo António",
+    "club": "Ferroviário Beira",
+    "league": null,
+    "position": "Forward",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Mozambique",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:06.972289+00:00"
+  },
+  "249076": {
+    "player_id": "249076",
+    "name": "Ali Jaafar Madan",
+    "club": "Bahrain",
+    "league": null,
+    "position": "Forward",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:07.597329+00:00"
+  },
+  "251743": {
+    "player_id": "251743",
+    "name": "Guy Mbenza",
+    "club": "Liaoning Tieren",
+    "league": null,
+    "position": "Forward",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Congo",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:09.788595+00:00"
+  },
+  "251889": {
+    "player_id": "251889",
+    "name": "Nicolás de la Cruz",
+    "club": "Flamengo",
+    "league": "Brazilian Serie A",
+    "position": "Midfielder",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Uruguay",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:10.531794+00:00"
+  },
+  "251963": {
+    "player_id": "251963",
+    "name": "Félix Torres",
+    "club": "Internacional",
+    "league": "Brazilian Serie A",
+    "position": "Defender",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Ecuador",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:11.100030+00:00"
+  },
+  "255220": {
+    "player_id": "255220",
+    "name": "Eddie Afonso",
+    "club": "Petro de Luanda",
+    "league": null,
+    "position": "Defender",
+    "age": 32,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Angola",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:12.822882+00:00"
+  },
+  "257022": {
+    "player_id": "257022",
+    "name": "Mohamed Marhoon",
+    "club": "Kuwait SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:14.226038+00:00"
+  },
+  "257035": {
+    "player_id": "257035",
+    "name": "Ahmed Bughammar",
+    "club": "Al-Muharraq SC",
+    "league": null,
+    "position": "Defender",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:14.920888+00:00"
+  },
+  "257364": {
+    "player_id": "257364",
+    "name": "Mohammed Al-Tabbal",
+    "club": "Al Ahli Tripoli",
+    "league": null,
+    "position": "Midfielder",
+    "age": 33,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Libya",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:16.691925+00:00"
+  },
+  "259055": {
+    "player_id": "259055",
+    "name": "Elvis Rexhbecaj",
+    "club": "VfL Wolfsburg",
+    "league": "German Bundesliga",
+    "position": "Midfielder",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kosovo",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:19.347563+00:00"
+  },
+  "261066": {
+    "player_id": "261066",
+    "name": "Oumar Solet",
+    "club": "Udinese",
+    "league": "Italian Serie A",
+    "position": "Defender",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "France",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:20.647001+00:00"
+  },
+  "264660": {
+    "player_id": "264660",
+    "name": "Youssef Ayman",
+    "club": "Al-Rayyan SC",
+    "league": null,
+    "position": "Defender",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Qatar",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:23.255975+00:00"
+  },
+  "265236": {
+    "player_id": "265236",
+    "name": "Moataz Zemzemi",
+    "club": "CSKA 1948 Sofia",
+    "league": null,
+    "position": "Midfielder",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Tunisia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:24.044664+00:00"
+  },
+  "266496": {
+    "player_id": "266496",
+    "name": "Ibrahim Bayesh",
+    "club": "Al Riyadh",
+    "league": null,
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:26.359287+00:00"
+  },
+  "266855": {
+    "player_id": "266855",
+    "name": "Nelson Blanco",
+    "club": "San Antonio FC",
+    "league": null,
+    "position": "Defender",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "El Salvador",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:27.015065+00:00"
+  },
+  "267512": {
+    "player_id": "267512",
+    "name": "Ba Dun",
+    "club": "Tianjin Jinmen Tiger",
+    "league": null,
+    "position": "Defender",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "China PR",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:27.601735+00:00"
+  },
+  "268121": {
+    "player_id": "268121",
+    "name": "Hussein Ali Al-Saedi",
+    "club": "Al-Shorta SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:29.097821+00:00"
+  },
+  "268474": {
+    "player_id": "268474",
+    "name": "Abdallah Ali Mohamed",
+    "club": "Velez Mostar",
+    "league": null,
+    "position": "Defender",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Comoros Islands",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:29.784788+00:00"
+  },
+  "269481": {
+    "player_id": "269481",
+    "name": "Abdulquddus Atiah",
+    "club": "Al Ula",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Saudi Arabia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:32.127263+00:00"
+  },
+  "270829": {
+    "player_id": "270829",
+    "name": "Jordy Alcívar",
+    "club": "Independiente del Valle",
+    "league": null,
+    "position": "Midfielder",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Ecuador",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:33.723767+00:00"
+  },
+  "271275": {
+    "player_id": "271275",
+    "name": "Gerard Lavergne",
+    "club": "Cibao FC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Dominican Republic",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:36.583393+00:00"
+  },
+  "271460": {
+    "player_id": "271460",
+    "name": "Mohammed Al Kuwaykibi",
+    "club": "Al Taawoun",
+    "league": null,
+    "position": "Forward",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Saudi Arabia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:37.319095+00:00"
+  },
+  "272137": {
+    "player_id": "272137",
+    "name": "Thibault Klidje",
+    "club": "Hibernian",
+    "league": "Scottish Premiership",
+    "position": "Forward",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Togo",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:40.374804+00:00"
+  },
+  "274269": {
+    "player_id": "274269",
+    "name": "Yazan Al-Arab",
+    "club": "FC Seoul",
+    "league": null,
+    "position": "Defender",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Jordan",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:42.389839+00:00"
+  },
+  "276116": {
+    "player_id": "276116",
+    "name": "Burá",
+    "club": "Lusitano Évora 1911",
+    "league": null,
+    "position": "Midfielder",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Guinea-Bissau",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:46.786918+00:00"
+  },
+  "276323": {
+    "player_id": "276323",
+    "name": "Jeong Woo-Yeong",
+    "club": "1. FC Union Berlin",
+    "league": "German Bundesliga",
+    "position": "Midfielder",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "South Korea",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:48.240741+00:00"
+  },
+  "278536": {
+    "player_id": "278536",
+    "name": "Abdullah Khateeb",
+    "club": "Al Ettifaq",
+    "league": "Saudi Pro League",
+    "position": "Defender",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Saudi Arabia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:49.911119+00:00"
+  },
+  "280207": {
+    "player_id": "280207",
+    "name": "Nicoli Brathwaite",
+    "club": "Barbados",
+    "league": null,
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Barbados",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:50.738243+00:00"
+  },
+  "283331": {
+    "player_id": "283331",
+    "name": "Feras Al-Brikan",
+    "club": "Al Ahli",
+    "league": "Saudi Pro League",
+    "position": "Forward",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Saudi Arabia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:51.990644+00:00"
+  },
+  "283599": {
+    "player_id": "283599",
+    "name": "Ahmad Al Dhefiri",
+    "club": "Kuwait SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 34,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:55.170850+00:00"
+  },
+  "284854": {
+    "player_id": "284854",
+    "name": "Martín Satriano",
+    "club": "Getafe",
+    "league": "Spanish LALIGA",
+    "position": "Forward",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Uruguay",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:57.892233+00:00"
+  },
+  "286407": {
+    "player_id": "286407",
+    "name": "Eid Al-Rasheedi",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:34:59.270710+00:00"
+  },
+  "287723": {
+    "player_id": "287723",
+    "name": "Aimar Sher",
+    "club": "Sarpsborg FK",
+    "league": null,
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:03.559078+00:00"
+  },
+  "288537": {
+    "player_id": "288537",
+    "name": "Salah Zakaria",
+    "club": "Al Duhail",
+    "league": "Qatar Stars League",
+    "position": "Goalkeeper",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Qatar",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:05.032289+00:00"
+  },
+  "288968": {
+    "player_id": "288968",
+    "name": "Jasim Al-Salama",
+    "club": "East Riffa",
+    "league": null,
+    "position": "Midfielder",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:05.628717+00:00"
+  },
+  "289047": {
+    "player_id": "289047",
+    "name": "Benjamín Rafael Núñez",
+    "club": "Coria",
+    "league": null,
+    "position": "Defender",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Dominican Republic",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:06.378721+00:00"
+  },
+  "289073": {
+    "player_id": "289073",
+    "name": "Kings Kangwa",
+    "club": "Panathinaikos",
+    "league": "Greek Super League",
+    "position": "Midfielder",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Zambia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:07.003846+00:00"
+  },
+  "289556": {
+    "player_id": "289556",
+    "name": "Giorgi Moistsrapishvili",
+    "club": "FC Spartak Trnava",
+    "league": null,
+    "position": "Midfielder",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Georgia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:07.678915+00:00"
+  },
+  "289942": {
+    "player_id": "289942",
+    "name": "Michael Svoboda",
+    "club": "Brighton & Hove Albion",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Austria",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:08.499930+00:00"
+  },
+  "290981": {
+    "player_id": "290981",
+    "name": "Alex Güity",
+    "club": "UPNFM",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Honduras",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:09.279021+00:00"
+  },
+  "295238": {
+    "player_id": "295238",
+    "name": "Clemente Montes",
+    "club": "Universidad Católica",
+    "league": "Chilean Primera Division",
+    "position": "Forward",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Chile",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:10.557312+00:00"
+  },
+  "296572": {
+    "player_id": "296572",
+    "name": "Cobin Paul",
+    "club": "Dominica",
+    "league": null,
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Dominica",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:12.810511+00:00"
+  },
+  "296959": {
+    "player_id": "296959",
+    "name": "Abdallah Imhamed",
+    "club": "Al Ahli Tripoli",
+    "league": null,
+    "position": "Midfielder",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Libya",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:13.479021+00:00"
+  },
+  "296982": {
+    "player_id": "296982",
+    "name": "Mohamed Amine Ben Hamida",
+    "club": "Al Hazem",
+    "league": null,
+    "position": "Defender",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Tunisia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:14.124984+00:00"
+  },
+  "297039": {
+    "player_id": "297039",
+    "name": "Domingos",
+    "club": "Botafogo",
+    "league": "Brazilian Serie A",
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Angola",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:15.194704+00:00"
+  },
+  "298630": {
+    "player_id": "298630",
+    "name": "Hiran Ahmed",
+    "club": "Al-Zawraa",
+    "league": null,
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:17.649112+00:00"
+  },
+  "299032": {
+    "player_id": "299032",
+    "name": "Charles Tillett",
+    "club": "Verdes FC",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Belize",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:19.231015+00:00"
+  },
+  "299861": {
+    "player_id": "299861",
+    "name": "Mohamed Hadj Mahmoud",
+    "club": "Esperance Sportive de Tunis",
+    "league": "Tunisian Ligue 1",
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Tunisia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:20.918643+00:00"
+  },
+  "301321": {
+    "player_id": "301321",
+    "name": "Thalente Mbatha",
+    "club": "Orlando Pirates",
+    "league": "South African Premiership",
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "South Africa",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:22.542330+00:00"
+  },
+  "301339": {
+    "player_id": "301339",
+    "name": "Camilo Mena",
+    "club": "MKS Korona Kielce",
+    "league": null,
+    "position": "Midfielder",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Colombia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:23.220885+00:00"
+  },
+  "301377": {
+    "player_id": "301377",
+    "name": "Noel Törnqvist",
+    "club": "Monza",
+    "league": "Italian Serie A",
+    "position": "Goalkeeper",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Sweden",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:24.392932+00:00"
+  },
+  "304120": {
+    "player_id": "304120",
+    "name": "Reed Baker-Whiting",
+    "club": "Nashville SC",
+    "league": null,
+    "position": "Defender",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "USA",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:26.874267+00:00"
+  },
+  "305048": {
+    "player_id": "305048",
+    "name": "Jozef Urblík",
+    "club": "Vasas",
+    "league": null,
+    "position": "Midfielder",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Slovakia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:27.573064+00:00"
+  },
+  "305799": {
+    "player_id": "305799",
+    "name": "Mubarak Al Faneeni",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Forward",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:28.972291+00:00"
+  },
+  "306692": {
+    "player_id": "306692",
+    "name": "Ziyad Al-Johani",
+    "club": "Al Ahli",
+    "league": "Saudi Pro League",
+    "position": "Midfielder",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Saudi Arabia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:30.335114+00:00"
+  },
+  "307734": {
+    "player_id": "307734",
+    "name": "Giorgi Maisuradze",
+    "club": "Polissya Zhitomir",
+    "league": null,
+    "position": "Defender",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Georgia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:31.613964+00:00"
+  },
+  "307981": {
+    "player_id": "307981",
+    "name": "Allan Wlk",
+    "club": "Lanús",
+    "league": "Argentine Primera Division",
+    "position": "Forward",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Paraguay",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:32.674908+00:00"
+  },
+  "308315": {
+    "player_id": "308315",
+    "name": "Jordi Liongola",
+    "club": "Sheffield Wednesday",
+    "league": "English Premier League",
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Burundi",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:33.378871+00:00"
+  },
+  "309241": {
+    "player_id": "309241",
+    "name": "Máximo Perrone",
+    "club": "Como",
+    "league": "Italian Serie A",
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Argentina",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:34.715293+00:00"
+  },
+  "3097618": {
+    "player_id": "3097618",
+    "name": "Abdullah Khalifah Abdullah Khalifah Al Qarzaei",
+    "club": "Kuwait SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:36.818873+00:00"
+  },
+  "3097674": {
+    "player_id": "3097674",
+    "name": "Karrar Amer",
+    "club": "Iraq",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:37.532405+00:00"
+  },
+  "3102915": {
+    "player_id": "3102915",
+    "name": "Faad Sana",
+    "club": "NS Mura",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:38.895570+00:00"
+  },
+  "311149": {
+    "player_id": "311149",
+    "name": "Amir Al-Ammari",
+    "club": "Cracovia",
+    "league": null,
+    "position": "Midfielder",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:39.566348+00:00"
+  },
+  "3138833": {
+    "player_id": "3138833",
+    "name": "Jeddy Halman",
+    "club": "HVV Hollandia",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:44.041272+00:00"
+  },
+  "3139133": {
+    "player_id": "3139133",
+    "name": "Thomas Dean Coulombe Montenegro",
+    "club": "Espanyol B",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:44.682562+00:00"
+  },
+  "3141564": {
+    "player_id": "3141564",
+    "name": "Ghaith Al Madadha",
+    "club": "Al-Faisaly SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:45.626289+00:00"
+  },
+  "3142696": {
+    "player_id": "3142696",
+    "name": "Lebib",
+    "club": "South Sudan",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:47.855645+00:00"
+  },
+  "3142744": {
+    "player_id": "3142744",
+    "name": "Sammir Ramos",
+    "club": "Bonaire",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:48.597334+00:00"
+  },
+  "315594": {
+    "player_id": "315594",
+    "name": "Telasco Segovia",
+    "club": "Inter Miami CF",
+    "league": "MLS",
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Venezuela",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:52.368127+00:00"
+  },
+  "316197": {
+    "player_id": "316197",
+    "name": "Robinson Flores",
+    "club": "Academia Puerto Cabello",
+    "league": null,
+    "position": "Forward",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Venezuela",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:54.011685+00:00"
+  },
+  "316751": {
+    "player_id": "316751",
+    "name": "Abdulaziz Naji",
+    "club": "Kuwait SC",
+    "league": null,
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:55.432748+00:00"
+  },
+  "316755": {
+    "player_id": "316755",
+    "name": "Mahdi Dashti",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:56.205624+00:00"
+  },
+  "316756": {
+    "player_id": "316756",
+    "name": "Nasser Falah Jazea",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:56.876133+00:00"
+  },
+  "317453": {
+    "player_id": "317453",
+    "name": "Rodrigo Huescas",
+    "club": "F.C. København",
+    "league": "Danish Superliga",
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Mexico",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:35:58.837410+00:00"
+  },
+  "318342": {
+    "player_id": "318342",
+    "name": "Jesús Orozco",
+    "club": "Cruz Azul",
+    "league": "Liga MX",
+    "position": "Defender",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Mexico",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:04.191987+00:00"
+  },
+  "318373": {
+    "player_id": "318373",
+    "name": "Bernard Kamungo",
+    "club": "FC Dallas",
+    "league": "MLS",
+    "position": "Forward",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "USA",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:04.926340+00:00"
+  },
+  "318615": {
+    "player_id": "318615",
+    "name": "Kutwelo Mpolokang",
+    "club": "Jwaneng Galaxy",
+    "league": null,
+    "position": "Midfielder",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Botswana",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:06.323372+00:00"
+  },
+  "318698": {
+    "player_id": "318698",
+    "name": "Razafindraibeharimihanta Nirina",
+    "club": "Saint Denis FC",
+    "league": null,
+    "position": "Defender",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Madagascar",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:07.156698+00:00"
+  },
+  "319413": {
+    "player_id": "319413",
+    "name": "Hazaa Ali",
+    "club": "Al-Khaldiya SC",
+    "league": null,
+    "position": "Defender",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:07.773214+00:00"
+  },
+  "320911": {
+    "player_id": "320911",
+    "name": "Rashed Al Dousari",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Defender",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:11.464523+00:00"
+  },
+  "321462": {
+    "player_id": "321462",
+    "name": "Amine Benaddi",
+    "club": "Al-Muharraq SC",
+    "league": null,
+    "position": "Defender",
+    "age": 33,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:13.864287+00:00"
+  },
+  "321464": {
+    "player_id": "321464",
+    "name": "Ahmed Ali",
+    "club": "Al-Muharraq SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:14.528536+00:00"
+  },
+  "321468": {
+    "player_id": "321468",
+    "name": "Omar Saber",
+    "club": "Al-Muharraq SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:15.224298+00:00"
+  },
+  "321484": {
+    "player_id": "321484",
+    "name": "Mohammad Abu Hasheesh",
+    "club": "Al Wehdat",
+    "league": null,
+    "position": "Defender",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Jordan",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:15.937636+00:00"
+  },
+  "322680": {
+    "player_id": "322680",
+    "name": "Bruno Damiani",
+    "club": "Philadelphia Union",
+    "league": "MLS",
+    "position": "Forward",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Uruguay",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:18.345793+00:00"
+  },
+  "325549": {
+    "player_id": "325549",
+    "name": "Zidane Iqbal",
+    "club": "Dundee United",
+    "league": "Scottish Premiership",
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:23.499997+00:00"
+  },
+  "326032": {
+    "player_id": "326032",
+    "name": "Marko Farji",
+    "club": "Heerenveen",
+    "league": "Dutch Eredivisie",
+    "position": "Forward",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:24.969788+00:00"
+  },
+  "326499": {
+    "player_id": "326499",
+    "name": "Lukasz Poreba",
+    "club": "SV Elversberg",
+    "league": "German Bundesliga",
+    "position": "Midfielder",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Poland",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:25.620307+00:00"
+  },
+  "328013": {
+    "player_id": "328013",
+    "name": "Jeremy Sarmiento",
+    "club": "Middlesbrough",
+    "league": "English Premier League",
+    "position": "Forward",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Ecuador",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:28.312517+00:00"
+  },
+  "328304": {
+    "player_id": "328304",
+    "name": "Humoud Al Sanousi",
+    "club": "Kuwait SC",
+    "league": null,
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:28.988006+00:00"
+  },
+  "330233": {
+    "player_id": "330233",
+    "name": "Ezechiel Banzuzi",
+    "club": "RB Leipzig",
+    "league": "German Bundesliga",
+    "position": "Midfielder",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Netherlands",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:29.682635+00:00"
+  },
+  "330786": {
+    "player_id": "330786",
+    "name": "Giorgi Gagua",
+    "club": "Dunajska Streda",
+    "league": null,
+    "position": "Forward",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Georgia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:30.354838+00:00"
+  },
+  "331918": {
+    "player_id": "331918",
+    "name": "Nawaf Boushal",
+    "club": "Al Nassr",
+    "league": "Saudi Pro League",
+    "position": "Defender",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Saudi Arabia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:31.038246+00:00"
+  },
+  "333144": {
+    "player_id": "333144",
+    "name": "Emmanuel Samadia",
+    "club": "Hartford Athletic",
+    "league": null,
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Sierra Leone",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:32.601249+00:00"
+  },
+  "334106": {
+    "player_id": "334106",
+    "name": "Oscar Cortés",
+    "club": "Huracán",
+    "league": "Argentine Primera Division",
+    "position": "Forward",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Colombia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:34.102227+00:00"
+  },
+  "335157": {
+    "player_id": "335157",
+    "name": "Leandro Andrade",
+    "club": "Polissya Zhitomir",
+    "league": null,
+    "position": "Midfielder",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Cape Verde Islands",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:35.240162+00:00"
+  },
+  "336120": {
+    "player_id": "336120",
+    "name": "Ahmed Al-Ganehi",
+    "club": "Al-Rayyan SC",
+    "league": null,
+    "position": "Forward",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Qatar",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:35.792723+00:00"
+  },
+  "336250": {
+    "player_id": "336250",
+    "name": "Mohammed Abdul Qayoom",
+    "club": "Al-Riffa",
+    "league": null,
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:36.454805+00:00"
+  },
+  "336641": {
+    "player_id": "336641",
+    "name": "Andres Montaño",
+    "club": "Cruz Azul",
+    "league": "Liga MX",
+    "position": "Midfielder",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Mexico",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:37.882350+00:00"
+  },
+  "337305": {
+    "player_id": "337305",
+    "name": "Joshua Mutale",
+    "club": "Al Adalah",
+    "league": null,
+    "position": "Forward",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Zambia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:38.622569+00:00"
+  },
+  "338099": {
+    "player_id": "338099",
+    "name": "Ben Starkie",
+    "club": "Truro City",
+    "league": null,
+    "position": "Forward",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Tanzania",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:40.140558+00:00"
+  },
+  "338837": {
+    "player_id": "338837",
+    "name": "Santiago Castaneda",
+    "club": "SC Paderborn 07",
+    "league": "German Bundesliga",
+    "position": "Midfielder",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "USA",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:40.813915+00:00"
+  },
+  "341472": {
+    "player_id": "341472",
+    "name": "Hamed Al-Shanqiti",
+    "club": "Al Kholood",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Saudi Arabia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:43.321514+00:00"
+  },
+  "341720": {
+    "player_id": "341720",
+    "name": "Yassine Titraoui",
+    "club": "Lens",
+    "league": "French Ligue 1",
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Algeria",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:43.980392+00:00"
+  },
+  "341923": {
+    "player_id": "341923",
+    "name": "Addeen Charles",
+    "club": "St. Vincent and the Grenadines",
+    "league": null,
+    "position": "Midfielder",
+    "age": 30,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "St Vincent and Grenadines",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:44.744225+00:00"
+  },
+  "342764": {
+    "player_id": "342764",
+    "name": "Lindon Emërllahu",
+    "club": "Polissya Zhitomir",
+    "league": null,
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kosovo",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:45.975377+00:00"
+  },
+  "345103": {
+    "player_id": "345103",
+    "name": "Fabricio Quaglio",
+    "club": "The Strongest",
+    "league": "Bolivian Primera Division",
+    "position": "Forward",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bolivia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:46.775011+00:00"
+  },
+  "345129": {
+    "player_id": "345129",
+    "name": "Lehlohonolo Matsau",
+    "club": "Lesotho",
+    "league": null,
+    "position": "Defender",
+    "age": 29,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Lesotho",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:47.839146+00:00"
+  },
+  "345381": {
+    "player_id": "345381",
+    "name": "Fenohasina Razafimaro",
+    "club": "Madagascar",
+    "league": null,
+    "position": "Forward",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Madagascar",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:48.606114+00:00"
+  },
+  "345991": {
+    "player_id": "345991",
+    "name": "Abde Rebbach",
+    "club": "Alavés",
+    "league": "Spanish LALIGA",
+    "position": "Forward",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Algeria",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:49.364304+00:00"
+  },
+  "346588": {
+    "player_id": "346588",
+    "name": "António Silva",
+    "club": "AFC Bournemouth",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Portugal",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:50.634541+00:00"
+  },
+  "347448": {
+    "player_id": "347448",
+    "name": "Warner Brown",
+    "club": "Rochester New York FC",
+    "league": "MLS",
+    "position": "Forward",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Jamaica",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:51.422173+00:00"
+  },
+  "347569": {
+    "player_id": "347569",
+    "name": "Darlin Mencia",
+    "club": "Montevideo Wanderers",
+    "league": "Uruguayan Primera Division",
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Honduras",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:52.851414+00:00"
+  },
+  "352661": {
+    "player_id": "352661",
+    "name": "Lukas Jungwirth",
+    "club": "LASK Linz",
+    "league": "Austrian Bundesliga",
+    "position": "Goalkeeper",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Austria",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:54.510049+00:00"
+  },
+  "356428": {
+    "player_id": "356428",
+    "name": "Guilmar Centella",
+    "club": "Blooming",
+    "league": "Bolivian Primera Division",
+    "position": "Midfielder",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bolivia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:55.973183+00:00"
+  },
+  "358746": {
+    "player_id": "358746",
+    "name": "Kendry Páez",
+    "club": "Chelsea U21",
+    "league": null,
+    "position": "Midfielder",
+    "age": 19,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Ecuador",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:58.638392+00:00"
+  },
+  "359971": {
+    "player_id": "359971",
+    "name": "Ibrahim Al Hassan",
+    "club": "Al-Rayyan SC",
+    "league": null,
+    "position": "Midfielder",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Qatar",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:36:59.203501+00:00"
+  },
+  "360015": {
+    "player_id": "360015",
+    "name": "Roberto Osorto",
+    "club": "Real España",
+    "league": null,
+    "position": "Midfielder",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Honduras",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:00.066123+00:00"
+  },
+  "361818": {
+    "player_id": "361818",
+    "name": "Eivind Helland",
+    "club": "Bologna",
+    "league": "Italian Serie A",
+    "position": "Defender",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Norway",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:02.182625+00:00"
+  },
+  "361948": {
+    "player_id": "361948",
+    "name": "Umidjan Yusup",
+    "club": "Shanghai Port FC",
+    "league": "Spanish LALIGA",
+    "position": "Defender",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:02.791989+00:00"
+  },
+  "362673": {
+    "player_id": "362673",
+    "name": "Shio Fukuda",
+    "club": "Karlsruher SC",
+    "league": "German Bundesliga",
+    "position": "Forward",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Japan",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:06.377615+00:00"
+  },
+  "363218": {
+    "player_id": "363218",
+    "name": "Aaron Anselmino",
+    "club": "Chelsea",
+    "league": "English Premier League",
+    "position": "Defender",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Argentina",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:08.477897+00:00"
+  },
+  "363765": {
+    "player_id": "363765",
+    "name": "Lanjesi Nkhoma",
+    "club": "Malawi",
+    "league": null,
+    "position": "Midfielder",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Malawi",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:10.747696+00:00"
+  },
+  "364679": {
+    "player_id": "364679",
+    "name": "Slawomir Abramowicz",
+    "club": "Jagiellonia Bialystok",
+    "league": "Polish Ekstraklasa",
+    "position": "Goalkeeper",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Poland",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:12.162259+00:00"
+  },
+  "366495": {
+    "player_id": "366495",
+    "name": "Abdulla Al Khalasi",
+    "club": "Al-Muharraq SC",
+    "league": null,
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:16.183548+00:00"
+  },
+  "366526": {
+    "player_id": "366526",
+    "name": "Mariano Troilo",
+    "club": "Parma",
+    "league": "Italian Serie A",
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Argentina",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:16.938971+00:00"
+  },
+  "367165": {
+    "player_id": "367165",
+    "name": "Siyanda Mthanti",
+    "club": "Mamelodi Sundowns",
+    "league": "South African Premiership",
+    "position": "Midfielder",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "South Africa",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:19.434171+00:00"
+  },
+  "367743": {
+    "player_id": "367743",
+    "name": "Alieu Njie",
+    "club": "Sweden U21",
+    "league": "Swedish Allsvenskan",
+    "position": "Forward",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Sweden",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:19.982960+00:00"
+  },
+  "369408": {
+    "player_id": "369408",
+    "name": "Ahmed Hasan",
+    "club": "Iraq",
+    "league": null,
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:20.674349+00:00"
+  },
+  "371396": {
+    "player_id": "371396",
+    "name": "Yousef Majed",
+    "club": "Al-Arabi SC",
+    "league": null,
+    "position": "Forward",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:23.678992+00:00"
+  },
+  "373272": {
+    "player_id": "373272",
+    "name": "Freadyen Michiel",
+    "club": "Bonaire",
+    "league": null,
+    "position": "Forward",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bonaire",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:24.429141+00:00"
+  },
+  "374221": {
+    "player_id": "374221",
+    "name": "Genesis Antwi",
+    "club": "Strasbourg",
+    "league": "French Ligue 1",
+    "position": "Defender",
+    "age": 19,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Sweden",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:25.107268+00:00"
+  },
+  "375746": {
+    "player_id": "375746",
+    "name": "Meshak Babanzila",
+    "club": "Gimnàstic de Tarragona",
+    "league": "Spanish LALIGA",
+    "position": "Forward",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Gabon",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:25.725868+00:00"
+  },
+  "376274": {
+    "player_id": "376274",
+    "name": "Geovany Quenda",
+    "club": "Chelsea",
+    "league": "English Premier League",
+    "position": "Midfielder",
+    "age": 19,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Portugal",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:27.065073+00:00"
+  },
+  "376777": {
+    "player_id": "376777",
+    "name": "Husain Abdulkarim",
+    "club": "Al-Muharraq SC",
+    "league": null,
+    "position": "Forward",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:29.244162+00:00"
+  },
+  "376822": {
+    "player_id": "376822",
+    "name": "Ghaith Zaalouni",
+    "club": "Club Africain",
+    "league": null,
+    "position": "Defender",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Tunisia",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:30.531192+00:00"
+  },
+  "378491": {
+    "player_id": "378491",
+    "name": "Samir El Mourabet",
+    "club": "RC STRASBOURG ALSACE I",
+    "league": null,
+    "position": "Midfielder",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Morocco",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:31.911535+00:00"
+  },
+  "378604": {
+    "player_id": "378604",
+    "name": "Ahmed Yahya",
+    "club": "Al-Shorta SC",
+    "league": null,
+    "position": "Defender",
+    "age": 31,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:32.749760+00:00"
+  },
+  "378605": {
+    "player_id": "378605",
+    "name": "Akam Hashim",
+    "club": "Al-Zawraa",
+    "league": null,
+    "position": "Defender",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:33.558334+00:00"
+  },
+  "378994": {
+    "player_id": "378994",
+    "name": "Mohamed Fofanah",
+    "club": "Sierra Leone",
+    "league": null,
+    "position": "Defender",
+    "age": 28,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Sierra Leone",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:34.458757+00:00"
+  },
+  "379154": {
+    "player_id": "379154",
+    "name": "Fusi Matlabe",
+    "club": "Lesotho",
+    "league": null,
+    "position": "Defender",
+    "age": 26,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Lesotho",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:35.878320+00:00"
+  },
+  "381647": {
+    "player_id": "381647",
+    "name": "Bleon Kurtulus",
+    "club": "Malmö FF",
+    "league": "Swedish Allsvenskan",
+    "position": "Defender",
+    "age": 19,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Sweden",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:37.164771+00:00"
+  },
+  "382505": {
+    "player_id": "382505",
+    "name": "Moath Al-Enezi",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Forward",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:38.553760+00:00"
+  },
+  "384263": {
+    "player_id": "384263",
+    "name": "Josef Al Imam",
+    "club": "Iraq",
+    "league": null,
+    "position": "Defender",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:39.236926+00:00"
+  },
+  "384271": {
+    "player_id": "384271",
+    "name": "Kumel Saadi",
+    "club": "Iraq",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:39.983313+00:00"
+  },
+  "384274": {
+    "player_id": "384274",
+    "name": "Zaid Ismael",
+    "club": "Iraq",
+    "league": null,
+    "position": "Midfielder",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:40.670422+00:00"
+  },
+  "384744": {
+    "player_id": "384744",
+    "name": "Victor James",
+    "club": "Botswana",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Botswana",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:42.141569+00:00"
+  },
+  "385889": {
+    "player_id": "385889",
+    "name": "Ákos Markgráf",
+    "club": "F.C. København",
+    "league": "Danish Superliga",
+    "position": "Defender",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Hungary",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:44.661703+00:00"
+  },
+  "390938": {
+    "player_id": "390938",
+    "name": "Vincent Ani Emmanuel",
+    "club": "Bahrain",
+    "league": null,
+    "position": "Defender",
+    "age": 25,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:46.609394+00:00"
+  },
+  "391162": {
+    "player_id": "391162",
+    "name": "Jaheim Mena",
+    "club": "Belize",
+    "league": null,
+    "position": "Forward",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Belize",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:47.305183+00:00"
+  },
+  "392100": {
+    "player_id": "392100",
+    "name": "Mohammad Al Gharably",
+    "club": "Al-Khaldiya SC",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": 27,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Bahrain",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:48.036323+00:00"
+  },
+  "392204": {
+    "player_id": "392204",
+    "name": "Odeh Fakhoury",
+    "club": "Pyramids FC",
+    "league": "Egyptian Premier League",
+    "position": "Forward",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Jordan",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:48.590995+00:00"
+  },
+  "393555": {
+    "player_id": "393555",
+    "name": "Mohammadmehdi Zare",
+    "club": "Akhmat Grozny",
+    "league": null,
+    "position": "Defender",
+    "age": 23,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:49.313826+00:00"
+  },
+  "398309": {
+    "player_id": "398309",
+    "name": "Jeferson Caraballo",
+    "club": "Deportivo Táchira",
+    "league": "Venezuelan Primera Division",
+    "position": "Midfielder",
+    "age": 24,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Venezuela",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:52.510020+00:00"
+  },
+  "400594": {
+    "player_id": "400594",
+    "name": "Mbekezeli Mbokazi",
+    "club": "Chicago Fire FC",
+    "league": "MLS",
+    "position": "Defender",
+    "age": 21,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "South Africa",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:53.883049+00:00"
+  },
+  "402002": {
+    "player_id": "402002",
+    "name": "Jasem Al Mutar",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Midfielder",
+    "age": 20,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Kuwait",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:55.367361+00:00"
+  },
+  "403741": {
+    "player_id": "403741",
+    "name": "Yanik Spalt",
+    "club": "VfB Stuttgart II",
+    "league": null,
+    "position": "Defender",
+    "age": 19,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Austria",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:37:58.221099+00:00"
+  },
+  "411273": {
+    "player_id": "411273",
+    "name": "Luca Weinhandl",
+    "club": "SK Sturm Graz",
+    "league": "Austrian Bundesliga",
+    "position": "Midfielder",
+    "age": 17,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Austria",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:02.105242+00:00"
+  },
+  "418397": {
+    "player_id": "418397",
+    "name": "Yussef Nasrawe",
+    "club": "SV Josko Ried",
+    "league": "Austrian Bundesliga",
+    "position": "Midfielder",
+    "age": 19,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Iraq",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:04.402308+00:00"
+  },
+  "420360": {
+    "player_id": "420360",
+    "name": "Sadam Masereka",
+    "club": "Colorado Springs Switchbacks FC",
+    "league": null,
+    "position": "Forward",
+    "age": 22,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Uganda",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:05.862543+00:00"
+  },
+  "47551": {
+    "player_id": "47551",
+    "name": "César García",
+    "club": "Oriente Petrolero",
+    "league": "Bolivian Primera Division",
+    "position": "Defender",
+    "age": 33,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": "Dominican Republic",
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:07.238831+00:00"
+  },
+  "5323064": {
+    "player_id": "5323064",
+    "name": "Ahmad Abd Rabbo",
+    "club": "Al-Faisaly SC",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:07.902934+00:00"
+  },
+  "5331251": {
+    "player_id": "5331251",
+    "name": "Amoori Faisal Mutshar Al Lami",
+    "club": "Iraq",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:08.600758+00:00"
+  },
+  "5331252": {
+    "player_id": "5331252",
+    "name": "Ahmed Ayyed Hamad Al Aridhee",
+    "club": "Iraq",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:09.270610+00:00"
+  },
+  "5331253": {
+    "player_id": "5331253",
+    "name": "Younus Hammood Al-Zaidi",
+    "club": "Iraq",
+    "league": null,
+    "position": "Forward",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:09.932313+00:00"
+  },
+  "5331255": {
+    "player_id": "5331255",
+    "name": "Adam Talib Abdulkhaleq Rasheed",
+    "club": "Iraq",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:10.499806+00:00"
+  },
+  "5331983": {
+    "player_id": "5331983",
+    "name": "Diego Matute Domínguez",
+    "club": "Honduras U17",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:11.276376+00:00"
+  },
+  "5332629": {
+    "player_id": "5332629",
+    "name": "Limpho Ralesupi",
+    "club": "Lesotho",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:12.205759+00:00"
+  },
+  "5332699": {
+    "player_id": "5332699",
+    "name": "Obafemi Poyotte",
+    "club": "St. Lucia",
+    "league": null,
+    "position": "Forward",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:12.925681+00:00"
+  },
+  "5332747": {
+    "player_id": "5332747",
+    "name": "Erick Jeffrey Rivière",
+    "club": "St. Kitts and Nevis",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:13.715335+00:00"
+  },
+  "5332866": {
+    "player_id": "5332866",
+    "name": "Larona Modisaemang",
+    "club": "Botswana",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:14.443787+00:00"
+  },
+  "5332921": {
+    "player_id": "5332921",
+    "name": "Flex Obama",
+    "club": "South Sudan",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:15.123614+00:00"
+  },
+  "5332930": {
+    "player_id": "5332930",
+    "name": "Jonathan Gem Majang Ajoung",
+    "club": "South Sudan",
+    "league": null,
+    "position": "Forward",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:15.920542+00:00"
+  },
+  "5333260": {
+    "player_id": "5333260",
+    "name": "Jassem Kacem Benjemia",
+    "club": "Bahrain",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:16.495332+00:00"
+  },
+  "5333261": {
+    "player_id": "5333261",
+    "name": "Bader Husain Al Asam",
+    "club": "Bahrain",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:17.148565+00:00"
+  },
+  "5333288": {
+    "player_id": "5333288",
+    "name": "Saud Mohsin Saad Ebrahim Saad",
+    "club": "Bahrain",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:17.737386+00:00"
+  },
+  "5333447": {
+    "player_id": "5333447",
+    "name": "Luis Eduardo Meneses Valverde",
+    "club": "Dominican Republic",
+    "league": null,
+    "position": "Forward",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:18.369088+00:00"
+  },
+  "5333448": {
+    "player_id": "5333448",
+    "name": "Wilkins Gabriel Geraldo Bido",
+    "club": "Dominican Republic",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:18.953203+00:00"
+  },
+  "5333653": {
+    "player_id": "5333653",
+    "name": "Waleid Al Mankhi",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Unknown",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:19.850717+00:00"
+  },
+  "5333654": {
+    "player_id": "5333654",
+    "name": "Saud Yousef Abdelaziz Yousef Al Jenaie",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Goalkeeper",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:20.538387+00:00"
+  },
+  "5333655": {
+    "player_id": "5333655",
+    "name": "Abdulrahman Al Rashidi",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Midfielder",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:21.300133+00:00"
+  },
+  "5333659": {
+    "player_id": "5333659",
+    "name": "Ali Qitaami",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Unknown",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:21.998342+00:00"
+  },
+  "5333660": {
+    "player_id": "5333660",
+    "name": "Saleh Al Mehtab",
+    "club": "Kuwait",
+    "league": null,
+    "position": "Defender",
+    "age": null,
+    "dob": null,
+    "sun_sign": null,
+    "nationality": null,
+    "photo": null,
+    "injury_status": null,
+    "fetched_at": "2026-11-18T04:38:23.009778+00:00"
   }
 }
